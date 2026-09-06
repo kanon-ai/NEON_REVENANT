@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.rom binary
+*.bin binary
+*.png binary
+*.gif binary
+*.zip binary
+/src/** -text
+/turbor/src/** -text
+/assets/** -text
+/turbor/assets/** -text
+/licenses/sdcc-runtime/** -text
+/licenses/sdcc-runtime/src/*.s whitespace=-blank-at-eof

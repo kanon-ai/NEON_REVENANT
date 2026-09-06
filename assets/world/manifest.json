@@ -1,0 +1,296 @@
+{
+  "width": 256,
+  "height": 180,
+  "frames_per_stage": 16,
+  "world_period": 384.0,
+  "horizon_viewport_y": 60.0,
+  "packing": "even X high nibble, odd X low nibble",
+  "stages": [
+    {
+      "stage": 1,
+      "raw_bytes": 368640,
+      "compressed_bytes": 145048,
+      "unique_frames": 16,
+      "zlib_bytes": 112607,
+      "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+      "changed_pixels_per_frame": [
+        18255,
+        19399,
+        18540,
+        18512,
+        17835,
+        18058,
+        17861,
+        18043,
+        18971,
+        19247,
+        19022,
+        18135,
+        18863,
+        18286,
+        17865,
+        18526
+      ],
+      "exact_loop_closure": true,
+      "gif_round_trip_frames": 16,
+      "gif_duration_ms": 530
+    },
+    {
+      "stage": 2,
+      "raw_bytes": 368640,
+      "compressed_bytes": 103226,
+      "unique_frames": 16,
+      "zlib_bytes": 78791,
+      "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+      "changed_pixels_per_frame": [
+        20381,
+        19766,
+        18699,
+        17778,
+        16496,
+        17301,
+        15544,
+        13089,
+        14150,
+        14969,
+        14865,
+        15385,
+        16584,
+        18261,
+        19581,
+        19833
+      ],
+      "exact_loop_closure": true,
+      "gif_round_trip_frames": 16,
+      "gif_duration_ms": 530
+    },
+    {
+      "stage": 3,
+      "raw_bytes": 368640,
+      "compressed_bytes": 88439,
+      "unique_frames": 16,
+      "zlib_bytes": 68740,
+      "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+      "changed_pixels_per_frame": [
+        20604,
+        17944,
+        15809,
+        18963,
+        19609,
+        21147,
+        19297,
+        16388,
+        18685,
+        20589,
+        20797,
+        20702,
+        16963,
+        17190,
+        19906,
+        19683
+      ],
+      "exact_loop_closure": true,
+      "gif_round_trip_frames": 16,
+      "gif_duration_ms": 530
+    }
+  ],
+  "palette_rgb8": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      8,
+      8,
+      16
+    ],
+    [
+      16,
+      25,
+      41
+    ],
+    [
+      41,
+      58,
+      74
+    ],
+    [
+      58,
+      90,
+      107
+    ],
+    [
+      41,
+      173,
+      189
+    ],
+    [
+      132,
+      222,
+      222
+    ],
+    [
+      230,
+      239,
+      230
+    ],
+    [
+      33,
+      25,
+      41
+    ],
+    [
+      90,
+      99,
+      115
+    ],
+    [
+      132,
+      90,
+      140
+    ],
+    [
+      239,
+      107,
+      148
+    ],
+    [
+      82,
+      49,
+      41
+    ],
+    [
+      222,
+      123,
+      58
+    ],
+    [
+      247,
+      189,
+      90
+    ],
+    [
+      255,
+      230,
+      173
+    ]
+  ],
+  "palette_rgb5": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      2,
+      3,
+      5
+    ],
+    [
+      5,
+      7,
+      9
+    ],
+    [
+      7,
+      11,
+      13
+    ],
+    [
+      5,
+      21,
+      23
+    ],
+    [
+      16,
+      27,
+      27
+    ],
+    [
+      28,
+      29,
+      28
+    ],
+    [
+      4,
+      3,
+      5
+    ],
+    [
+      11,
+      12,
+      14
+    ],
+    [
+      16,
+      11,
+      17
+    ],
+    [
+      29,
+      13,
+      18
+    ],
+    [
+      10,
+      6,
+      5
+    ],
+    [
+      27,
+      15,
+      7
+    ],
+    [
+      30,
+      23,
+      11
+    ],
+    [
+      31,
+      28,
+      21
+    ]
+  ],
+  "compressed_total": 336713,
+  "perspective_probe": [
+    {
+      "frame": 0,
+      "screen_xy": [
+        153,
+        70
+      ],
+      "projected_32_unit_width": 6.8
+    },
+    {
+      "frame": 5,
+      "screen_xy": [
+        158,
+        73
+      ],
+      "projected_32_unit_width": 8.369
+    },
+    {
+      "frame": 10,
+      "screen_xy": [
+        167,
+        76
+      ],
+      "projected_32_unit_width": 10.88
+    },
+    {
+      "frame": 15,
+      "screen_xy": [
+        184,
+        83
+      ],
+      "projected_32_unit_width": 15.543
+    }
+  ]
+}

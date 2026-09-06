@@ -1,0 +1,14 @@
+/work/
+/turbor/work/
+**/__pycache__/
+*.py[cod]
+.env
+.env.*
+*.exe
+*.dll
+*.pdb
+/outputs/*.zip
+/outputs/turbor/*.zip
+/outputs/SHA256SUMS-publication.txt
+/outputs/turbor/SHA256SUMS.txt
+/outputs/SHA256SUMS-*.txt

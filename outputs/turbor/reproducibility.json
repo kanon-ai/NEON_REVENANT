@@ -1,0 +1,15 @@
+{
+  "standalone_source_rebuild": true,
+  "generators_rerun": true,
+  "original_v9990_source_required": false,
+  "external_build_tools": [
+    "Python 3.13.5",
+    "Pillow 12.2.0",
+    "NumPy 2.4.6",
+    "SDCC 4.6.0",
+    "Pasmo"
+  ],
+  "release_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+  "detached_rebuild_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+  "byte_identical": true
+}

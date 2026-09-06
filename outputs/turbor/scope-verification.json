@@ -1,0 +1,219 @@
+{
+  "scope": "Read-only source and generated artifact review; emulator testing belongs to parent task",
+  "source_sha256": {
+    "original_game": "373711d803dc1f54ecc4e85e501a0ae48977ee53f77fb673d9fe8ba935b54e0a",
+    "port_game": "6ad9df070ae757d93f0abf4b2dd4b49e26d905b636e86ebeeabbe9ec556ba352",
+    "port_hardware": "617cf4681ab496751dd3100344e58e1d136acd79c29a5bb56d479a1cabbc1a5b"
+  },
+  "simulation_functions": [
+    {
+      "name": "random16",
+      "source_identical": true,
+      "source_sha256": "fb735b56eed2b3cbafa8de30d29d61b4d0661a1a5b24aa2a247a504d1bac319f"
+    },
+    {
+      "name": "abs16",
+      "source_identical": true,
+      "source_sha256": "f1604179ef11b86aa0c8702459561182050d3a502d5ff8ffd899de9217e53cd9"
+    },
+    {
+      "name": "clamp",
+      "source_identical": true,
+      "source_sha256": "965317ebe5235b154795e2ccf1b322aa072cf4b1294dbd6879d2c186797540de"
+    },
+    {
+      "name": "add_score",
+      "source_identical": true,
+      "source_sha256": "8344245ea617a8759be318cd2fb0f7be11e2ab14c2b361687131ebc37e41e98e"
+    },
+    {
+      "name": "explode",
+      "source_identical": true,
+      "source_sha256": "e35ead33b4eb0ef8a89e3f80a4d6d67a2fa9c52b4f8b238335e97a1ad1e1f222"
+    },
+    {
+      "name": "reset_entities",
+      "source_identical": true,
+      "source_sha256": "f00bb1d0040377b280adc30fb5392f84cd9f51c853a86d4c90aa1a664d574273"
+    },
+    {
+      "name": "new_game",
+      "source_identical": true,
+      "source_sha256": "4897da3ca0d6e165087c8014ebf7a099e0f4584d635f487129cc18bd732ff985"
+    },
+    {
+      "name": "damage",
+      "source_identical": true,
+      "source_sha256": "3066c5a3ca0e9fd7c2c66ead31dc42f75acebc88c102b738cb31691fcb683998"
+    },
+    {
+      "name": "fire_enemy",
+      "source_identical": true,
+      "source_sha256": "5740c501563daff74091f4d322cbd6ff9d2bf14bdf83754db421a074be6efea1"
+    },
+    {
+      "name": "kill_foe",
+      "source_identical": true,
+      "source_sha256": "afad213e704157af97a7b834fa8cceed4bcf5cd557b4b6621e7eea047f5e3682"
+    },
+    {
+      "name": "player_fire",
+      "source_identical": true,
+      "source_sha256": "296f4ad553379a60e17fcd4fc6a58ab1361a8bbe57e8ecce0b218805abf5eeac"
+    },
+    {
+      "name": "use_bomb",
+      "source_identical": true,
+      "source_sha256": "63ef7b1dc41b8b52f27be3820a86fff2c7b7fad7c25b4e664ec7c013459a06c7"
+    },
+    {
+      "name": "spawn_foe",
+      "source_identical": true,
+      "source_sha256": "c0c6e174ed61943ca719e79beb6b13c4fd17f523055cfe9e809ed1d33bb1e4ee"
+    },
+    {
+      "name": "update_objects",
+      "source_identical": true,
+      "source_sha256": "78cac2bdb83ee69a27f50042bb2a5263104401b29b1ad450d85f10f5e80fb01d"
+    },
+    {
+      "name": "update_boss",
+      "source_identical": true,
+      "source_sha256": "eeb2d4d436c5c10d8e30626b70296a1c6b0475183c2b808fc0084d3b5eca343c"
+    },
+    {
+      "name": "update_play",
+      "source_identical": true,
+      "source_sha256": "683df18b6e638418dd28638d7905c3e446d62774e1486a526747bf52e788bcb6"
+    }
+  ],
+  "main_mode_input_sound_loop_identical": true,
+  "preserved_files": [
+    {
+      "name": "boot.asm",
+      "byte_identical": true,
+      "sha256": "897556ee32189dbf0fb448e52b0e0bab8a2adc2bc9088e408262c99a6f654bfe"
+    },
+    {
+      "name": "sound.c",
+      "byte_identical": true,
+      "sha256": "14da2d0a872faf44bb3c33f9ce002120eaaab99c80df85d6c19b01e4c1c75451"
+    },
+    {
+      "name": "sound.h",
+      "byte_identical": true,
+      "sha256": "0228918ea76592961e3bbae40e2222211fa5eae24ad29e988182dc7859dbc8ad"
+    }
+  ],
+  "rom": {
+    "bytes": 524288,
+    "size_512k": true,
+    "AB_header": true,
+    "header_entry": 16400,
+    "sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+    "matches_build_manifest": true,
+    "blocks": [
+      {
+        "name": "boot",
+        "offset": 0,
+        "bytes": 8192,
+        "matches_current_asset": true,
+        "asset_sha256": "daa814ba2dacfaedd7c599c9d26fc1b17b03149c93be65d7b568920fbb2a1933"
+      },
+      {
+        "name": "sprites",
+        "offset": 32768,
+        "bytes": 5650,
+        "matches_current_asset": true,
+        "asset_sha256": "7806b1751ef785dd8b5b4a561b0ac5c85d27beaccbde455e7a54a73a240ee299"
+      },
+      {
+        "name": "world-1",
+        "offset": 65536,
+        "bytes": 131072,
+        "matches_current_asset": true,
+        "asset_sha256": "88ac415cf5a385efa72482f1a0a967c6fab9622276872b83f6cfe80f2e5a31c0"
+      },
+      {
+        "name": "world-2",
+        "offset": 196608,
+        "bytes": 131072,
+        "matches_current_asset": true,
+        "asset_sha256": "3c33851e3f8d9468617051feb72c398647f8bf6a9b219cb142bf35aeef031d7f"
+      },
+      {
+        "name": "world-3",
+        "offset": 327680,
+        "bytes": 131072,
+        "matches_current_asset": true,
+        "asset_sha256": "f7799774b6b87c33bb2bc0127165a953d04e2207ff1a683af34043cfe22482ce"
+      },
+      {
+        "name": "title",
+        "offset": 458752,
+        "bytes": 16384,
+        "matches_current_asset": true,
+        "asset_sha256": "0c8f602651fcc0ff07db90564a08df43a4a475cc08c345b4e5fd0f276bc3a005"
+      }
+    ],
+    "runtime_ihx_matches_rom": true,
+    "runtime_records": 344,
+    "padding_from_0x74000_is_ff": true
+  },
+  "memory": {
+    "data_start": 57344,
+    "data_bytes": 2148,
+    "data_end": 59492,
+    "stack_initial": 62208,
+    "stack_guard": 61696,
+    "sprite_ranges_half_open": [
+      [
+        6144,
+        7168
+      ],
+      [
+        22528,
+        23040
+      ],
+      [
+        23040,
+        23168
+      ],
+      [
+        38912,
+        39936
+      ],
+      [
+        55296,
+        55808
+      ],
+      [
+        55808,
+        55936
+      ]
+    ],
+    "sprite_tables_do_not_overlap_backgrounds": true,
+    "pattern_buffer_capacity": 1024,
+    "color_buffer_capacity": 512,
+    "attribute_buffer_capacity": 128,
+    "sprite_limit": 32,
+    "hud_buffer_capacity": 128
+  },
+  "renderer_source_checks": {
+    "top_and_bottom_mag2_row_bounds_present": true,
+    "sprite_color0_transparency_enabled": true
+  },
+  "review_notes": [
+    "Source simulation and state transitions are preserved; wall-clock cadence still requires native profiling.",
+    "Root added both y16 upper bound and MAG2 second-row lower-bound handling during this review; see renderer_source_checks.",
+    "Hardware researcher confirmed TP affects sprite mode2 and changed R8 from28h to08h, making rowcolor0 clipping transparent.",
+    "SCREEN4 eight-sprite scanline limit can drop parts of overlapping boss/player/projectiles even before the global32-record limit.",
+    "VBlank events are consumed without discarding a pending event. Preparation below33.4ms sustains30Hz; crowded synthetic scenarios can fall to20Hz.",
+    "Asset mismatch means a source asset changed after the reviewed ROM build; rebuild before final runtime validation."
+  ],
+  "original_v9990_rom_preserved": {
+    "file": "NEON_REVENANT-v1.2.rom",
+    "sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+    "matches_before_port": true
+  }
+}

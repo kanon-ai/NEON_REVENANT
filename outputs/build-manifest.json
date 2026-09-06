@@ -1,0 +1,39 @@
+{
+  "title": "NEON REVENANT",
+  "version": "1.2",
+  "concept": "MSX3 alternate history",
+  "file": "NEON_REVENANT-v1.2.rom",
+  "mapper": "ASCII8",
+  "rom_bytes": 524288,
+  "allocated_bytes": 451401,
+  "runtime_bytes": 14048,
+  "runtime_address": "8000-DFFF",
+  "data_address": "E000-E7FF, LZ history E800-EFFF",
+  "sprite_bytes": 81920,
+  "worlds": [
+    {
+      "stage": 1,
+      "raw_bytes": 368640,
+      "compressed_bytes": 145048,
+      "rom_offset": 114688,
+      "raw_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a"
+    },
+    {
+      "stage": 2,
+      "raw_bytes": 368640,
+      "compressed_bytes": 103226,
+      "rom_offset": 259736,
+      "raw_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e"
+    },
+    {
+      "stage": 3,
+      "raw_bytes": 368640,
+      "compressed_bytes": 88439,
+      "rom_offset": 362962,
+      "raw_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9"
+    }
+  ],
+  "video": "V9990 B1 256x212 4bpp, 16 projected world frames per stage",
+  "sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+  "entry": "0xa5d1"
+}

@@ -1,0 +1,146 @@
+{
+  "emulator": "openMSX 21.0-unknown",
+  "rom": {
+    "title": "NEON REVENANT",
+    "version": "1.2",
+    "concept": "MSX3 alternate history",
+    "file": "NEON_REVENANT-v1.2.rom",
+    "mapper": "ASCII8",
+    "rom_bytes": 524288,
+    "allocated_bytes": 451401,
+    "runtime_bytes": 14048,
+    "runtime_address": "8000-DFFF",
+    "data_address": "E000-E7FF, LZ history E800-EFFF",
+    "sprite_bytes": 81920,
+    "worlds": [
+      {
+        "stage": 1,
+        "raw_bytes": 368640,
+        "compressed_bytes": 145048,
+        "rom_offset": 114688,
+        "raw_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a"
+      },
+      {
+        "stage": 2,
+        "raw_bytes": 368640,
+        "compressed_bytes": 103226,
+        "rom_offset": 259736,
+        "raw_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e"
+      },
+      {
+        "stage": 3,
+        "raw_bytes": 368640,
+        "compressed_bytes": 88439,
+        "rom_offset": 362962,
+        "raw_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9"
+      }
+    ],
+    "video": "V9990 B1 256x212 4bpp, 16 projected world frames per stage",
+    "sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+    "entry": "0xa5d1"
+  },
+  "physical_hardware_tested": false,
+  "visual_scenarios": "Stage and entity state seeded in RAM; ROM performs all rendering and input.",
+  "native_capture": "64 consecutive MSX draw frames per stage; GIF timing from emulated timestamps.",
+  "results": [
+    {
+      "name": "sprite-atlas-native-readback",
+      "passed": true,
+      "bytes": 81920,
+      "sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404"
+    },
+    {
+      "name": "stage-1-native-decompression",
+      "passed": true,
+      "bytes": 368640,
+      "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+      "load_seconds": 4.906
+    },
+    {
+      "name": "stage-1-update-rate",
+      "passed": true,
+      "fps": 29.48
+    },
+    {
+      "name": "stage-1-music-resumes-after-load",
+      "passed": true,
+      "distinct_register_states": 4
+    },
+    {
+      "name": "stage-1-native-moving-frames",
+      "passed": true,
+      "unique_frames": 64,
+      "total_frames": 64,
+      "camera_min": -2,
+      "camera_max": 5,
+      "consecutive_frame_fps": 29.96
+    },
+    {
+      "name": "stage-1-native-gif-exact",
+      "passed": true,
+      "frames": 64
+    },
+    {
+      "name": "stage-2-native-decompression",
+      "passed": true,
+      "bytes": 368640,
+      "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+      "load_seconds": 4.039
+    },
+    {
+      "name": "stage-2-update-rate",
+      "passed": true,
+      "fps": 29.48
+    },
+    {
+      "name": "stage-2-music-resumes-after-load",
+      "passed": true,
+      "distinct_register_states": 4
+    },
+    {
+      "name": "stage-2-native-moving-frames",
+      "passed": true,
+      "unique_frames": 64,
+      "total_frames": 64,
+      "camera_min": -2,
+      "camera_max": 5,
+      "consecutive_frame_fps": 29.96
+    },
+    {
+      "name": "stage-2-native-gif-exact",
+      "passed": true,
+      "frames": 64
+    },
+    {
+      "name": "stage-3-native-decompression",
+      "passed": true,
+      "bytes": 368640,
+      "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+      "load_seconds": 3.705
+    },
+    {
+      "name": "stage-3-update-rate",
+      "passed": true,
+      "fps": 29.72
+    },
+    {
+      "name": "stage-3-music-resumes-after-load",
+      "passed": true,
+      "distinct_register_states": 4
+    },
+    {
+      "name": "stage-3-native-moving-frames",
+      "passed": true,
+      "unique_frames": 64,
+      "total_frames": 64,
+      "camera_min": -2,
+      "camera_max": 5,
+      "consecutive_frame_fps": 29.96
+    },
+    {
+      "name": "stage-3-native-gif-exact",
+      "passed": true,
+      "frames": 64
+    }
+  ]
+}

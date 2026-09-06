@@ -1,0 +1,117 @@
+{
+  "scope": "Art and palette redesign, v1.1 to v1.2; gameplay/renderer/source preservation",
+  "baseline_rom_sha256": "7d6973e1bac95a8e175116f03da980b24a4fff318618224130b05fdf2716fd82",
+  "all_passed": true,
+  "checks": [
+    {
+      "name": "game.c-unchanged",
+      "passed": true,
+      "sha256": "373711d803dc1f54ecc4e85e501a0ae48977ee53f77fb673d9fe8ba935b54e0a"
+    },
+    {
+      "name": "hardware.c-unchanged",
+      "passed": true,
+      "sha256": "736b9b59b149d46cb179e6a8bfa999492e32b330de581cccca478a29173849bb"
+    },
+    {
+      "name": "hardware.h-unchanged",
+      "passed": true,
+      "sha256": "24b0c3037d84eab97566b9014896b5a5e132638a9bc0f386a5143f71b84e4e16"
+    },
+    {
+      "name": "sound.c-unchanged",
+      "passed": true,
+      "sha256": "14da2d0a872faf44bb3c33f9ce002120eaaab99c80df85d6c19b01e4c1c75451"
+    },
+    {
+      "name": "sound.h-unchanged",
+      "passed": true,
+      "sha256": "0228918ea76592961e3bbae40e2222211fa5eae24ad29e988182dc7859dbc8ad"
+    },
+    {
+      "name": "boot.asm-unchanged",
+      "passed": true,
+      "sha256": "897556ee32189dbf0fb448e52b0e0bab8a2adc2bc9088e408262c99a6f654bfe"
+    },
+    {
+      "name": "world_load.c-unchanged",
+      "passed": true,
+      "sha256": "8286fb7054f391e66d420523c57ce18be282039e80076fc1842e5fdb51254031"
+    },
+    {
+      "name": "world_load.h-unchanged",
+      "passed": true,
+      "sha256": "9657b63daa88e74dd3aab44873f307e7a00b0efa9c6b63dc771356ed4e087bff"
+    },
+    {
+      "name": "atlas-coordinates-identical",
+      "passed": true,
+      "records": 152
+    },
+    {
+      "name": "sprite-header-identical",
+      "passed": true
+    },
+    {
+      "name": "palette-redesigned",
+      "passed": true,
+      "colors": 16
+    },
+    {
+      "name": "atlas-art-redesigned",
+      "passed": true,
+      "old_sha256": "4826bbe98a3d18c03d572be38939a11151abee2bdcf079fa9087211172d92e7d",
+      "new_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404"
+    },
+    {
+      "name": "player_all-art-replaced",
+      "passed": true,
+      "sprites": 3
+    },
+    {
+      "name": "enemy_all-art-replaced",
+      "passed": true,
+      "sprites": 18
+    },
+    {
+      "name": "boss_all-art-replaced",
+      "passed": true,
+      "sprites": 6
+    },
+    {
+      "name": "explosion_all-art-replaced",
+      "passed": true,
+      "sprites": 20
+    },
+    {
+      "name": "stage-1-art-redesigned",
+      "passed": true,
+      "bytes": 368640,
+      "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a"
+    },
+    {
+      "name": "stage-1-16-distinct-frames",
+      "passed": true
+    },
+    {
+      "name": "stage-2-art-redesigned",
+      "passed": true,
+      "bytes": 368640,
+      "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e"
+    },
+    {
+      "name": "stage-2-16-distinct-frames",
+      "passed": true
+    },
+    {
+      "name": "stage-3-art-redesigned",
+      "passed": true,
+      "bytes": 368640,
+      "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9"
+    },
+    {
+      "name": "stage-3-16-distinct-frames",
+      "passed": true
+    }
+  ]
+}

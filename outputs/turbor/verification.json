@@ -1,0 +1,195 @@
+{
+  "emulator": "openMSX 21.0-unknown",
+  "rom": {
+    "title": "NEON REVENANT - Turbo R Edition",
+    "version": "1.0",
+    "file": "NEON_REVENANT-TurboR-v1.0.rom",
+    "mapper": "ASCII8",
+    "rom_bytes": 524288,
+    "allocated_bytes": 475136,
+    "runtime_bytes": 10990,
+    "runtime_address": "8000-DFFF",
+    "data_end": "0xe864",
+    "sprite_bytes": 5650,
+    "worlds": [
+      {
+        "stage": 1,
+        "raw_bytes": 131072,
+        "rom_offset": 65536,
+        "raw_sha256": "88ac415cf5a385efa72482f1a0a967c6fab9622276872b83f6cfe80f2e5a31c0"
+      },
+      {
+        "stage": 2,
+        "raw_bytes": 131072,
+        "rom_offset": 196608,
+        "raw_sha256": "3c33851e3f8d9468617051feb72c398647f8bf6a9b219cb142bf35aeef031d7f"
+      },
+      {
+        "stage": 3,
+        "raw_bytes": 131072,
+        "rom_offset": 327680,
+        "raw_sha256": "f7799774b6b87c33bb2bc0127165a953d04e2207ff1a683af34043cfe22482ce"
+      }
+    ],
+    "video": "V9958 SCREEN4 256x192, 8 resident world frames per stage, mode2 MAG2 sprites",
+    "v9990_required": false,
+    "sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+    "entry": "0x9eee"
+  },
+  "machine": "Panasonic_FS-A1ST",
+  "extension": null,
+  "physical_hardware_tested": false,
+  "scenario_seeding": "RAM injected only for targeted hit, collision, and distant stage/boss checks",
+  "results": [
+    {
+      "name": "target-machine",
+      "passed": true,
+      "version": "openMSX 21.0-unknown"
+    },
+    {
+      "name": "SCREEN4-mode",
+      "passed": true
+    },
+    {
+      "name": "no-V9990-attached",
+      "passed": true
+    },
+    {
+      "name": "R800-DRAM",
+      "passed": true
+    },
+    {
+      "name": "startup-first-frame",
+      "passed": true
+    },
+    {
+      "name": "sector-1-world-resident",
+      "passed": true
+    },
+    {
+      "name": "fire-starts-game",
+      "passed": true
+    },
+    {
+      "name": "left-control",
+      "passed": true,
+      "before": 128,
+      "after": 76
+    },
+    {
+      "name": "right-control",
+      "passed": true
+    },
+    {
+      "name": "up-control",
+      "passed": true
+    },
+    {
+      "name": "down-control",
+      "passed": true
+    },
+    {
+      "name": "pause-input",
+      "passed": true
+    },
+    {
+      "name": "pause-freezes-simulation",
+      "passed": true
+    },
+    {
+      "name": "resume-input",
+      "passed": true
+    },
+    {
+      "name": "bomb-key-consumes-one",
+      "passed": true
+    },
+    {
+      "name": "held-bomb-is-edge-triggered",
+      "passed": true
+    },
+    {
+      "name": "measured-game-update-rate",
+      "passed": true,
+      "fps": 29.8,
+      "emulated_seconds": 3.087
+    },
+    {
+      "name": "reticle-shot-kills-target",
+      "passed": true,
+      "before": 55,
+      "after": 80
+    },
+    {
+      "name": "collision-game-over",
+      "passed": true
+    },
+    {
+      "name": "retry-resets-state",
+      "passed": true
+    },
+    {
+      "name": "sector-1-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-1-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-1-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-1-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-2-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-2-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-2-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-2-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-2-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-3-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-3-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-3-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-3-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-3-transition",
+      "passed": true
+    },
+    {
+      "name": "ROM-size-and-header",
+      "passed": true,
+      "size": 524288,
+      "sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195"
+    }
+  ],
+  "rom_slot": "1 X ../outputs/turbor/NEON_REVENANT-TurboR-v1.0.rom"
+}
