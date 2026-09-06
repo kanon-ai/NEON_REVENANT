@@ -14,6 +14,8 @@
 
 機種とROM容量を指定する依頼から、背景の疾走感、素材の作り込み、turbo R・MSX2・初代MSXへの移植、openMSXでの検証までを紹介しています。再構成したプロンプト例と実装へのリンクを載せ、人間の方向づけとAIによる実装・修正をどう往復したかをまとめました。
 
+[上位機種で完成像を作り、魅力を残しながら下位機種へ移す](docs/ASTRA_MSX_GAMEDEV_JA.md#top-down-porting)という制作方針を追記しました。移植で守るもの、工夫を試す順序、品質が保てなくなったときに対応機種を区切る判断を整理しています。[English development approach](docs/DEVELOPMENT_APPROACH_EN.md)も公開しています。
+
 ## MSX2版・初代MSXチャレンジ版
 
 | 項目 | MSX2 Edition v1.0 | MSX1 PCG Drive v1.1 |
@@ -124,6 +126,8 @@ openMSX上で起動、操作、射撃、ボム、ポーズ、被弾、再挑戦�
 公開者は **kanon-ai** です。本プロジェクト固有部分のライセンスは現時点で **UNSPECIFIED（未設定）** です。ソースを公開していますが、オープンソースライセンスに基づく公開ではありません。第三者のライセンス、GitHub上での扱いを含め、[COPYRIGHT.md](COPYRIGHT.md)と[DISCLAIMER.md](DISCLAIMER.md)を確認してください。
 
 ## English summary
+
+[Development approach: start on the strongest target, then adapt downward](docs/DEVELOPMENT_APPROACH_EN.md) — lessons from building four MSX editions with ASTRA, and the creator's approach for future projects: keep a playable reference, decide what to preserve, and choose when to stop extending hardware support.
 
 NEON REVENANT is an experimental, native MSX pseudo-3D rail shooter with three stages and three bosses. Four 512 KiB ASCII8 ROM editions are available: V9990/GFX9000 v1.2, Turbo R v1.0 using V9958, MSX2 v1.0 using V9938, and MSX1 PCG Drive v1.1 using the TMS9918A family. MSX2 and MSX1 use standard PSG music and effects without an FM expansion. They target 64 KiB RAM; MSX2 requires 128 KiB VRAM and MSX1 requires 16 KiB VRAM. See their guides for measured performance and limitations.
 
