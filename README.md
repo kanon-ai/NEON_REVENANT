@@ -8,6 +8,12 @@ MSX turbo Rで夜のサイバー都市を疾走する、512 KiB ASCII8 MegaROM�
 
 [試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
 
+## ASTRAとMSXゲームを作るには
+
+[制作ノウハウ：ASTRAとMSXゲームを作る — NEON REVENANT開発ノート](docs/ASTRA_MSX_GAMEDEV_JA.md)
+
+機種とROM容量を指定する依頼から、背景の疾走感、素材の作り込み、turbo R単体版への移植、openMSXでの検証までを紹介しています。再構成したプロンプト例と実装へのリンクを載せ、人間の方向づけとAIによる実装・修正をどう往復したかをまとめました。
+
 ## 2つのエディション
 
 | 項目 | V9990版 v1.2 | Turbo R単体版 v1.0 |
@@ -84,7 +90,7 @@ openMSX上で起動、操作、射撃、ボム、ポーズ、被弾、再挑戦�
 
 ## 配布パッケージの再作成
 
-両版をビルドした後、リポジトリ直下で `python tools/package.py` を実行すると、両ROM・ソース・素材・検証結果・免責事項・第三者ライセンスをまとめた `outputs/NEON_REVENANT-public-prototype.zip` とSHA-256一覧を生成します。コンパイラー、エミュレーター、BIOSは同梱しません。
+両版をビルドした後、リポジトリ直下で `python tools/package.py` を実行すると、両ROM・ソース・素材・開発ノート・検証結果・免責事項・第三者ライセンスをまとめた `outputs/NEON_REVENANT-public-prototype.zip` とSHA-256一覧を生成します。コンパイラー、エミュレーター、BIOSは同梱しません。
 
 ## 公開条件
 
