@@ -16,18 +16,20 @@
 
 ## MSX2版・初代MSXチャレンジ版
 
-| 項目 | MSX2 Edition v1.0 | MSX1 Challenge v1.0 |
+| 項目 | MSX2 Edition v1.0 | MSX1 PCG Drive v1.1 |
 | --- | --- | --- |
 | CPU・RAM | 標準Z80 3.58MHz、RAM64KiB | 標準Z80 3.58MHz、RAM64KiB |
 | VDP・VRAM | V9938、128KiB | TMS9918A系、16KiB |
 | 表示 | SCREEN 4、256×192、512色から16色 | SCREEN 2、256×192、固定色 |
-| 前進する背景 | turbo R単体版の8枚の背景を保持 | 常駐パターンの配置を8位相で切り替え、道路と街の灯りを動かす |
+| 前進する背景 | turbo R単体版の8枚の背景を保持 | ROMからPCGを先読みし、面のある街・高架・トンネルを16位相で前進させる |
 | 自機・敵 | 絵柄をVRAMへキャッシュして転送を削減 | 絵柄を常駐させ、1枚1色・走査線4枚のスプライト制限へ縮約 |
 | 音源 | 標準PSGのみ。FM拡張不要 | 標準PSGのみ。FM拡張不要 |
-| ROM | [MSX2版ROM](outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom) | [初代MSX版ROM](outputs/msx1/NEON_REVENANT-MSX1-v1.0.rom) |
+| ROM | [MSX2版ROM](outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom) | [初代MSX版ROM](outputs/msx1/v1.1/NEON_REVENANT-MSX1-v1.1.rom) |
 | 起動・操作・性能・制限 | [MSX2版ガイド](msx2/README.md) | [初代MSX版ガイド](msx1/README.md) |
 
 両版とも3区域・3ボス、キーボードとジョイスティック、ポーズ・再挑戦を収録しています。初代MSX版の対象は**RAM64KiB・VRAM16KiBの構成**です。描画速度と表示制約、試験条件は各ガイドに記録しています。
+
+初代MSX版v1.1ではPCGの書き換えとネームテーブル2面を使い、立体的な背景へ強化しました。openMSXでの移動・連射は約25～27fps、背景は約12～13Hzです。v1.0も以前のリリースに残しています。
 
 ### MSX2版の実行画面
 
@@ -35,7 +37,7 @@
 
 ### 初代MSX版の実行画面
 
-![MSX1 Challenge：openMSXでのROM実行映像](outputs/msx1/stage-1-native.gif)
+![MSX1 PCG Drive：openMSXでのROM実行映像](outputs/msx1/v1.1/stage-1-native.gif)
 
 ## V9990版・turbo R単体版
 
@@ -109,7 +111,7 @@ openMSX上で起動、操作、射撃、ボム、ポーズ、被弾、再挑戦�
 - V9990版：[動作検証](outputs/verification-v1.2.json)、[背景・速度の検証](outputs/world-verification-v1.2.json)
 - Turbo R単体版：[動作検証](outputs/turbor/verification.json)、[背景検証](outputs/turbor/world-verification.json)、[スプライト・速度の検証](outputs/turbor/sprite-verification.json)
 - MSX2版：[動作検証](outputs/msx2/verification.json)、[背景検証](outputs/msx2/world-verification.json)、[スプライト・速度の検証](outputs/msx2/sprite-verification.json)
-- 初代MSX版：[動作検証](outputs/msx1/verification.json)、[描画・速度の検証](outputs/msx1/world-verification.json)
+- 初代MSX版：[動作検証](outputs/msx1/v1.1/verification.json)、[描画・速度の検証](outputs/msx1/v1.1/world-verification.json)
 
 **実機、各種ROMローダー、フラッシュカートリッジへの書き込み後の動作は未検証です。** エミュレーターでの確認は、それらの互換性や安全性を保証しません。
 
@@ -123,6 +125,6 @@ openMSX上で起動、操作、射撃、ボム、ポーズ、被弾、再挑戦�
 
 ## English summary
 
-NEON REVENANT is an experimental, native MSX pseudo-3D rail shooter with three stages and three bosses. Four 512 KiB ASCII8 ROM editions are available: V9990/GFX9000 v1.2, Turbo R v1.0 using V9958, MSX2 v1.0 using V9938, and MSX1 Challenge v1.0 using the TMS9918A family. MSX2 and MSX1 use standard PSG music and effects without an FM expansion. They target 64 KiB RAM; MSX2 requires 128 KiB VRAM and MSX1 requires 16 KiB VRAM. See their guides for measured performance and limitations.
+NEON REVENANT is an experimental, native MSX pseudo-3D rail shooter with three stages and three bosses. Four 512 KiB ASCII8 ROM editions are available: V9990/GFX9000 v1.2, Turbo R v1.0 using V9958, MSX2 v1.0 using V9938, and MSX1 PCG Drive v1.1 using the TMS9918A family. MSX2 and MSX1 use standard PSG music and effects without an FM expansion. They target 64 KiB RAM; MSX2 requires 128 KiB VRAM and MSX1 requires 16 KiB VRAM. See their guides for measured performance and limitations.
 
 The V9990 edition measured about 30 updates/s in openMSX. The Turbo R edition normally updates gameplay and sprites at about 30/s and backgrounds at about 15/s; a crowded test dropped to about 20/s. Sprite overlap can cause missing parts and flicker. **Physical hardware has not been tested. This prototype is provided AS IS, without warranty. Its project-specific license is currently unspecified; public source availability is not an open-source license grant.** See [DISCLAIMER.md](DISCLAIMER.md), [COPYRIGHT.md](COPYRIGHT.md), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

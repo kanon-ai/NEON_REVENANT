@@ -1,0 +1,104 @@
+{
+  "rom_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+  "baseline_version": "MSX1 Challenge v1.0",
+  "game_functions": [
+    {
+      "name": "random16",
+      "unchanged": true,
+      "sha256": "51c6446a0a10602472ae2e008eacd5be63d5646ddcd1cebb91d1609169c54148"
+    },
+    {
+      "name": "abs16",
+      "unchanged": true,
+      "sha256": "f3a960c6bd4f363ed2142bf6ec9922209308258debfd21f98498f21afc852035"
+    },
+    {
+      "name": "clamp",
+      "unchanged": true,
+      "sha256": "34669dbb16df33d43267c5a5767c7c2e9ec84d085b22abec59c0f161f9993f67"
+    },
+    {
+      "name": "add_score",
+      "unchanged": true,
+      "sha256": "7281c2612cfbf2a30299acd9cf3c6461e4d35d1a1c5eeba998031bc97e3d7d9c"
+    },
+    {
+      "name": "explode",
+      "unchanged": true,
+      "sha256": "50b1bcfba0a732af442926809fa9006384c6b8d62a48467289f96673ae9a93a4"
+    },
+    {
+      "name": "reset_entities",
+      "unchanged": true,
+      "sha256": "b5de58b7cab5282c10888fdce88f63a813a7bef5b5d2c79f4a01909b2e387c0f"
+    },
+    {
+      "name": "new_game",
+      "unchanged": true,
+      "sha256": "1ae99811756705f5e53ed2359096bf174fee63d38cfda90c6d9c691b7e7d1270"
+    },
+    {
+      "name": "damage",
+      "unchanged": true,
+      "sha256": "1dbb78f9d30a1436107b6723b152fcbcdc8c1aff93dacf9ca7942c52d04a68fb"
+    },
+    {
+      "name": "fire_enemy",
+      "unchanged": true,
+      "sha256": "7a36d3218eb39893e26afcc1853a45d3a4e3e2beb28b2ca29a5067dac5c5908e"
+    },
+    {
+      "name": "kill_foe",
+      "unchanged": true,
+      "sha256": "f5f05147bad31dfd725cd3f7f7cd135fa83927deaccb3949fb4f2ee50ac4ea2b"
+    },
+    {
+      "name": "player_fire",
+      "unchanged": true,
+      "sha256": "dd31f295922eae9aa139cc4630f8e401aa0e62364040dcff139a6a4358eae8c5"
+    },
+    {
+      "name": "use_bomb",
+      "unchanged": true,
+      "sha256": "f40caaf74d002053f2edf27280595e72c39b2acd25339b71126a410d88bddc65"
+    },
+    {
+      "name": "spawn_foe",
+      "unchanged": true,
+      "sha256": "0eb210657cc3eed0a5f51bec261cdbeb80055dfce1ff5d53311f02579ca5d091"
+    },
+    {
+      "name": "update_objects",
+      "unchanged": true,
+      "sha256": "391958c85962bc9e1e1d61e16c368210f288dbabc6380bdfa8c38fe607f43c15"
+    },
+    {
+      "name": "update_boss",
+      "unchanged": true,
+      "sha256": "1219fe407edb050333f34bb7c55fc38c905777179d335c1cc369ed59ba833e7b"
+    },
+    {
+      "name": "update_play",
+      "unchanged": true,
+      "sha256": "900897febea329042be333f300bafdc60609ca08c6c3a6e426bdcd976cfd35a4"
+    },
+    {
+      "name": "sprite",
+      "unchanged": true,
+      "sha256": "3ebef23466071567a5cc2c25b7f4c3a6efbb2d2ae67a476eab7e4bce9f8afeb2"
+    },
+    {
+      "name": "main",
+      "unchanged": true,
+      "sha256": "154cc2244c011ee4b16600333e061e36265af4cb160859bb94b85efb4e767785"
+    }
+  ],
+  "PSG_input_and_resident_sprites_unchanged": true,
+  "enemy_order_test_matches_integrated_code": true,
+  "changes": [
+    "PCG background and page switching",
+    "HUD decimal formatting",
+    "stable enemy draw-order calculation",
+    "native validation and documentation"
+  ]
+}

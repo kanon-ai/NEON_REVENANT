@@ -22,5 +22,6 @@ void gfx_wait_vblank(void);
 void gfx_bg(u8 frame);
 void gfx_sprite_page(u8 page);
 void gfx_write(u16 address,const void *source,u16 length);
+void gfx_patch(const void *source) __sdcccall(0);
 u8 input_read(void);
 #endif

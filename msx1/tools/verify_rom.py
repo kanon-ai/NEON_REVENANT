@@ -6,7 +6,7 @@ import urllib.request, time, json, hashlib, re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SYM=json.loads((ROOT/'work/build/symbols.json').read_text())
-OUT=ROOT.parent/'outputs/msx1'
+OUT=ROOT.parent/'outputs/msx1/v1.1'
 MANIFEST=json.loads((OUT/'build-manifest.json').read_text())
 ROM=(OUT/MANIFEST['file']).read_bytes()
 assert hashlib.sha256(ROM).hexdigest()==MANIFEST['sha256']

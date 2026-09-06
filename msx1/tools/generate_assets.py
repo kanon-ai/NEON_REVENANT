@@ -1,15 +1,11 @@
-"""Original MSX1 challenge art: fixed SCREEN2 tile dictionary and resident sprites.
-
-Every animation phase changes names, never the pattern or color tables. The
-independent decoder checks all 8 phases against their intended tile images.
-"""
+"""MSX1 PCG Drive artwork: streamed SCREEN2 backgrounds and resident sprites."""
 from pathlib import Path
 import json, math, re, struct, hashlib
 import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[1]
-A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1'
+A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1/v1.1'
 PALETTE=[(0,0,0),(0,0,0),(33,200,66),(94,220,120),(84,85,237),(125,118,252),
  (212,82,77),(66,235,245),(252,85,84),(255,121,120),(212,193,84),(230,206,128),
  (33,176,59),(201,91,186),(204,204,204),(255,255,255)]
@@ -36,116 +32,10 @@ def decode_screen(vram):
             result[y*8:y*8+8,x*8:x*8+8]=decode_tile(vram[o:o+8]+vram[0x2000+o:0x2008+o])
     return result
 
-def world(stage):
-    """Tile-authored perspective corridor. Buildings and road lights flow forward.
-
-    The fixed vanishing-point geometry gives every tile a permanent outline;
-    interchangeable texture styles move from small far bands to large near
-    bands. Unlike scrolling stars, both city walls and the road animate.
-    """
-    accent=[7,13,8][stage]; secondary=[5,7,13][stage]
-    frames=[]
-    for phase in range(8):
-        tiles=[]
-        for ty in range(24):
-            row=[]
-            for tx in range(32):
-                if ty<2 or ty>=22: row.append(tile());continue
-                if ty<9:
-                    # Jagged luminous skyline; two parallax window belts scroll.
-                    height=3+((tx*tx+tx*3+stage*7)%6)
-                    building=ty>=9-height
-                    if not building:
-                        rows=[0]*8
-                        if ((tx*19+ty*7+stage*3)%17)==0: rows[3]=0x10
-                        row.append(tile(1,secondary,rows));continue
-                    edge=tx%3==0
-                    if ty==9-height: rows=[0xFF,0x80,0x80,0x80,0x80,0x80,0x80,0x80] if edge else [0xFF]+[0]*7
-                    else:
-                        shift=(phase+ty+(tx//3))&7
-                        rows=[(0x92 if (yy+shift)%4==0 else 0x80 if edge else 0) for yy in range(8)]
-                    row.append(tile(4 if tx%3==1 else 1,secondary if ty<6 else accent,rows));continue
-                # Perspective splits the moving road and the wall into stable
-                # outlines. Stripe speed increases quadratically with depth.
-                pixels=np.ones((8,8),dtype=np.uint8)
-                for yy in range(8):
-                    sy=ty*8+yy; half=12+(sy-72)*1.04
-                    left=128-half;right=128+half
-                    depth=sy-72
-                    band_depth=ty*8-68
-                    pulse=((band_depth*band_depth//230-phase*3)%24)<5
-                    wallpulse=pulse
-                    for xx in range(8):
-                        sx=tx*8+xx
-                        if sx<left-3 or sx>right+3:
-                            # Neon ribbing on walls, including a forward-moving
-                            # facade band. Single accent + black per pixel row.
-                            rib=((sx+(yy if sx<128 else -yy))&15)==0
-                            c=accent if (wallpulse and yy<2) or rib else 1
-                        elif sx<left+2 or sx>right-2:
-                            c=accent
-                        else:
-                            lane_distance=abs(sx-128)
-                            lane=abs(lane_distance-half/3)<1.3
-                            center=lane_distance<1.1
-                            # Moving transversal panels keep the road alive even
-                            # when the player remains centered and does not fire.
-                            c=accent if (pulse and yy<2 and lane_distance<half-6) or (lane and not pulse) or center else 1
-                        pixels[yy,xx]=c
-                # Shaded road panels use the fixed medium-blue color. Inside
-                # a whole road tile, rows with neon have blue + neon; quiet
-                # rows use blue/black stipple, never three colors in 8 dots.
-                near_half=12+(ty*8-72)*1.04
-                if ty>=10 and tx*8>130-near_half and tx*8+7<126+near_half:
-                    for yy in range(8):
-                        if accent in pixels[yy]:pixels[yy][pixels[yy]==1]=4
-                        else:
-                            for xx in range(8):
-                                if (xx+yy)&1:pixels[yy,xx]=4
-                row.append(pixel_tile(pixels))
-            tiles.append(row)
-        frames.append(tiles)
-    # Deduplicate all phases together per 64-line SCREEN2 band. Blank HUD/font
-    # tiles reserve 64 entries in the outer bands.
-    dictionaries=[]
-    for band in range(3):
-        d={}
-        for f in frames:
-            for y in range(band*8,band*8+8):
-                if y<2 or y>=22:continue
-                for t in f[y]:
-                    if t not in d:d[t]=len(d)
-        dictionaries.append(d)
-    return frames,dictionaries
-
 def build_worlds():
-    font=(A/'source/font.bin').read_bytes();reports=[]
-    for stage in range(3):
-        frames,dictionaries=world(stage)
-        counts=list(map(len,dictionaries));print('stage',stage+1,'tiles',counts)
-        assert all(n<=limit for n,limit in zip(counts,[192,256,192])),counts
-        vram=bytearray(16384)
-        for band,d in enumerate(dictionaries):
-            for t,n in d.items():
-                o=band*2048+n*8;vram[o:o+8]=t[:8];vram[o+8192:o+8200]=t[8:]
-            if band!=1:
-                o=band*2048+192*8;vram[o:o+512]=font;vram[o+8192:o+8704]=bytes([0xF1])*512
-        names=bytearray(); pictures=[]
-        for phase,f in enumerate(frames):
-            nt=bytes([192 if y<2 or y>=22 else dictionaries[y//8][f[y][x]] for y in range(24) for x in range(32)])
-            vram[0x3800:0x3B00]=nt
-            pic=decode_screen(vram)
-            for y in range(2,22):
-                for x in range(32):assert pic[y*8:y*8+8,x*8:x*8+8].tolist()==decode_tile(f[y][x])
-            names.extend(nt[64:704]);pictures.append(image(pic))
-        vram[0x3800:0x3B00]=bytes([192]*64)+names[:640]+bytes([192]*64)
-        (A/f'world-{stage}.bin').write_bytes(vram)
-        (A/f'names-{stage}.bin').write_bytes(names)
-        pictures[0].resize((768,576),Image.Resampling.NEAREST).save(OUT/f'world-{stage+1}-reference.png')
-        pictures[0].save(OUT/f'world-{stage+1}-reference.gif',save_all=True,append_images=pictures[1:],duration=67,loop=0)
-        reports.append({'stage':stage+1,'tiles_per_band':counts,'phases':8,'bytes_per_name_update':640,'all_frames_decode_exactly':True,
-          'pixel_changes_per_phase':[int(np.count_nonzero(np.array(pictures[i])!=np.array(pictures[(i+1)%8]))) for i in range(8)]})
-    return reports
+    from generate_pcg import generate_worlds
+    return generate_worlds()
+
 
 def source_sprites():
     raw=(A/'source/sprite-atlas.bin').read_bytes();meta=json.loads((A/'source/sprite-atlas-manifest.json').read_text())
@@ -212,7 +102,7 @@ def build_title():
     def text(x,y,s):
         for c in s:v[0x3800+y*32+x]=192+ord(c)-32;x+=1
     v[0x3800:0x3840]=bytes([192])*64;v[0x3AC0:0x3B00]=bytes([192])*64
-    text(3,0,'N E O N   R E V E N A N T');text(5,1,'MSX1 CHALLENGE / V1.0')
+    text(3,0,'N E O N   R E V E N A N T');text(5,1,'MSX1 PCG DRIVE / V1.1')
     text(4,22,'SPACE / JOYSTICK TO START');text(3,23,'CURSOR:MOVE  X:NOVA  ESC:PAUSE')
     (A/'title.bin').write_bytes(v)
     image(decode_screen(v)).resize((768,576),Image.Resampling.NEAREST).save(OUT/'title-reference.png')
@@ -220,5 +110,5 @@ def build_title():
 def main():
     A.mkdir(exist_ok=True);OUT.mkdir(parents=True,exist_ok=True)
     worlds=build_worlds();sprites=build_sprites();build_title()
-    (A/'manifest.json').write_text(json.dumps({'target':'TMS9918A SCREEN2, 16KiB VRAM','palette_rgb8':PALETTE,'worlds':worlds,'sprite_atlas':sprites,'checks':{'screen2_roundtrip':True,'all_phase_tiles_resident':True,'64_pattern_limit':True}},indent=2)+'\n')
+    (A/'manifest.json').write_text(json.dumps({'target':'TMS9918A SCREEN2, 16KiB VRAM','palette_rgb8':PALETTE,'worlds':worlds,'sprite_atlas':sprites,'checks':{'screen2_roundtrip':True,'hidden_pcg_streaming':True,'64_pattern_limit':True}},indent=2)+'\n')
 if __name__=='__main__':main()

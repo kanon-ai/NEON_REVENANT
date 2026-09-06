@@ -1,123 +1,122 @@
-# NEON REVENANT — MSX1 Challenge v1.0
+# NEON REVENANT — MSX1 PCG Drive v1.1
 
-初代MSXの **Z80 3.58 MHz / TMS9918系VDP / VRAM 16 KB** で、夜のサイバー都市を駆ける疑似3Dシューティングに挑戦した独立版です。V9990版、turbo R単体版、MSX2版のROMとソースは変更していません。
+**初代MSXのZ80 3.58MHz・RAM64KiB・VRAM16KiBで動く、512KiB ASCII8 MegaROMの試作版です。無保証、実機・実カートリッジ未検証です。**
 
-**開発中の試作版です。無保証（AS IS / WITHOUT WARRANTY）で提供します。実機は未検証です。** 動作確認はopenMSX上で行っています。BIOSや他社ゲームのROMは同梱しません。ナイトストライカーに着想を得た独自の試作であり、TAITOその他の権利者の公式作品ではありません。
+v1.0の線を中心にした背景から、PCGをROMから入れ替える背景へ作り直しました。建物の面、窓、看板、路面の反射、高架、トンネルが遠近法に従って手前へ迫ります。3区域・3ボス、機体・敵のスプライト、ゲーム進行、PSGの音楽と効果音は引き継いでいます。
 
-![初代MSXで実行した画面](../outputs/msx1/stage-1-native.gif)
+![初代MSXで動くPCG Drive](../outputs/msx1/v1.1/stage-1-native.gif)
 
-このGIFはC-BIOS MSX1 JPでROMを実行して採取した64フレームです。速度はエミュレートされた時間から設定しています。PCで作った参考画像の再生ではありません。
+このGIFはopenMSXのC-BIOS MSX1 JP上でROMを実行した96描画フレームです。表示時間はMSX側の実測値に合わせています。PC上の参考アニメーションとは区別しています。
 
-## 何を再現できたか
-
-- 3区域・3ボス、照準に合わせる連射、敵弾回避、シールド、NOVAボム、スコア、回復アイテム、ポーズ、ゲームオーバー／再挑戦、全区域クリア。
-- 道路の帯が手前に迫り、側壁の灯りとビルの窓も動く8位相の背景。初代用に固定色の青い面、シアン／紫／赤の輪郭を組み合わせました。
-- 元の機体・敵・ボスの形を縮約したハードウェアスプライト。自機はシアンと白、敵は種類別の1色、ボスは最大6枚で構成します。
-- 標準PSGの3音で原曲の旋律・ベース・アルペジオを再構成。効果音時は第3音を一時的に共有します。FM音源は不要です。
-
-SCREEN 2の固定パターン辞書に全アニメ位相のタイルを登録し、通常の背景更新では **640バイトのネームテーブルだけ** を送ります。スプライトの55パターンもVRAMへ常駐させ、毎フレームの画像転送をなくしました。高速CPUや拡張VDPを仮定せず、TMS9918のVRAM転送間隔も確保しています。
-
-## 必要環境と起動
+## 起動と操作
 
 | 項目 | 条件 |
 |---|---|
-| 対象 | 初代MSX、Z80 3.58 MHz、RAM 64 KB |
-| VDP | TMS9918A / TMS9928A / TMS9929A系、VRAM 16 KB |
-| 画面 | SCREEN 2、256×192、固定15色＋透明 |
-| カートリッジ | ASCII8、512 KiB MegaROM |
-| 音源 | 標準PSGのみ |
-| 検証機種 | openMSX `C-BIOS_MSX1_JP`、TMS99X8A、60 Hz |
+| 本体 | 初代MSX、Z80 3.58MHz、RAM64KiB |
+| VDP | TMS9918A系、VRAM16KiB、SCREEN 2 |
+| 画面 | 256×192、固定15色＋透明 |
+| ROM | [NEON_REVENANT-MSX1-v1.1.rom](../outputs/msx1/v1.1/NEON_REVENANT-MSX1-v1.1.rom)、ASCII8、524,288バイト |
+| 音源 | 本体標準PSGのみ |
+| 確認環境 | openMSX 21.0、C-BIOS_MSX1_JP、60Hz、スプライト制限有効 |
 
-配布先は `outputs/msx1/NEON_REVENANT-MSX1-v1.0.rom` です。openMSXでは機種に **C-BIOS MSX1 JP**、ROM種別に **ASCII8** を指定してください。V9990等の拡張は必要ありません。拡張VDPではなくMSX本体側の映像を表示します。
+PCGという表現は本体VDPのパターン書き換えを指します。拡張PCGカートリッジ、V9990、FM音源、MSX-DOSは必要ありません。RAM16KiBだけの機種は対象外です。PAL/50Hz機は未検証です。
+
+openMSXで機種を `C-BIOS_MSX1_JP`、カートリッジをこのROM、種類を **ASCII8** にします。映像ソースは **MSX** です。ROMと同じフォルダーの `launch-openmsx.ps1` も使えます。
 
 ```powershell
-openmsx -machine C-BIOS_MSX1_JP -cart NEON_REVENANT-MSX1-v1.0.rom -romtype ASCII8
+openmsx -machine C-BIOS_MSX1_JP -cart NEON_REVENANT-MSX1-v1.1.rom -romtype ASCII8
 ```
 
-ROMと同じフォルダの `launch-openmsx.ps1` でも起動できます。16 KB RAMのみの初代MSXは対象外です。PAL／50 Hz機は同系統の描画機能を備えますが、この版のテンポと操作速度は60 Hz環境で評価しており、PALの実行検証は行っていません。
-
-## 操作
-
-| キーボード | ジョイスティック1 | 動作 |
+| 操作 | キーボード | ジョイスティック1 |
 |---|---|---|
-| カーソルキー | 方向 | 自機移動／照準位置の調整 |
-| SPACE | トリガー1 | 開始・連射・再挑戦 |
-| X | トリガー2 | NOVAボム（押した瞬間に1個使用） |
-| ESC | — | ポーズ／再開 |
+| 自機・照準移動 | カーソルキー | 十字方向 |
+| 開始・連射・再挑戦 | Space | トリガー1 |
+| NOVAボム | X | トリガー2 |
+| ポーズ・再開 | Esc | キーボードのEsc |
 
-照準を敵やボスに重ねて撃ちます。連射は押し続けられます。敵弾や目前に迫った敵機との接触でシールドを失います。
+照準に敵を捉えて撃ち、接近する敵機と敵弾を避けます。シールドを失うとゲームオーバー、3区域のボスを倒すとクリアです。
 
-## 制約と測定結果
+## PCGで強化した部分
 
-| 実行場面 | 実測描画／更新速度 |
+原画の立体的な背景を128×80相当の形状へ変換し、256×160のプレイ領域へ展開しました。陰影には1ピクセルの黒・青・紫のディザを使い、窓や発光は明るい色で残しています。SCREEN 2の横8ドットごとに最大2色という条件も守ります。
+
+各区域は8位相から**16位相**へ増加しました。開発時には各64走査線帯に512種類の候補タイルを作り、1位相あたりの使用数を上帯96・中帯128・下帯96以内に整理します。この512種類は開発時の辞書で、同時にVRAMへ置く数ではありません。
+
+同じ画面と次の画面で使うPCGが衝突しないよう、開発時にスロットを割り当てます。現在表示中のPCGは変更せず、次のPCGをROMから2回に分けて先読みし、非表示側のネームテーブルを完成させてから切り替えます。先読み途中にポーズしても背景は変わりません。
+
+Z80上では画像生成や圧縮展開を行わず、ROM内の転送パケットを短いアセンブリ処理でVDPへ送ります。HUDの数値表示から繰り返し除算を減らし、敵の描画順も同じ順序を保ったまま計算を軽くしました。
+
+## 速度と制限
+
+| 実行条件 | 描画・ゲーム更新 |
 |---|---:|
-| 通常の進行・3秒測定 | 27.86 fps |
-| 区域1・左右移動＋連射64フレーム | 29.47 fps |
-| 区域2・左右移動＋連射64フレーム | 29.02 fps |
-| 区域3・左右移動＋連射64フレーム | 28.34 fps |
-| 停止したボス描画の試験 | 29.96 fps |
-| 停止した過密配置の描画試験 | 29.96 fps |
+| 通常進行の3秒測定 | 26.56fps |
+| 区域1・移動＋連射96フレーム | 26.58fps |
+| 区域2・移動＋連射96フレーム | 26.59fps |
+| 区域3・移動＋連射96フレーム | 24.61fps |
 
-過密配置はRAMで敵・弾を並べた**描画のみの負荷試験**です。多数の弾の運動や衝突計算を含む通常ゲームプレイの性能を示すものではありません。背景は2描画フレームに1回更新するため、上記プレイ区間では約14～15 Hzです。HUDは通常約7 Hz、状態変更時はすぐに更新します。
+背景は2描画フレームに1回更新するので、上記区間では約12～13Hzです。停止したボス・過密配置の描画試験では29.96fpsでしたが、そちらはPCGの前進とゲーム進行が停止した条件です。通常戦闘の性能とは区別してください。
 
-初代MSXのスプライトは **画面全体32枚・走査線4枚・1枚につき1色** です。重なると5枚目以降が欠けます。近距離の敵、自機、ボス、弾が重なる場面では消え・ちらつきが発生します。エミュレーターの枚数制限を無効にして隠すことはしていません。通常のボス配置は最大4枚／走査線、意図的な過密試験では最大19枚／走査線で制限による欠けを確認しました。
+v1.0の撮影区間は約28～29fpsでした。v1.1は背景の情報量を増やした分の負荷があり、全場面の30fpsを保証しません。ゲームと音楽はフレーム単位で進むため、処理落ちすると速度とテンポも遅くなります。
 
-そのため同時出現枠を敵6体、敵弾8発、爆発4個へ縮小しました。大型爆発は共有の小さな絵へ置き換え、背景は横へ傾く映像や自由な3D形状変化を省いています。画面全体の色数・敵の陰影・ボスの多色表現はV9990版やturbo R版と異なります。
+スプライトはv1.0と同じ55個の常駐パターンです。1枚1色、全画面32枚・走査線4枚の制限があり、敵・弾・自機が集中すると欠けやちらつきが発生します。背景の横揺れや自由な3D視点移動はありません。
 
-処理が30 Hzを下回るとゲーム進行とPSG音楽も少し遅くなります。この試作はフレーム単位で進行し、壁時計基準の追い付き処理は入れていません。測定値は今回のシナリオの結果で、全場面の最低フレームレートを保証するものではありません。
+## ROM・VRAMの使い方
 
-## 構造と容量
-
-| 項目 | 容量／方式 |
+| 領域 | 用途 |
 |---|---|
-| ROMファイル | 524,288バイト |
-| ROMの割当範囲 | 155,648バイト、残りはFF埋め |
-| RAM実行コード | 9,926バイト、8000hから実行 |
-| 静的RAM領域の末尾 | E207h（スタックはF300hから下向き） |
-| 背景 | 3区域、各16 KBの初期VRAM＋5,120バイトの位相ネーム表 |
-| スプライト | 55個の16×16パターン、1,760バイト。表示は2倍拡大 |
+| ROM bank 0 | 起動処理 |
+| bank 1～3 | RAMへコピーする実行コード |
+| bank 4～5 | スプライト記述と常駐パターン |
+| bank 6～11 | 3区域の初期VRAM、各16KiB |
+| bank 12～13 | タイトル画面 |
+| bank 14～61 | 3区域×16位相のPCG転送パケット |
+| bank 62～63 | 未使用 |
 
-VRAM配置はパターン0000h～17FFh、スプライトパターン1800h～1FFFh、色2000h～37FFh、ネーム3800h～3AFFh、スプライト属性3B00h／3B80hです。属性だけを2組用意し、垂直帰線の区切りで切り替えます。
+8KiBずつの**62バンク・496KiBは割当量**です。各パケットは1バンク内に置いて直接読むため、バンクの内部にはFFの余白があります。実PCGパケットは3区域合計131,656バイトで、ROM全域を画像データで埋めた意味ではありません。
 
-TMS9918の表示中VRAM転送では、`OUTI`＋`NOP`＋`JP NZ`で次のアクセスまで30 Z80クロックを確保します。21クロック間隔の`OTIR`へ置き換えないでください。VDPレジスタは0～7だけを使い、V9938以降のパレットレジスタやR800のBIOSは呼びません。
+PCG更新は1回につき最大1,340バイト（ネーム転送を含む）です。VRAMはパターン0000h～17FFh、スプライトパターン1800h～1FFFh、色2000h～37FFh、ネーム3800h/3C00h、スプライト属性3B00h/3B80hに配置します。フォント用PCGは上帯・下帯の192番以降に保護しています。
 
-## ソースから作る
+VRAM転送の `OUTI`＋`NOP`＋`JP NZ` は次のアクセスまで30 Z80クロックを確保します。21クロックの`OTIR`へ置き換えないでください。VDPの配置仕様は[Texas Instrumentsのデータマニュアル](https://www.bitsavers.org/components/ti/TMS9900/TMS9918A_TMS9928A_TMS9929A_Video_Display_Processors_Data_Manual_Nov82.pdf)も参照できます。
 
-このフォルダ内のコピー済み素材だけで再生成できます。元のV9990プロジェクトの出力やBIOSを素材生成時に読み直すことはありません。Python、Pillow、NumPy、Z80用SDCCとPasmoが必要です。
+## 再ビルドと検証
+
+この `msx1/` フォルダーを作業ディレクトリにします。素材は `assets/source/` に収録し、他の版やBIOSから読み出さずに再生成できます。Python、Pillow、NumPy、Z80用SDCC、Pasmoが必要です。
 
 ```powershell
-cd msx1
 python -m pip install -r requirements.txt
-$env:SDCC_BIN = 'SDCCのbinフォルダ'
+$env:SDCC_BIN = 'SDCCのbinフォルダー'
 $env:PASMO = 'pasmo.exeのパス'
 python tools/build.py
 ```
 
-`--pack-only`を付けると画像の再生成を省き、現在の素材からCコードのコンパイルとROM構成を行います。ビルド成果物は兄弟の `outputs/msx1/` に作成します。エミュレーターがROMを読み込んでいるとWindowsで書き換えが拒否される場合があるため、開発時は `msx1/work/test.rom` のような別コピーを読み込んでください。
+出力先は `../outputs/msx1/v1.1/` です。`--pack-only` は素材の再生成だけを省き、現在のC/ASMソースをコンパイルします。v1.0 ROMは上書きしません。
 
-## 検証の再実行
-
-`tools/emulator_host.mjs` は開発用のローカル制御ブリッジです。Node.jsとopenMSXを別途用意し、対象のROMをASCII8として読み込ませてから検証スクリプトを実行します。ポート18801、初代用の独立したユーザープロファイルを使用します。共有マシンではなく自分のPC上でのみ使用してください。
+開発用のローカルブリッジを起動して検証する例です。Node.jsとopenMSXは別途必要です。BIOSは配布しません。
 
 ```powershell
 $env:OPENMSX_EXE = 'openmsx.exeのパス'
-$env:OPENMSX_SYSTEM_DATA = 'openMSXのshareフォルダ'
+$env:OPENMSX_SYSTEM_DATA = 'openMSXのshareフォルダー'
 New-Item -ItemType Directory -Force work/profile | Out-Null
 $env:OPENMSX_USER_DATA = "$PWD/work/profile"
-Copy-Item ../outputs/msx1/NEON_REVENANT-MSX1-v1.0.rom work/test.rom
+Copy-Item ../outputs/msx1/v1.1/NEON_REVENANT-MSX1-v1.1.rom work/test.rom
 node tools/emulator_host.mjs -cart work/test.rom -romtype ASCII8
-# 別ターミナルをmsx1フォルダで開いて、順に実行します。
-python tools/emu.py "set power on; set renderer SDLGL-PP; set videosource MSX; set pause off"
+# 別ターミナルをmsx1/で開き、順に実行
+python tools/emu.py "set power on"
+python tools/emu.py "set renderer SDLGL-PP"
+python tools/emu.py "set videosource MSX"
+python tools/emu.py "set pause off"
 python tools/verify_rom.py
 python tools/verify_world.py
-python tools/verify_sound.py
+python tools/verify_transfer.py
 ```
 
-新しいプロファイルではブリッジ起動後、HTTP POSTで `set power on`、`set renderer SDLGL-PP`、`set videosource MSX`、`set pause off` を順に送ります。`verify_rom.py`はタイトル画面から開始してください。各検証はPC上の画面描画で代用せず、ROM内のCPUコードを実行します。
+- [ゲーム検証36項目](../outputs/msx1/v1.1/verification.json)：起動、入力、戦闘、3ボス、区域遷移、クリア、再挑戦。
+- [描画検証47項目](../outputs/msx1/v1.1/world-verification.json)：全3区域の16位相、先読み途中を含む288回のVRAM背景照合、両面HUD、実行GIF、PSG、ポーズ、スプライト。
+- [転送処理の実行検証8項目](../outputs/msx1/v1.1/transfer-verification.json)：0～768バイトの境界条件とIX/IYの保持。
+- [PCGの独立デコード検証](../outputs/msx1/v1.1/codec-verification.json)：3区域それぞれ3周、表示中PCG・保護領域の非破壊、位相15→0の一致。
+- [既存動作の維持](../outputs/msx1/v1.1/scope-verification.json)／[描画順705,894通りの比較](../outputs/msx1/v1.1/enemy-order-verification.json)／[PSGロジック検証](../outputs/msx1/v1.1/sound-verification.json)。
 
-- [ゲーム検証36項目](../outputs/msx1/verification.json)：起動、VRAM/RAM容量、入力、照準への射撃、衝突、ボム、3ボスと遷移、クリア、リトライ。
-- [描画検証43項目](../outputs/msx1/world-verification.json)：実行中ROMのSHA-256、Z80周波数、VRAM読戻し、全8位相、全3区域の実行GIF、PSG変化、ポーズの全4位相と表示文字、NOVA直後のポーズ表示、SAT読戻し、ハードウェア枚数制限。
-- [PSGホスト検証](../outputs/msx1/sound-verification.json)：レジスタ範囲、音楽・効果音の優先度／復帰、ミュート、I/O方向。これは音源のロジック検証であり実機試験ではありません。
-- [ビルド明細](../outputs/msx1/build-manifest.json)／[素材生成検証](assets/manifest.json)。`*-reference.png/gif` は素材の独立デコードによる参考画像、`*-native.gif` はROM実行画像です。
+後半区域、被弾、過密配置などはRAMへ開始状態を設定する試験です。その後の処理はROMが実行していますが、手動操作だけでの全編通しプレイとは区別しています。`*-reference`は素材の参考画像、`*-native`はROM実行映像です。
 
-物理カートリッジへの書込み、実機での長時間プレイ、異なるTMS系統／PAL機、すべての入力機器は未検証です。今後の修正・対応・サポートは保証しません。
+本作は開発途中の独自作品です。TAITOやMSX関連各社の公式作品ではありません。実機・実カートリッジ・PAL機は未検証で、動作、互換性、今後の対応を保証しません。利用前に配布物の免責事項・著作権・第三者ソフトウェアの表示を確認してください。

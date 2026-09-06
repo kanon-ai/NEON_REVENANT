@@ -9,7 +9,7 @@ __sfr __at (0xAA) hw_key_select;
 static void reg_write(u8 reg,u8 value){hw_control=value;hw_control=reg|0x80;}
 void gfx_palette(void){}
 void gfx_display(u8 on){reg_write(1,on?0xC3:0x83);}
-void gfx_bg(u8 frame){(void)frame;}
+void gfx_bg(u8 page){reg_write(2,14+(page&1));}
 void gfx_sprite_page(u8 page){reg_write(5,0x76+(page&1));}
 void gfx_wait_vblank(void){while(!(hw_control&0x80)){};}
 void gfx_init(void){
@@ -65,6 +65,61 @@ void gfx_write(u16 address,const void *source,u16 length){
     if(!length)return;
     hw_control=(u8)address;hw_control=((u8)(address>>8)&63)|0x40;
     vram_copy(source,length);
+}
+/* Direct ROM packet reader: avoid a C call and stack locals for every small
+ * PCG burst. Records are (VRAM address u16, length u16, bytes), length 0 ends.
+ * OUTI/NOP/JP spacing remains 30T; IX and IY are preserved. */
+void gfx_patch(const void *source) __sdcccall(0) __naked{
+    (void)source;
+    __asm
+        ld hl,#2
+        add hl,sp
+        ld e,(hl)
+        inc hl
+        ld d,(hl)
+        ex de,hl
+pcg_record:
+        ld e,(hl)
+        inc hl
+        ld d,(hl)
+        inc hl
+        ld c,(hl)
+        inc hl
+        ld b,(hl)
+        inc hl
+        ld a,b
+        or c
+        ret z
+        ld a,e
+        out (#0x99),a
+        ld a,d
+        or #0x40
+        out (#0x99),a
+        ld a,c
+        ld c,#0x98
+        or a
+        jr z,pcg_full_blocks
+        push bc
+        ld b,a
+pcg_tail:
+        outi
+        nop
+        jp nz,pcg_tail
+        pop bc
+pcg_full_blocks:
+        ld a,b
+        or a
+        jr z,pcg_record
+pcg_block:
+        ld b,#0
+pcg_bytes:
+        outi
+        nop
+        jp nz,pcg_bytes
+        dec a
+        jr nz,pcg_block
+        jr pcg_record
+    __endasm;
 }
 u8 input_read(void)
 {

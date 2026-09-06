@@ -1,0 +1,22 @@
+{
+  "scenario": "Same frozen renderer state copied from naturally encountered baseline entities. Only this dedicated emulator RAM was seeded. Both ROMs run original sprite code; the candidate changes only enemy enumeration.",
+  "baseline": {
+    "samples": 64,
+    "min_ms": 15.503646413158378,
+    "median_ms": 15.503646413158378,
+    "max_ms": 15.503646413165484,
+    "records": 10,
+    "SAT_hex": "87dc080787dc0c0f6babd00b7f08d00b5fc7d8075e83640b4fa62008497c180878d8d00778e4d007d0"
+  },
+  "candidate": {
+    "samples": 64,
+    "min_ms": 10.964801392354673,
+    "median_ms": 10.964801392354673,
+    "max_ms": 10.964801392361778,
+    "records": 10,
+    "SAT_hex": "87dc080787dc0c0f6babd00b7f08d00b5fc7d8075e83640b4fa62008497c180878d8d00778e4d007d0"
+  },
+  "saved_ms": 4.538845020803706,
+  "same_SAT_bytes": true,
+  "rom_sha256": "aef9521afe9b646b3115c1d4377bc974b7c15e1928db0f82bd7ead2992751ae0"
+}

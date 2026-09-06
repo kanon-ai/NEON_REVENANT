@@ -159,7 +159,7 @@ void update_play(void){
  * sprite pattern upload. Higher-priority player/shots are submitted first;
  * rotating enemy order distributes unavoidable 4-sprite scanline loss. */
 u8 attr_buffer[128],hud_buffer[128];
-u8 sprite_count,sprite_page,selected_frame,world_phase,hud_last_mode;
+u8 sprite_count,sprite_page,selected_frame,hud_last_mode;
 volatile u8 sprite_dropped;
 static const u8 video_rows[256]={0,1,2,3,4,5,6,7,8,8,9,10,11,12,13,14,15,16,16,16,17,18,19,20,21,22,23,24,24,25,26,27,28,29,30,31,32,32,33,34,35,36,37,38,39,40,40,41,42,43,44,45,46,47,48,48,49,50,51,52,53,54,55,56,56,57,58,59,60,61,62,63,64,64,65,66,67,68,69,70,71,72,72,73,74,75,76,77,78,79,80,80,81,82,83,84,85,86,87,88,88,89,90,91,92,93,94,95,96,96,97,98,99,100,101,102,103,104,104,105,106,107,108,109,110,111,112,112,113,114,115,116,117,118,119,120,120,121,122,123,124,125,126,127,128,128,129,130,131,132,133,134,135,136,136,137,138,139,140,141,142,143,144,144,145,146,147,148,149,150,151,152,152,153,154,155,156,157,158,159,160,160,161,162,163,164,165,166,167,168,168,169,170,171,172,173,174,175,176,176,177,178,179,180,181,182,183,184,184,185,186,187,188,189,190,191,192,192,193,194,195,196,197,198,199,200,200,201,202,203,204,205,206,207,208,208,209,210,211,212,213,214,215,216,216,217,218,219,220,221,222,223,224,224,225,226};
 s16 video_y(s16 y){if(y<0||y>255)return y;return video_rows[(u8)y];}
@@ -185,8 +185,15 @@ void hud_text(u8 col,u8 row,const char *p){
     while(*p&&col<32){c=*p++;if(c<32||c>95)c=32;*dest++=192+c-32;++col;}
 }
 void hud_number(u8 col,u8 row,u16 v,u8 n){
-    char b[6];u8 i=n;u16 q;b[n]=0;
-    while(i){--i;q=v/10;b[i]='0'+(u8)(v-q*10);v=q;}hud_text(col,row,b);
+    static const u16 places[5]={10000,1000,100,10,1};
+    u8 i,digit,start=5-n;u16 place;u8 *dest=hud_buffer+(u16)row*32+col;
+    /* Identical fixed-width decimal glyphs, without repeated 16-bit divides.
+     * At most nine subtractions per digit, including truncated high digits. */
+    for(i=0;i<5;i++){
+        place=places[i];digit=0;
+        while(v>=place){v-=place;++digit;}
+        if(i>=start)*dest++=192+'0'-32+digit;
+    }
 }
 void hud(void){
     u8 i,n;for(i=0;i<128;i++)hud_buffer[i]=192;
@@ -212,8 +219,37 @@ void hud(void){
     if(combo>1&&mode==PLAY){hud_text(24,1,"CHAIN");hud_number(30,1,combo,1);}
     if(bomb_flash&&(mode==PLAY||mode==BOSS)){hud_text(8,1,"NOVA DISCHARGE");}
 }
+/* Renderer-only stable enemy order. ENEMIES is 6; lower three bits store
+ * the original foe index, upper bits its projected scale. Equal scales keep
+ * the original rotation traversal order. No simulation state is modified. */
+#if ENEMIES != 6
+#error This_renderer_order_is_verified_for_six_enemies
+#endif
+static const u8 enemy_scale_from_z[256]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5};
+static u8 enemy_draw_order[ENEMIES];
+static u8 build_enemy_draw_order(u8 rotation){
+    u8 count=0,visited,i=rotation,depth_key,key,pos;
+    const Foe *e=foes+rotation;
+    for(visited=0;visited<ENEMIES;++visited){
+        if(e->active){
+            depth_key=enemy_scale_from_z[e->z]<<3;
+            key=depth_key|i;
+            pos=count;
+            /* Strictly lower depth moves right; equal depth never moves. */
+            while(pos && (enemy_draw_order[pos-1]&0xF8)<depth_key){
+                enemy_draw_order[pos]=enemy_draw_order[pos-1];
+                --pos;
+            }
+            enemy_draw_order[pos]=key;
+            ++count;
+        }
+        if(++i==ENEMIES){i=0;e=foes;}else ++e;
+    }
+    return count;
+}
+
 void draw_objects(void){
-    u8 i,j,index,scale,rotation,scales[ENEMIES];const Sprite *s;Foe *e;
+    u8 i,j,index,scale,rotation,enemy_count;const Sprite *s;Foe *e;
     /* Rotate equal-priority objects to avoid permanent scanline starvation. */
     if(!hurt_clock||(frame_counter&2)){
         s=&player[(keys&1)?0:((keys&2)?2:1)];sprite(s,player_x-s->w/2,player_y-s->h/2,0);
@@ -228,17 +264,13 @@ void draw_objects(void){
         s=&bosses[stage];sprite(s,boss_x-s->w/2,boss_y-s->h/2,boss_flash?15:0);
     }
     rotation=(u8)(frame_counter%ENEMIES);
-    for(i=0;i<ENEMIES;i++){
-        if(foes[i].active){scale=foes[i].z/40;scales[i]=scale>5?5:scale;}
-        else scales[i]=255;
-    }
-    for(j=6;j>0;j--){
-        i=rotation;
-        for(index=0;index<ENEMIES;index++){
-            scale=scales[i];
-            if(scale==j-1){e=&foes[i];s=&enemy[e->kind][scale];sprite(s,e->x-s->w/2,e->y-s->h/2,0);}
-            if(++i==ENEMIES)i=0;
-        }
+    enemy_count=build_enemy_draw_order(rotation);
+    for(index=0;index<enemy_count;++index){
+        i=enemy_draw_order[index];
+        scale=i>>3;
+        e=&foes[i&7];
+        s=&enemy[e->kind][scale];
+        sprite(s,e->x-s->w/2,e->y-s->h/2,0);
     }
     if(pickup_on)sprite(&pickup,pickup_x-pickup.w/2,pickup_y-pickup.h/2,0);
     if((keys&16)&&shot_clock){
@@ -250,21 +282,19 @@ void draw_objects(void){
 }
 void draw_frame(void){
     if(mode==TITLE){gfx_wait_vblank();gfx_wait_vblank();return;}
-    if(world_loaded!=stage){sound_mute(1);world_load(stage);world_loaded=stage;world_phase=255;hud_last_mode=255;sound_mute(0);}
-    selected_frame=(frame_counter>>1)&7;
+    if(world_loaded!=stage){sound_mute(1);world_load(stage);world_loaded=stage;hud_last_mode=255;sound_mute(0);}
+    selected_frame=world_phase;
     sprite_count=0;sprite_dropped=0;draw_objects();
     if(sprite_count<32)attr_buffer[sprite_count*4]=208;
     gfx_write(sprite_page?0x3B80:0x3B00,attr_buffer,sprite_count<32?(u16)sprite_count*4+1:128);
-    if(selected_frame!=world_phase){
-        *((volatile u8*)0x6800)=14+stage;
-        gfx_write(0x3840,(const u8*)(0x6000+(u16)selected_frame*640),640);world_phase=selected_frame;
-    }
+    if(mode!=PAUSED)world_prepare();
     /* HUD changes at 7.5 Hz; this preserves budget for input and combat. */
     if((mode!=PAUSED&&(frame_counter&3)==1)||hud_last_mode!=mode){
         hud();hud_last_mode=mode;
         gfx_write(0x3800,hud_buffer,64);gfx_write(0x3AC0,hud_buffer+64,64);
+        gfx_write(0x3C00,hud_buffer,64);gfx_write(0x3EC0,hud_buffer+64,64);
     }
-    gfx_wait_vblank();gfx_wait_vblank();gfx_sprite_page(sprite_page);gfx_display(1);sprite_page^=1;
+    gfx_wait_vblank();gfx_wait_vblank();world_commit();gfx_sprite_page(sprite_page);gfx_display(1);sprite_page^=1;
 }
 void main(void){
     u8 *p=(u8*)0xE000;while(p<(u8*)0xF200)*p++=0;

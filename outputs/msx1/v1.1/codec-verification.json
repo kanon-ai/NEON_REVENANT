@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "codec_sha256": "7f3fca9914a01fe4ba37279ef83090747e53535a658c9be7ae3ed9ca6bf5076f",
+  "stages": [
+    {
+      "stage": 0,
+      "slots": [
+        126,
+        152,
+        162
+      ],
+      "max_packet_bytes": 2988,
+      "max_part_transfer_bytes": 1312,
+      "max_part_a_records": 65,
+      "max_part_b_records": 29,
+      "initial_vram_sha256": "2c60b8960e7fe557bfb739785b7248b534b6767c61a1ea441ad245b558f919d2",
+      "verification": {
+        "passed": true,
+        "cycles": 3,
+        "transitions": 48,
+        "full_frame_comparisons": 145,
+        "active_slot_writes": 0,
+        "protected_region_writes": 0,
+        "steady_state_exact": true,
+        "phase_wraparound": "15 -> 0 tested three times"
+      }
+    },
+    {
+      "stage": 1,
+      "slots": [
+        157,
+        179,
+        161
+      ],
+      "max_packet_bytes": 2936,
+      "max_part_transfer_bytes": 1284,
+      "max_part_a_records": 72,
+      "max_part_b_records": 36,
+      "initial_vram_sha256": "82fb942126551715e5afe374134e0d6a4c26ce2f26e4034154c63dfe47fcc176",
+      "verification": {
+        "passed": true,
+        "cycles": 3,
+        "transitions": 48,
+        "full_frame_comparisons": 145,
+        "active_slot_writes": 0,
+        "protected_region_writes": 0,
+        "steady_state_exact": true,
+        "phase_wraparound": "15 -> 0 tested three times"
+      }
+    },
+    {
+      "stage": 2,
+      "slots": [
+        166,
+        170,
+        126
+      ],
+      "max_packet_bytes": 3132,
+      "max_part_transfer_bytes": 1340,
+      "max_part_a_records": 92,
+      "max_part_b_records": 42,
+      "initial_vram_sha256": "c409da8c058ca33cd141901c0b823a5230d3401754b25ffbd8fe2e0ef5cb3532",
+      "verification": {
+        "passed": true,
+        "cycles": 3,
+        "transitions": 48,
+        "full_frame_comparisons": 145,
+        "active_slot_writes": 0,
+        "protected_region_writes": 0,
+        "steady_state_exact": true,
+        "phase_wraparound": "15 -> 0 tested three times"
+      }
+    }
+  ],
+  "total_transitions_verified": 144,
+  "total_full_frame_comparisons": 435,
+  "boundary_checks": 21
+}

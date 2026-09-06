@@ -21,6 +21,6 @@ result=subprocess.run([str(exe)],text=True,capture_output=True,check=True)
 report=json.loads(result.stdout)
 assert report['passed'] and not report['failures']
 report.update({'kind':'host PSG register protocol and music/effect regression test','physical_hardware_tested':False,'source_sha256':hashlib.sha256(sources[0].read_bytes()).hexdigest()})
-out=ROOT.parent/'outputs'/ROOT.name;out.mkdir(parents=True,exist_ok=True)
+out=ROOT.parent/'outputs'/ROOT.name/'v1.1';out.mkdir(parents=True,exist_ok=True)
 (out/'sound-verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

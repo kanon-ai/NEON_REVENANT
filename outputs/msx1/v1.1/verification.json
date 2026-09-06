@@ -1,0 +1,210 @@
+{
+  "emulator": "openMSX 21.0-unknown",
+  "rom": {
+    "title": "NEON REVENANT - MSX1 PCG Drive",
+    "version": "1.1",
+    "file": "NEON_REVENANT-MSX1-v1.1.rom",
+    "mapper": "ASCII8",
+    "rom_bytes": 524288,
+    "allocated_bytes": 507904,
+    "runtime_bytes": 10411,
+    "runtime_address": "8000-DFFF",
+    "data_end": "0xe211",
+    "sprite_bytes": 2048,
+    "worlds": [
+      {
+        "stage": 1,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 42468,
+        "raw_sha256": "2c60b8960e7fe557bfb739785b7248b534b6767c61a1ea441ad245b558f919d2"
+      },
+      {
+        "stage": 2,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 42428,
+        "raw_sha256": "82fb942126551715e5afe374134e0d6a4c26ce2f26e4034154c63dfe47fcc176"
+      },
+      {
+        "stage": 3,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 46760,
+        "raw_sha256": "c409da8c058ca33cd141901c0b823a5230d3401754b25ffbd8fe2e0ef5cb3532"
+      }
+    ],
+    "video": "TMS9918A SCREEN2 256x192, 16 streamed PCG phases, two name pages, fixed palette, resident mode1 MAG2 sprites",
+    "v9990_required": false,
+    "sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+    "entry": "0x9f13"
+  },
+  "machine": "C-BIOS_MSX1_JP",
+  "extension": null,
+  "physical_hardware_tested": false,
+  "scenario_seeding": "RAM injected only for targeted hit, collision, and distant stage/boss checks",
+  "results": [
+    {
+      "name": "target-machine",
+      "passed": true,
+      "version": "openMSX 21.0-unknown"
+    },
+    {
+      "name": "SCREEN2-mode",
+      "passed": true
+    },
+    {
+      "name": "no-V9990-attached",
+      "passed": true
+    },
+    {
+      "name": "16KiB-VRAM",
+      "passed": true
+    },
+    {
+      "name": "64KiB-RAM",
+      "passed": true
+    },
+    {
+      "name": "startup-first-frame",
+      "passed": true
+    },
+    {
+      "name": "sector-1-world-resident",
+      "passed": true
+    },
+    {
+      "name": "fire-starts-game",
+      "passed": true
+    },
+    {
+      "name": "left-control",
+      "passed": true,
+      "before": 128,
+      "after": 80
+    },
+    {
+      "name": "right-control",
+      "passed": true
+    },
+    {
+      "name": "up-control",
+      "passed": true
+    },
+    {
+      "name": "down-control",
+      "passed": true
+    },
+    {
+      "name": "pause-input",
+      "passed": true
+    },
+    {
+      "name": "pause-freezes-simulation",
+      "passed": true
+    },
+    {
+      "name": "resume-input",
+      "passed": true
+    },
+    {
+      "name": "bomb-key-consumes-one",
+      "passed": true
+    },
+    {
+      "name": "held-bomb-is-edge-triggered",
+      "passed": true
+    },
+    {
+      "name": "measured-game-update-rate",
+      "passed": true,
+      "fps": 26.56,
+      "emulated_seconds": 3.087
+    },
+    {
+      "name": "reticle-shot-kills-target",
+      "passed": true,
+      "before": 55,
+      "after": 80
+    },
+    {
+      "name": "collision-game-over",
+      "passed": true
+    },
+    {
+      "name": "retry-resets-state",
+      "passed": true
+    },
+    {
+      "name": "sector-1-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-1-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-1-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-1-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-2-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-2-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-2-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-2-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-2-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-3-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-3-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-3-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-3-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-3-transition",
+      "passed": true
+    },
+    {
+      "name": "ROM-size-and-header",
+      "passed": true,
+      "size": 524288,
+      "sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e"
+    }
+  ],
+  "rom_slot": {
+    "connector": "slota",
+    "primary_slot": 1,
+    "mapper": "ASCII8",
+    "file": "NEON_REVENANT-MSX1-v1.1.rom"
+  }
+}

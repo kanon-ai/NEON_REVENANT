@@ -5,9 +5,11 @@ in RAM; every pixel, input response and sound register write comes from ROM.
 """
 from pathlib import Path
 import hashlib,json,time,urllib.request
+import numpy as np
+from pcg_codec import decode_screen
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1];OUT=ROOT.parent/'outputs/msx1'
+ROOT=Path(__file__).resolve().parents[1];OUT=ROOT.parent/'outputs/msx1/v1.1'
 SYM=json.loads((ROOT/'work/build/symbols.json').read_text())
 MANIFEST=json.loads((OUT/'build-manifest.json').read_text());results=[]
 SCRATCH=ROOT/'work/captures';SCRATCH.mkdir(exist_ok=True)
@@ -53,20 +55,25 @@ check('sprite-limit-enabled',cmd('set limitsprites')=='true')
 for stage in range(3):
     load_time=setup(stage);advance(.2);bp=breakpoint()
     v=block('VRAM',0,16384);source=(ROOT/'assets'/f'world-{stage}.bin').read_bytes()
-    check(f'stage-{stage+1}-resident-pattern-color-readback',v[:0x1800]==source[:0x1800] and v[0x2000:0x3800]==source[0x2000:0x3800],checked_bytes=12288,load_seconds=round(load_time,3))
+    check(f'stage-{stage+1}-name-page-layout',int(cmd('debug read {VDP regs} 2')) in [14,15],load_seconds=round(load_time,3))
     check(f'stage-{stage+1}-resident-sprite-readback',v[0x1800:0x2000]==(ROOT/'assets/sprite-patterns.bin').read_bytes())
-    pictures=[];times=[];phases=set();names=(ROOT/'assets'/f'names-{stage}.bin').read_bytes();psg=[]
-    for i in range(64):
+    pictures=[];times=[];phases=set();parts=set();expected=np.load(ROOT/'assets'/f'frames-{stage}.npy');psg=[];readbacks=0
+    for i in range(96):
         if i==0:cmd('keymatrixdown 8 17')
         if i==20:cmd('keymatrixup 8 16;keymatrixdown 8 128')
         if i==48:cmd('keymatrixup 8 128')
-        phase=read('_world_phase');phases.add(phase)
-        assert block('VRAM',0x3840,640)==names[phase*640:(phase+1)*640],f'names phase {phase}'
+        phase=read('_world_phase');phases.add(phase);parts.add(read('_world_pending'))
+        native=block('VRAM',0,16384);name_base=int(cmd('debug read {VDP regs} 2'))*1024
+        assert np.array_equal(decode_screen(native,name_base)[16:176],expected[phase,16:176]),f'visible PCG phase {phase}'
+        assert native[0x1800:0x2000]==(ROOT/'assets/sprite-patterns.bin').read_bytes()
+        assert native[0x3800:0x3840]==native[0x3C00:0x3C40] and native[0x3AC0:0x3B00]==native[0x3EC0:0x3F00], 'HUD pages differ'
+        readbacks+=1
         path=SCRATCH/f'stage-{stage+1}-{i:02d}.png';shot(path);pictures.append(Image.open(path).convert('RGB'));times.append(clock())
         psg.append(block('PSG regs',0,14));frame()
     cmd('keymatrixup 8 145');unbreak(bp)
     fps=(len(times)-1)/(times[-1]-times[0]);unique=len({p.tobytes() for p in pictures})
-    check(f'stage-{stage+1}-8-native-name-phases',len(phases)==8,phases=sorted(phases))
+    check(f'stage-{stage+1}-16-native-PCG-phases',len(phases)==16,phases=sorted(phases))
+    check(f'stage-{stage+1}-PCG-background-readback',readbacks==96 and parts=={0,1},frames=readbacks,transfer_states=sorted(parts),checked_pixels_per_frame=40960)
     check(f'stage-{stage+1}-native-moving-frames',unique>=24,unique_frames=unique,frames=len(pictures),fps=round(fps,2))
     check(f'stage-{stage+1}-PSG-music-and-effects',len(set(psg))>3 and all((p[7]&0xC0)==0x80 for p in psg),distinct_states=len(set(psg)))
     durations=[];accumulated=0
@@ -84,7 +91,7 @@ for phase in range(4):
     check(f'pause-phase-{phase}-mode',read('_mode')==6)
     nt=block('VRAM',0x3800+32,32);decoded=''.join(chr(c-160) if 192<=c<=255 else '?' for c in nt)
     check(f'pause-phase-{phase}-visible-label','PAUSED / ESC TO RESUME' in decoded,label=decoded.strip())
-    c=read('_stage_clock',2);frame();frame();check(f'pause-phase-{phase}-stopped',read('_stage_clock',2)==c)
+    c=read('_stage_clock',2);pcg=(read('_world_phase'),read('_world_pending'));frame();frame();check(f'pause-phase-{phase}-stopped',read('_stage_clock',2)==c and pcg==(read('_world_phase'),read('_world_pending')))
     cmd('keymatrixdown 7 4');frame();cmd('keymatrixup 7 4');frame();check(f'pause-phase-{phase}-resumed',read('_mode')==1)
 cmd('keymatrixdown 5 32');frame();cmd('keymatrixup 5 32');frame()
 check('NOVA-before-pause-active',read('_bomb_flash')>0)
@@ -93,6 +100,14 @@ label=''.join(chr(c-160) if 192<=c<=255 else '?' for c in block('VRAM',0x3820,32
 check('NOVA-then-pause-visible-label',read('_mode')==6 and 'PAUSED / ESC TO RESUME' in label,label=label.strip())
 flash=read('_bomb_flash');frame();frame();check('NOVA-paused-flash-stops',read('_bomb_flash')==flash)
 cmd('keymatrixdown 7 4');frame();cmd('keymatrixup 7 4');frame()
+# Verify the faster decimal formatter through the ROM's actual HUD.
+for value in [0,1,9,10,99,100,999,1000,9999,10000,32767,65535]:
+    put('_score',value,2);put('_highscore',65535-value,2);put('_hud_last_mode',255);frame()
+    for base in [0x3800,0x3C00]:
+        glyphs=block('VRAM',base,32)
+        text=''.join(chr(c-160) if 192<=c<=255 else '?' for c in glyphs)
+        assert text[6:11]==f'{value:05}' and text[16:21]==f'{65535-value:05}',text
+check('decimal-HUD-native-both-pages',True,values=12,pages=2)
 unbreak(bp)
 
 # Deliberately dense renderer stress: no claim of a normal-play workload.

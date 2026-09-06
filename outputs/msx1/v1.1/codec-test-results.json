@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "tests": [
+    {
+      "name": "Exact 192/256/192 slot capacity accepted",
+      "passed": true
+    },
+    {
+      "name": "Disjoint alternating frame sets do not overwrite active PCG",
+      "passed": true
+    },
+    {
+      "name": "Fully resident two-frame animation needs only names",
+      "passed": true
+    },
+    {
+      "name": "Constant image handles empty A and B streams",
+      "passed": true
+    },
+    {
+      "name": "Wrong frame count",
+      "passed": true
+    },
+    {
+      "name": "Wrong pixel dtype",
+      "passed": true
+    },
+    {
+      "name": "Invalid palette index",
+      "passed": true
+    },
+    {
+      "name": "Nonblank reserved HUD",
+      "passed": true
+    },
+    {
+      "name": "Three colors in a physical eight-pixel row",
+      "passed": true
+    },
+    {
+      "name": "97 unique tiles exceeds top-band frame budget",
+      "passed": true
+    },
+    {
+      "name": "Insufficient graph slot capacity",
+      "passed": true
+    },
+    {
+      "name": "Font size must match the 64 reserved glyphs",
+      "passed": true
+    },
+    {
+      "name": "Space glyph must be blank",
+      "passed": true
+    },
+    {
+      "name": "Rejected inputs did not create partial output",
+      "passed": true
+    },
+    {
+      "name": "Verifier detects even an identical-byte active-PCG write",
+      "passed": true
+    },
+    {
+      "name": "Verifier detects sprite-pattern writes",
+      "passed": true
+    },
+    {
+      "name": "Verifier detects HUD-font writes",
+      "passed": true
+    },
+    {
+      "name": "Parser detects missing name bytes",
+      "passed": true
+    },
+    {
+      "name": "Parser detects bad section offsets",
+      "passed": true
+    },
+    {
+      "name": "Parser detects oversized banks",
+      "passed": true
+    },
+    {
+      "name": "Final stage is deterministic across separate compilations",
+      "passed": true
+    }
+  ],
+  "checks": 21,
+  "codec_sha256": "7f3fca9914a01fe4ba37279ef83090747e53535a658c9be7ae3ed9ca6bf5076f"
+}
