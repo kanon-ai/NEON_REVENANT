@@ -12,3 +12,10 @@
 /outputs/SHA256SUMS-publication.txt
 /outputs/turbor/SHA256SUMS.txt
 /outputs/SHA256SUMS-*.txt
+
+/msx2/work/
+/msx1/work/
+/outputs/msx2/*.zip
+/outputs/msx1/*.zip
+/outputs/msx2/SHA256SUMS*.txt
+/outputs/msx1/SHA256SUMS*.txt

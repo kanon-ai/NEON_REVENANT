@@ -1,10 +1,10 @@
 # Third-party notices / 第三者ソフトウェアの表記
 
-本書は、NEON REVENANT の V9990 版 v1.2 および Turbo R 単体版 v1.0 に関する依存物と出典の記録です。本プロジェクト固有のコード・画像・音楽の利用条件については [COPYRIGHT.md](COPYRIGHT.md) を参照してください。以下の第三者コードには、それぞれのライセンスが適用されます。
+本書は、NEON REVENANT の V9990 版 v1.2、Turbo R 単体版 v1.0、MSX2 版 v1.0、MSX1 Challenge v1.0 に関する依存物と出典の記録です。本プロジェクト固有のコード・画像・音楽の利用条件については [COPYRIGHT.md](COPYRIGHT.md) を参照してください。以下の第三者コードには、それぞれのライセンスが適用されます。
 
 ## ROM にリンクされる SDCC ランタイム
 
-両版は **SDCC 4.6.0 #16555 / Z80** でビルドしています。両版のリンカーマップを確認したところ、`z80.lib` からリンクされるオブジェクトは次の 4 個です。
+4版とも **SDCC 4.6.0 #16555 / Z80** でビルドしています。各版のリンカーマップを確認したところ、`z80.lib` からリンクされるオブジェクトは次の 4 個です。
 
 | オブジェクト | 用途 | 上流の著作権表示 |
 |---|---|---|
@@ -44,6 +44,6 @@
 
 ## English summary
 
-The two ROM editions link four SDCC Z80 runtime objects: `divunsigned`, `modunsigned`, `mul`, and `divsigned`. Each is licensed under GPL version 2 or later with the SDCC linking exception stated in its source header. Their unmodified corresponding source, copyright notices, full GPL v2 text, provenance, and object verification results are included under `licenses/sdcc-runtime/`. This notice does not relicense the project's own materials or any third-party material.
+The four ROM editions link four SDCC Z80 runtime objects: `divunsigned`, `modunsigned`, `mul`, and `divsigned`. Each is licensed under GPL version 2 or later with the SDCC linking exception stated in its source header. Their unmodified corresponding source, copyright notices, full GPL v2 text, provenance, and object verification results are included under `licenses/sdcc-runtime/`. This notice does not relicense the project's own materials or any third-party material.
 
 Compilers, assemblers, Python packages, Node.js, openMSX, and machine BIOS files are not bundled in the public repository or release archives. External tools retain their respective licenses. This is an unofficial, experimental project, with no endorsement by the owners of the referenced product or game names.

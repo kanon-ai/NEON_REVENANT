@@ -2,9 +2,9 @@
 
 **開発途中の実験的なプロトタイプです。無保証で公開しており、MSX実機・実カートリッジでの動作確認はしていません。** 動作確認はopenMSX上で行っています。利用前に[免責事項](DISCLAIMER.md)と[著作権・ライセンスの状態](COPYRIGHT.md)を確認してください。
 
-MSX turbo Rで夜のサイバー都市を疾走する、512 KiB ASCII8 MegaROMの疑似3Dシューティングです。『ナイトストライカー』に着想を得て、3区域・3ボス、連射とNOVAボム、MSX-MUSICの音楽とPSG効果音を実装しています。本作はタイトーやMSX関連各社の公式作品ではありません。
+夜のサイバー都市を疾走する、MSX用512 KiB ASCII8 MegaROMの疑似3Dシューティングです。『ナイトストライカー』に着想を得て、3区域・3ボス、連射とNOVAボムを実装しています。V9990版・turbo R単体版はMSX-MUSIC＋PSG、MSX2版・初代MSX版は標準PSGで音楽と効果音を鳴らします。本作はタイトーやMSX関連各社の公式作品ではありません。
 
-「もしMSX3が存在したら」を画づくりのコンセプトに、2種類のROMを公開しています。ゲームはMSX上のネイティブプログラムとして動きます。道路や建物が手前へ移動・拡大する画像を事前生成し、実行中に合成する方式です。
+「もしMSX3が存在したら」を出発点に、V9990から初代MSXまで、機種の制約に合わせた4種類のROMを公開しています。ゲームはMSX上のネイティブプログラムとして動きます。背景画像やパターンを開発時に生成し、実行時はMSXのVDPで表示・切り替え・合成します。
 
 [試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
 
@@ -12,9 +12,32 @@ MSX turbo Rで夜のサイバー都市を疾走する、512 KiB ASCII8 MegaROM�
 
 [制作ノウハウ：ASTRAとMSXゲームを作る — NEON REVENANT開発ノート](docs/ASTRA_MSX_GAMEDEV_JA.md)
 
-機種とROM容量を指定する依頼から、背景の疾走感、素材の作り込み、turbo R単体版への移植、openMSXでの検証までを紹介しています。再構成したプロンプト例と実装へのリンクを載せ、人間の方向づけとAIによる実装・修正をどう往復したかをまとめました。
+機種とROM容量を指定する依頼から、背景の疾走感、素材の作り込み、turbo R・MSX2・初代MSXへの移植、openMSXでの検証までを紹介しています。再構成したプロンプト例と実装へのリンクを載せ、人間の方向づけとAIによる実装・修正をどう往復したかをまとめました。
 
-## 2つのエディション
+## MSX2版・初代MSXチャレンジ版
+
+| 項目 | MSX2 Edition v1.0 | MSX1 Challenge v1.0 |
+| --- | --- | --- |
+| CPU・RAM | 標準Z80 3.58MHz、RAM64KiB | 標準Z80 3.58MHz、RAM64KiB |
+| VDP・VRAM | V9938、128KiB | TMS9918A系、16KiB |
+| 表示 | SCREEN 4、256×192、512色から16色 | SCREEN 2、256×192、固定色 |
+| 前進する背景 | turbo R単体版の8枚の背景を保持 | 常駐パターンの配置を8位相で切り替え、道路と街の灯りを動かす |
+| 自機・敵 | 絵柄をVRAMへキャッシュして転送を削減 | 絵柄を常駐させ、1枚1色・走査線4枚のスプライト制限へ縮約 |
+| 音源 | 標準PSGのみ。FM拡張不要 | 標準PSGのみ。FM拡張不要 |
+| ROM | [MSX2版ROM](outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom) | [初代MSX版ROM](outputs/msx1/NEON_REVENANT-MSX1-v1.0.rom) |
+| 起動・操作・性能・制限 | [MSX2版ガイド](msx2/README.md) | [初代MSX版ガイド](msx1/README.md) |
+
+両版とも3区域・3ボス、キーボードとジョイスティック、ポーズ・再挑戦を収録しています。初代MSX版の対象は**RAM64KiB・VRAM16KiBの構成**です。描画速度と表示制約、試験条件は各ガイドに記録しています。
+
+### MSX2版の実行画面
+
+![MSX2版：openMSXでのROM実行映像](outputs/msx2/stage-1-native.gif)
+
+### 初代MSX版の実行画面
+
+![MSX1 Challenge：openMSXでのROM実行映像](outputs/msx1/stage-1-native.gif)
+
+## V9990版・turbo R単体版
 
 | 項目 | V9990版 v1.2 | Turbo R単体版 v1.0 |
 | --- | --- | --- |
@@ -42,7 +65,7 @@ MSX turbo Rで夜のサイバー都市を疾走する、512 KiB ASCII8 MegaROM�
 
 ## openMSXで起動する
 
-確認済みの機種設定は**Panasonic_FS-A1ST**、エミュレーターは**openMSX 21.0**です。必要なBIOS・システムROMは利用者が用意してください。このリポジトリには同梱していません。
+V9990版・turbo R単体版の確認済み機種設定は**Panasonic_FS-A1ST**、エミュレーターは**openMSX 21.0**です。MSX2版と初代MSX版の設定はそれぞれのガイドを参照してください。必要なBIOS・システムROMは利用者が用意してください。このリポジトリには同梱していません。
 
 | 設定 | V9990版 | Turbo R単体版 |
 | --- | --- | --- |
@@ -85,12 +108,14 @@ openMSX上で起動、操作、射撃、ボム、ポーズ、被弾、再挑戦�
 
 - V9990版：[動作検証](outputs/verification-v1.2.json)、[背景・速度の検証](outputs/world-verification-v1.2.json)
 - Turbo R単体版：[動作検証](outputs/turbor/verification.json)、[背景検証](outputs/turbor/world-verification.json)、[スプライト・速度の検証](outputs/turbor/sprite-verification.json)
+- MSX2版：[動作検証](outputs/msx2/verification.json)、[背景検証](outputs/msx2/world-verification.json)、[スプライト・速度の検証](outputs/msx2/sprite-verification.json)
+- 初代MSX版：[動作検証](outputs/msx1/verification.json)、[描画・速度の検証](outputs/msx1/world-verification.json)
 
 **実機、各種ROMローダー、フラッシュカートリッジへの書き込み後の動作は未検証です。** エミュレーターでの確認は、それらの互換性や安全性を保証しません。
 
 ## 配布パッケージの再作成
 
-両版をビルドした後、リポジトリ直下で `python tools/package.py` を実行すると、両ROM・ソース・素材・開発ノート・検証結果・免責事項・第三者ライセンスをまとめた `outputs/NEON_REVENANT-public-prototype.zip` とSHA-256一覧を生成します。コンパイラー、エミュレーター、BIOSは同梱しません。
+4版をビルドした後、リポジトリ直下で `python tools/package.py` を実行すると、全ROM・ソース・素材・開発ノート・検証結果・免責事項・第三者ライセンスをまとめた `outputs/NEON_REVENANT-public-prototype.zip` とSHA-256一覧を生成します。コンパイラー、エミュレーター、BIOSは同梱しません。
 
 ## 公開条件
 
@@ -98,6 +123,6 @@ openMSX上で起動、操作、射撃、ボム、ポーズ、被弾、再挑戦�
 
 ## English summary
 
-NEON REVENANT is an experimental, native MSX turbo R pseudo-3D rail shooter with three stages and three bosses. Both editions use a 512 KiB ASCII8 ROM and MSX-MUSIC + PSG audio: v1.2 requires V9990/GFX9000, while Turbo R Edition v1.0 uses the built-in V9958.
+NEON REVENANT is an experimental, native MSX pseudo-3D rail shooter with three stages and three bosses. Four 512 KiB ASCII8 ROM editions are available: V9990/GFX9000 v1.2, Turbo R v1.0 using V9958, MSX2 v1.0 using V9938, and MSX1 Challenge v1.0 using the TMS9918A family. MSX2 and MSX1 use standard PSG music and effects without an FM expansion. They target 64 KiB RAM; MSX2 requires 128 KiB VRAM and MSX1 requires 16 KiB VRAM. See their guides for measured performance and limitations.
 
 The V9990 edition measured about 30 updates/s in openMSX. The Turbo R edition normally updates gameplay and sprites at about 30/s and backgrounds at about 15/s; a crowded test dropped to about 20/s. Sprite overlap can cause missing parts and flicker. **Physical hardware has not been tested. This prototype is provided AS IS, without warranty. Its project-specific license is currently unspecified; public source availability is not an open-source license grant.** See [DISCLAIMER.md](DISCLAIMER.md), [COPYRIGHT.md](COPYRIGHT.md), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

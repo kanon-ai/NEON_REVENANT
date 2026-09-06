@@ -1,0 +1,43 @@
+{
+  "title": "NEON REVENANT - MSX2 Edition",
+  "version": "1.0",
+  "file": "NEON_REVENANT-MSX2-v1.0.rom",
+  "mapper": "ASCII8",
+  "rom_bytes": 524288,
+  "allocated_bytes": 475136,
+  "runtime_bytes": 11809,
+  "runtime_address": "8000-DFFF",
+  "data_end": "0xe649",
+  "sprite_bytes": 5650,
+  "worlds": [
+    {
+      "stage": 1,
+      "raw_bytes": 131072,
+      "rom_offset": 65536,
+      "raw_sha256": "88ac415cf5a385efa72482f1a0a967c6fab9622276872b83f6cfe80f2e5a31c0"
+    },
+    {
+      "stage": 2,
+      "raw_bytes": 131072,
+      "rom_offset": 196608,
+      "raw_sha256": "3c33851e3f8d9468617051feb72c398647f8bf6a9b219cb142bf35aeef031d7f"
+    },
+    {
+      "stage": 3,
+      "raw_bytes": 131072,
+      "rom_offset": 327680,
+      "raw_sha256": "f7799774b6b87c33bb2bc0127165a953d04e2207ff1a683af34043cfe22482ce"
+    }
+  ],
+  "video": "V9938 SCREEN4 256x192, 8 resident world frames per stage, mode2 MAG2 sprites",
+  "v9990_required": false,
+  "sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+  "entry": "0xa34e",
+  "cpu": "Z80 3.58 MHz",
+  "minimum_ram_bytes": 65536,
+  "vram_bytes": 131072,
+  "sound": "AY-3-8910/YM2149 PSG; no FM requirement",
+  "logic_rate_hz": 30,
+  "interrupts": "IM2 EE00-EF00 vector, EFEF trampoline; 60 Hz VBlank",
+  "physical_hardware_tested": false
+}

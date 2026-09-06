@@ -1,0 +1,348 @@
+{
+  "target": "TMS9918A SCREEN2, 16KiB VRAM",
+  "palette_rgb8": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      33,
+      200,
+      66
+    ],
+    [
+      94,
+      220,
+      120
+    ],
+    [
+      84,
+      85,
+      237
+    ],
+    [
+      125,
+      118,
+      252
+    ],
+    [
+      212,
+      82,
+      77
+    ],
+    [
+      66,
+      235,
+      245
+    ],
+    [
+      252,
+      85,
+      84
+    ],
+    [
+      255,
+      121,
+      120
+    ],
+    [
+      212,
+      193,
+      84
+    ],
+    [
+      230,
+      206,
+      128
+    ],
+    [
+      33,
+      176,
+      59
+    ],
+    [
+      201,
+      91,
+      186
+    ],
+    [
+      204,
+      204,
+      204
+    ],
+    [
+      255,
+      255,
+      255
+    ]
+  ],
+  "worlds": [
+    {
+      "stage": 1,
+      "tiles_per_band": [
+        25,
+        82,
+        76
+      ],
+      "phases": 8,
+      "bytes_per_name_update": 640,
+      "all_frames_decode_exactly": true,
+      "pixel_changes_per_phase": [
+        14190,
+        9714,
+        11286,
+        8217,
+        8238,
+        8202,
+        14157,
+        6588
+      ]
+    },
+    {
+      "stage": 2,
+      "tiles_per_band": [
+        23,
+        82,
+        76
+      ],
+      "phases": 8,
+      "bytes_per_name_update": 640,
+      "all_frames_decode_exactly": true,
+      "pixel_changes_per_phase": [
+        15210,
+        10734,
+        12306,
+        9237,
+        9258,
+        9222,
+        15177,
+        7608
+      ]
+    },
+    {
+      "stage": 3,
+      "tiles_per_band": [
+        21,
+        82,
+        76
+      ],
+      "phases": 8,
+      "bytes_per_name_update": 640,
+      "all_frames_decode_exactly": true,
+      "pixel_changes_per_phase": [
+        10767,
+        6613,
+        7810,
+        5141,
+        5014,
+        5094,
+        10660,
+        3733
+      ]
+    }
+  ],
+  "sprite_atlas": {
+    "resident_patterns": 55,
+    "pattern_bytes": 1760,
+    "records": 55,
+    "sprites": [
+      {
+        "name": "P0",
+        "pattern_count": 2,
+        "width": 32,
+        "height": 22
+      },
+      {
+        "name": "P1",
+        "pattern_count": 2,
+        "width": 32,
+        "height": 22
+      },
+      {
+        "name": "P2",
+        "pattern_count": 2,
+        "width": 32,
+        "height": 22
+      },
+      {
+        "name": "E0",
+        "pattern_count": 1,
+        "width": 8,
+        "height": 6
+      },
+      {
+        "name": "E1",
+        "pattern_count": 1,
+        "width": 12,
+        "height": 8
+      },
+      {
+        "name": "E2",
+        "pattern_count": 1,
+        "width": 18,
+        "height": 12
+      },
+      {
+        "name": "E3",
+        "pattern_count": 1,
+        "width": 26,
+        "height": 16
+      },
+      {
+        "name": "E4",
+        "pattern_count": 2,
+        "width": 38,
+        "height": 24
+      },
+      {
+        "name": "E5",
+        "pattern_count": 2,
+        "width": 48,
+        "height": 32
+      },
+      {
+        "name": "E6",
+        "pattern_count": 1,
+        "width": 8,
+        "height": 6
+      },
+      {
+        "name": "E7",
+        "pattern_count": 1,
+        "width": 12,
+        "height": 8
+      },
+      {
+        "name": "E8",
+        "pattern_count": 1,
+        "width": 18,
+        "height": 12
+      },
+      {
+        "name": "E9",
+        "pattern_count": 1,
+        "width": 26,
+        "height": 16
+      },
+      {
+        "name": "E10",
+        "pattern_count": 2,
+        "width": 38,
+        "height": 24
+      },
+      {
+        "name": "E11",
+        "pattern_count": 2,
+        "width": 48,
+        "height": 32
+      },
+      {
+        "name": "E12",
+        "pattern_count": 1,
+        "width": 8,
+        "height": 6
+      },
+      {
+        "name": "E13",
+        "pattern_count": 1,
+        "width": 12,
+        "height": 8
+      },
+      {
+        "name": "E14",
+        "pattern_count": 1,
+        "width": 18,
+        "height": 12
+      },
+      {
+        "name": "E15",
+        "pattern_count": 1,
+        "width": 26,
+        "height": 16
+      },
+      {
+        "name": "E16",
+        "pattern_count": 2,
+        "width": 38,
+        "height": 24
+      },
+      {
+        "name": "E17",
+        "pattern_count": 2,
+        "width": 48,
+        "height": 32
+      },
+      {
+        "name": "FX0",
+        "pattern_count": 1,
+        "width": 24,
+        "height": 22
+      },
+      {
+        "name": "FX1",
+        "pattern_count": 1,
+        "width": 24,
+        "height": 22
+      },
+      {
+        "name": "FX2",
+        "pattern_count": 1,
+        "width": 24,
+        "height": 22
+      },
+      {
+        "name": "FX3",
+        "pattern_count": 1,
+        "width": 24,
+        "height": 22
+      },
+      {
+        "name": "B0",
+        "pattern_count": 6,
+        "width": 96,
+        "height": 50
+      },
+      {
+        "name": "B1",
+        "pattern_count": 6,
+        "width": 96,
+        "height": 50
+      },
+      {
+        "name": "B2",
+        "pattern_count": 6,
+        "width": 96,
+        "height": 50
+      },
+      {
+        "name": "SHOT",
+        "pattern_count": 1,
+        "width": 6,
+        "height": 10
+      },
+      {
+        "name": "PICK",
+        "pattern_count": 1,
+        "width": 14,
+        "height": 12
+      },
+      {
+        "name": "AIM",
+        "pattern_count": 1,
+        "width": 22,
+        "height": 20
+      }
+    ]
+  },
+  "checks": {
+    "screen2_roundtrip": true,
+    "all_phase_tiles_resident": true,
+    "64_pattern_limit": true
+  }
+}

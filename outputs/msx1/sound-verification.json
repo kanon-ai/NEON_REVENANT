@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "assertions": 45076,
+  "writes": 20172,
+  "failures": 0,
+  "joystick_direction_variants": 4,
+  "stage_arrangements": 3,
+  "effect_types": 6,
+  "kind": "host PSG register protocol and music/effect regression test",
+  "physical_hardware_tested": false,
+  "source_sha256": "4adf0bfe281630bfd1bed40371bad9a1758e3667f521fe0106c98766b70a4bf9"
+}

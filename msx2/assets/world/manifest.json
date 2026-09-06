@@ -1,0 +1,685 @@
+{
+  "format": "V9938 SCREEN 4, 256x192, indexed 16-color palette, 2 colors per 8x1 pixels",
+  "frame_bytes": 16384,
+  "frames_per_stage": 8,
+  "stage_bytes": 131072,
+  "world_viewport": [
+    0,
+    16,
+    256,
+    176
+  ],
+  "source_dimensions": [
+    256,
+    180
+  ],
+  "source_frames": 16,
+  "source_phases": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14
+  ],
+  "background_rate_hz": 15,
+  "world_period": 384,
+  "palette_rgb3": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      2,
+      3,
+      3
+    ],
+    [
+      1,
+      5,
+      5
+    ],
+    [
+      4,
+      6,
+      6
+    ],
+    [
+      7,
+      7,
+      7
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      3,
+      3,
+      4
+    ],
+    [
+      4,
+      2,
+      4
+    ],
+    [
+      7,
+      3,
+      4
+    ],
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      6,
+      3,
+      1
+    ],
+    [
+      7,
+      5,
+      2
+    ],
+    [
+      7,
+      6,
+      4
+    ]
+  ],
+  "palette_rgb8": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      36
+    ],
+    [
+      0,
+      36,
+      36
+    ],
+    [
+      36,
+      73,
+      73
+    ],
+    [
+      73,
+      109,
+      109
+    ],
+    [
+      36,
+      182,
+      182
+    ],
+    [
+      146,
+      219,
+      219
+    ],
+    [
+      255,
+      255,
+      255
+    ],
+    [
+      36,
+      0,
+      36
+    ],
+    [
+      109,
+      109,
+      146
+    ],
+    [
+      146,
+      73,
+      146
+    ],
+    [
+      255,
+      109,
+      146
+    ],
+    [
+      73,
+      36,
+      36
+    ],
+    [
+      219,
+      109,
+      36
+    ],
+    [
+      255,
+      182,
+      73
+    ],
+    [
+      255,
+      219,
+      146
+    ]
+  ],
+  "quantization": "Exhaustive least-error 2-color pair per 8x1 pixels, RGB weights2:3:1, no dithering",
+  "opaque_palette_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "layout": {
+    "patterns_offset": 0,
+    "patterns_bytes": 6144,
+    "colors_offset": 8192,
+    "colors_bytes": 6144,
+    "name_table_offset": 14336,
+    "name_table_bytes": 768,
+    "reserved_sprite_hole_offset": 6144,
+    "reserved_sprite_hole_bytes": 2048
+  },
+  "hud": {
+    "rows": [
+      0,
+      1,
+      22,
+      23
+    ],
+    "font_bands": [
+      0,
+      2
+    ],
+    "first_glyph_slot": 192,
+    "ascii_range": [
+      32,
+      95
+    ],
+    "font_colors": 113,
+    "initial_character": "space"
+  },
+  "registers": {
+    "R3": 255,
+    "R4": "(frame << 3) | 3",
+    "R10": "frame",
+    "R2": "(frame << 4) | 14",
+    "R6": 3,
+    "R5": 183,
+    "R11": 0,
+    "sprite_pattern_address": 6144,
+    "sprite_color_address": 22528,
+    "sprite_attribute_address": 23040
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "raw_bytes": 131072,
+      "sha256": "88ac415cf5a385efa72482f1a0a967c6fab9622276872b83f6cfe80f2e5a31c0",
+      "source_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+      "source_phases": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "unique_frames": 8,
+      "changed_pixels_per_frame": [
+        17338,
+        16753,
+        16399,
+        15982,
+        16553,
+        16252,
+        16304,
+        16868
+      ],
+      "gif_round_trip_frames": 8,
+      "gif_duration_ms": 530,
+      "frames": [
+        {
+          "source_phase": 0,
+          "sha256": "4315e719d64ef3cc66d134c4cd8655340cce7227f40464a4391e168322cfabe4",
+          "background_tiles_per_band": [
+            152,
+            230,
+            131
+          ],
+          "weighted_rgb_error_per_pixel": 1208.599,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 2,
+          "sha256": "a9680761b6f53cc10f8b47fd0ff4561301d3c5a5c7a77c7751b2bf9fefbfd097",
+          "background_tiles_per_band": [
+            155,
+            241,
+            126
+          ],
+          "weighted_rgb_error_per_pixel": 1263.15,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 4,
+          "sha256": "280b121a8588a7a49d3e900310c38e1af1be1b8b8257c1f48abaf540a8a7785a",
+          "background_tiles_per_band": [
+            164,
+            244,
+            130
+          ],
+          "weighted_rgb_error_per_pixel": 1233.833,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 6,
+          "sha256": "a44b9e339b81c5e7ecf139c8b83bd738feca3e20badb5b7d603e370e0c988d98",
+          "background_tiles_per_band": [
+            158,
+            244,
+            132
+          ],
+          "weighted_rgb_error_per_pixel": 1252.393,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 8,
+          "sha256": "82e637ba145de5abeae84412709d54a3349cbc5faed02ea93518e0e6348140ea",
+          "background_tiles_per_band": [
+            155,
+            232,
+            127
+          ],
+          "weighted_rgb_error_per_pixel": 1171.957,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 10,
+          "sha256": "80b8df070be37d4332fef1a49087cdaace4af28947f667147caa862eb01f8aac",
+          "background_tiles_per_band": [
+            161,
+            235,
+            128
+          ],
+          "weighted_rgb_error_per_pixel": 1199.982,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 12,
+          "sha256": "55392c344c3112ea446dd9f1093eb5cba17bee00e737f762b16ad363870dfc82",
+          "background_tiles_per_band": [
+            164,
+            232,
+            131
+          ],
+          "weighted_rgb_error_per_pixel": 1186.247,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 14,
+          "sha256": "91a2fe21f4bea0b61890420f5a31615062c5ff537cd6c1220913f6706ac14ce3",
+          "background_tiles_per_band": [
+            163,
+            242,
+            131
+          ],
+          "weighted_rgb_error_per_pixel": 1265.429,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "raw_bytes": 131072,
+      "sha256": "3c33851e3f8d9468617051feb72c398647f8bf6a9b219cb142bf35aeef031d7f",
+      "source_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+      "source_phases": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "unique_frames": 8,
+      "changed_pixels_per_frame": [
+        16581,
+        17711,
+        15610,
+        15585,
+        15121,
+        14073,
+        16638,
+        18448
+      ],
+      "gif_round_trip_frames": 8,
+      "gif_duration_ms": 530,
+      "frames": [
+        {
+          "source_phase": 0,
+          "sha256": "b0e13c4cee9cc67fb48112896f7d9c7bb396dd5737e3d513bc2ec8eb1d898f82",
+          "background_tiles_per_band": [
+            130,
+            199,
+            121
+          ],
+          "weighted_rgb_error_per_pixel": 1004.792,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 2,
+          "sha256": "9be33e165b0eba441630adaf9bac0a5386076daa2ca325860cf3f21f9d42818d",
+          "background_tiles_per_band": [
+            113,
+            199,
+            118
+          ],
+          "weighted_rgb_error_per_pixel": 1029.006,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 4,
+          "sha256": "d5205b3c757900d9713e462e9a6891deb23843a5654614681502b02a8323f02d",
+          "background_tiles_per_band": [
+            110,
+            189,
+            125
+          ],
+          "weighted_rgb_error_per_pixel": 1032.826,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 6,
+          "sha256": "72a96678d7c47f0000159ae96a9ca0774336d01c49d143cb755f53c9c7238707",
+          "background_tiles_per_band": [
+            98,
+            186,
+            130
+          ],
+          "weighted_rgb_error_per_pixel": 1040.561,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 8,
+          "sha256": "475a9082863c08e2e03359955ba4403473e48e0a5caf78be02f5ce680cce3797",
+          "background_tiles_per_band": [
+            103,
+            182,
+            130
+          ],
+          "weighted_rgb_error_per_pixel": 1006.488,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 10,
+          "sha256": "65a6948d906e19a5552b13bb3f1da92a28fd27ae6ea9d9dfabb60cb08906638b",
+          "background_tiles_per_band": [
+            119,
+            196,
+            126
+          ],
+          "weighted_rgb_error_per_pixel": 1002.982,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 12,
+          "sha256": "2c2f96791e114ce45a4240de6132fa09e125930dc249dee65e85f48be0cfcaf3",
+          "background_tiles_per_band": [
+            135,
+            188,
+            129
+          ],
+          "weighted_rgb_error_per_pixel": 987.72,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 14,
+          "sha256": "b2c22f4f7eb013fbecde7849f2c8440c32ee5292ac5e96569eeec32b2fac7669",
+          "background_tiles_per_band": [
+            144,
+            216,
+            120
+          ],
+          "weighted_rgb_error_per_pixel": 1022.832,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "raw_bytes": 131072,
+      "sha256": "f7799774b6b87c33bb2bc0127165a953d04e2207ff1a683af34043cfe22482ce",
+      "source_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+      "source_phases": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14
+      ],
+      "unique_frames": 8,
+      "changed_pixels_per_frame": [
+        17569,
+        17687,
+        19890,
+        19211,
+        19722,
+        19826,
+        17553,
+        18858
+      ],
+      "gif_round_trip_frames": 8,
+      "gif_duration_ms": 530,
+      "frames": [
+        {
+          "source_phase": 0,
+          "sha256": "c2dd4195a62ad6dc19fa2ece908d52e42517c4063b4249b0effe5abd0c3b1108",
+          "background_tiles_per_band": [
+            135,
+            180,
+            102
+          ],
+          "weighted_rgb_error_per_pixel": 999.715,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 2,
+          "sha256": "17b0963eedc9b93bae50a321e797f40396013075b411b1a4cea36cd1bd36da4a",
+          "background_tiles_per_band": [
+            157,
+            203,
+            75
+          ],
+          "weighted_rgb_error_per_pixel": 1024.242,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 4,
+          "sha256": "569928e65a22ff1a2b2f703cdbc06d2a8a45811dd14e0c7da38087d37417d119",
+          "background_tiles_per_band": [
+            117,
+            184,
+            81
+          ],
+          "weighted_rgb_error_per_pixel": 970.901,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 6,
+          "sha256": "3b350f39d0a1242e2e3f248a0a5e589e2ac90232a9f357fc763bfda5f364be1e",
+          "background_tiles_per_band": [
+            141,
+            192,
+            113
+          ],
+          "weighted_rgb_error_per_pixel": 978.453,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 8,
+          "sha256": "18e4ff3662665c395e96998cb9883ccedfb18ca7a93f99229cac9a0cab690004",
+          "background_tiles_per_band": [
+            146,
+            192,
+            86
+          ],
+          "weighted_rgb_error_per_pixel": 959.23,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 10,
+          "sha256": "a91c0961954fa4286b11c77b32a713fa07e16f35932939f9cbaa973f48f8b9ed",
+          "background_tiles_per_band": [
+            121,
+            180,
+            84
+          ],
+          "weighted_rgb_error_per_pixel": 984.599,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 12,
+          "sha256": "878e9fb9aacb6b55f233de3c027e5345d1b5ad29922fbcfbfd7a155d91ee88fc",
+          "background_tiles_per_band": [
+            151,
+            189,
+            102
+          ],
+          "weighted_rgb_error_per_pixel": 963.503,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        },
+        {
+          "source_phase": 14,
+          "sha256": "202410d85635db1ff4c654e03a4218422da614c670413707d892e3e6d4d84763",
+          "background_tiles_per_band": [
+            126,
+            185,
+            78
+          ],
+          "weighted_rgb_error_per_pixel": 995.984,
+          "exact_table_round_trip": true,
+          "reserved_holes_zero": true,
+          "fixed_hud_glyphs_verified": true
+        }
+      ]
+    }
+  ],
+  "title": {
+    "raw_bytes": 16384,
+    "sha256": "8432f2afc5825bc82ba0c1daee57bc69e7e4c749ad1bad1dd2f262eb2b7f8f84",
+    "source_crop": [
+      32,
+      14,
+      288,
+      226
+    ],
+    "native_labels": [
+      "MSX2 / V9938 / Z80",
+      "V9938 NATIVE / PSG MUSIC",
+      "PRESS FIRE TO LAUNCH"
+    ],
+    "background_tiles_per_band": [
+      177,
+      220,
+      171
+    ],
+    "weighted_rgb_error_per_pixel": 1425.068,
+    "exact_table_round_trip": true,
+    "reserved_holes_zero": true,
+    "fixed_hud_glyphs_verified": false
+  },
+  "total_world_bytes": 393216,
+  "total_with_title_bytes": 409600
+}

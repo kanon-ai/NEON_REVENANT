@@ -1,0 +1,9 @@
+{
+  "rom_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+  "asset_regeneration": "all assets regenerated from copied local inputs",
+  "rom_rebuild_identical": true,
+  "gameplay_checks": 36,
+  "native_world_checks": 43,
+  "README_local_links_valid": true,
+  "user_specific_paths_in_source_reports": false
+}

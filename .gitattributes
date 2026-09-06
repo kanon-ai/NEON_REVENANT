@@ -10,3 +10,8 @@
 /turbor/assets/** -text
 /licenses/sdcc-runtime/** -text
 /licenses/sdcc-runtime/src/*.s whitespace=-blank-at-eof
+
+/msx2/src/** -text
+/msx1/src/** -text
+/msx2/assets/** -text
+/msx1/assets/** -text

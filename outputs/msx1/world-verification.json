@@ -1,0 +1,301 @@
+{
+  "rom": {
+    "title": "NEON REVENANT - MSX1 Challenge",
+    "version": "1.0",
+    "file": "NEON_REVENANT-MSX1-v1.0.rom",
+    "mapper": "ASCII8",
+    "rom_bytes": 524288,
+    "allocated_bytes": 155648,
+    "runtime_bytes": 9926,
+    "runtime_address": "8000-DFFF",
+    "data_end": "0xe207",
+    "sprite_bytes": 2048,
+    "worlds": [
+      {
+        "stage": 1,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "names_bytes": 5120,
+        "raw_sha256": "b36a205cee98c8d56527b6c51716afe799e62f0e223047c716ff364180cae73d"
+      },
+      {
+        "stage": 2,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "names_bytes": 5120,
+        "raw_sha256": "8b2d0ddd47c2c305a760d5e86a0f290903d8a1812ca42fc6cc70c842517911f8"
+      },
+      {
+        "stage": 3,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "names_bytes": 5120,
+        "raw_sha256": "403ede7d105fd2d9a6483e4c2a9829c8040fad9ad5309718917e89ea13196ea5"
+      }
+    ],
+    "video": "TMS9918A SCREEN2 256x192, 8 resident name phases, fixed palette, resident mode1 MAG2 sprites",
+    "v9990_required": false,
+    "sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+    "entry": "0x9e11"
+  },
+  "machine": "C-BIOS_MSX1_JP",
+  "video": "TMS99X8A, physical 16KiB VRAM",
+  "physical_hardware_tested": false,
+  "scenario_seeding": "Stage selection, all pause phases and stationary crowded scenarios use RAM injection; drawing/input/sound execute in the ROM.",
+  "sprite_limit": "32 total, 4 per scanline, 1 color per sprite; lines above four can disappear or flicker on real hardware.",
+  "results": [
+    {
+      "name": "target-is-original-MSX",
+      "passed": true
+    },
+    {
+      "name": "physical-VRAM-16KiB",
+      "passed": true
+    },
+    {
+      "name": "normal-Z80-speed",
+      "passed": true,
+      "hz": 3579545
+    },
+    {
+      "name": "executed-ROM-sha256",
+      "passed": true,
+      "sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2"
+    },
+    {
+      "name": "sprite-limit-enabled",
+      "passed": true
+    },
+    {
+      "name": "stage-1-resident-pattern-color-readback",
+      "passed": true,
+      "checked_bytes": 12288,
+      "load_seconds": 0.234
+    },
+    {
+      "name": "stage-1-resident-sprite-readback",
+      "passed": true
+    },
+    {
+      "name": "stage-1-8-native-name-phases",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "stage-1-native-moving-frames",
+      "passed": true,
+      "unique_frames": 64,
+      "frames": 64,
+      "fps": 29.47
+    },
+    {
+      "name": "stage-1-PSG-music-and-effects",
+      "passed": true,
+      "distinct_states": 45
+    },
+    {
+      "name": "stage-2-resident-pattern-color-readback",
+      "passed": true,
+      "checked_bytes": 12288,
+      "load_seconds": 0.217
+    },
+    {
+      "name": "stage-2-resident-sprite-readback",
+      "passed": true
+    },
+    {
+      "name": "stage-2-8-native-name-phases",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "stage-2-native-moving-frames",
+      "passed": true,
+      "unique_frames": 64,
+      "frames": 64,
+      "fps": 29.02
+    },
+    {
+      "name": "stage-2-PSG-music-and-effects",
+      "passed": true,
+      "distinct_states": 45
+    },
+    {
+      "name": "stage-3-resident-pattern-color-readback",
+      "passed": true,
+      "checked_bytes": 12288,
+      "load_seconds": 0.217
+    },
+    {
+      "name": "stage-3-resident-sprite-readback",
+      "passed": true
+    },
+    {
+      "name": "stage-3-8-native-name-phases",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "stage-3-native-moving-frames",
+      "passed": true,
+      "unique_frames": 64,
+      "frames": 64,
+      "fps": 28.34
+    },
+    {
+      "name": "stage-3-PSG-music-and-effects",
+      "passed": true,
+      "distinct_states": 50
+    },
+    {
+      "name": "pause-phase-0-mode",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-0-visible-label",
+      "passed": true,
+      "label": "PAUSED / ESC TO RESUME"
+    },
+    {
+      "name": "pause-phase-0-stopped",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-0-resumed",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-1-mode",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-1-visible-label",
+      "passed": true,
+      "label": "PAUSED / ESC TO RESUME"
+    },
+    {
+      "name": "pause-phase-1-stopped",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-1-resumed",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-2-mode",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-2-visible-label",
+      "passed": true,
+      "label": "PAUSED / ESC TO RESUME"
+    },
+    {
+      "name": "pause-phase-2-stopped",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-2-resumed",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-3-mode",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-3-visible-label",
+      "passed": true,
+      "label": "PAUSED / ESC TO RESUME"
+    },
+    {
+      "name": "pause-phase-3-stopped",
+      "passed": true
+    },
+    {
+      "name": "pause-phase-3-resumed",
+      "passed": true
+    },
+    {
+      "name": "NOVA-before-pause-active",
+      "passed": true
+    },
+    {
+      "name": "NOVA-then-pause-visible-label",
+      "passed": true,
+      "label": "PAUSED / ESC TO RESUME"
+    },
+    {
+      "name": "NOVA-paused-flash-stops",
+      "passed": true
+    },
+    {
+      "name": "boss-SAT-readback",
+      "passed": true,
+      "records": 9,
+      "dropped": 0
+    },
+    {
+      "name": "boss-renderer-progress",
+      "passed": true,
+      "scene": "boss",
+      "fps": 29.96,
+      "max_sprites_per_scanline": 4,
+      "scanlines_above_four": 0
+    },
+    {
+      "name": "crowded-SAT-readback",
+      "passed": true,
+      "records": 29,
+      "dropped": 0
+    },
+    {
+      "name": "crowded-renderer-progress",
+      "passed": true,
+      "scene": "crowded",
+      "fps": 29.96,
+      "max_sprites_per_scanline": 19,
+      "scanlines_above_four": 64
+    }
+  ],
+  "stress": [
+    {
+      "scene": "boss",
+      "fps": 29.96,
+      "max_sprites_per_scanline": 4,
+      "scanlines_above_four": 0
+    },
+    {
+      "scene": "crowded",
+      "fps": 29.96,
+      "max_sprites_per_scanline": 19,
+      "scanlines_above_four": 64
+    }
+  ]
+}
