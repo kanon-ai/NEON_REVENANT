@@ -8,6 +8,14 @@
 
 [試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
 
+## V9968 / V9990：次の表現に向けた調査
+
+**Turbo R高速モード＋V9968への対応と、V9990版でのさらなる映像表現を検討しています。** V9968への対応については、設計者の方からご了承をいただいています。各VDPの特徴を生かして、画面の動きと奥行きをどこまで豊かにできるか、準備調査を進めています。
+
+具体的な演出はまだ内緒です。現在は資料・実装の調査段階で、新しいROMや公開時期の発表ではありません。[調査状況と可能性 — 日本語 / English](docs/VDP_RESEARCH_STATUS.md)
+
+We are researching **Turbo R in R800 mode with V9968**, alongside further visual possibilities for the **V9990 edition**. The V9968 designer has given permission to pursue support. This is preparatory research; new features and a release date have not been confirmed. [English research update](docs/VDP_RESEARCH_STATUS.md#english).
+
 ## 初代MSX v1.3 — Dawn Leviathan
 
 夜明けへの脱出路に、約216×98ドットの巨大PCG戦艦が出現します。船体の左右・上下移動、砲身の反動、コアの明滅を組み合わせました。左右の砲台を壊し、中央装甲が開いてからコアを攻撃します。最初の4区域と最終区域の通常道中はv1.2を維持しています。
