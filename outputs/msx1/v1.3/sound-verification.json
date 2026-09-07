@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "assertions": 70000,
+  "writes": 31008,
+  "failures": 0,
+  "joystick_direction_variants": 4,
+  "stage_arrangements": 5,
+  "effect_types": 6,
+  "stage_hashes": [
+    [
+      2416358310,
+      3694493597,
+      4068164154,
+      1055395022,
+      1555114443
+    ],
+    [
+      980738662,
+      3694493597,
+      4068164154,
+      1055395022,
+      1555114443
+    ],
+    [
+      236868646,
+      3694493597,
+      4068164154,
+      1055395022,
+      1555114443
+    ],
+    [
+      3858416358,
+      3694493597,
+      4068164154,
+      1055395022,
+      1555114443
+    ]
+  ],
+  "kind": "host PSG register protocol and music/effect regression test",
+  "physical_hardware_tested": false,
+  "source_sha256": "d864816aa00cd43d7bddeab4d808373df41657c34b0a3fd271b9c6a86c844fc2",
+  "original_three_arrangements_match_v1_1": {
+    "passed": true,
+    "direction_variants": 4,
+    "ticks_per_arrangement": 384,
+    "baseline_source_sha256": "4adf0bfe281630bfd1bed40371bad9a1758e3667f521fe0106c98766b70a4bf9"
+  }
+}

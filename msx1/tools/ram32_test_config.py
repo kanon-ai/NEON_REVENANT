@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE = ROOT.parent / 'outputs/msx1/v1.2'
+RELEASE = ROOT.parent / 'outputs/msx1/v1.3'
 STANDARD = os.environ.get('MSX_VIDEO_STANDARD', 'ntsc').lower()
 if STANDARD not in ('ntsc', 'pal'):
     raise ValueError('MSX_VIDEO_STANDARD must be ntsc or pal')

@@ -1,0 +1,1618 @@
+{
+  "passed": true,
+  "archive": "NEON_REVENANT-MSX1-v1.3-complete.zip",
+  "archive_sha256": "456254a9ea4911546ee220a81b7907e85c93b95091f591b3abcce0f86a3e24ae",
+  "archive_bytes": 9775046,
+  "rom_sha256": "836ee25b969928c0617330fe454a52e8b8b6c4d9fa5c9d3986eef0a11d42894b",
+  "scope": "Checks performed after extracting the actual final ZIP. This report is external to that immutable ZIP, avoiding self-referential archive hashes.",
+  "checks": {
+    "zip_crc": true,
+    "unique_safe_paths": true,
+    "expected_current_and_baseline_roms_only": true,
+    "no_emulator_toolchain_executables_or_bios_payload_names": true,
+    "local_documentation_links": 86,
+    "image_files_open_and_verify": 134,
+    "extracted_source_rebuild_identical": true,
+    "portable_baseline_registry_self_contained": true,
+    "root_archive_and_rom_unchanged": true
+  },
+  "archive_members": 407,
+  "local_documentation_links": [
+    {
+      "document": "COPYRIGHT.md",
+      "target": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "document": "COPYRIGHT.md",
+      "target": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "document": "COPYRIGHT.md",
+      "target": "DISCLAIMER.md"
+    },
+    {
+      "document": "DISCLAIMER.md",
+      "target": "COPYRIGHT.md"
+    },
+    {
+      "document": "DISCLAIMER.md",
+      "target": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "document": "README.md",
+      "target": "msx1/GIANT_BOSS-v1.3.md"
+    },
+    {
+      "document": "README.md",
+      "target": "outputs/msx1/v1.3/NEON_REVENANT-MSX1-v1.3.rom"
+    },
+    {
+      "document": "README.md",
+      "target": "docs/ASTRA_THANK_YOU_EDITION.md"
+    },
+    {
+      "document": "README.md",
+      "target": "DISCLAIMER.md"
+    },
+    {
+      "document": "README.md",
+      "target": "COPYRIGHT.md"
+    },
+    {
+      "document": "README.md",
+      "target": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "document": "THIRD_PARTY_NOTICES.md",
+      "target": "COPYRIGHT.md"
+    },
+    {
+      "document": "THIRD_PARTY_NOTICES.md",
+      "target": "licenses/sdcc-runtime/GPL-2.0.txt"
+    },
+    {
+      "document": "THIRD_PARTY_NOTICES.md",
+      "target": "licenses/sdcc-runtime/README.md"
+    },
+    {
+      "document": "THIRD_PARTY_NOTICES.md",
+      "target": "licenses/sdcc-runtime/PROVENANCE.json"
+    },
+    {
+      "document": "THIRD_PARTY_NOTICES.md",
+      "target": "licenses/sdcc-runtime/OBJECT_VERIFICATION.json"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "msx1/README.md"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/build-manifest.json"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/layout-verification.json"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/validation-environment.json"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/campaign-verification.json"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/sound-verification.json"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/reproducibility.json"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "DISCLAIMER.md"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "COPYRIGHT.md"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "msx1/README-en.md"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "DISCLAIMER.md"
+    },
+    {
+      "document": "docs/ASTRA_THANK_YOU_EDITION.md",
+      "target": "COPYRIGHT.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "DISCLAIMER.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "COPYRIGHT.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "outputs/msx1/v1.3/NEON_REVENANT-MSX1-v1.3.rom"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "outputs/msx1/v1.3/launch-openmsx.ps1"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "outputs/msx1/v1.3/ntsc/giant-native.gif"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "outputs/msx1/v1.3/ntsc/giant-damage-states-native.gif"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "outputs/msx1/v1.3"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "DISCLAIMER.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "COPYRIGHT.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "outputs/msx1/v1.3"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "msx1/README.md"
+    },
+    {
+      "document": "msx1/GIANT_BOSS-v1.3.md",
+      "target": "msx1/README-en.md"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "msx1/GIANT_BOSS-v1.3.md"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "docs/ASTRA_THANK_YOU_EDITION.md"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "msx1/README.md"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/ntsc/stage-1-native.gif"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/ntsc/world-verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/pal/world-verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/build-manifest.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/reproducibility.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/ntsc/verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/pal/verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/ntsc/transfer-verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/pal/transfer-verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/ram64-smoke.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/validation-environment.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/layout-verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/campaign-verification.json"
+    },
+    {
+      "document": "msx1/README-en.md",
+      "target": "outputs/msx1/v1.2/sound-verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "msx1/GIANT_BOSS-v1.3.md"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "docs/ASTRA_THANK_YOU_EDITION.md"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "msx1/README-en.md"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/ntsc/stage-1-native.gif"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/ntsc/world-verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/pal/world-verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/build-manifest.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/reproducibility.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/ntsc/verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/pal/verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/ntsc/transfer-verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/pal/transfer-verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/ram64-smoke.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/validation-environment.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/layout-verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/campaign-verification.json"
+    },
+    {
+      "document": "msx1/README.md",
+      "target": "outputs/msx1/v1.2/sound-verification.json"
+    },
+    {
+      "document": "licenses/sdcc-runtime/README.md",
+      "target": "licenses/sdcc-runtime/GPL-2.0.txt"
+    },
+    {
+      "document": "licenses/sdcc-runtime/README.md",
+      "target": "licenses/sdcc-runtime/src/divunsigned.s"
+    },
+    {
+      "document": "licenses/sdcc-runtime/README.md",
+      "target": "licenses/sdcc-runtime/src/modunsigned.s"
+    },
+    {
+      "document": "licenses/sdcc-runtime/README.md",
+      "target": "licenses/sdcc-runtime/src/mul.s"
+    },
+    {
+      "document": "licenses/sdcc-runtime/README.md",
+      "target": "licenses/sdcc-runtime/src/divsigned.s"
+    }
+  ],
+  "media_inventory": [
+    {
+      "file": "outputs/msx1/v1.2/ram64-smoke.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/sprites-reference.png",
+      "format": "PNG",
+      "size": [
+        512,
+        400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/title-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-1-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-1-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-2-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-2-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-3-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-3-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-4-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-4-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-5-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.2/world-5-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-0-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-0-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-1-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 15
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-1-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-2-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-2-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-3-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 15
+    },
+    {
+      "file": "outputs/msx1/v1.3/giant-state-3-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/sprites-reference.png",
+      "format": "PNG",
+      "size": [
+        512,
+        400
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/title-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-1-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-1-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-2-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-2-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-3-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-3-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-4-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-4-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-5-reference.gif",
+      "format": "GIF",
+      "size": [
+        256,
+        192
+      ],
+      "frames": 16
+    },
+    {
+      "file": "outputs/msx1/v1.3/world-5-reference.png",
+      "format": "PNG",
+      "size": [
+        768,
+        576
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/boss-1.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/boss-2.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/boss-3.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/boss-4.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/boss-5.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/boss-native.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/combat.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/crowded-native.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/ending.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/game-over.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-closed.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-core-open.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-damage-states-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 32
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-ending.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-first-native.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-game-over.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-left-destroyed.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 17
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/giant-right-destroyed.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-1-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-1.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-2-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-2.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-3-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-3.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-4-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-4.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-5-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/stage-5.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/ntsc/title.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/boss-1.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/boss-2.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/boss-3.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/boss-4.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/boss-5.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/boss-native.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/combat.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/crowded-native.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/ending.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/game-over.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-closed.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-core-open.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-damage-states-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 32
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-ending.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-game-over.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-left-destroyed.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 17
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/giant-right-destroyed.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-1-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-1.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-2-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-2.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-3-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-3.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-4-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-4.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-5-native.gif",
+      "format": "GIF",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/stage-5.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.3/pal/title.png",
+      "format": "PNG",
+      "size": [
+        640,
+        480
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/boss-1.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/boss-2.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/boss-3.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/boss-4.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/boss-5.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/boss-native.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/combat.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/crowded-native.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/ending.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/game-over.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-1-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-1.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-2-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-2.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-3-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-3.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-4-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-4.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-5-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/stage-5.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/ntsc/title.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/boss-1.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/boss-2.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/boss-3.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/boss-4.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/boss-5.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/boss-native.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/combat.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/crowded-native.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/ending.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/game-over.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-1-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-1.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-2-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-2.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-3-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-3.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-4-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-4.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-5-native.gif",
+      "format": "GIF",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 95
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/stage-5.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    },
+    {
+      "file": "outputs/msx1/v1.2/pal/title.png",
+      "format": "PNG",
+      "size": [
+        320,
+        240
+      ],
+      "frames": 1
+    }
+  ],
+  "extracted_rebuild": {
+    "command": [
+      "${PYTHON_EXE}",
+      "msx1/tools/build.py",
+      "--pack-only"
+    ],
+    "rom_bytes": 524288,
+    "rom_sha256": "836ee25b969928c0617330fe454a52e8b8b6c4d9fa5c9d3986eef0a11d42894b",
+    "environment": {
+      "SDCC_BIN": "${EXTERNAL_SDCC_BIN}",
+      "PASMO": "${EXTERNAL_PASMO_EXE}"
+    }
+  },
+  "portable_preservation": {
+    "compared_snapshots": 73159,
+    "fields_per_snapshot": 163,
+    "preserved_input_files": 112,
+    "identical_trace_sha256": "60ad5d5e8949a3d9c6589a3c84a265114dcf642439d0a967f0754fb91abf02a2",
+    "giant_mechanics": {
+      "passed": true,
+      "assertions": 17888,
+      "motion_positions": 16,
+      "complete_fights": 32,
+      "weakpoint_boundary_checks": 384,
+      "gated_shot_checks": 1264,
+      "reachable_targets": 48,
+      "nova_checks": 112,
+      "pause_checks": 64,
+      "clear_reward_checks": 32,
+      "retry_checks": 96,
+      "scope": "Production host C scenarios with seeded final-stage clocks, health, displayed PCG state and motion positions; this is not an input-only full playthrough or a VDP test."
+    },
+    "source_sha256": {
+      "baseline": "449bd64d777f67fb69c68dbb36f8d3cf68a25d9c6ca537eec98e28944f3dbb7e",
+      "current": "e9968028f0b6a0da2d6c57b373450189361019291b12ec6b86e0d608e5edcb90"
+    },
+    "positive_controls": {
+      "damage": "A production scenario assertion rejected the mutation",
+      "pause": "First mismatch snapshot 1907, context=(2, 0, 1, 42, 0), mode: 2 != 1",
+      "spawn": "First mismatch snapshot 30, context=(0, 0, 1, 30, 0), rng: 1 != 33153",
+      "final_play": "A production scenario assertion rejected the mutation"
+    },
+    "registry_sha256": "d846146decd9115ed4bc96e120c854724c5da1d01a478a5449bb684c49ddf02b"
+  }
+}

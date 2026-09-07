@@ -12,7 +12,7 @@ from PIL import Image
 from ram32_test_config import ROOT, RELEASE, OUT, STANDARD, MACHINE, VDP, TIMING_SETUP
 SYM=json.loads((ROOT/'work/build/symbols.json').read_text())
 MANIFEST=json.loads((RELEASE/'build-manifest.json').read_text());results=[]
-SCRATCH=ROOT/'work'/('captures-v1.2-'+STANDARD);SCRATCH.mkdir(exist_ok=True)
+SCRATCH=ROOT/'work'/('captures-v1.3-'+STANDARD);SCRATCH.mkdir(exist_ok=True)
 
 def cmd(s):
     return urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:18801',data=s.encode()),timeout=25).read().decode().strip()
@@ -29,7 +29,7 @@ def advance(seconds):
     target=clock()+seconds;until(lambda:clock()>=target)
 def check(name,passed,**evidence):
     results.append(dict(name=name,passed=bool(passed),**evidence));print(name,'PASS' if passed else 'FAIL',evidence,flush=True);assert passed,name
-def shot(path):cmd(f'openmsx::internal_screenshot -raw {{{path.as_posix()}}}')
+def shot(path):cmd(f'openmsx::internal_screenshot -raw -size 640 {{{path.as_posix()}}}')
 def clear_entities():
     for n,stride,count in [('_foes',12,6),('_shots',9,8),('_fx',7,4)]:
         cmd(';'.join(f'debug write memory {SYM[n]+i*stride} 0' for i in range(count)))
@@ -112,8 +112,10 @@ for value in [0,1,9,10,99,100,999,1000,9999,10000,32767,65535]:
 check('decimal-HUD-native-both-pages',True,values=12,pages=2)
 unbreak(bp)
 
-# Deliberately dense renderer stress: no claim of a normal-play workload.
-setup(4,6);put('_pause_previous',2);put('_boss_x',128,2);put('_boss_y',100,2);put('_boss_hp',180,2);put('_boss_flash',0)
+# Deliberately dense ordinary sprite renderer stress: use unchanged zone 3,
+# because final zone 4 now uses the giant PCG hull and a separate native suite.
+# This remains a synthetic workload, not a normal-play performance claim.
+setup(3,6);put('_pause_previous',2);put('_boss_x',128,2);put('_boss_y',100,2);put('_boss_hp',180,2);put('_boss_flash',0)
 bp=breakpoint();stress=[]
 for crowded in [False,True]:
     if crowded:
@@ -137,7 +139,7 @@ unbreak(bp)
 
 check('no-too-fast-VRAM-access',int(cmd('set ::neon_fast_vram_count'))==0,violations=int(cmd('set ::neon_fast_vram_count')))
 report={'rom':MANIFEST,'machine':MACHINE,'video_standard':STANDARD,'video':VDP+', physical 16KiB VRAM','physical_ram_bytes':32768,'physical_hardware_tested':False,
- 'scenario_seeding':'Stage selection, all pause phases and stationary crowded scenarios use RAM injection; drawing/input/sound execute in the ROM.',
+ 'scenario_seeding':'Stage selection, all pause phases and stationary crowded scenarios use RAM injection; drawing/input/sound execute in the ROM. The sprite stress uses unchanged zone 3; final giant PCG combat is covered by the dedicated giant native suite.',
  'sprite_limit':'32 total, 4 per scanline, 1 color per sprite; lines above four can disappear or flicker on real hardware.',
  'results':results,'stress':stress}
 (OUT/'world-verification.json').write_text(json.dumps(report,indent=2)+'\n')

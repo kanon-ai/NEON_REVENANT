@@ -1,16 +1,32 @@
 # NEON REVENANT
 
-**開発途中の実験的なプロトタイプです。無保証で公開しており、MSX実機・実カートリッジでの動作確認はしていません。** 動作確認はopenMSX上で行っています。利用前に[免責事項](DISCLAIMER.md)と[著作権・ライセンスの状態](COPYRIGHT.md)を確認してください。
+**開発途中の実験的なプロトタイプを無保証で公開しています。開発側の検証はopenMSX上で行い、新しい初代MSX版v1.3の実機・実カートリッジ動作は未確認です。** 旧版にはコミュニティから実機動作の報告が寄せられています。利用前に[免責事項](DISCLAIMER.md)と[著作権・ライセンスの状態](COPYRIGHT.md)を確認してください。
 
-夜のサイバー都市を疾走する、MSX用512 KiB ASCII8 MegaROMの疑似3Dシューティングです。『ナイトストライカー』に着想を得て、区域ごとのボス戦、連射とNOVAボムを実装しています。V9990版・turbo R単体版・MSX2版は3区域、初代MSX版v1.2は5区域です。V9990版・turbo R単体版はMSX-MUSIC＋PSG、MSX2版・初代MSX版は標準PSGで音楽と効果音を鳴らします。本作はタイトーやMSX関連各社の公式作品ではありません。
+夜のサイバー都市を疾走する、MSX用512 KiB ASCII8 MegaROMの疑似3Dシューティングです。『ナイトストライカー』に着想を得て、区域ごとのボス戦、連射とNOVAボムを実装しています。V9990版・turbo R単体版・MSX2版は3区域、初代MSX版v1.3は巨大最終ボスを含む5区域です。V9990版・turbo R単体版はMSX-MUSIC＋PSG、MSX2版・初代MSX版は標準PSGで音楽と効果音を鳴らします。本作はタイトーやMSX関連各社の公式作品ではありません。
 
 「もしMSX3が存在したら」を出発点に、V9990から初代MSXまで、機種の制約に合わせた4種類のROMを公開しています。ゲームはMSX上のネイティブプログラムとして動きます。背景画像やパターンを開発時に生成し、実行時はMSXのVDPで表示・切り替え・合成します。
 
 [試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
 
-## ASTRAからの有難うエディション
+## 初代MSX v1.3 — Dawn Leviathan
 
-初代MSX版v1.2を **ASTRAからの有難うエディション / ASTRA Thank-You Edition** として公開します。遊んでくださった方、動画を見てくださった方、コメントを寄せてくださった方、実機で試してくださった方へ。有難うございます。湾岸から都市へ入るEpisode 0と、夜明けへの脱出路を加えました。
+夜明けへの脱出路に、約216×98ドットの巨大PCG戦艦が出現します。船体の左右・上下移動、砲身の反動、コアの明滅を組み合わせました。左右の砲台を壊し、中央装甲が開いてからコアを攻撃します。最初の4区域と最終区域の通常道中はv1.2を維持しています。
+
+**512KiB ASCII8 ROM・RAM32KiB・VRAM16KiBを維持し、ROMには88KiBの余裕があります。** openMSXのNTSC/PALで各200項目、計400項目のネイティブ検証に合格しました。
+
+初代MSX版の開発はいったんv1.3で完了とします。バグ報告への対応可否・時期は未定で、修正やサポートは保証しません。試作版としての配布条件と無保証の扱いは継続します。 / Current feature development of the MSX1 edition is complete with v1.3. Whether or when bug reports will be addressed is undecided; fixes and support are not guaranteed. Prototype distribution terms and the no-warranty conditions remain in effect.
+
+[v1.3リリース / Release](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/prototype-msx1-dawn-leviathan-2026-09-07) · [MSX1 v1.3 ROM](outputs/msx1/v1.3/NEON_REVENANT-MSX1-v1.3.rom) · [巨大ボスの設計と検証 / Design and validation](docs/MSX1_DAWN_LEVIATHAN.md) · [日英プレイ・ビルドガイド](msx1/GIANT_BOSS-v1.3.md)
+
+![MSX1 v1.3：openMSX NTSCで撮影した巨大戦艦の連続32描画フレーム](outputs/msx1/v1.3/ntsc/giant-native.gif)
+
+ROM実行から撮影した連続32描画フレームです。巨大ボス戦の実測更新速度はNTSC約29.96回/秒、PAL約25.07回/秒。PCG背景の位相はゲーム更新2回で1回進みます。
+
+The original MSX now faces a giant PCG battleship at the end of DAWN EXODUS. Break both cannon pods, wait for the central armour to open, then attack the reactor. The new encounter keeps the 512 KiB ROM, 32 KiB RAM and 16 KiB VRAM targets. [English design and validation notes](docs/MSX1_DAWN_LEVIATHAN.md#english).
+
+## 以前の版：ASTRAからの有難うエディション v1.2
+
+初代MSX版v1.2は **ASTRAからの有難うエディション / ASTRA Thank-You Edition** として公開しました。遊んでくださった方、動画を見てくださった方、コメントを寄せてくださった方、実機で試してくださった方へ。有難うございます。湾岸から都市へ入るEpisode 0と、夜明けへの脱出路を加えた版です。
 
 Thank you to everyone who played, watched, commented, or tried the game on real hardware. Two new routes invite you back: enter through the harbor, then find your way into dawn.
 
@@ -26,20 +42,20 @@ Thank you to everyone who played, watched, commented, or tried the game on real 
 
 ## MSX2版・初代MSXチャレンジ版
 
-| 項目 | MSX2 Edition v1.0 | MSX1 PCG Drive v1.2 / ASTRA Thank-You Edition |
+| 項目 | MSX2 Edition v1.0 | MSX1 PCG Drive v1.3 / Dawn Leviathan |
 | --- | --- | --- |
 | CPU・RAM | 標準Z80 3.58MHz、RAM64KiB | 標準Z80 3.58MHz、RAM32KiB（8000h～FFFFhを同一RAMスロットに配置） |
 | VDP・VRAM | V9938、128KiB | TMS9918A系、16KiB |
 | 表示 | SCREEN 4、256×192、512色から16色 | SCREEN 2、256×192、固定色 |
 | 前進する背景 | turbo R単体版の8枚の背景を保持 | 湾岸→既存3区域→夜明けの5区域、各16位相のPCGを先読み |
-| 自機・敵 | 絵柄をVRAMへキャッシュして転送を削減 | 絵柄を常駐させ、1枚1色・走査線4枚のスプライト制限へ縮約 |
+| 自機・敵 | 絵柄をVRAMへキャッシュして転送を削減 | 自機・弾はスプライト、巨大最終ボスはPCG背景＋常駐する損傷パーツ |
 | 音源 | 標準PSGのみ。FM拡張不要 | 標準PSGのみ。FM拡張不要 |
-| ROM | [MSX2版ROM](outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom) | [初代MSX版ROM](outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom)、512KiB中144KiB未使用 |
-| 起動・操作・性能・制限 | [MSX2版ガイド](msx2/README.md) | [日本語](msx1/README.md) / [English](msx1/README-en.md) |
+| ROM | [MSX2版ROM](outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom) | [初代MSX版ROM](outputs/msx1/v1.3/NEON_REVENANT-MSX1-v1.3.rom)、512KiB中88KiB未使用 |
+| 起動・操作・性能・制限 | [MSX2版ガイド](msx2/README.md) | [日本語 / English](msx1/GIANT_BOSS-v1.3.md) |
 
-MSX2版は3区域・3ボス、初代MSX版v1.2は5区域・5回のボス戦です。両版ともキーボードとジョイスティック、ポーズ・再挑戦に対応します。初代MSX版の対象は**RAM32KiB・VRAM16KiBの構成**です。描画速度と表示制約、試験条件は各ガイドに記録しています。
+MSX2版は3区域・3ボス、初代MSX版v1.3は5区域・5回のボス戦です。両版ともキーボードとジョイスティック、ポーズ・再挑戦に対応します。初代MSX版の対象は**RAM32KiB・VRAM16KiBの構成**です。描画速度と表示制約、試験条件は各ガイドに記録しています。
 
-初代MSX版v1.2は元3区域の背景・戦闘設定・曲を保ち、新しい2背景と2曲を追加しました。ボス画像は既存3種類を使い、導入と脱出で色替えしています。openMSXの32KiB構成で、移動・連射区間はNTSC約24～27fps、PAL約22～24fps、背景更新は約11～13Hzでした。ゲームと音楽はフレームに同期するためPALは遅くなります。旧v1.0／v1.1も以前のリリースに残しています。
+初代MSX版v1.2で加えた湾岸・夜明けの背景と曲を維持し、v1.3では最終戦を巨大戦艦に置き換えました。通常道中は従来の16位相PCG背景を使い、ボス戦専用の配置に切り替えて大きな船体を表示します。ゲームと音楽はフレームに同期するためPALは遅くなります。旧v1.0／v1.1／v1.2も以前のリリースに残しています。
 
 ### MSX2版の実行画面
 
@@ -49,11 +65,11 @@ MSX2版は3区域・3ボス、初代MSX版v1.2は5区域・5回のボス戦で�
 
 Episode 0：BREAKWATER APPROACH
 
-![MSX1 v1.2：湾岸からの進入、openMSX 32KiB NTSCでのROM実行映像](outputs/msx1/v1.2/ntsc/stage-1-native.gif)
+![MSX1 v1.3：湾岸からの進入、openMSX 32KiB NTSCでのROM実行映像](outputs/msx1/v1.3/ntsc/stage-1-native.gif)
 
 最終区域：DAWN EXODUS
 
-![MSX1 v1.2：夜明けへの脱出、openMSX 32KiB NTSCでのROM実行映像](outputs/msx1/v1.2/ntsc/stage-5-native.gif)
+![MSX1 v1.3：巨大戦艦が待つ夜明けへの脱出路、openMSX 32KiB NTSCでのROM実行映像](outputs/msx1/v1.3/ntsc/stage-5-native.gif)
 
 ## V9990版・turbo R単体版
 
@@ -127,11 +143,11 @@ openMSX上で起動、操作、射撃、ボム、ポーズ、被弾、再挑戦�
 - V9990版：[動作検証](outputs/verification-v1.2.json)、[背景・速度の検証](outputs/world-verification-v1.2.json)
 - Turbo R単体版：[動作検証](outputs/turbor/verification.json)、[背景検証](outputs/turbor/world-verification.json)、[スプライト・速度の検証](outputs/turbor/sprite-verification.json)
 - MSX2版：[動作検証](outputs/msx2/verification.json)、[背景検証](outputs/msx2/world-verification.json)、[スプライト・速度の検証](outputs/msx2/sprite-verification.json)
-- 初代MSX版v1.2：[NTSC動作](outputs/msx1/v1.2/ntsc/verification.json)・[描画と速度](outputs/msx1/v1.2/ntsc/world-verification.json)、[PAL動作](outputs/msx1/v1.2/pal/verification.json)・[描画と速度](outputs/msx1/v1.2/pal/world-verification.json)、[検証環境と全265項目の内訳](outputs/msx1/v1.2/validation-environment.json)
+- 初代MSX版v1.3：[NTSC動作](outputs/msx1/v1.3/ntsc/verification.json)・[巨大ボス](outputs/msx1/v1.3/ntsc/giant-verification.json)、[PAL動作](outputs/msx1/v1.3/pal/verification.json)・[巨大ボス](outputs/msx1/v1.3/pal/giant-verification.json)、[全400項目と再現性の説明](docs/MSX1_DAWN_LEVIATHAN.md#検証)
 
-MSX1 v1.2は32KiBのNTSC／PAL各127項目と64KiB構成の基本動作11項目が成功しました。両映像方式で計960描画フレームを照合し、既存3区域の戦闘も同じ入力・乱数から28,066状態が旧版と一致しました。詳しい範囲は[MSX1ガイド](msx1/README.md#検証の再実行)を参照してください。
+MSX1 v1.3は32KiBのNTSC／PAL各200項目が成功しました。各映像方式で通常背景480回・巨大ボス128回のVRAM読み戻しを照合しています。巨大ボス以外の既存C処理は、同じ入力・乱数から73,159時点×163項目がv1.2と一致しました。PCG状態遷移とZIP展開後のROM再ビルドも検証しています。[対象と限界の詳細](docs/MSX1_DAWN_LEVIATHAN.md#検証)を参照してください。
 
-**実機、各種ROMローダー、フラッシュカートリッジへの書き込み後の動作は未検証です。** エミュレーターでの確認は、それらの互換性や安全性を保証しません。
+**新しいMSX1 v1.3の実機、各種ROMローダー、フラッシュカートリッジへの書き込み後の動作は未検証です。** 旧版へのコミュニティの実機報告や今回のエミュレーター検証は、新版・すべての構成での互換性を保証するものではありません。
 
 ## 配布パッケージの再作成
 
@@ -145,8 +161,8 @@ MSX1 v1.2は32KiBのNTSC／PAL各127項目と64KiB構成の基本動作11項目�
 
 [Development approach: start on the strongest target, then adapt downward](docs/DEVELOPMENT_APPROACH_EN.md) — lessons from building four MSX editions with ASTRA, and the creator's approach for future projects: keep a playable reference, decide what to preserve, and choose when to stop extending hardware support.
 
-NEON REVENANT is an experimental, native MSX pseudo-3D rail shooter. Four 512 KiB ASCII8 ROM editions are available: V9990/GFX9000 v1.2, Turbo R v1.0 using V9958, MSX2 v1.0 using V9938, and MSX1 PCG Drive v1.2 using the TMS9918A family. The first three editions have three zones; **MSX1 v1.2 / ASTRA Thank-You Edition** adds an opening harbor route and a dawn escape for five zones and five boss encounters, using the existing three boss silhouettes. Its original three zones and melodies are preserved, with two new backgrounds and tunes.
+NEON REVENANT is an experimental, native MSX pseudo-3D rail shooter. Four 512 KiB ASCII8 ROM editions are available: V9990/GFX9000 v1.2, Turbo R v1.0 using V9958, MSX2 v1.0 using V9938, and MSX1 PCG Drive v1.3 using the TMS9918A family. The first three editions have three zones. **MSX1 v1.3 / Dawn Leviathan** retains the five-zone campaign introduced in v1.2 / ASTRA Thank-You Edition and replaces its final boss with a giant PCG battleship. The hull moves, individual cannon barrels recoil, and destroying both pods exposes a pulsing reactor after the armour opens. The first four zones and the ordinary final-zone route retain their prior behavior. Version 1.2 remains available as an earlier release.
 
-MSX2 and MSX1 use standard PSG music and effects without an FM expansion. MSX2 targets 64 KiB RAM and 128 KiB VRAM. MSX1 v1.2 needs 32 KiB RAM at 8000h–FFFFh in one RAM slot and 16 KiB VRAM, with 144 KiB left unused in its 512 KiB ROM. Its 265 native checks passed, including full scenario suites on both 32 KiB NTSC/PAL configurations and a basic 64 KiB check. PAL gameplay and music run more slowly because they are frame-bound. See the [English MSX1 guide](msx1/README-en.md) and [thank-you edition notes](docs/ASTRA_THANK_YOU_EDITION.md) for measurements and test boundaries.
+MSX2 and MSX1 use standard PSG music and effects without an FM expansion. MSX2 targets 64 KiB RAM and 128 KiB VRAM. MSX1 v1.3 needs 32 KiB RAM at 8000h–FFFFh in one RAM slot and 16 KiB VRAM, with 88 KiB unused in its 512 KiB ROM. All 400 native checks passed: 200 each on 32 KiB NTSC and PAL configurations. The giant encounter measured about 29.96 and 25.07 game updates/s respectively; PCG animation advances once per two game updates. PAL gameplay and music run more slowly because they are frame-bound. See the [v1.3 guide](msx1/GIANT_BOSS-v1.3.md) and [design and validation notes](docs/MSX1_DAWN_LEVIATHAN.md#english).
 
-The V9990 edition measured about 30 updates/s in openMSX. The Turbo R edition normally updates gameplay and sprites at about 30/s and backgrounds at about 15/s; a crowded test dropped to about 20/s. Sprite overlap can cause missing parts and flicker. **Physical hardware has not been tested. This prototype is provided AS IS, without warranty. Its project-specific license is currently unspecified; public source availability is not an open-source license grant.** See [DISCLAIMER.md](DISCLAIMER.md), [COPYRIGHT.md](COPYRIGHT.md), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+The V9990 edition measured about 30 updates/s in openMSX. The Turbo R edition normally updates gameplay and sprites at about 30/s and backgrounds at about 15/s; a crowded test dropped to about 20/s. Sprite overlap can cause missing parts and flicker. **Developer validation uses openMSX. Community hardware reports exist for earlier versions; the new MSX1 v1.3 has not been validated on physical MSX hardware or flash cartridges. This prototype is provided AS IS, without warranty. Its project-specific license is currently unspecified; public source availability is not an open-source license grant.** See [DISCLAIMER.md](DISCLAIMER.md), [COPYRIGHT.md](COPYRIGHT.md), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

@@ -5,6 +5,7 @@ void world_load(u8 stage);
 void title_load(void);
 /* PCG uploads target slots unused by the current displayed frame. */
 extern volatile u8 world_phase,world_page,world_pending,world_target;
+extern volatile u8 world_boss_state,world_boss_display_state;
 void world_prepare(void);
 void world_commit(void);
 #endif

@@ -5,6 +5,7 @@
 #include "assets.h"
 #include "sound.h"
 #include "world_load.h"
+#include "boss_layout.h"
 typedef signed char s8;
 typedef signed int s16;
 
@@ -40,6 +41,10 @@ u8 pause_previous;
 /* Visual state only: the simulation and collision coordinates are unchanged. */
 u8 world_loaded;
 s16 world_camera;
+/* Final encounter only. Physical PCG targets follow the displayed phase. */
+volatile u8 giant_phase,giant_left_hp,giant_right_hp,giant_core_hp;
+volatile u8 giant_gate_clock,giant_hit_part;
+s16 video_y(s16 y);
 
 static const s8 wave[64]={0,6,12,18,24,30,35,40,45,49,53,56,59,61,63,64,64,64,63,61,59,56,53,49,45,40,35,30,24,18,12,6,0,-6,-12,-18,-24,-30,-35,-40,-45,-49,-53,-56,-59,-61,-63,-64,-64,-64,-63,-61,-59,-56,-53,-49,-45,-40,-35,-30,-24,-18,-12,-6};
 /* Campaign order is independent of the three original combat profiles.
@@ -62,6 +67,8 @@ void new_game(void){
     mode=PLAY;player_x=128;player_y=166;aim_x=128;aim_y=119;shot_clock=0;hurt_clock=0;
     bomb_flash=0;stage_banner=90;transition_clock=0;combo=0;combo_clock=0;
     frames_played=0;boss_clock=0;boss_hp=0;boss_flash=0;world_loaded=255;
+    giant_phase=giant_left_hp=giant_right_hp=giant_core_hp=0;
+    giant_gate_clock=giant_hit_part=0;world_boss_state=0;
     sound_effect(5);
 }
 void damage(void){
@@ -87,6 +94,66 @@ void kill_foe(Foe *e){
     if(combo<9)++combo;combo_clock=65;add_score(20+(u16)combo*5);sound_effect(2);
     if((random16()&15)==0&&!pickup_on&&shield<6){pickup_on=1;pickup_x=e->x;pickup_y=e->y;pickup_z=0;}
 }
+/* A modest fixed motion table moves the target with the real PCG hull.
+ * No full-screen RAM buffer or per-pixel compositing is used on the Z80. */
+const GiantTargets *giant_targets(u8 phase){return &giant_motion[phase&15];}
+s16 giant_logical_y(u8 physical){return ((u16)physical*9)/8;}
+void giant_sync(void){
+    boss_hp=(u16)giant_left_hp+giant_right_hp+giant_core_hp;
+    world_boss_state=(giant_left_hp?0:1)|(giant_right_hp?0:2);
+    if(!giant_left_hp&&!giant_right_hp&&giant_phase==1){
+        giant_phase=2;giant_gate_clock=0;sound_effect(6);
+        explode(boss_x,boss_y,3);
+    }
+}
+void giant_destroy_part(u8 part){
+    const GiantTargets *t=giant_targets(world_phase);
+    u8 x=part==1?t->lx:t->rx,y=part==1?t->ly:t->ry;
+    explode(x,giant_logical_y(y),3);add_score(150);sound_effect(2);
+}
+void giant_finish(void){
+    reset_entities();explode(boss_x,boss_y,4);sound_effect(4);bomb_flash=30;
+    add_score(700);mode=TRANSIT;transition_clock=0;giant_phase=4;
+}
+void giant_fire_hit(void){
+    const GiantTargets *t=giant_targets(world_phase);
+    s16 y=video_y(aim_y);
+    u8 hit=0;
+    if(giant_phase==1){
+        if(giant_left_hp&&abs16(aim_x-t->lx)<14&&abs16(y-t->ly)<11){
+            hit=1;if(!--giant_left_hp)giant_destroy_part(1);
+        }else if(giant_right_hp&&abs16(aim_x-t->rx)<14&&abs16(y-t->ry)<11){
+            hit=2;if(!--giant_right_hp)giant_destroy_part(2);
+        }
+    }else if(giant_phase==3&&world_boss_display_state==3&&
+             abs16(aim_x-t->cx)<15&&abs16(y-t->cy)<13&&giant_core_hp){
+        hit=3;--giant_core_hp;
+    }
+    if(hit){giant_hit_part=hit;boss_flash=3;add_score(2);giant_sync();
+        if(!giant_core_hp)giant_finish();}
+}
+void giant_bomb(void){
+    if(giant_phase==1){
+        if(giant_left_hp){if(giant_left_hp>12)giant_left_hp-=12;else{giant_left_hp=0;giant_destroy_part(1);}}
+        if(giant_right_hp){if(giant_right_hp>12)giant_right_hp-=12;else{giant_right_hp=0;giant_destroy_part(2);}}
+    }else if(giant_phase==3){
+        if(giant_core_hp>25)giant_core_hp-=25;else giant_core_hp=1;
+    }
+    boss_flash=6;giant_hit_part=3;giant_sync();
+}
+void giant_update(void){
+    const GiantTargets *t=giant_targets(world_phase);
+    ++boss_clock;boss_x=t->cx;boss_y=giant_logical_y(t->cy);
+    if(giant_phase==0){if(boss_clock>=36)giant_phase=1;return;}
+    if(giant_phase==2){if(++giant_gate_clock>=24){giant_phase=3;sound_effect(6);}return;}
+    if(giant_phase==1){
+        if(giant_left_hp&&boss_clock%38==0)fire_enemy(t->lx,giant_logical_y(t->ly+6),0);
+        if(giant_right_hp&&boss_clock%38==19)fire_enemy(t->rx,giant_logical_y(t->ry+6),0);
+    }else if(giant_phase==3){
+        if(boss_clock%28==0){fire_enemy(t->cx-8,giant_logical_y(t->cy+12),1);fire_enemy(t->cx+8,giant_logical_y(t->cy+12),2);}
+        if(boss_clock%71==0)fire_enemy(t->cx,giant_logical_y(t->cy+12),0);
+    }
+}
 void player_fire(void){
     u8 i;Foe *best=0;u8 nearest=0;
     sound_effect(1);
@@ -95,7 +162,8 @@ void player_fire(void){
         if(abs16(e->x-aim_x)<range&&abs16(e->y-aim_y)<range&&e->z>=nearest){best=e;nearest=e->z;}
     }
     if(best){if(best->hp)--best->hp;if(!best->hp)kill_foe(best);else explode(best->x,best->y,0);}
-    if(mode==BOSS&&abs16(aim_x-boss_x)<43&&abs16(aim_y-boss_y)<27){
+    if(mode==BOSS&&stage==4)giant_fire_hit();
+    else if(mode==BOSS&&abs16(aim_x-boss_x)<43&&abs16(aim_y-boss_y)<27){
         if(boss_hp){--boss_hp;boss_flash=2;add_score(2);if(!boss_hp){
             reset_entities();explode(boss_x,boss_y,4);sound_effect(4);bomb_flash=30;
             add_score(500+100*stage_difficulty[stage]);mode=TRANSIT;transition_clock=0;
@@ -105,7 +173,7 @@ void player_fire(void){
 void use_bomb(void){u8 i;if(!bombs)return;--bombs;bomb_flash=18;sound_effect(4);
     for(i=0;i<ENEMIES;i++)if(foes[i].active)kill_foe(&foes[i]);
     for(i=0;i<BULLETS;i++)shots[i].active=0;
-    if(mode==BOSS){if(boss_hp>25)boss_hp-=25;else boss_hp=1;boss_flash=12;}
+    if(mode==BOSS){if(stage==4)giant_bomb();else{if(boss_hp>25)boss_hp-=25;else boss_hp=1;boss_flash=12;}}
 }
 void spawn_foe(void){u8 i;u16 r=random16();for(i=0;i<ENEMIES;i++)if(!foes[i].active){
     Foe *e=&foes[i];e->active=1;e->kind=(u8)(r%3);e->z=6;
@@ -130,6 +198,7 @@ void update_objects(void){u8 i;
 }
 void update_boss(void){
     u8 difficulty=stage_difficulty[stage];
+    if(stage==4){giant_update();return;}
     ++boss_clock;boss_x=128+wave[(u8)(boss_clock>>1)&63];
     boss_y=92+wave[(u8)(boss_clock>>2)+16&63]/4;
     if(boss_clock%(24-difficulty*4)==0){fire_enemy(boss_x-25,boss_y+12,0);fire_enemy(boss_x+25,boss_y+12,0);}
@@ -150,12 +219,16 @@ void update_play(void){
     if(mode==PLAY){
         ++stage_clock;
         if(stage_clock%((u16)32-difficulty*5)==0)spawn_foe();
-        if(stage_clock>=stage_times[stage]){mode=BOSS;boss_hp=100+40*difficulty;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;sound_effect(6);}
+        if(stage_clock>=stage_times[stage]){mode=BOSS;boss_hp=100+40*difficulty;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;sound_effect(6);
+            if(stage==4){reset_entities();giant_phase=0;giant_left_hp=32;giant_right_hp=32;giant_core_hp=116;giant_gate_clock=0;giant_hit_part=0;world_boss_state=0;}}
     }else if(mode==BOSS)update_boss();
     update_objects();
     if((keys&16)&&!shot_clock&&(mode==PLAY||mode==BOSS)){shot_clock=4;player_fire();}
     if(mode==TRANSIT){
         ++transition_clock;
+        if(stage==4&&giant_phase==4&&transition_clock<36&&transition_clock%6==0){
+            explode(64+(transition_clock*19)%128,75+(transition_clock*7)%45,4);sound_effect(2);
+        }
         if(transition_clock==90){
             if(stage==STAGE_COUNT-1){mode=CLEAR;transition_clock=0;add_score(shield*100+bombs*200);}
             else{
@@ -223,7 +296,12 @@ void hud(void){
     else if(mode==BOSS){
         hud_text(0,1,"BOSS");n=(u16)boss_hp*25/(100+40*stage_difficulty[stage]);
         for(i=0;i<25;i++)hud_buffer[32+6+i]=192+(i<n?'#':'.')-32;
-        hud_text(0,3,boss_names[stage]);
+        if(stage==4){
+            if(giant_phase==0)hud_text(0,3,"LEVIATHAN / INCOMING");
+            else if(giant_phase==1){hud_text(0,3,"CANNONS  L:");hud_number(11,3,giant_left_hp,2);hud_text(15,3,"R:");hud_number(17,3,giant_right_hp,2);hud_text(21,3,"CORE LOCKED");}
+            else if(giant_phase==2)hud_text(0,3,"ARMOR BREACH / CORE OPENING");
+            else hud_text(0,3,"LEVIATHAN / DESTROY THE CORE");
+        }else hud_text(0,3,boss_names[stage]);
     }else{
         hud_text(0,1,sector_names[stage]);
         hud_text(0,3,"ROUTE");n=(u16)(stage_clock*24)/stage_times[stage];if(n>24)n=24;
@@ -273,8 +351,14 @@ void draw_objects(void){
         if(++i==BULLETS)i=0;
     }
     sprite(&reticle,aim_x-10,aim_y-10,7);
-    if(mode==BOSS||(mode==PAUSED&&pause_previous==BOSS)){
+    if((mode==BOSS||(mode==PAUSED&&pause_previous==BOSS))&&stage!=4){
         s=&bosses[stage_difficulty[stage]];sprite(s,boss_x-s->w/2,boss_y-s->h/2,boss_flash?15:(stage==0?7:(stage==4?11:0)));
+    }
+    if(stage==4&&world_loaded==GIANT_SCENE&&boss_flash){
+        const GiantTargets *t=giant_targets(mode!=PAUSED&&world_pending==1?world_target:world_phase);
+        u8 x=giant_hit_part==1?t->lx:(giant_hit_part==2?t->rx:t->cx);
+        u8 y=giant_hit_part==1?t->ly:(giant_hit_part==2?t->ry:t->cy);
+        sprite(&bullet,x-3,giant_logical_y(y)-6,15);
     }
     rotation=(u8)(frame_counter%ENEMIES);
     enemy_count=build_enemy_draw_order(rotation);
@@ -294,8 +378,11 @@ void draw_objects(void){
     for(i=0;i<FXMAX;i++)if(fx[i].active){s=&explosion[fx[i].age>>2][fx[i].size];sprite(s,fx[i].x-s->w/2,fx[i].y-s->h/2,0);}
 }
 void draw_frame(void){
+    u8 scene=stage;
     if(mode==TITLE){gfx_wait_vblank();gfx_wait_vblank();return;}
-    if(world_loaded!=stage){sound_mute(1);world_load(stage);world_loaded=stage;hud_last_mode=255;sound_mute(0);}
+    if(stage==4&&giant_phase&&((mode==BOSS)||(mode==PAUSED&&(pause_previous==BOSS||(pause_previous==TRANSIT&&transition_clock<40)))||
+       (mode==OVER&&world_loaded==GIANT_SCENE)||(mode==TRANSIT&&transition_clock<40)))scene=GIANT_SCENE;
+    if(world_loaded!=scene){sound_mute(1);world_load(scene);world_loaded=scene;hud_last_mode=255;sound_mute(0);}
     selected_frame=world_phase;
     sprite_count=0;sprite_dropped=0;draw_objects();
     if(sprite_count<32)attr_buffer[sprite_count*4]=208;

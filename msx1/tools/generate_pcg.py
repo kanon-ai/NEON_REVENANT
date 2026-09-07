@@ -8,7 +8,7 @@ from pcg_codec import compile_stage
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'assets'
-OUT=ROOT.parent/'outputs/msx1/v1.2'
+OUT=ROOT.parent/'outputs/msx1/v1.3'
 
 def generate_worlds():
     OUT.mkdir(parents=True,exist_ok=True)

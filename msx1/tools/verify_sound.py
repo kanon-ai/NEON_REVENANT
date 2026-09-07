@@ -43,6 +43,6 @@ if archive.is_file():
     equal=all(new[:3]==prior for new,prior in zip(report['stage_hashes'],old['stage_hashes']))
     assert equal,'Original v1.1 music register traces changed'
     report['original_three_arrangements_match_v1_1']={'passed':equal,'direction_variants':4,'ticks_per_arrangement':384,'baseline_source_sha256':hashlib.sha256((legacy/'sound.c').read_bytes()).hexdigest()}
-out=ROOT.parent/'outputs'/ROOT.name/'v1.2';out.mkdir(parents=True,exist_ok=True)
+out=ROOT.parent/'outputs'/ROOT.name/'v1.3';out.mkdir(parents=True,exist_ok=True)
 (out/'sound-verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

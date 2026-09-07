@@ -1,3 +1,5 @@
+[Current v1.3: Dawn Leviathan giant-boss guide](GIANT_BOSS-v1.3.md) — The document below records v1.2.
+
 # NEON REVENANT — MSX1 PCG Drive v1.2
 
 **ASTRA Thank-You Edition / ASTRAからの有難うエディション**

@@ -1,0 +1,567 @@
+[
+  {
+    "path": "msx1/tests/baseline-v1.2/baseline-game-v1.2.c",
+    "bytes": 17475,
+    "sha256": "449bd64d777f67fb69c68dbb36f8d3cf68a25d9c6ca537eec98e28944f3dbb7e"
+  },
+  {
+    "path": "msx1/assets/codec-manifest-0.json",
+    "bytes": 11260,
+    "sha256": "d64f0036f5bf1f2072f3940831f86e1a0f7e83601d4aad61c64ca6d214ef975a"
+  },
+  {
+    "path": "msx1/assets/codec-manifest-1.json",
+    "bytes": 11264,
+    "sha256": "0f3ffa90e7c0736db34945c26fe95244180c335928924e599e8207c2bdd48969"
+  },
+  {
+    "path": "msx1/assets/codec-manifest-2.json",
+    "bytes": 11273,
+    "sha256": "51473233a36ecee588a2cdc766b7534c3b3b57fa150230db890a6bdfaa3ac3b9"
+  },
+  {
+    "path": "msx1/assets/codec-manifest-3.json",
+    "bytes": 11263,
+    "sha256": "52ab2e16367e48b5a59148dc8df07f5680825f6d3ae30bd00dc66ded04152535"
+  },
+  {
+    "path": "msx1/assets/codec-manifest-4.json",
+    "bytes": 11270,
+    "sha256": "b84d3000554e176e0cc8f751d08ce5458b39fac3f3b15351bb45848b900224b9"
+  },
+  {
+    "path": "msx1/assets/frames-0.npy",
+    "bytes": 786560,
+    "sha256": "f0266b18ef8f4ed3e24897a49e7c2e3b22ec9beb18c28abbfe42d0ae3a3f5f6f"
+  },
+  {
+    "path": "msx1/assets/frames-1.npy",
+    "bytes": 786560,
+    "sha256": "143ba074c421051d35cec1a77243ba2bccda40404653e959daf7b5699a51d7e3"
+  },
+  {
+    "path": "msx1/assets/frames-2.npy",
+    "bytes": 786560,
+    "sha256": "4c89010873dc8309640d748b69bdf68632fd671bc40278b8ac7b9035a4d78409"
+  },
+  {
+    "path": "msx1/assets/frames-3.npy",
+    "bytes": 786560,
+    "sha256": "0b77a2d81ce41dc1e6ef91134c53b6f2865a340cdfec18d29679d1127f1862ac"
+  },
+  {
+    "path": "msx1/assets/frames-4.npy",
+    "bytes": 786560,
+    "sha256": "778f4f578c5feedeb16bb92a9cbdd767ca6ff010e48bdfa5eee609bee9e2c7ea"
+  },
+  {
+    "path": "msx1/assets/manifest.json",
+    "bytes": 70674,
+    "sha256": "8f2ae5657848bbc3f3d3fc1bc51b77b6bb84753d9310d9dd9f8d6b87f6c59123"
+  },
+  {
+    "path": "msx1/assets/names-0.bin",
+    "bytes": 5120,
+    "sha256": "1f404376bad51625a0598aee3fa03c3d749ce9080e4c46a30185980f7ea95cc1"
+  },
+  {
+    "path": "msx1/assets/names-1.bin",
+    "bytes": 5120,
+    "sha256": "9d6fb2f19209e9a9a8830deb2b2f22f6f50399adaac6282904512aa2bed48a6f"
+  },
+  {
+    "path": "msx1/assets/names-2.bin",
+    "bytes": 5120,
+    "sha256": "87338b456859aebebe7857aab8b3c536702a23cf6391e1bb2d57f323c2a314e8"
+  },
+  {
+    "path": "msx1/assets/pcg-manifest.json",
+    "bytes": 66032,
+    "sha256": "745b833d97dc08e886111987df545cf38be04f88f0a145895058c1cf111f1b63"
+  },
+  {
+    "path": "msx1/assets/phase-0-00.bin",
+    "bytes": 2268,
+    "sha256": "4e63efff3bfeb0a7d79a2323d0cbc2f7d92aa4127f7eb34a82f0261d5ded6476"
+  },
+  {
+    "path": "msx1/assets/phase-0-01.bin",
+    "bytes": 2596,
+    "sha256": "337e8c2c3466cb399fd49101cd8cd4670a487a71415d3bde127667d3e78e5a3d"
+  },
+  {
+    "path": "msx1/assets/phase-0-02.bin",
+    "bytes": 2288,
+    "sha256": "db8c6c249a2ddbac1a5bc84c03d186e6c8d2ac33fe21db3e394e7c46bee3232e"
+  },
+  {
+    "path": "msx1/assets/phase-0-03.bin",
+    "bytes": 2508,
+    "sha256": "93814ab6bf67f629aa3908a4805ddc3e84c988c6ca2893002bee9a43e9e9be7a"
+  },
+  {
+    "path": "msx1/assets/phase-0-04.bin",
+    "bytes": 2364,
+    "sha256": "8a2b3feccc130abbc059efe67719fbc2e21b908f5818b10a36b55312267b0145"
+  },
+  {
+    "path": "msx1/assets/phase-0-05.bin",
+    "bytes": 2376,
+    "sha256": "6ddb428d1c3976c33b8415e92b043bab59ef84809434387c3b9aa8ee928877dd"
+  },
+  {
+    "path": "msx1/assets/phase-0-06.bin",
+    "bytes": 2292,
+    "sha256": "43257ab944f68080d97b13f6d6f9d41f052304777a1cf84ea70d60788fa4f5ad"
+  },
+  {
+    "path": "msx1/assets/phase-0-07.bin",
+    "bytes": 2352,
+    "sha256": "fdc775a1a0d6032503fa8109914074f64b0c31e0b93b0334ccae5a5de890f499"
+  },
+  {
+    "path": "msx1/assets/phase-0-08.bin",
+    "bytes": 2332,
+    "sha256": "e0518ae36bebfc59f2b90357f58a69e8d7303a60dea70f712555ecb5062fca13"
+  },
+  {
+    "path": "msx1/assets/phase-0-09.bin",
+    "bytes": 2308,
+    "sha256": "16f727512eeee40df2c08f4f17f680bcfaa03eae8a32365b378a024340c99f8f"
+  },
+  {
+    "path": "msx1/assets/phase-0-10.bin",
+    "bytes": 2344,
+    "sha256": "ad602a20d5b557d9760e7b0826495e36964a42ddfd92461417ce9fd023c4f4dc"
+  },
+  {
+    "path": "msx1/assets/phase-0-11.bin",
+    "bytes": 2424,
+    "sha256": "3f6ca8e8b96e610f57869f3d73a74510dbe20d1b445e0e2accf9e0e5883f8fec"
+  },
+  {
+    "path": "msx1/assets/phase-0-12.bin",
+    "bytes": 2472,
+    "sha256": "f14a018444b31190125a0b7f854ed4f8a2f7dfdb4a69a7d04639b3fd55e5703a"
+  },
+  {
+    "path": "msx1/assets/phase-0-13.bin",
+    "bytes": 2656,
+    "sha256": "163848e8955c6f79e7de6aef57ffd9e6f4b87286d21a6506807c912a055ad6f1"
+  },
+  {
+    "path": "msx1/assets/phase-0-14.bin",
+    "bytes": 2340,
+    "sha256": "f294562b37abc0f3a8c08116d36e0122521d3b98af480898c4ef81d24897891d"
+  },
+  {
+    "path": "msx1/assets/phase-0-15.bin",
+    "bytes": 2588,
+    "sha256": "f41bbeb21a8747f2ec59222a02606b926c51bcebc48718f5abb961f1c075f6fd"
+  },
+  {
+    "path": "msx1/assets/phase-1-00.bin",
+    "bytes": 2820,
+    "sha256": "31d5ccbea57056df36115dfbd147efdc3c4387be6d48c4d3c0b4301047deca66"
+  },
+  {
+    "path": "msx1/assets/phase-1-01.bin",
+    "bytes": 2988,
+    "sha256": "c03771489a5dd35bbe6237ba0489197863453163ccb8fe43f16b8cf35c6d6f47"
+  },
+  {
+    "path": "msx1/assets/phase-1-02.bin",
+    "bytes": 2808,
+    "sha256": "32e75d85cc65e1018bbeced438c6e204854d718297e209bd3243c66f390f5f72"
+  },
+  {
+    "path": "msx1/assets/phase-1-03.bin",
+    "bytes": 2824,
+    "sha256": "782d78b791ca9c91de7317834e7d6b81dd0f714166ba976230dcb795b595f3de"
+  },
+  {
+    "path": "msx1/assets/phase-1-04.bin",
+    "bytes": 2844,
+    "sha256": "ab69414d0260511cbe5f1de89eadc6382fe1dea53352b7f0bf407b122104b2c7"
+  },
+  {
+    "path": "msx1/assets/phase-1-05.bin",
+    "bytes": 2568,
+    "sha256": "bede82e1e84ad8bc8b475412e44754894be7a51fc6d595c8ee31d8df76242dc4"
+  },
+  {
+    "path": "msx1/assets/phase-1-06.bin",
+    "bytes": 2624,
+    "sha256": "692c522c1e5987b67edf181c20218971c9ca3bf7a96377497e8e03099b284801"
+  },
+  {
+    "path": "msx1/assets/phase-1-07.bin",
+    "bytes": 2168,
+    "sha256": "3970662d31d8f5e4f4189077a50368826af08bd9ad1ed4aca62f610c52bba866"
+  },
+  {
+    "path": "msx1/assets/phase-1-08.bin",
+    "bytes": 2644,
+    "sha256": "319929b1e7f60e603f71d4abf84e8f0ab696f62e79a529f78b3d2be4edd112c3"
+  },
+  {
+    "path": "msx1/assets/phase-1-09.bin",
+    "bytes": 2588,
+    "sha256": "cee14fded4fe4cfd6dbd0acc89f362dcd441568fa62c53b2f5be4fb37de13cfb"
+  },
+  {
+    "path": "msx1/assets/phase-1-10.bin",
+    "bytes": 2572,
+    "sha256": "fc19a71f76ca4933ba4258f3afbc6f18616751ebc79767cc8d3da47f6808ab9a"
+  },
+  {
+    "path": "msx1/assets/phase-1-11.bin",
+    "bytes": 2472,
+    "sha256": "3b49c51e409425ae027f6961fcbbb036cbdd3d8953aaf56172071952f80ffa79"
+  },
+  {
+    "path": "msx1/assets/phase-1-12.bin",
+    "bytes": 2660,
+    "sha256": "8c1a5067e84c3dd130f493e9e318387135b17459851e16feb48cf59fe3133a76"
+  },
+  {
+    "path": "msx1/assets/phase-1-13.bin",
+    "bytes": 2756,
+    "sha256": "9bc7df40d2c96df0a3c5232323ac09766f3b7a2e2da48214a4c28b16efc54106"
+  },
+  {
+    "path": "msx1/assets/phase-1-14.bin",
+    "bytes": 2688,
+    "sha256": "0cf50a3bec1272d6dbf203a3237bbb65ce00664bec35001d9b52875b31c92ab3"
+  },
+  {
+    "path": "msx1/assets/phase-1-15.bin",
+    "bytes": 2444,
+    "sha256": "7842af30e8171850b5eea3b6ee5b0b47efd52373a37f1c29979aa7f91e44198d"
+  },
+  {
+    "path": "msx1/assets/phase-2-00.bin",
+    "bytes": 2920,
+    "sha256": "f084eb1803b9461f5bc4e39ab1bb252d95b09b6e1cba7327936fcc701a46b0f6"
+  },
+  {
+    "path": "msx1/assets/phase-2-01.bin",
+    "bytes": 2780,
+    "sha256": "c06dde63314749ec6c7370849c7330752440b44d1c715b7ce2775344da39bb24"
+  },
+  {
+    "path": "msx1/assets/phase-2-02.bin",
+    "bytes": 2752,
+    "sha256": "d71b43fa2986d87d2690993e020ae3c66023b9df5096dd3f0813f58269bdedd2"
+  },
+  {
+    "path": "msx1/assets/phase-2-03.bin",
+    "bytes": 2408,
+    "sha256": "9eab4a543c4fb69a288f635a727c824802246bef5daa8bb4b887b7859ef2ef7a"
+  },
+  {
+    "path": "msx1/assets/phase-2-04.bin",
+    "bytes": 2492,
+    "sha256": "0b462835adb8d7119bdc5014cea34843eafb79226add17dc4acac4c8b51dc0a5"
+  },
+  {
+    "path": "msx1/assets/phase-2-05.bin",
+    "bytes": 2404,
+    "sha256": "5d8fa8edf3e0a93798db4dfdabac7de1f6b2231971df2a62c71bda86cfd23f1b"
+  },
+  {
+    "path": "msx1/assets/phase-2-06.bin",
+    "bytes": 2616,
+    "sha256": "cabf18ce42587968b7e1c09d9dc9302c8ec212f6663653f2c351c5c382aa0b64"
+  },
+  {
+    "path": "msx1/assets/phase-2-07.bin",
+    "bytes": 2404,
+    "sha256": "249518cecfd113879a29cefa640a71d37b8684bee2e492bd7a64ebfa84556c1c"
+  },
+  {
+    "path": "msx1/assets/phase-2-08.bin",
+    "bytes": 2724,
+    "sha256": "107027f4e7fd6dbc8429ff4897a31f0a08f69d9e3ab08ca12eba59aeefa84f97"
+  },
+  {
+    "path": "msx1/assets/phase-2-09.bin",
+    "bytes": 2556,
+    "sha256": "281b6f44fef4e004b28d25ecf82b3808412e61617cb4ef5c5635f684a8c73a91"
+  },
+  {
+    "path": "msx1/assets/phase-2-10.bin",
+    "bytes": 2724,
+    "sha256": "a7303adcb2c6e97de35c0b3c17bb3ca36d99291287906ed65e242794fab7f8f6"
+  },
+  {
+    "path": "msx1/assets/phase-2-11.bin",
+    "bytes": 2760,
+    "sha256": "d659fae0c850a626419c9014e57213fb7c84771e90ff784bf4ef9682afd2a60d"
+  },
+  {
+    "path": "msx1/assets/phase-2-12.bin",
+    "bytes": 2556,
+    "sha256": "d9ab84954887a050f56d3d4ffd4bd51aee7918439e802081da50768abd73d7d7"
+  },
+  {
+    "path": "msx1/assets/phase-2-13.bin",
+    "bytes": 2800,
+    "sha256": "5fc8bcd30e4050664c1b28821419fd7d72b8574475eff0f1cbe0aae7d2c93f1f"
+  },
+  {
+    "path": "msx1/assets/phase-2-14.bin",
+    "bytes": 2936,
+    "sha256": "ae8b17c64dd99342d5fc45bbe0e87f7ad0346c650913bee0629553ee69667f00"
+  },
+  {
+    "path": "msx1/assets/phase-2-15.bin",
+    "bytes": 2596,
+    "sha256": "b40de6add4a9456cf5f921abb8b9a4ed0aad2e0135eb63eb39b4eb0eab4ee29f"
+  },
+  {
+    "path": "msx1/assets/phase-3-00.bin",
+    "bytes": 3120,
+    "sha256": "4f5224982f4bb060ea46364339e2039caa95c60b98caffe7b4a9448d407fd023"
+  },
+  {
+    "path": "msx1/assets/phase-3-01.bin",
+    "bytes": 3120,
+    "sha256": "44d8cd468e3b84b69e700eacdb8b3410f479d1b6cc0a694b5097bf039d6b388c"
+  },
+  {
+    "path": "msx1/assets/phase-3-02.bin",
+    "bytes": 2984,
+    "sha256": "7009742b9de73c6321be52307681311eb9c7fea8381d1e4d79fd79b94dfe5585"
+  },
+  {
+    "path": "msx1/assets/phase-3-03.bin",
+    "bytes": 2720,
+    "sha256": "4ceb9aeefc2f28acc2764409164a7cf2bfc3a6677dd9f77a30fb20a63ffaee92"
+  },
+  {
+    "path": "msx1/assets/phase-3-04.bin",
+    "bytes": 2844,
+    "sha256": "220cd4d6a8b77ea892907df49128dc13c68b2d481e83e1fe44c1c55331b604b4"
+  },
+  {
+    "path": "msx1/assets/phase-3-05.bin",
+    "bytes": 3092,
+    "sha256": "366886caf0d07fc258f21edab571fbb0ad20ff20305e65fa8c21d863b03bba37"
+  },
+  {
+    "path": "msx1/assets/phase-3-06.bin",
+    "bytes": 3068,
+    "sha256": "9f0b6fa84b3b87ad6e704093fe9acc78a3982285aba33554145a188e828058a4"
+  },
+  {
+    "path": "msx1/assets/phase-3-07.bin",
+    "bytes": 2812,
+    "sha256": "bb26648e2d8a18899aaffc96902a390040a40eb20714d65b2f3378f993630a5e"
+  },
+  {
+    "path": "msx1/assets/phase-3-08.bin",
+    "bytes": 3024,
+    "sha256": "4cd40215310ccf3d5582bf9cc2b9c495c71b3208e782a99eddb91b2b013010a7"
+  },
+  {
+    "path": "msx1/assets/phase-3-09.bin",
+    "bytes": 2720,
+    "sha256": "94342b7d6b305b98de51f6eb7637aa4307e2e4e7a4855c7f6e2f04fc27c940e6"
+  },
+  {
+    "path": "msx1/assets/phase-3-10.bin",
+    "bytes": 2756,
+    "sha256": "53e20a28a00510143ad2a16a132802cd155913457afdfd9a591cad93a21d012c"
+  },
+  {
+    "path": "msx1/assets/phase-3-11.bin",
+    "bytes": 3132,
+    "sha256": "796d127c9dacc713f6bdd9cc21df2353b279987dc81c00d0ddff27e9fb1a7bd6"
+  },
+  {
+    "path": "msx1/assets/phase-3-12.bin",
+    "bytes": 3132,
+    "sha256": "3a7690a7b27f94199836dcccbc54c62559c1c8a1042287a342739be1011457ac"
+  },
+  {
+    "path": "msx1/assets/phase-3-13.bin",
+    "bytes": 2856,
+    "sha256": "b451a4804ea5d37bd4f73470256042b083bd3fd397490840ffbfef969610446c"
+  },
+  {
+    "path": "msx1/assets/phase-3-14.bin",
+    "bytes": 2680,
+    "sha256": "02f69657cae4238e88d8f062653a44d7ab92b43ada74345ef5ad84d63564b933"
+  },
+  {
+    "path": "msx1/assets/phase-3-15.bin",
+    "bytes": 2700,
+    "sha256": "c4fd9b6332c8cc0a9f958e0676581df6ea8334a51098e4a4e622ba2b6a211679"
+  },
+  {
+    "path": "msx1/assets/phase-4-00.bin",
+    "bytes": 2796,
+    "sha256": "839431a9c0d23eef3e504002f227bc065c09b4d8d82f5afa588b3f6a09728e2a"
+  },
+  {
+    "path": "msx1/assets/phase-4-01.bin",
+    "bytes": 2728,
+    "sha256": "1db9de333bef16737e5f92322d3d67ae2595a40c6c37974f3917648ed881fce9"
+  },
+  {
+    "path": "msx1/assets/phase-4-02.bin",
+    "bytes": 2752,
+    "sha256": "1efa0df57bdfe72f3dd66510c85cfc604435d07617856b0171ab14a16d724007"
+  },
+  {
+    "path": "msx1/assets/phase-4-03.bin",
+    "bytes": 2596,
+    "sha256": "b2db86315ff624fc15ea7807f1c03c6b43668c9ab4ca43a7dcecc60499d50a4e"
+  },
+  {
+    "path": "msx1/assets/phase-4-04.bin",
+    "bytes": 2684,
+    "sha256": "12e719b5e25d907a580cb512c0cfbfbaec17c4e51668e66c9af63dda540c8d81"
+  },
+  {
+    "path": "msx1/assets/phase-4-05.bin",
+    "bytes": 2700,
+    "sha256": "af3c3c8fab65bbe8488b82ab3c4c42377d2a904a11c1a0cb71655c93145fd0e0"
+  },
+  {
+    "path": "msx1/assets/phase-4-06.bin",
+    "bytes": 2652,
+    "sha256": "5b3f493f13f613a1da41203601a7d14ba173d492a55a22a5215c92ed92102739"
+  },
+  {
+    "path": "msx1/assets/phase-4-07.bin",
+    "bytes": 2564,
+    "sha256": "f2a4d3c3ffb742db9a05553227a8cee899d22c963c5ef2c0d4e866df8c08befa"
+  },
+  {
+    "path": "msx1/assets/phase-4-08.bin",
+    "bytes": 2628,
+    "sha256": "70158857d2133edcaa7562ee0f24457536752cbb2dd36a3c801133c1483160ad"
+  },
+  {
+    "path": "msx1/assets/phase-4-09.bin",
+    "bytes": 2560,
+    "sha256": "690263812eff628cef563e162993f756af780e789a14e1cb3e6183aa89334d77"
+  },
+  {
+    "path": "msx1/assets/phase-4-10.bin",
+    "bytes": 2664,
+    "sha256": "38fd0cfd02245a6073bf3fc6489673695edb0e18bdd8c18620bbdca1a7f5df04"
+  },
+  {
+    "path": "msx1/assets/phase-4-11.bin",
+    "bytes": 2692,
+    "sha256": "0714c3b908c2a7a6591ec0a6e3757752837368a07d88d169f20f2e51515e14cd"
+  },
+  {
+    "path": "msx1/assets/phase-4-12.bin",
+    "bytes": 2704,
+    "sha256": "c929d236e7e34826773d2c9af1a0834a77c5199945f6683225a107cc428ecb1b"
+  },
+  {
+    "path": "msx1/assets/phase-4-13.bin",
+    "bytes": 2772,
+    "sha256": "3e535f7babed63740463521cf42ee3dd511acf367b7362489510d2c847fc4d62"
+  },
+  {
+    "path": "msx1/assets/phase-4-14.bin",
+    "bytes": 2884,
+    "sha256": "0a80b7a232e9a4ed96a1984d319718dc852770bf456123318e5d3b74d12b5e56"
+  },
+  {
+    "path": "msx1/assets/phase-4-15.bin",
+    "bytes": 3016,
+    "sha256": "04acc73d89fc17bb2249a0312462c4c309d0cab86a68654f3cdc5399fd26957c"
+  },
+  {
+    "path": "msx1/assets/sprite-patterns.bin",
+    "bytes": 2048,
+    "sha256": "b9625060504076e729e764a0681ab5e5bfb71df2595809509f828aa477ac2859"
+  },
+  {
+    "path": "msx1/assets/sprite-records.bin",
+    "bytes": 220,
+    "sha256": "5145183ce10c0a83367261c1000174fd8664154d5e111484fa9441a776225c08"
+  },
+  {
+    "path": "msx1/assets/title.bin",
+    "bytes": 16384,
+    "sha256": "11a715980ba776f606878dce2891929b56aca74f88ea67caf85f0eae06539841"
+  },
+  {
+    "path": "msx1/assets/world-0.bin",
+    "bytes": 16384,
+    "sha256": "a7b62a462887eedac91536092cdc48df856f4d8dbfa7641db0e7531200c6d82a"
+  },
+  {
+    "path": "msx1/assets/world-1.bin",
+    "bytes": 16384,
+    "sha256": "2c60b8960e7fe557bfb739785b7248b534b6767c61a1ea441ad245b558f919d2"
+  },
+  {
+    "path": "msx1/assets/world-2.bin",
+    "bytes": 16384,
+    "sha256": "82fb942126551715e5afe374134e0d6a4c26ce2f26e4034154c63dfe47fcc176"
+  },
+  {
+    "path": "msx1/assets/world-3.bin",
+    "bytes": 16384,
+    "sha256": "c409da8c058ca33cd141901c0b823a5230d3401754b25ffbd8fe2e0ef5cb3532"
+  },
+  {
+    "path": "msx1/assets/world-4.bin",
+    "bytes": 16384,
+    "sha256": "2dd1b1e55c4a7f3242d9ccf310d3145847733fd8529a3ad4bc30d16594e7ea29"
+  },
+  {
+    "path": "msx1/assets/source/font.bin",
+    "bytes": 512,
+    "sha256": "f38f4498331e03b225d361dd949fb03ab5c0a81102342d8fe4c255f82654217e"
+  },
+  {
+    "path": "msx1/assets/source/palette.json",
+    "bytes": 800,
+    "sha256": "1d168efb617cc12c06718c04e447d2b1cf1f7f7a7bb832250222f8a228df9ab0"
+  },
+  {
+    "path": "msx1/assets/source/sprite-atlas-manifest.json",
+    "bytes": 12598,
+    "sha256": "788e3a81c514b91dbbbf330f52f172a48cadcf489138a3d0f1ea7c697ed0f005"
+  },
+  {
+    "path": "msx1/assets/source/sprite-atlas.bin",
+    "bytes": 81920,
+    "sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404"
+  },
+  {
+    "path": "msx1/assets/source/sprite-atlas.h",
+    "bytes": 2987,
+    "sha256": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6"
+  },
+  {
+    "path": "msx1/assets/source/world/stage-1.bin",
+    "bytes": 368640,
+    "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a"
+  },
+  {
+    "path": "msx1/assets/source/world/stage-2.bin",
+    "bytes": 368640,
+    "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e"
+  },
+  {
+    "path": "msx1/assets/source/world/stage-3.bin",
+    "bytes": 368640,
+    "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9"
+  },
+  {
+    "path": "outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom",
+    "bytes": 524288,
+    "sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f"
+  }
+]

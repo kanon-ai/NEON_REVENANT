@@ -1,0 +1,945 @@
+{
+  "stage": 5,
+  "format": "SCREEN2 cyclic PCG with permanent damage tiles and state-dependent names",
+  "input_sha256": "87b312e5924db68d28d1985c43ecf08e6dbcfca7c8aee159f0fc159f574db3d5",
+  "font_sha256": "f38f4498331e03b225d361dd949fb03ab5c0a81102342d8fe4c255f82654217e",
+  "initial": {
+    "file": "world-5.bin",
+    "bytes": 16384,
+    "sha256": "d4f968b61a9e903c5b302a103ff1a67293f25e94137c9c04f3b0c19a6d708e3d"
+  },
+  "bands": [
+    {
+      "band": 0,
+      "distinct_tiles": 85,
+      "per_phase_unique": [
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        75,
+        75,
+        75,
+        75,
+        61,
+        61,
+        61,
+        61
+      ],
+      "frame_budget": 96,
+      "allocated_slots": 85,
+      "slot_capacity": 192,
+      "adjacent_union": [
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        85,
+        75,
+        75,
+        75,
+        85,
+        61,
+        61,
+        61
+      ]
+    },
+    {
+      "band": 1,
+      "distinct_tiles": 247,
+      "per_phase_unique": [
+        159,
+        159,
+        172,
+        173,
+        175,
+        162,
+        161,
+        162,
+        158,
+        158,
+        158,
+        159,
+        178,
+        178,
+        178,
+        164
+      ],
+      "frame_budget": 192,
+      "allocated_slots": 208,
+      "slot_capacity": 256,
+      "adjacent_union": [
+        179,
+        159,
+        175,
+        173,
+        192,
+        175,
+        163,
+        165,
+        194,
+        158,
+        158,
+        165,
+        208,
+        178,
+        178,
+        179
+      ]
+    },
+    {
+      "band": 2,
+      "distinct_tiles": 171,
+      "per_phase_unique": [
+        56,
+        56,
+        54,
+        55,
+        50,
+        50,
+        52,
+        52,
+        51,
+        56,
+        57,
+        58,
+        60,
+        55,
+        53,
+        55
+      ],
+      "frame_budget": 96,
+      "allocated_slots": 84,
+      "slot_capacity": 192,
+      "adjacent_union": [
+        79,
+        67,
+        74,
+        66,
+        72,
+        50,
+        73,
+        59,
+        64,
+        65,
+        62,
+        77,
+        64,
+        82,
+        60,
+        66
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "phase": 0,
+      "from_phase": 15,
+      "file": "phase-5-00.bin",
+      "bytes": 1132,
+      "sha256": "2c4e39a8bb792a6bea9d0d8b860558fff917ab64faf48117f1e39156f62025f7",
+      "part_b_offset": 488,
+      "names_offset": 492,
+      "part_a_records": 18,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 408,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        11,
+        15
+      ]
+    },
+    {
+      "phase": 1,
+      "from_phase": 0,
+      "file": "phase-5-01.bin",
+      "bytes": 828,
+      "sha256": "1a2b98082897897a9bd947d399cb7530dcbc1f65701c1e92c1b92881f990af00",
+      "part_b_offset": 184,
+      "names_offset": 188,
+      "part_a_records": 12,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 128,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        0,
+        8
+      ]
+    },
+    {
+      "phase": 2,
+      "from_phase": 1,
+      "file": "phase-5-02.bin",
+      "bytes": 932,
+      "sha256": "4ff01d803dfe106e15379d3d0ccd05ac658b608f1007159452962b4f17a1c52d",
+      "part_b_offset": 288,
+      "names_offset": 292,
+      "part_a_records": 12,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 232,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        3,
+        13
+      ]
+    },
+    {
+      "phase": 3,
+      "from_phase": 2,
+      "file": "phase-5-03.bin",
+      "bytes": 868,
+      "sha256": "dfb5dd2d80f75afe65ba8856a7bca80e4b2d826287e968d8a268a13d906b3126",
+      "part_b_offset": 224,
+      "names_offset": 228,
+      "part_a_records": 14,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 160,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        1,
+        9
+      ]
+    },
+    {
+      "phase": 4,
+      "from_phase": 3,
+      "file": "phase-5-04.bin",
+      "bytes": 1244,
+      "sha256": "8ea80beaaa7d87b59c500f5861c1675277f2b00088c75efc9dafabcae2d2e018",
+      "part_b_offset": 600,
+      "names_offset": 604,
+      "part_a_records": 28,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 480,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        17,
+        14
+      ]
+    },
+    {
+      "phase": 5,
+      "from_phase": 4,
+      "file": "phase-5-05.bin",
+      "bytes": 652,
+      "sha256": "213d072c1d2d56458701a340e703194c28b1306c6566fc97484926241feee177",
+      "part_b_offset": 8,
+      "names_offset": 12,
+      "part_a_records": 0,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 0,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "phase": 6,
+      "from_phase": 5,
+      "file": "phase-5-06.bin",
+      "bytes": 996,
+      "sha256": "8f8bdb554fdc8942bb7693edd5fd34bd6dac52396ae458312090d9768f3f3996",
+      "part_b_offset": 352,
+      "names_offset": 356,
+      "part_a_records": 18,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 272,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        0,
+        17
+      ]
+    },
+    {
+      "phase": 7,
+      "from_phase": 6,
+      "file": "phase-5-07.bin",
+      "bytes": 880,
+      "sha256": "4923a8b01fc6f8970bc184c1c418b50aba38b6214cc881627f8238b021e9ebfc",
+      "part_b_offset": 236,
+      "names_offset": 240,
+      "part_a_records": 15,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 168,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        4,
+        7
+      ]
+    },
+    {
+      "phase": 8,
+      "from_phase": 7,
+      "file": "phase-5-08.bin",
+      "bytes": 1120,
+      "sha256": "b06c406b0e20134cccad577d7a709f749222cda7a36792201e7f4ca1f633e159",
+      "part_b_offset": 476,
+      "names_offset": 480,
+      "part_a_records": 13,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 416,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        17,
+        10
+      ]
+    },
+    {
+      "phase": 9,
+      "from_phase": 8,
+      "file": "phase-5-09.bin",
+      "bytes": 844,
+      "sha256": "87e282db20ae44c88cf6754e866cd7196248d20e84c0d386973cc5b58e825e41",
+      "part_b_offset": 200,
+      "names_offset": 204,
+      "part_a_records": 12,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 144,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        0,
+        9
+      ]
+    },
+    {
+      "phase": 10,
+      "from_phase": 9,
+      "file": "phase-5-10.bin",
+      "bytes": 768,
+      "sha256": "305a80226b8ef25fe7332a4e764da67ddab8ca338405f71de8511f37f919329e",
+      "part_b_offset": 124,
+      "names_offset": 128,
+      "part_a_records": 7,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 88,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        0,
+        6
+      ]
+    },
+    {
+      "phase": 11,
+      "from_phase": 10,
+      "file": "phase-5-11.bin",
+      "bytes": 1108,
+      "sha256": "feb71dece69ae0b839a881bdfe66e024ee7aa6be7c29ad9a9fa476aab754078e",
+      "part_b_offset": 464,
+      "names_offset": 468,
+      "part_a_records": 18,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 384,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        5,
+        19
+      ]
+    },
+    {
+      "phase": 12,
+      "from_phase": 11,
+      "file": "phase-5-12.bin",
+      "bytes": 1024,
+      "sha256": "80e70fa045aaae3bfa9fc29a2d85e39b3e80371f2f3a584531661cebb5a52a28",
+      "part_b_offset": 380,
+      "names_offset": 384,
+      "part_a_records": 9,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 336,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        18,
+        4
+      ]
+    },
+    {
+      "phase": 13,
+      "from_phase": 12,
+      "file": "phase-5-13.bin",
+      "bytes": 1000,
+      "sha256": "fa735cf3e77c16347ef8586492a393caaa8da83675cdd0feb164786614bf3bf6",
+      "part_b_offset": 356,
+      "names_offset": 360,
+      "part_a_records": 17,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 280,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        0,
+        18
+      ]
+    },
+    {
+      "phase": 14,
+      "from_phase": 13,
+      "file": "phase-5-14.bin",
+      "bytes": 752,
+      "sha256": "7cf49ea34de6f13597ac115c0d43af741cdcaf2e979be030b8979a1cad16c3b9",
+      "part_b_offset": 108,
+      "names_offset": 112,
+      "part_a_records": 7,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 72,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        0,
+        5
+      ]
+    },
+    {
+      "phase": 15,
+      "from_phase": 14,
+      "file": "phase-5-15.bin",
+      "bytes": 892,
+      "sha256": "630d5529953c42e363e05e8cf6e3f18a6cd2e429da1184e96a01c020f9584666",
+      "part_b_offset": 248,
+      "names_offset": 252,
+      "part_a_records": 12,
+      "part_b_records": 0,
+      "part_a_transfer_bytes": 192,
+      "part_b_pcg_bytes": 0,
+      "part_b_transfer_bytes": 640,
+      "names_bytes": 640,
+      "changed_slots_by_band": [
+        0,
+        1,
+        11
+      ]
+    }
+  ],
+  "max_packet_bytes": 1244,
+  "max_part_transfer_bytes": 640,
+  "verification": {
+    "passed": true,
+    "cycles": 3,
+    "transitions": 48,
+    "full_frame_comparisons": 145,
+    "active_slot_writes": 0,
+    "protected_region_writes": 0,
+    "steady_state_exact": true,
+    "phase_wraparound": "15 -> 0 tested three times"
+  },
+  "states": 4,
+  "base_state": 0,
+  "names": [
+    {
+      "state": 1,
+      "phase": 0,
+      "file": "boss-name-1-00.bin",
+      "bytes": 640,
+      "sha256": "bde75e074d1be4035d5763ffe59a431cb9abb67550179c7b01f1202fad195251"
+    },
+    {
+      "state": 1,
+      "phase": 1,
+      "file": "boss-name-1-01.bin",
+      "bytes": 640,
+      "sha256": "3e7f1639737bd46801243ae1ca63a194576283e7799e22cf7ec8e41b25cf1194"
+    },
+    {
+      "state": 1,
+      "phase": 2,
+      "file": "boss-name-1-02.bin",
+      "bytes": 640,
+      "sha256": "7133ef800a028adcb899a3f63002caf2aff51ac84c0c847f413764cb41e6bab4"
+    },
+    {
+      "state": 1,
+      "phase": 3,
+      "file": "boss-name-1-03.bin",
+      "bytes": 640,
+      "sha256": "0098d6ba236b040ca70ae8ebaa1a7ef9dced7f082af23aa17bf5d1d92ddf9779"
+    },
+    {
+      "state": 1,
+      "phase": 4,
+      "file": "boss-name-1-04.bin",
+      "bytes": 640,
+      "sha256": "8081ffcb6484134af10282a928687f2c3ef8ddafe0ec9517a2d35b4580a2d427"
+    },
+    {
+      "state": 1,
+      "phase": 5,
+      "file": "boss-name-1-05.bin",
+      "bytes": 640,
+      "sha256": "5fe03a0530574de4404dc423ed7771d4719014e052649660c9994a350ca54d09"
+    },
+    {
+      "state": 1,
+      "phase": 6,
+      "file": "boss-name-1-06.bin",
+      "bytes": 640,
+      "sha256": "df7a22ecbafcf5a2775c5f69522681581bcf827fbbf7bd44b5b8bca4d70dc201"
+    },
+    {
+      "state": 1,
+      "phase": 7,
+      "file": "boss-name-1-07.bin",
+      "bytes": 640,
+      "sha256": "a399ea74ec40819378730fd53ec5ea481b564934ac77b588f640f18f021559a0"
+    },
+    {
+      "state": 1,
+      "phase": 8,
+      "file": "boss-name-1-08.bin",
+      "bytes": 640,
+      "sha256": "91256010b9576cf750e5e646942a813880711776c20c917bb341799d922c8406"
+    },
+    {
+      "state": 1,
+      "phase": 9,
+      "file": "boss-name-1-09.bin",
+      "bytes": 640,
+      "sha256": "031d53406071d7815213ca6e52964c5c8bc9dd0952bc0af5750481c7d2c56025"
+    },
+    {
+      "state": 1,
+      "phase": 10,
+      "file": "boss-name-1-10.bin",
+      "bytes": 640,
+      "sha256": "71335404df31ea14fa6bb3a57c7aa60137cf36ff0d733e5bbaa0a12f130492aa"
+    },
+    {
+      "state": 1,
+      "phase": 11,
+      "file": "boss-name-1-11.bin",
+      "bytes": 640,
+      "sha256": "de07c80710d3a1c04b80539227bd81149344b435fadd2d84d59e08e9d8549580"
+    },
+    {
+      "state": 1,
+      "phase": 12,
+      "file": "boss-name-1-12.bin",
+      "bytes": 640,
+      "sha256": "0878998722cbed47f0b20e90fdafb28d0fce03d759496112ce47b91f152387d7"
+    },
+    {
+      "state": 1,
+      "phase": 13,
+      "file": "boss-name-1-13.bin",
+      "bytes": 640,
+      "sha256": "2e11a9adc1ad607b1d037f0f36771c9fbc7240f1397b73105b05ab14197dd3b8"
+    },
+    {
+      "state": 1,
+      "phase": 14,
+      "file": "boss-name-1-14.bin",
+      "bytes": 640,
+      "sha256": "c4bb15160d598bc71362b904cbe23c4f5e00711d5b6a3996acc6251a6cffaf5a"
+    },
+    {
+      "state": 1,
+      "phase": 15,
+      "file": "boss-name-1-15.bin",
+      "bytes": 640,
+      "sha256": "d567032ef82c97de40c9d941a6afaf45150f2685fb911fc2ae7e3cc879897416"
+    },
+    {
+      "state": 2,
+      "phase": 0,
+      "file": "boss-name-2-00.bin",
+      "bytes": 640,
+      "sha256": "4427cff1cba0f993f1768ff4e56f5c31273a9345c4825242de861b15cf54c7ba"
+    },
+    {
+      "state": 2,
+      "phase": 1,
+      "file": "boss-name-2-01.bin",
+      "bytes": 640,
+      "sha256": "e0edd26d1c6efcddd9d17e3ebe1b7fcc81097c33c0503a355501b143e84fb57e"
+    },
+    {
+      "state": 2,
+      "phase": 2,
+      "file": "boss-name-2-02.bin",
+      "bytes": 640,
+      "sha256": "53a99e8b2939d7aafb3d4744bcdde03163b3f2c4c5d23510d84d40f4e84607c9"
+    },
+    {
+      "state": 2,
+      "phase": 3,
+      "file": "boss-name-2-03.bin",
+      "bytes": 640,
+      "sha256": "ad308183e9d9cbb2e68b9631eae59c348187d99d02b0233cce79ff2ffa4d6c74"
+    },
+    {
+      "state": 2,
+      "phase": 4,
+      "file": "boss-name-2-04.bin",
+      "bytes": 640,
+      "sha256": "fffa8265e239b2879c821b682422c76054a499f891a12b67268dfb286738bd76"
+    },
+    {
+      "state": 2,
+      "phase": 5,
+      "file": "boss-name-2-05.bin",
+      "bytes": 640,
+      "sha256": "49b78c8fc87fe43060c4807b763810539ba24d059bb4a25fe8254cad0ac8dc52"
+    },
+    {
+      "state": 2,
+      "phase": 6,
+      "file": "boss-name-2-06.bin",
+      "bytes": 640,
+      "sha256": "74cc7fd97e010afdb83293f5de01cf4ade3bcd55f53f38af7bd52f6ccd330711"
+    },
+    {
+      "state": 2,
+      "phase": 7,
+      "file": "boss-name-2-07.bin",
+      "bytes": 640,
+      "sha256": "4a6a2141094e5af4c37b43c41a81a12893097954fc8c182ded9df9a0eede45cb"
+    },
+    {
+      "state": 2,
+      "phase": 8,
+      "file": "boss-name-2-08.bin",
+      "bytes": 640,
+      "sha256": "adf6973126a7c5df4646f253bb789440573d17bce3fa2f6d5a51d4f8e361c1bc"
+    },
+    {
+      "state": 2,
+      "phase": 9,
+      "file": "boss-name-2-09.bin",
+      "bytes": 640,
+      "sha256": "66c8a707702221edea1031c6943b4ff2592314363c4d6aac6809b911d735cf5c"
+    },
+    {
+      "state": 2,
+      "phase": 10,
+      "file": "boss-name-2-10.bin",
+      "bytes": 640,
+      "sha256": "c4b59e7dd8cbd34ea482b43e398070a5d72859e580cb2441b8368f60f37517ab"
+    },
+    {
+      "state": 2,
+      "phase": 11,
+      "file": "boss-name-2-11.bin",
+      "bytes": 640,
+      "sha256": "69b3066552a634092784b6075c7114b887247a053a1e0512f5e8584fb3bd5aad"
+    },
+    {
+      "state": 2,
+      "phase": 12,
+      "file": "boss-name-2-12.bin",
+      "bytes": 640,
+      "sha256": "084b6286c97401f4e447c4e4c6d9edd315cd000402a4bd779fdfed5aa8d15c6d"
+    },
+    {
+      "state": 2,
+      "phase": 13,
+      "file": "boss-name-2-13.bin",
+      "bytes": 640,
+      "sha256": "5580601d05f1c40ff3ba258c268c07461f89b3b9be7e411c8821758907f1ae1d"
+    },
+    {
+      "state": 2,
+      "phase": 14,
+      "file": "boss-name-2-14.bin",
+      "bytes": 640,
+      "sha256": "3a2c5d67f60a7b94a53266e87a64269372012fc4d4ec243e90fb2cdae71dbd51"
+    },
+    {
+      "state": 2,
+      "phase": 15,
+      "file": "boss-name-2-15.bin",
+      "bytes": 640,
+      "sha256": "fe7e59b475506299e7ad0204c6d747d13f4a27edf711bbd2f2ebed7b9fd54acd"
+    },
+    {
+      "state": 3,
+      "phase": 0,
+      "file": "boss-name-3-00.bin",
+      "bytes": 640,
+      "sha256": "dbb9f1a2d006274d6cce6208b01294e1b791fafcc68747fcf17f7b324388a28c"
+    },
+    {
+      "state": 3,
+      "phase": 1,
+      "file": "boss-name-3-01.bin",
+      "bytes": 640,
+      "sha256": "4f99c99758cb896615295c148c47b9acbd8cc4f6397c777a817c51b9608617dd"
+    },
+    {
+      "state": 3,
+      "phase": 2,
+      "file": "boss-name-3-02.bin",
+      "bytes": 640,
+      "sha256": "1dcf8199d76dd7ab249cc9681267aa82134aa11b47a2bfe99d763ef25900db5b"
+    },
+    {
+      "state": 3,
+      "phase": 3,
+      "file": "boss-name-3-03.bin",
+      "bytes": 640,
+      "sha256": "0953292461c0da82748bdf6c43f9ac736ffea9ac31e817192b40ab285496ba9d"
+    },
+    {
+      "state": 3,
+      "phase": 4,
+      "file": "boss-name-3-04.bin",
+      "bytes": 640,
+      "sha256": "267a6648d004c3235a1d7816236abf3a1b5311b2bb92916df525f9178a4cb429"
+    },
+    {
+      "state": 3,
+      "phase": 5,
+      "file": "boss-name-3-05.bin",
+      "bytes": 640,
+      "sha256": "79004f0543a5a9a08c03fadd7cc0e509d1cb3d5233560309a3d9ee8757b80dd3"
+    },
+    {
+      "state": 3,
+      "phase": 6,
+      "file": "boss-name-3-06.bin",
+      "bytes": 640,
+      "sha256": "17c13b216356f2e1c4481e09a39a4a4dfc8ee94b3e8e3cd5dbe10096bcc688e3"
+    },
+    {
+      "state": 3,
+      "phase": 7,
+      "file": "boss-name-3-07.bin",
+      "bytes": 640,
+      "sha256": "3d0a4822780d01bb1c3d6ee6d89fb46d3bbe200827b793feb9d79669d89234bf"
+    },
+    {
+      "state": 3,
+      "phase": 8,
+      "file": "boss-name-3-08.bin",
+      "bytes": 640,
+      "sha256": "19dea03e886934d2f7b4f1ca5f517b6e39045de2ff9cd006c1203a227c4cec77"
+    },
+    {
+      "state": 3,
+      "phase": 9,
+      "file": "boss-name-3-09.bin",
+      "bytes": 640,
+      "sha256": "0942fd3b63348bbeecf708c8c8f7d625065baf26b4458280774786f50fa713a9"
+    },
+    {
+      "state": 3,
+      "phase": 10,
+      "file": "boss-name-3-10.bin",
+      "bytes": 640,
+      "sha256": "0d65d19f07c6abee38a08823f8c498f379126bc08de580a3cc65110ad0421639"
+    },
+    {
+      "state": 3,
+      "phase": 11,
+      "file": "boss-name-3-11.bin",
+      "bytes": 640,
+      "sha256": "c5d63ebe0f9be98f8fd4048f50cded9d88b2a4514dd605c3a9af379e5b37c1a9"
+    },
+    {
+      "state": 3,
+      "phase": 12,
+      "file": "boss-name-3-12.bin",
+      "bytes": 640,
+      "sha256": "e3960a8829ce022366bbd2f5c32e2430a95b66f6b3f5e6ff9fea995b92dbcc14"
+    },
+    {
+      "state": 3,
+      "phase": 13,
+      "file": "boss-name-3-13.bin",
+      "bytes": 640,
+      "sha256": "80079406a28a11cb8ccf2c6996036644440de675494220a6faaa76bc27459649"
+    },
+    {
+      "state": 3,
+      "phase": 14,
+      "file": "boss-name-3-14.bin",
+      "bytes": 640,
+      "sha256": "89b7f5b2b84be6b82c83bdc0261ab1e28504233223ba76677e4678a709fc4340"
+    },
+    {
+      "state": 3,
+      "phase": 15,
+      "file": "boss-name-3-15.bin",
+      "bytes": 640,
+      "sha256": "2a751099d15582915c2fe1b73399b1645aa51296ea6a07e4b589e6f3525dcc14"
+    }
+  ],
+  "static_regions": [
+    {
+      "band": 0,
+      "first_slot": 85,
+      "slots": 0,
+      "pattern_address": 680,
+      "color_address": 8872,
+      "bytes_per_table": 0,
+      "allocated_with_states": 85,
+      "capacity": 192
+    },
+    {
+      "band": 1,
+      "first_slot": 208,
+      "slots": 28,
+      "pattern_address": 3712,
+      "color_address": 11904,
+      "bytes_per_table": 224,
+      "allocated_with_states": 236,
+      "capacity": 256
+    },
+    {
+      "band": 2,
+      "first_slot": 84,
+      "slots": 0,
+      "pattern_address": 4768,
+      "color_address": 12960,
+      "bytes_per_table": 0,
+      "allocated_with_states": 84,
+      "capacity": 192
+    }
+  ],
+  "state_input_sha256": [
+    "87b312e5924db68d28d1985c43ecf08e6dbcfca7c8aee159f0fc159f574db3d5",
+    "02186dca19187873841358d06377e59773ce444dd98e5ecf9432d8357176ea0e",
+    "2c2e825934a5020817b1cf668b602d64150777610cf2b9cbeb5d9d16ee498e70",
+    "a496d9a4a057aad27204df3ec4683ac1abb7d0b1fbfd75aac68cfc0e2f91ddd0"
+  ],
+  "state_changed_tiles": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      4,
+      4,
+      15,
+      15,
+      15,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      15,
+      15,
+      15,
+      4
+    ],
+    [
+      20,
+      20,
+      31,
+      31,
+      31,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      20,
+      31,
+      31,
+      31,
+      20
+    ]
+  ],
+  "distinct_name_assets": 48,
+  "additional_names_bytes": 30720,
+  "total_asset_bytes": 62144,
+  "state_verification": {
+    "passed": true,
+    "state_pair_transitions": 256,
+    "same_phase_state_pairs": 256,
+    "sequential_transitions": 48,
+    "full_frame_comparisons": 1424,
+    "active_slot_writes": 0,
+    "protected_region_writes": 0,
+    "static_tile_writes_after_initial": 0,
+    "arbitrary_state_changes": true,
+    "phase_wraparound": "All 16 state pairs plus three sequential cycles",
+    "steady_state_exact": true
+  },
+  "runtime_contract": "Apply the selected phase packet A then B; copy the same phase names for damage state 0..3 into the inactive name page, then flip. State 0 names are inside the packet; other states use names[]. No runtime PCG writes outside these packets."
+}

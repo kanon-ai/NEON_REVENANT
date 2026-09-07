@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[1]
-A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1/v1.2'
+A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1/v1.3'
 PALETTE=[(0,0,0),(0,0,0),(33,200,66),(94,220,120),(84,85,237),(125,118,252),
  (212,82,77),(66,235,245),(252,85,84),(255,121,120),(212,193,84),(230,206,128),
  (33,176,59),(201,91,186),(204,204,204),(255,255,255)]
@@ -102,7 +102,7 @@ def build_title():
     def text(x,y,s):
         for c in s:v[0x3800+y*32+x]=192+ord(c)-32;x+=1
     v[0x3800:0x3840]=bytes([192])*64;v[0x3AC0:0x3B00]=bytes([192])*64
-    text(3,0,'N E O N   R E V E N A N T');text(2,1,'V1.2 / 5 ZONES / 32K RAM')
+    text(3,0,'N E O N   R E V E N A N T');text(2,1,'V1.3 / 5 ZONES / 32K RAM')
     text(4,22,'SPACE / JOYSTICK TO START');text(3,23,'CURSOR:MOVE  X:NOVA  ESC:PAUSE')
     (A/'title.bin').write_bytes(v)
     image(decode_screen(v)).resize((768,576),Image.Resampling.NEAREST).save(OUT/'title-reference.png')
@@ -110,5 +110,16 @@ def build_title():
 def main():
     A.mkdir(exist_ok=True);OUT.mkdir(parents=True,exist_ok=True)
     worlds=build_worlds();sprites=build_sprites();build_title()
+    from pcg_boss_art import generate_frames,phase_metadata
+    from compile_boss import compile_boss
+    boss_frames=[generate_frames(state) for state in range(4)]
+    boss=compile_boss(boss_frames,A,A/'source/font.bin')
+    for state,frames in enumerate(boss_frames):
+        np.save(A/f'boss-frames-{state}.npy',frames)
+        pictures=[image(f) for f in frames]
+        pictures[0].resize((768,576),Image.Resampling.NEAREST).save(OUT/f'giant-state-{state}-reference.png')
+        pictures[0].save(OUT/f'giant-state-{state}-reference.gif',save_all=True,append_images=pictures[1:],duration=100,loop=0)
+    np.save(A/'frames-5.npy',boss_frames[0])
+    (OUT/'giant-codec-verification.json').write_text(json.dumps(boss,indent=2)+'\n')
     (A/'manifest.json').write_text(json.dumps({'target':'TMS9918A SCREEN2, 16KiB VRAM','palette_rgb8':PALETTE,'worlds':worlds,'sprite_atlas':sprites,'checks':{'screen2_roundtrip':True,'hidden_pcg_streaming':True,'64_pattern_limit':True}},indent=2)+'\n')
 if __name__=='__main__':main()

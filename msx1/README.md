@@ -1,3 +1,5 @@
+[最新版 v1.3：巨大最終ボス Dawn Leviathan の起動・操作・検証](GIANT_BOSS-v1.3.md) — 以下はv1.2の記録です。
+
 # NEON REVENANT — MSX1 PCG Drive v1.2
 
 **ASTRAからの有難うエディション / ASTRA Thank-You Edition**
