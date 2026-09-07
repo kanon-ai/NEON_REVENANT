@@ -18,7 +18,7 @@ typedef signed int s16;
 #define ENEMIES 6
 #define BULLETS 8
 #define FXMAX 4
-#define STAGE_TIME 1500
+#define STAGE_COUNT 5
 
 typedef struct { u8 active,kind,z,hp; s16 wx,wy,x,y; } Foe;
 typedef struct { u8 active; s16 x,y,dx,dy; } Shot;
@@ -42,8 +42,13 @@ u8 world_loaded;
 s16 world_camera;
 
 static const s8 wave[64]={0,6,12,18,24,30,35,40,45,49,53,56,59,61,63,64,64,64,63,61,59,56,53,49,45,40,35,30,24,18,12,6,0,-6,-12,-18,-24,-30,-35,-40,-45,-49,-53,-56,-59,-61,-63,-64,-64,-64,-63,-61,-59,-56,-53,-49,-45,-40,-35,-30,-24,-18,-12,-6};
-static const char * const sector_names[]={"01  CHROME DISTRICT","02  SKYWAY ASSAULT","03  THE BLACK SPIRE"};
-static const char * const boss_names[]={"WARDEN / INTERCEPTOR","RAZOR / SIEGE CARRIER","NOX / CENTRAL CORE"};
+/* Campaign order is independent of the three original combat profiles.
+ * Their shot speeds, attack timing, HP, rewards and sprites stay unchanged. */
+static const u8 stage_difficulty[STAGE_COUNT]={0,0,1,2,2};
+static const u16 stage_times[STAGE_COUNT]={750,1500,1500,1500,1200};
+static const u8 stage_music[STAGE_COUNT]={3,0,1,2,4};
+static const char * const sector_names[]={"00  BREAKWATER APPROACH","01  CHROME DISTRICT","02  SKYWAY ASSAULT","03  THE BLACK SPIRE","04  DAWN EXODUS"};
+static const char * const boss_names[]={"SENTRY / HARBOR PATROL","WARDEN / INTERCEPTOR","RAZOR / SIEGE CARRIER","NOX / CENTRAL CORE","ECHO / LAST PURSUER"};
 static const u8 speed_colors[]={0xF3,0x3F,0xFC};
 
 u16 random16(void){ rng^=rng<<7; rng^=rng>>9; rng^=rng<<8; return rng; }
@@ -56,7 +61,7 @@ void new_game(void){
     reset_entities();stage=0;shield=6;bombs=3;score=0;stage_clock=0;
     mode=PLAY;player_x=128;player_y=166;aim_x=128;aim_y=119;shot_clock=0;hurt_clock=0;
     bomb_flash=0;stage_banner=90;transition_clock=0;combo=0;combo_clock=0;
-    frames_played=0;boss_clock=0;boss_hp=0;boss_flash=0;
+    frames_played=0;boss_clock=0;boss_hp=0;boss_flash=0;world_loaded=255;
     sound_effect(5);
 }
 void damage(void){
@@ -72,7 +77,7 @@ void fire_enemy(s16 x,s16 y,u8 variant){
         dx=player_x-x;dy=player_y-y;
         if(variant==1)dx-=42;if(variant==2)dx+=42;
         den=abs16(dx);if(abs16(dy)>den)den=abs16(dy);if(den<1)den=1;
-        shots[i].dx=dx*(7+stage*2)/den;shots[i].dy=dy*(7+stage*2)/den;
+        shots[i].dx=dx*(7+stage_difficulty[stage]*2)/den;shots[i].dy=dy*(7+stage_difficulty[stage]*2)/den;
         if(!shots[i].dy)shots[i].dy=2;
         return;
     }
@@ -93,7 +98,7 @@ void player_fire(void){
     if(mode==BOSS&&abs16(aim_x-boss_x)<43&&abs16(aim_y-boss_y)<27){
         if(boss_hp){--boss_hp;boss_flash=2;add_score(2);if(!boss_hp){
             reset_entities();explode(boss_x,boss_y,4);sound_effect(4);bomb_flash=30;
-            add_score(500+100*stage);mode=TRANSIT;transition_clock=0;
+            add_score(500+100*stage_difficulty[stage]);mode=TRANSIT;transition_clock=0;
         }}
     }
 }
@@ -113,7 +118,7 @@ void update_objects(void){u8 i;
         e->x=128+(e->wx*(s16)(e->z+16))/256;
         e->y=82+(e->wy*(s16)(e->z+16))/256;
         if(e->kind==1)e->x+=wave[(u8)(frame_counter+i*7)&63]/5;
-        if(e->z==114||((stage>0)&&e->z==174))fire_enemy(e->x,e->y,0);
+        if(e->z==114||((stage_difficulty[stage]>0)&&e->z==174))fire_enemy(e->x,e->y,0);
         if(e->z>232){if(abs16(e->x-player_x)<30&&abs16(e->y-player_y)<26)damage();e->active=0;}
     }
     for(i=0;i<BULLETS;i++)if(shots[i].active){Shot *s=&shots[i];s->x+=s->dx;s->y+=s->dy;
@@ -124,13 +129,15 @@ void update_objects(void){u8 i;
     if(pickup_on){pickup_y+=2;++pickup_z;if(abs16(pickup_x-player_x)<23&&abs16(pickup_y-player_y)<20){if(shield<6)++shield;pickup_on=0;add_score(50);sound_effect(5);}if(pickup_y>194)pickup_on=0;}
 }
 void update_boss(void){
+    u8 difficulty=stage_difficulty[stage];
     ++boss_clock;boss_x=128+wave[(u8)(boss_clock>>1)&63];
     boss_y=92+wave[(u8)(boss_clock>>2)+16&63]/4;
-    if(boss_clock%(24-stage*4)==0){fire_enemy(boss_x-25,boss_y+12,0);fire_enemy(boss_x+25,boss_y+12,0);}
-    if(stage>0&&boss_clock%57==0){fire_enemy(boss_x,boss_y,1);fire_enemy(boss_x,boss_y,2);}
-    if(stage==2&&boss_clock%105==0)spawn_foe();
+    if(boss_clock%(24-difficulty*4)==0){fire_enemy(boss_x-25,boss_y+12,0);fire_enemy(boss_x+25,boss_y+12,0);}
+    if(difficulty>0&&boss_clock%57==0){fire_enemy(boss_x,boss_y,1);fire_enemy(boss_x,boss_y,2);}
+    if(difficulty==2&&boss_clock%105==0)spawn_foe();
 }
 void update_play(void){
+    u8 difficulty=stage_difficulty[stage];
     ++frames_played;++frame_ticks;
     if(keys&1)player_x-=4;if(keys&2)player_x+=4;if(keys&4)player_y-=3;if(keys&8)player_y+=3;
     player_x=clamp(player_x,20,236);player_y=clamp(player_y,119,181);
@@ -142,16 +149,22 @@ void update_play(void){
     if(edge&32)use_bomb();
     if(mode==PLAY){
         ++stage_clock;
-        if(stage_clock%((u16)32-stage*5)==0)spawn_foe();
-        if(stage_clock>=STAGE_TIME){mode=BOSS;boss_hp=100+40*stage;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;sound_effect(6);}
+        if(stage_clock%((u16)32-difficulty*5)==0)spawn_foe();
+        if(stage_clock>=stage_times[stage]){mode=BOSS;boss_hp=100+40*difficulty;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;sound_effect(6);}
     }else if(mode==BOSS)update_boss();
     update_objects();
     if((keys&16)&&!shot_clock&&(mode==PLAY||mode==BOSS)){shot_clock=4;player_fire();}
     if(mode==TRANSIT){
         ++transition_clock;
         if(transition_clock==90){
-            if(stage==2){mode=CLEAR;transition_clock=0;add_score(shield*100+bombs*200);}
-            else{++stage;stage_clock=0;mode=PLAY;stage_banner=90;shield=shield<5?shield+2:6;if(bombs<3)++bombs;reset_entities();}
+            if(stage==STAGE_COUNT-1){mode=CLEAR;transition_clock=0;add_score(shield*100+bombs*200);}
+            else{
+                ++stage;stage_clock=0;mode=PLAY;stage_banner=90;
+                /* Episode 0 cannot deplete the original opening loadout. */
+                if(stage==1){shield=6;bombs=3;}
+                else{shield=shield<5?shield+2:6;if(bombs<3)++bombs;}
+                reset_entities();
+            }
         }
     }
 }
@@ -199,21 +212,21 @@ void hud(void){
     u8 i,n;for(i=0;i<128;i++)hud_buffer[i]=192;
     hud_text(0,0,"SCORE");hud_number(6,0,score,5);
     hud_text(13,0,"HI");hud_number(16,0,highscore,5);
-    hud_text(24,0,"ZONE");hud_number(29,0,stage+1,1);hud_text(30,0,"/3");
+    hud_text(24,0,"ZONE");hud_number(29,0,stage+1,1);hud_text(30,0,"/5");
     hud_text(0,2,"SH");for(i=0;i<6;i++)hud_buffer[64+3+i]=192+(i<shield?'#':'.')-32;
     hud_text(11,2,"NOVA");for(i=0;i<3;i++)hud_buffer[64+16+i]=192+(i<bombs?'*':'.')-32;
-    hud_text(22,2,"SPD");hud_number(26,2,620+(frame_counter&31)*3+stage*70,3);
+    hud_text(22,2,"SPD");hud_number(26,2,620+(frame_counter&31)*3+stage_difficulty[stage]*70,3);
     if(mode==PAUSED){hud_text(5,1,"PAUSED / ESC TO RESUME");}
     else if(mode==OVER){hud_text(10,1,"SIGNAL LOST");hud_text(4,3,"UNIT DOWN / FIRE TO RETRY");}
-    else if(mode==CLEAR){hud_text(3,1,"THE NIGHT BELONGS TO YOU");hud_text(2,3,"ALL ZONES CLEAR / FIRE:RETRY");}
+    else if(mode==CLEAR){hud_text(4,1,"DAWN BREAKS / CITY BEHIND");hud_text(2,3,"ALL 5 ZONES CLEAR / FIRE:RETRY");}
     else if(mode==TRANSIT){hud_text(8,1,"SECTOR LIBERATED");hud_text(5,3,"ACCELERATING TO NEXT ZONE");}
     else if(mode==BOSS){
-        hud_text(0,1,"BOSS");n=(u16)boss_hp*25/(100+40*stage);
+        hud_text(0,1,"BOSS");n=(u16)boss_hp*25/(100+40*stage_difficulty[stage]);
         for(i=0;i<25;i++)hud_buffer[32+6+i]=192+(i<n?'#':'.')-32;
         hud_text(0,3,boss_names[stage]);
     }else{
         hud_text(0,1,sector_names[stage]);
-        hud_text(0,3,"ROUTE");n=stage_clock/63;if(n>24)n=24;
+        hud_text(0,3,"ROUTE");n=(u16)(stage_clock*24)/stage_times[stage];if(n>24)n=24;
         for(i=0;i<24;i++)hud_buffer[96+7+i]=192+(i<n?'=':'.')-32;
     }
     if(combo>1&&mode==PLAY){hud_text(24,1,"CHAIN");hud_number(30,1,combo,1);}
@@ -261,7 +274,7 @@ void draw_objects(void){
     }
     sprite(&reticle,aim_x-10,aim_y-10,7);
     if(mode==BOSS||(mode==PAUSED&&pause_previous==BOSS)){
-        s=&bosses[stage];sprite(s,boss_x-s->w/2,boss_y-s->h/2,boss_flash?15:0);
+        s=&bosses[stage_difficulty[stage]];sprite(s,boss_x-s->w/2,boss_y-s->h/2,boss_flash?15:(stage==0?7:(stage==4?11:0)));
     }
     rotation=(u8)(frame_counter%ENEMIES);
     enemy_count=build_enemy_draw_order(rotation);
@@ -307,7 +320,7 @@ void main(void){
         else if(mode==PAUSED){if(edge&64){mode=pause_previous;sound_mute(0);}}
         else if(edge&64){pause_previous=mode;mode=PAUSED;sound_mute(1);}
         else update_play();
-        if(mode!=PAUSED){++frame_counter;sound_tick(stage,mode!=TITLE&&mode!=OVER);}
+        if(mode!=PAUSED){++frame_counter;sound_tick(stage_music[stage],mode!=TITLE&&mode!=OVER);}
         draw_frame();
     }
 }

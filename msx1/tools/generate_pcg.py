@@ -1,4 +1,4 @@
-"""Build the three PCG worlds from this edition's copied original artwork."""
+"""Build five PCG worlds, preserving the original three scenes."""
 from pathlib import Path
 import json,os
 import numpy as np
@@ -8,14 +8,14 @@ from pcg_codec import compile_stage
 
 ROOT=Path(__file__).resolve().parents[1]
 ASSETS=ROOT/'assets'
-OUT=ROOT.parent/'outputs/msx1/v1.1'
+OUT=ROOT.parent/'outputs/msx1/v1.2'
 
 def generate_worlds():
     OUT.mkdir(parents=True,exist_ok=True)
     quality=os.environ.get('NEON_PCG_QUALITY','high')
     reports=[]
-    for stage in range(3):
-        frames=generate_frames(stage+1,ASSETS/'source',quality)
+    for stage in range(5):
+        frames=generate_frames(stage,ASSETS/'source',quality)
         report=compile_stage(frames,stage,ASSETS,ASSETS/'source/font.bin')
         report['quality']=quality
         np.save(ASSETS/f'frames-{stage}.npy',frames)

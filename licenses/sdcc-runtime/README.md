@@ -1,7 +1,8 @@
 # SDCC runtime source and license
 
 These are unmodified copies of the four Z80 library source files linked into
-the V9990 v1.2 and Turbo R v1.0 ROM editions. They were retrieved from the
+the V9990 v1.2, Turbo R v1.0, MSX2 v1.0, and MSX1 PCG Drive v1.1 / v1.2
+ROM editions. They were retrieved from the
 official SDCC Subversion repository at revision **16555** on 2026-09-06.
 
 Each source file contains its copyright notice, the **GPL version 2 or later**

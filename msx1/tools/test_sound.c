@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #include "sound.h"
+#ifndef SOUND_TEST_STAGE_COUNT
+#define SOUND_TEST_STAGE_COUNT 5
+#endif
 static unsigned char psg[16],direction;
 static unsigned long hash,writes,failures,checks;
 static void check(int condition,const char *message){++checks;if(!condition){++failures;fprintf(stderr,"FAIL %s\n",message);}}
@@ -18,13 +21,13 @@ static void fresh(unsigned char mode){
     memset(psg,0,sizeof(psg));direction=mode;psg[7]=mode|63;sound_init();
 }
 int main(void){
-    unsigned long stages[3],effects[6],before;
+    unsigned long stages[SOUND_TEST_STAGE_COUNT],stage_hashes[4][SOUND_TEST_STAGE_COUNT],effects[6],before;
     unsigned char reference[36][7],snapshot[7];
     int mode,stage,i,j,e;
     for(mode=0;mode<4;++mode){
         fresh((unsigned char)(mode<<6));
         check(psg[8]==0&&psg[9]==0&&psg[10]==0,"Initialization is silent");
-        for(stage=0;stage<3;++stage){
+        for(stage=0;stage<SOUND_TEST_STAGE_COUNT;++stage){
             hash=0;
             for(i=0;i<384;++i){
                 sound_tick((unsigned char)stage,1);
@@ -32,8 +35,10 @@ int main(void){
                 check((psg[7]&63)==56,"Music enables tones only");
             }
             stages[stage]=hash;
+            stage_hashes[mode][stage]=hash;
         }
-        check(stages[0]!=stages[1]&&stages[1]!=stages[2]&&stages[0]!=stages[2],"Distinct full stage arrangements");
+        for(stage=0;stage<SOUND_TEST_STAGE_COUNT;++stage)for(j=stage+1;j<SOUND_TEST_STAGE_COUNT;++j)
+            check(stages[stage]!=stages[j],"Distinct full stage arrangements");
         fresh((unsigned char)(mode<<6));
         for(i=0;i<36;++i){
             sound_tick(0,1);
@@ -62,6 +67,12 @@ int main(void){
         sound_tick(0,1);check((psg[7]&192)==direction,"Read live I/O direction after external mixer change");
         sound_effect(255);sound_tick(255,1);
     }
-    printf("{\"passed\":%s,\"assertions\":%lu,\"writes\":%lu,\"failures\":%lu,\"joystick_direction_variants\":4,\"stage_arrangements\":3,\"effect_types\":6}\n",failures?"false":"true",checks,writes,failures);
+    printf("{\"passed\":%s,\"assertions\":%lu,\"writes\":%lu,\"failures\":%lu,\"joystick_direction_variants\":4,\"stage_arrangements\":%d,\"effect_types\":6,\"stage_hashes\":[",failures?"false":"true",checks,writes,failures,SOUND_TEST_STAGE_COUNT);
+    for(mode=0;mode<4;++mode){
+        printf("%s[",mode?",":"");
+        for(stage=0;stage<SOUND_TEST_STAGE_COUNT;++stage)printf("%s%lu",stage?",":"",stage_hashes[mode][stage]);
+        printf("]");
+    }
+    printf("]}\n");
     return failures?1:0;
 }

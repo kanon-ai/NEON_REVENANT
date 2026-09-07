@@ -1,4 +1,5 @@
 #include "world_load.h"
+#include "world_layout.h"
 volatile u8 world_phase,world_page,world_pending,world_target;
 static u8 stream_stage;
 static void load(u8 bank){
@@ -11,16 +12,19 @@ static void load(u8 bank){
     gfx_write(0x3B00,&end,1);gfx_write(0x3B80,&end,1);gfx_sprite_page(0);
     world_phase=0;world_page=0;world_pending=0;world_target=1;gfx_bg(0);
 }
-void world_load(u8 stage){stream_stage=stage;load(6+stage*2);}
-void title_load(void){load(12);gfx_display(1);}
+void world_load(u8 stage){if(stage>=WORLD_COUNT)stage=0;stream_stage=stage;load(world_banks[stage]);}
+void title_load(void){load(TITLE_BANK);gfx_display(1);}
 /* Precompiled VRAM bursts, no runtime image decoding or RAM frame buffer.
- * One 8 KiB bank holds two upload parts and 640 name bytes. Its PCG slots
+ * Each packet holds two upload parts and 640 name bytes. Its PCG slots
  * are disjoint from the currently visible tiles until R2 commits the page.
  * Split work across two game frames, including names in the second part. */
 void world_prepare(void){
-    const u8 *packet=(const u8*)0x6000;
+    const u8 *packet;
+    const WorldPacket *location;
     if(!world_pending)world_target=(world_phase+1)&15;
-    *((volatile u8*)0x6800)=14+stream_stage*16+world_target;
+    location=&world_packets[stream_stage][world_target];
+    *((volatile u8*)0x6800)=location->bank;
+    packet=(const u8*)location->address;
     if(!world_pending){gfx_patch(packet+4);world_pending=1;}
     else if(world_pending==1){
         gfx_patch(packet+*(const u16*)packet);

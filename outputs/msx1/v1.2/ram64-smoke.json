@@ -1,0 +1,54 @@
+{
+  "machine": "NEON_MSX1_RAM64_NTSC",
+  "emulator": "openMSX 21.0-unknown",
+  "physical_ram_bytes": 65536,
+  "rom_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+  "scope": "Fresh boot and keyboard-only Episode0 movement, pause, resume and bomb smoke; full campaign scenarios are covered by the 32 KiB suites.",
+  "physical_hardware_tested": false,
+  "results": [
+    {
+      "name": "64KiB-machine",
+      "passed": true
+    },
+    {
+      "name": "16KiB-VRAM",
+      "passed": true
+    },
+    {
+      "name": "same-ROM-sha256",
+      "passed": true
+    },
+    {
+      "name": "title-on-boot",
+      "passed": true
+    },
+    {
+      "name": "Episode0-start",
+      "passed": true
+    },
+    {
+      "name": "keyboard-movement",
+      "passed": true
+    },
+    {
+      "name": "pause",
+      "passed": true
+    },
+    {
+      "name": "pause-freezes-stage",
+      "passed": true
+    },
+    {
+      "name": "resume",
+      "passed": true
+    },
+    {
+      "name": "bomb",
+      "passed": true
+    },
+    {
+      "name": "no-too-fast-VRAM-access",
+      "passed": true
+    }
+  ]
+}

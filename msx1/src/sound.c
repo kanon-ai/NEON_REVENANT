@@ -23,13 +23,18 @@ static u8 raw_read(u8 reg){sound_psg_address=reg;return sound_psg_read_port;}
 /* Original Night Current themes, arranged for three PSG voices. */
 static const u8 roots[8] = {33,33,29,29,36,36,31,28};
 static const u8 thirds[8] = {3,3,4,4,4,4,4,3};
-static const u8 lead[3][32] = {
+/* Indices 0..2 retain the original tunes; 3 and 4 frame the campaign. */
+static const u8 lead[5][32] = {
     {12,19,24,19,15,19,22,19,12,19,15,22,19,15,10,7,
      12,15,19,24,22,19,15,19,24,22,19,15,14,10,7,10},
     {24,19,15,19,22,19,15,12,19,24,27,24,22,19,15,19,
      24,22,19,15,19,22,26,22,24,19,15,12,14,19,22,19},
     {12,24,19,24,15,27,22,19,24,22,19,15,22,26,29,26,
-     24,19,22,27,24,22,19,15,19,22,24,31,29,26,22,19}
+     24,19,22,27,24,22,19,15,19,22,24,31,29,26,22,19},
+    {7,12,15,19,12,15,19,22,7,12,19,15,10,14,17,19,
+     12,19,22,24,19,15,12,19,15,22,19,15,14,10,7,12},
+    {24,27,31,27,22,26,29,26,24,19,22,27,31,29,27,24,
+     19,24,27,31,29,26,22,19,22,26,29,31,24,22,19,24}
 };
 static const u8 arpeggio[8] = {0,7,12,7,3,7,15,7};
 static const u8 bass_pattern[8] = {0,0,12,0,7,0,12,7};
@@ -100,7 +105,7 @@ void sound_effect(u8 id){
 void sound_tick(u8 stage,u8 playing){
     u8 bits=0x38,volume;
     u16 period;
-    if(muted_flag)return;if(stage>2)stage=2;
+    if(muted_flag)return;if(stage>4)stage=4;
     if(stage!=song_stage){song_stage=stage;song_step=song_tick=0;}
     if(!song_tick)music_step(stage);
     tone(0,bass_period,song_tick?9:12);

@@ -12,8 +12,9 @@ variants=[(OUT,'NEON_REVENANT-v1.2.rom',
            ['verification.json','world-verification.json','sprite-verification.json']),
           (OUT/'msx2','NEON_REVENANT-MSX2-v1.0.rom',
            ['verification.json','world-verification.json','sprite-verification.json','timing-verification.json']),
-          (OUT/'msx1/v1.1','NEON_REVENANT-MSX1-v1.1.rom',
-           ['verification.json','world-verification.json','transfer-verification.json'])]
+          (OUT/'msx1/v1.2','NEON_REVENANT-MSX1-v1.2.rom',
+           [f'{standard}/{name}' for standard in ['ntsc','pal']
+            for name in ['verification.json','world-verification.json','transfer-verification.json']])]
 checksums=[]
 for directory,filename,reports in variants:
     manifest=json.loads((directory/'build-manifest.json').read_text())
@@ -27,7 +28,7 @@ for directory,filename,reports in variants:
         assert result['rom']['sha256']==digest,report
         assert result['results'] and all(item['passed'] for item in result['results']),report
 for port in ['msx2','msx1']:
-    sound_dir=OUT/port/('v1.1' if port=='msx1' else '')
+    sound_dir=OUT/port/('v1.2' if port=='msx1' else '')
     sound=json.loads((sound_dir/'sound-verification.json').read_text())
     assert sound['passed'] and not sound['failures']
     assert sound['source_sha256']==hashlib.sha256((ROOT/port/'src/sound.c').read_bytes()).hexdigest()
@@ -43,6 +44,7 @@ for directory in ['src','tools','assets','turbor/src','turbor/tools','turbor/ass
 files.update([ROOT/'turbor/README.md',ROOT/'turbor/requirements.txt',ROOT/'turbor/.gitignore'])
 for port in ['msx2','msx1']:
     files.update([ROOT/port/'README.md',ROOT/port/'requirements.txt',ROOT/port/'.gitignore'])
+files.add(ROOT/'msx1/README-en.md')
 files.update(p for p in OUT.rglob('*') if p.is_file() and p.suffix in ['.rom','.json','.md','.ps1','.png','.gif','.txt']
              and not p.name.startswith('SHA256SUMS'))
 archive=OUT/'NEON_REVENANT-public-prototype.zip'

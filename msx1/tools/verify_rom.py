@@ -4,11 +4,10 @@ RAM to exercise distant states; they are not represented as a full playthrough.
 """
 import urllib.request, time, json, hashlib, re
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
+from ram32_test_config import ROOT, RELEASE, OUT, STANDARD, MACHINE, STAGE_DURATIONS, TIMING_SETUP
 SYM=json.loads((ROOT/'work/build/symbols.json').read_text())
-OUT=ROOT.parent/'outputs/msx1/v1.1'
-MANIFEST=json.loads((OUT/'build-manifest.json').read_text())
-ROM=(OUT/MANIFEST['file']).read_bytes()
+MANIFEST=json.loads((RELEASE/'build-manifest.json').read_text())
+ROM=(RELEASE/MANIFEST['file']).read_bytes()
 assert hashlib.sha256(ROM).hexdigest()==MANIFEST['sha256']
 results=[]
 def cmd(s):
@@ -38,16 +37,23 @@ def wait_world(stage):
     check(f'sector-{stage+1}-world-resident',read('_world_loaded')==stage)
     advance(.15)
 cmd('set pause off; set speed 100; set limitsprites true; set accuracy pixel; set videosource MSX')
+cmd(TIMING_SETUP)
 # ROM is tested in native machine emulation, not a browser recreation.
 deadline=time.monotonic()+20
 while int(cmd('debug read {VDP regs} 0'))!=2 or int(cmd('debug read {VDP regs} 1'))!=0xC3:
     assert time.monotonic()<deadline,'boot timeout'
     time.sleep(.05)
-check('target-machine',cmd('machine_info config_name').strip()=='C-BIOS_MSX1_JP',version=cmd('openmsx_info version'))
+check('target-machine',cmd('machine_info config_name').strip()==MACHINE,version=cmd('openmsx_info version'))
 check('SCREEN2-mode',int(cmd('debug read {VDP regs} 0'))==2 and int(cmd('debug read {VDP regs} 1'))==0xC3)
 check('no-V9990-attached','GFX9000' not in cmd('debug list'))
 check('16KiB-VRAM',int(cmd('debug size {physical VRAM}'))==16384)
-check('64KiB-RAM',int(cmd('debug size {Main RAM}'))==65536)
+check('32KiB-RAM',int(cmd('debug size {Main RAM}'))==32768)
+executed=bytes.fromhex(cmd('binary encode hex [debug read_block [lsearch -inline [debug list] {*'+MANIFEST['file']+'}] 0 524288]'))
+check('executed-ROM-sha256',hashlib.sha256(executed).hexdigest()==MANIFEST['sha256'],sha256=hashlib.sha256(executed).hexdigest())
+check('title-on-boot',read('_mode')==0)
+# This unused guard lies below the stack, far above the linked static data.
+# Populate it only while execution is stopped; check it after all scenarios.
+cmd('set pause on;debug write_block memory 61440 [string repeat [binary format c 165] 256];set pause off')
 deadline=msxtime()+20
 while read('_frame_counter',2)==0 and msxtime()<deadline:advance(.05)
 check('startup-first-frame',read('_frame_counter',2)>0)
@@ -81,8 +87,9 @@ proj=[1,px&255,px>>8,py&255,py>>8,0,0,0,0]
 for i,v in enumerate(proj):cmd(f'debug write memory {SYM["_shots"]+i} {v}')
 cmd('set pause off');advance(.18);check('collision-game-over',read('_mode')==4 and read('_shield')==0);shot('game-over')
 advance(2);tap(8,1);check('retry-resets-state',read('_mode')==1 and read('_shield')==6 and read('_score',2)==0)
-for stage in range(3):
-    cmd('set pause on');write('_stage',stage);write('_stage_clock',1499,2);write('_mode',1);write('_stage_banner',0);write('_old_keys',0)
+for stage in range(5):
+    check(f'campaign-position-{stage}',read('_stage')==stage and read('_mode')==1)
+    cmd('set pause on');write('_stage_clock',STAGE_DURATIONS[stage]-1,2);write('_stage_banner',0);write('_old_keys',0)
     cmd('set pause off');advance(.12)
     wait_world(stage)
     check(f'sector-{stage+1}-boss-entry',read('_mode')==2 and read('_boss_hp',2)>0)
@@ -93,12 +100,18 @@ for stage in range(3):
     check(f'sector-{stage+1}-boss-defeat',read('_mode')==3)
     deadline=msxtime()+10
     while read('_mode')==3 and msxtime()<deadline:advance(.2)
-    check(f'sector-{stage+1}-transition',read('_mode')==(5 if stage==2 else 1))
-    if stage<2:wait_world(stage+1)
+    check(f'sector-{stage+1}-transition',read('_mode')==(5 if stage==4 else 1))
+    if stage<4:wait_world(stage+1)
 shot('ending')
-rom=(OUT/MANIFEST['file']).read_bytes()
+check('five-stage-clear',read('_mode')==5 and read('_stage')==4)
+guard=bytes.fromhex(cmd('binary encode hex [debug read_block memory 61440 256]'))
+check('stack-lower-guard-preserved',guard==bytes([165])*256,address='F000-F0FF',bytes=256)
+advance(2);tap(8,1)
+check('clear-retry-starts-episode-zero',read('_mode')==1 and read('_stage')==0 and read('_shield')==6 and read('_bombs')==3)
+rom=(RELEASE/MANIFEST['file']).read_bytes()
 check('ROM-size-and-header',len(rom)==524288 and rom[:2]==b'AB',size=len(rom),sha256=hashlib.sha256(rom).hexdigest())
-report={'emulator':cmd('openmsx_info version').strip(),'rom':MANIFEST,'machine':'C-BIOS_MSX1_JP','extension':None,'physical_hardware_tested':False,'scenario_seeding':'RAM injected only for targeted hit, collision, and distant stage/boss checks','results':results}
+check('no-too-fast-VRAM-access',int(cmd('set ::neon_fast_vram_count'))==0,violations=int(cmd('set ::neon_fast_vram_count')))
+report={'emulator':cmd('openmsx_info version').strip(),'rom':MANIFEST,'machine':MACHINE,'video_standard':STANDARD,'physical_ram_bytes':32768,'extension':None,'physical_hardware_tested':False,'scenario_seeding':'RAM seeds target hits, collisions, stage clocks and final boss hits; all five boss transitions and clear execute in ROM. This is not a keyboard-only full playthrough. A guard is placed in unused RAM below the stack.','stage_durations_frames':STAGE_DURATIONS,'results':results}
 report['rom_slot']={'connector':'slota','primary_slot':int(cmd('machine_info external_slot slota').split()[0]),'mapper':'ASCII8','file':MANIFEST['file']}
 (OUT/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
 print('ALL CHECKS PASSED')

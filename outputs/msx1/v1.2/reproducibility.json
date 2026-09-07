@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+  "bytes": 524288,
+  "method": "Full asset regeneration and SDCC/Pasmo rebuild in an independent directory; byte-identical ROM.",
+  "generated_worlds": 5,
+  "generated_phases": 80
+}

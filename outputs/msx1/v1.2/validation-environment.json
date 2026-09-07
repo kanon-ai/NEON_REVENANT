@@ -1,0 +1,85 @@
+{
+  "recorded_at": "2026-09-07T01:03:40.416796+00:00",
+  "rom_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+  "emulator": {
+    "version": "openMSX 21.0-unknown",
+    "executable": "${OPENMSX_EXE}",
+    "sha256": "189937f813dba2943b942dfc38fb6bc22854f1ee6d133c8ff56aafdd25fcf519",
+    "system_data": "${OPENMSX_SYSTEM_DATA}"
+  },
+  "machines": [
+    {
+      "machine": "NEON_MSX1_RAM32_NTSC",
+      "RAM_bytes": 32768,
+      "RAM_start": "0x8000",
+      "VDP": "TMS9918A",
+      "VRAM_bytes": 16384,
+      "configuration_sha256": "9700e79ac386842468b419f91fe8e67d08a2a60ab25c131bd172164c77567b5a"
+    },
+    {
+      "machine": "NEON_MSX1_RAM32_PAL",
+      "RAM_bytes": 32768,
+      "RAM_start": "0x8000",
+      "VDP": "TMS9929A",
+      "VRAM_bytes": 16384,
+      "configuration_sha256": "a0f619af3baf34cf859beb613ce5e88c6e6cfc5fb1b78229717ad6739544fb5c"
+    },
+    {
+      "machine": "NEON_MSX1_RAM64_NTSC",
+      "RAM_bytes": 65536,
+      "RAM_start": "0x0000",
+      "VDP": "TMS9918A",
+      "VRAM_bytes": 16384,
+      "configuration_sha256": "4ac08bdaf3bb46037cafadf5818b5993ec230d5bf40e868c8811993fab8221c2"
+    }
+  ],
+  "native_configuration": {
+    "renderer": "SDLGL-PP",
+    "accuracy": "pixel",
+    "limitsprites": true,
+    "z80_hz": 3579545,
+    "audio_driver": "dummy",
+    "audio_device_playback_tested": false,
+    "VRAM_timing_callback": "VDP.too_fast_vram_access_callback",
+    "timing_positive_control": "Temporary scratch-RAM unpaced 1024-byte OTIR; 65 NTSC and 67 PAL timing violations detected, then CPU/RAM/tested VRAM restored. Normal game and world suites observed zero violations."
+  },
+  "scope": "C-BIOS-based native emulation. Campaign tests seed stage clocks and final-hit cases but advance all five stage transitions in ROM. World tests seed stage selection and compare all 80 phases on each standard. These are not keyboard-only complete playthroughs or physical-hardware tests. The 64 KiB check covers fresh boot and keyboard-controlled Episode0 smoke.",
+  "physical_hardware_tested": false,
+  "BIOS_handling": "Existing emulator-installation C-BIOS ROMs were read; no BIOS binaries were copied by these tools.",
+  "reports": {
+    "ntsc/verification.json": {
+      "passed": true,
+      "checks": 57
+    },
+    "ntsc/world-verification.json": {
+      "passed": true,
+      "checks": 61
+    },
+    "ntsc/transfer-verification.json": {
+      "passed": true,
+      "checks": 9
+    },
+    "pal/verification.json": {
+      "passed": true,
+      "checks": 57
+    },
+    "pal/world-verification.json": {
+      "passed": true,
+      "checks": 61
+    },
+    "pal/transfer-verification.json": {
+      "passed": true,
+      "checks": 9
+    },
+    "ram64-smoke.json": {
+      "passed": true,
+      "checks": 11
+    },
+    "sound-verification.json": {
+      "passed": true,
+      "assertions": 70000,
+      "original_three_arrangements_match": true
+    }
+  },
+  "publication_note": "Local absolute paths replaced with portable references; measurements and hashes are unchanged."
+}

@@ -9,10 +9,10 @@ import numpy as np
 from pcg_codec import decode_screen
 from PIL import Image
 
-ROOT=Path(__file__).resolve().parents[1];OUT=ROOT.parent/'outputs/msx1/v1.1'
+from ram32_test_config import ROOT, RELEASE, OUT, STANDARD, MACHINE, VDP, TIMING_SETUP
 SYM=json.loads((ROOT/'work/build/symbols.json').read_text())
-MANIFEST=json.loads((OUT/'build-manifest.json').read_text());results=[]
-SCRATCH=ROOT/'work/captures';SCRATCH.mkdir(exist_ok=True)
+MANIFEST=json.loads((RELEASE/'build-manifest.json').read_text());results=[]
+SCRATCH=ROOT/'work'/('captures-v1.2-'+STANDARD);SCRATCH.mkdir(exist_ok=True)
 
 def cmd(s):
     return urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:18801',data=s.encode()),timeout=25).read().decode().strip()
@@ -46,13 +46,15 @@ def frame():cmd('debug cont');until(lambda:cmd('debug breaked')=='1')
 def unbreak(bp):cmd(f'debug remove_bp {bp};debug cont')
 
 cmd('set speed 100;set limitsprites true;set accuracy pixel;set videosource MSX;set pause off')
-check('target-is-original-MSX',cmd('machine_info config_name')=='C-BIOS_MSX1_JP' and 'TMS99X8A' in cmd('machine_info device VDP'))
+cmd(TIMING_SETUP)
+check('target-is-original-MSX',cmd('machine_info config_name')==MACHINE and VDP in cmd('machine_info device VDP'))
 check('physical-VRAM-16KiB',int(cmd('debug size {physical VRAM}'))==16384)
+check('physical-RAM-32KiB',int(cmd('debug size {Main RAM}'))==32768)
 check('normal-Z80-speed',int(cmd('machine_info z80_freq'))==3579545,hz=int(cmd('machine_info z80_freq')))
-actual_rom=bytes.fromhex(cmd('binary encode hex [debug read_block [lindex [machine_info external_slot slota] 2] 0 524288]'))
+actual_rom=bytes.fromhex(cmd('binary encode hex [debug read_block [lsearch -inline [debug list] {*'+MANIFEST['file']+'}] 0 524288]'))
 check('executed-ROM-sha256',hashlib.sha256(actual_rom).hexdigest()==MANIFEST['sha256'],sha256=hashlib.sha256(actual_rom).hexdigest())
 check('sprite-limit-enabled',cmd('set limitsprites')=='true')
-for stage in range(3):
+for stage in range(5):
     load_time=setup(stage);advance(.2);bp=breakpoint()
     v=block('VRAM',0,16384);source=(ROOT/'assets'/f'world-{stage}.bin').read_bytes()
     check(f'stage-{stage+1}-name-page-layout',int(cmd('debug read {VDP regs} 2')) in [14,15],load_seconds=round(load_time,3))
@@ -111,7 +113,7 @@ check('decimal-HUD-native-both-pages',True,values=12,pages=2)
 unbreak(bp)
 
 # Deliberately dense renderer stress: no claim of a normal-play workload.
-setup(2,6);put('_pause_previous',2);put('_boss_x',128,2);put('_boss_y',100,2);put('_boss_hp',180,2);put('_boss_flash',0)
+setup(4,6);put('_pause_previous',2);put('_boss_x',128,2);put('_boss_y',100,2);put('_boss_hp',180,2);put('_boss_flash',0)
 bp=breakpoint();stress=[]
 for crowded in [False,True]:
     if crowded:
@@ -133,7 +135,8 @@ for crowded in [False,True]:
     check(item['scene']+'-renderer-progress',fps>12,**item);stress.append(item);shot(OUT/(item['scene']+'-native.png'))
 unbreak(bp)
 
-report={'rom':MANIFEST,'machine':'C-BIOS_MSX1_JP','video':'TMS99X8A, physical 16KiB VRAM','physical_hardware_tested':False,
+check('no-too-fast-VRAM-access',int(cmd('set ::neon_fast_vram_count'))==0,violations=int(cmd('set ::neon_fast_vram_count')))
+report={'rom':MANIFEST,'machine':MACHINE,'video_standard':STANDARD,'video':VDP+', physical 16KiB VRAM','physical_ram_bytes':32768,'physical_hardware_tested':False,
  'scenario_seeding':'Stage selection, all pause phases and stationary crowded scenarios use RAM injection; drawing/input/sound execute in the ROM.',
  'sprite_limit':'32 total, 4 per scanline, 1 color per sprite; lines above four can disappear or flicker on real hardware.',
  'results':results,'stress':stress}

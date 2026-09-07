@@ -1,0 +1,975 @@
+{
+  "emulator": "openMSX 21.0-unknown",
+  "rom": {
+    "title": "NEON REVENANT - MSX1 PCG Drive: Breakwater to Dawn",
+    "version": "1.2",
+    "file": "NEON_REVENANT-MSX1-v1.2.rom",
+    "mapper": "ASCII8",
+    "rom_bytes": 524288,
+    "allocated_bytes": 376832,
+    "free_bytes": 147456,
+    "runtime_bytes": 11138,
+    "runtime_address": "8000-DFFF",
+    "data_end": "0xe211",
+    "ram_required_bytes": 32768,
+    "ram_address": "8000-FFFF in one RAM slot",
+    "sprite_bytes": 2048,
+    "worlds": [
+      {
+        "stage": 1,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 38508,
+        "raw_sha256": "a7b62a462887eedac91536092cdc48df856f4d8dbfa7641db0e7531200c6d82a"
+      },
+      {
+        "stage": 2,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 42468,
+        "raw_sha256": "2c60b8960e7fe557bfb739785b7248b534b6767c61a1ea441ad245b558f919d2"
+      },
+      {
+        "stage": 3,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 42428,
+        "raw_sha256": "82fb942126551715e5afe374134e0d6a4c26ce2f26e4034154c63dfe47fcc176"
+      },
+      {
+        "stage": 4,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 46760,
+        "raw_sha256": "c409da8c058ca33cd141901c0b823a5230d3401754b25ffbd8fe2e0ef5cb3532"
+      },
+      {
+        "stage": 5,
+        "bytes": 16384,
+        "vram_bytes": 16384,
+        "phases": 16,
+        "pcg_packet_bytes": 43392,
+        "raw_sha256": "2dd1b1e55c4a7f3242d9ccf310d3145847733fd8529a3ad4bc30d16594e7ea29"
+      }
+    ],
+    "video": "TMS9918A SCREEN2 256x192, 16 streamed PCG phases, two name pages, fixed palette, resident mode1 MAG2 sprites",
+    "v9990_required": false,
+    "sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+    "entry": "0xa084",
+    "packing": {
+      "strategy": "first-fit-decreasing whole PCG packets, no runtime decompression",
+      "title_bank": 16,
+      "first_packet_bank": 18,
+      "packet_banks": 28,
+      "payload_bytes": 213556,
+      "packets": [
+        {
+          "stage": 0,
+          "phase": 0,
+          "bank": 45,
+          "offset": 4580,
+          "bytes": 2268,
+          "sha256": "4e63efff3bfeb0a7d79a2323d0cbc2f7d92aa4127f7eb34a82f0261d5ded6476"
+        },
+        {
+          "stage": 0,
+          "phase": 1,
+          "bank": 28,
+          "offset": 5596,
+          "bytes": 2596,
+          "sha256": "337e8c2c3466cb399fd49101cd8cd4670a487a71415d3bde127667d3e78e5a3d"
+        },
+        {
+          "stage": 0,
+          "phase": 2,
+          "bank": 45,
+          "offset": 2292,
+          "bytes": 2288,
+          "sha256": "db8c6c249a2ddbac1a5bc84c03d186e6c8d2ac33fe21db3e394e7c46bee3232e"
+        },
+        {
+          "stage": 0,
+          "phase": 3,
+          "bank": 26,
+          "offset": 5644,
+          "bytes": 2508,
+          "sha256": "93814ab6bf67f629aa3908a4805ddc3e84c988c6ca2893002bee9a43e9e9be7a"
+        },
+        {
+          "stage": 0,
+          "phase": 4,
+          "bank": 43,
+          "offset": 2376,
+          "bytes": 2364,
+          "sha256": "8a2b3feccc130abbc059efe67719fbc2e21b908f5818b10a36b55312267b0145"
+        },
+        {
+          "stage": 0,
+          "phase": 5,
+          "bank": 43,
+          "offset": 0,
+          "bytes": 2376,
+          "sha256": "6ddb428d1c3976c33b8415e92b043bab59ef84809434387c3b9aa8ee928877dd"
+        },
+        {
+          "stage": 0,
+          "phase": 6,
+          "bank": 45,
+          "offset": 0,
+          "bytes": 2292,
+          "sha256": "43257ab944f68080d97b13f6d6f9d41f052304777a1cf84ea70d60788fa4f5ad"
+        },
+        {
+          "stage": 0,
+          "phase": 7,
+          "bank": 43,
+          "offset": 4740,
+          "bytes": 2352,
+          "sha256": "fdc775a1a0d6032503fa8109914074f64b0c31e0b93b0334ccae5a5de890f499"
+        },
+        {
+          "stage": 0,
+          "phase": 8,
+          "bank": 23,
+          "offset": 5856,
+          "bytes": 2332,
+          "sha256": "e0518ae36bebfc59f2b90357f58a69e8d7303a60dea70f712555ecb5062fca13"
+        },
+        {
+          "stage": 0,
+          "phase": 9,
+          "bank": 44,
+          "offset": 4684,
+          "bytes": 2308,
+          "sha256": "16f727512eeee40df2c08f4f17f680bcfaa03eae8a32365b378a024340c99f8f"
+        },
+        {
+          "stage": 0,
+          "phase": 10,
+          "bank": 44,
+          "offset": 0,
+          "bytes": 2344,
+          "sha256": "ad602a20d5b557d9760e7b0826495e36964a42ddfd92461417ce9fd023c4f4dc"
+        },
+        {
+          "stage": 0,
+          "phase": 11,
+          "bank": 41,
+          "offset": 4944,
+          "bytes": 2424,
+          "sha256": "3f6ca8e8b96e610f57869f3d73a74510dbe20d1b445e0e2accf9e0e5883f8fec"
+        },
+        {
+          "stage": 0,
+          "phase": 12,
+          "bank": 41,
+          "offset": 0,
+          "bytes": 2472,
+          "sha256": "f14a018444b31190125a0b7f854ed4f8a2f7dfdb4a69a7d04639b3fd55e5703a"
+        },
+        {
+          "stage": 0,
+          "phase": 13,
+          "bank": 36,
+          "offset": 2660,
+          "bytes": 2656,
+          "sha256": "163848e8955c6f79e7de6aef57ffd9e6f4b87286d21a6506807c912a055ad6f1"
+        },
+        {
+          "stage": 0,
+          "phase": 14,
+          "bank": 44,
+          "offset": 2344,
+          "bytes": 2340,
+          "sha256": "f294562b37abc0f3a8c08116d36e0122521d3b98af480898c4ef81d24897891d"
+        },
+        {
+          "stage": 0,
+          "phase": 15,
+          "bank": 38,
+          "offset": 5192,
+          "bytes": 2588,
+          "sha256": "f41bbeb21a8747f2ec59222a02606b926c51bcebc48718f5abb961f1c075f6fd"
+        },
+        {
+          "stage": 1,
+          "phase": 0,
+          "bank": 26,
+          "offset": 2824,
+          "bytes": 2820,
+          "sha256": "31d5ccbea57056df36115dfbd147efdc3c4387be6d48c4d3c0b4301047deca66"
+        },
+        {
+          "stage": 1,
+          "phase": 1,
+          "bank": 22,
+          "offset": 0,
+          "bytes": 2988,
+          "sha256": "c03771489a5dd35bbe6237ba0489197863453163ccb8fe43f16b8cf35c6d6f47"
+        },
+        {
+          "stage": 1,
+          "phase": 2,
+          "bank": 27,
+          "offset": 2812,
+          "bytes": 2808,
+          "sha256": "32e75d85cc65e1018bbeced438c6e204854d718297e209bd3243c66f390f5f72"
+        },
+        {
+          "stage": 1,
+          "phase": 3,
+          "bank": 26,
+          "offset": 0,
+          "bytes": 2824,
+          "sha256": "782d78b791ca9c91de7317834e7d6b81dd0f714166ba976230dcb795b595f3de"
+        },
+        {
+          "stage": 1,
+          "phase": 4,
+          "bank": 25,
+          "offset": 0,
+          "bytes": 2844,
+          "sha256": "ab69414d0260511cbe5f1de89eadc6382fe1dea53352b7f0bf407b122104b2c7"
+        },
+        {
+          "stage": 1,
+          "phase": 5,
+          "bank": 39,
+          "offset": 2588,
+          "bytes": 2568,
+          "sha256": "bede82e1e84ad8bc8b475412e44754894be7a51fc6d595c8ee31d8df76242dc4"
+        },
+        {
+          "stage": 1,
+          "phase": 6,
+          "bank": 37,
+          "offset": 2644,
+          "bytes": 2624,
+          "sha256": "692c522c1e5987b67edf181c20218971c9ca3bf7a96377497e8e03099b284801"
+        },
+        {
+          "stage": 1,
+          "phase": 7,
+          "bank": 22,
+          "offset": 5972,
+          "bytes": 2168,
+          "sha256": "3970662d31d8f5e4f4189077a50368826af08bd9ad1ed4aca62f610c52bba866"
+        },
+        {
+          "stage": 1,
+          "phase": 8,
+          "bank": 37,
+          "offset": 0,
+          "bytes": 2644,
+          "sha256": "319929b1e7f60e603f71d4abf84e8f0ab696f62e79a529f78b3d2be4edd112c3"
+        },
+        {
+          "stage": 1,
+          "phase": 9,
+          "bank": 39,
+          "offset": 0,
+          "bytes": 2588,
+          "sha256": "cee14fded4fe4cfd6dbd0acc89f362dcd441568fa62c53b2f5be4fb37de13cfb"
+        },
+        {
+          "stage": 1,
+          "phase": 10,
+          "bank": 27,
+          "offset": 5620,
+          "bytes": 2572,
+          "sha256": "fc19a71f76ca4933ba4258f3afbc6f18616751ebc79767cc8d3da47f6808ab9a"
+        },
+        {
+          "stage": 1,
+          "phase": 11,
+          "bank": 41,
+          "offset": 2472,
+          "bytes": 2472,
+          "sha256": "3b49c51e409425ae027f6961fcbbb036cbdd3d8953aaf56172071952f80ffa79"
+        },
+        {
+          "stage": 1,
+          "phase": 12,
+          "bank": 36,
+          "offset": 0,
+          "bytes": 2660,
+          "sha256": "8c1a5067e84c3dd130f493e9e318387135b17459851e16feb48cf59fe3133a76"
+        },
+        {
+          "stage": 1,
+          "phase": 13,
+          "bank": 30,
+          "offset": 2760,
+          "bytes": 2756,
+          "sha256": "9bc7df40d2c96df0a3c5232323ac09766f3b7a2e2da48214a4c28b16efc54106"
+        },
+        {
+          "stage": 1,
+          "phase": 14,
+          "bank": 35,
+          "offset": 2692,
+          "bytes": 2688,
+          "sha256": "0cf50a3bec1272d6dbf203a3237bbb65ce00664bec35001d9b52875b31c92ab3"
+        },
+        {
+          "stage": 1,
+          "phase": 15,
+          "bank": 24,
+          "offset": 5740,
+          "bytes": 2444,
+          "sha256": "7842af30e8171850b5eea3b6ee5b0b47efd52373a37f1c29979aa7f91e44198d"
+        },
+        {
+          "stage": 2,
+          "phase": 0,
+          "bank": 23,
+          "offset": 2936,
+          "bytes": 2920,
+          "sha256": "f084eb1803b9461f5bc4e39ab1bb252d95b09b6e1cba7327936fcc701a46b0f6"
+        },
+        {
+          "stage": 2,
+          "phase": 1,
+          "bank": 29,
+          "offset": 0,
+          "bytes": 2780,
+          "sha256": "c06dde63314749ec6c7370849c7330752440b44d1c715b7ce2775344da39bb24"
+        },
+        {
+          "stage": 2,
+          "phase": 2,
+          "bank": 31,
+          "offset": 2756,
+          "bytes": 2752,
+          "sha256": "d71b43fa2986d87d2690993e020ae3c66023b9df5096dd3f0813f58269bdedd2"
+        },
+        {
+          "stage": 2,
+          "phase": 3,
+          "bank": 42,
+          "offset": 0,
+          "bytes": 2408,
+          "sha256": "9eab4a543c4fb69a288f635a727c824802246bef5daa8bb4b887b7859ef2ef7a"
+        },
+        {
+          "stage": 2,
+          "phase": 4,
+          "bank": 25,
+          "offset": 5688,
+          "bytes": 2492,
+          "sha256": "0b462835adb8d7119bdc5014cea34843eafb79226add17dc4acac4c8b51dc0a5"
+        },
+        {
+          "stage": 2,
+          "phase": 5,
+          "bank": 42,
+          "offset": 2408,
+          "bytes": 2404,
+          "sha256": "5d8fa8edf3e0a93798db4dfdabac7de1f6b2231971df2a62c71bda86cfd23f1b"
+        },
+        {
+          "stage": 2,
+          "phase": 6,
+          "bank": 37,
+          "offset": 5268,
+          "bytes": 2616,
+          "sha256": "cabf18ce42587968b7e1c09d9dc9302c8ec212f6663653f2c351c5c382aa0b64"
+        },
+        {
+          "stage": 2,
+          "phase": 7,
+          "bank": 42,
+          "offset": 4812,
+          "bytes": 2404,
+          "sha256": "249518cecfd113879a29cefa640a71d37b8684bee2e492bd7a64ebfa84556c1c"
+        },
+        {
+          "stage": 2,
+          "phase": 8,
+          "bank": 33,
+          "offset": 0,
+          "bytes": 2724,
+          "sha256": "107027f4e7fd6dbc8429ff4897a31f0a08f69d9e3ab08ca12eba59aeefa84f97"
+        },
+        {
+          "stage": 2,
+          "phase": 9,
+          "bank": 40,
+          "offset": 2560,
+          "bytes": 2556,
+          "sha256": "281b6f44fef4e004b28d25ecf82b3808412e61617cb4ef5c5635f684a8c73a91"
+        },
+        {
+          "stage": 2,
+          "phase": 10,
+          "bank": 33,
+          "offset": 2724,
+          "bytes": 2724,
+          "sha256": "a7303adcb2c6e97de35c0b3c17bb3ca36d99291287906ed65e242794fab7f8f6"
+        },
+        {
+          "stage": 2,
+          "phase": 11,
+          "bank": 30,
+          "offset": 0,
+          "bytes": 2760,
+          "sha256": "d659fae0c850a626419c9014e57213fb7c84771e90ff784bf4ef9682afd2a60d"
+        },
+        {
+          "stage": 2,
+          "phase": 12,
+          "bank": 40,
+          "offset": 5116,
+          "bytes": 2556,
+          "sha256": "d9ab84954887a050f56d3d4ffd4bd51aee7918439e802081da50768abd73d7d7"
+        },
+        {
+          "stage": 2,
+          "phase": 13,
+          "bank": 28,
+          "offset": 0,
+          "bytes": 2800,
+          "sha256": "5fc8bcd30e4050664c1b28821419fd7d72b8574475eff0f1cbe0aae7d2c93f1f"
+        },
+        {
+          "stage": 2,
+          "phase": 14,
+          "bank": 23,
+          "offset": 0,
+          "bytes": 2936,
+          "sha256": "ae8b17c64dd99342d5fc45bbe0e87f7ad0346c650913bee0629553ee69667f00"
+        },
+        {
+          "stage": 2,
+          "phase": 15,
+          "bank": 38,
+          "offset": 0,
+          "bytes": 2596,
+          "sha256": "b40de6add4a9456cf5f921abb8b9a4ed0aad2e0135eb63eb39b4eb0eab4ee29f"
+        },
+        {
+          "stage": 3,
+          "phase": 0,
+          "bank": 19,
+          "offset": 0,
+          "bytes": 3120,
+          "sha256": "4f5224982f4bb060ea46364339e2039caa95c60b98caffe7b4a9448d407fd023"
+        },
+        {
+          "stage": 3,
+          "phase": 1,
+          "bank": 19,
+          "offset": 3120,
+          "bytes": 3120,
+          "sha256": "44d8cd468e3b84b69e700eacdb8b3410f479d1b6cc0a694b5097bf039d6b388c"
+        },
+        {
+          "stage": 3,
+          "phase": 2,
+          "bank": 22,
+          "offset": 2988,
+          "bytes": 2984,
+          "sha256": "7009742b9de73c6321be52307681311eb9c7fea8381d1e4d79fd79b94dfe5585"
+        },
+        {
+          "stage": 3,
+          "phase": 3,
+          "bank": 33,
+          "offset": 5448,
+          "bytes": 2720,
+          "sha256": "4ceb9aeefc2f28acc2764409164a7cf2bfc3a6677dd9f77a30fb20a63ffaee92"
+        },
+        {
+          "stage": 3,
+          "phase": 4,
+          "bank": 25,
+          "offset": 2844,
+          "bytes": 2844,
+          "sha256": "220cd4d6a8b77ea892907df49128dc13c68b2d481e83e1fe44c1c55331b604b4"
+        },
+        {
+          "stage": 3,
+          "phase": 5,
+          "bank": 20,
+          "offset": 0,
+          "bytes": 3092,
+          "sha256": "366886caf0d07fc258f21edab571fbb0ad20ff20305e65fa8c21d863b03bba37"
+        },
+        {
+          "stage": 3,
+          "phase": 6,
+          "bank": 20,
+          "offset": 3092,
+          "bytes": 3068,
+          "sha256": "9f0b6fa84b3b87ad6e704093fe9acc78a3982285aba33554145a188e828058a4"
+        },
+        {
+          "stage": 3,
+          "phase": 7,
+          "bank": 27,
+          "offset": 0,
+          "bytes": 2812,
+          "sha256": "bb26648e2d8a18899aaffc96902a390040a40eb20714d65b2f3378f993630a5e"
+        },
+        {
+          "stage": 3,
+          "phase": 8,
+          "bank": 21,
+          "offset": 0,
+          "bytes": 3024,
+          "sha256": "4cd40215310ccf3d5582bf9cc2b9c495c71b3208e782a99eddb91b2b013010a7"
+        },
+        {
+          "stage": 3,
+          "phase": 9,
+          "bank": 34,
+          "offset": 0,
+          "bytes": 2720,
+          "sha256": "94342b7d6b305b98de51f6eb7637aa4307e2e4e7a4855c7f6e2f04fc27c940e6"
+        },
+        {
+          "stage": 3,
+          "phase": 10,
+          "bank": 31,
+          "offset": 0,
+          "bytes": 2756,
+          "sha256": "53e20a28a00510143ad2a16a132802cd155913457afdfd9a591cad93a21d012c"
+        },
+        {
+          "stage": 3,
+          "phase": 11,
+          "bank": 18,
+          "offset": 0,
+          "bytes": 3132,
+          "sha256": "796d127c9dacc713f6bdd9cc21df2353b279987dc81c00d0ddff27e9fb1a7bd6"
+        },
+        {
+          "stage": 3,
+          "phase": 12,
+          "bank": 18,
+          "offset": 3132,
+          "bytes": 3132,
+          "sha256": "3a7690a7b27f94199836dcccbc54c62559c1c8a1042287a342739be1011457ac"
+        },
+        {
+          "stage": 3,
+          "phase": 13,
+          "bank": 24,
+          "offset": 2884,
+          "bytes": 2856,
+          "sha256": "b451a4804ea5d37bd4f73470256042b083bd3fd397490840ffbfef969610446c"
+        },
+        {
+          "stage": 3,
+          "phase": 14,
+          "bank": 35,
+          "offset": 5380,
+          "bytes": 2680,
+          "sha256": "02f69657cae4238e88d8f062653a44d7ab92b43ada74345ef5ad84d63564b933"
+        },
+        {
+          "stage": 3,
+          "phase": 15,
+          "bank": 34,
+          "offset": 2720,
+          "bytes": 2700,
+          "sha256": "c4fd9b6332c8cc0a9f958e0676581df6ea8334a51098e4a4e622ba2b6a211679"
+        },
+        {
+          "stage": 4,
+          "phase": 0,
+          "bank": 28,
+          "offset": 2800,
+          "bytes": 2796,
+          "sha256": "839431a9c0d23eef3e504002f227bc065c09b4d8d82f5afa588b3f6a09728e2a"
+        },
+        {
+          "stage": 4,
+          "phase": 1,
+          "bank": 32,
+          "offset": 2752,
+          "bytes": 2728,
+          "sha256": "1db9de333bef16737e5f92322d3d67ae2595a40c6c37974f3917648ed881fce9"
+        },
+        {
+          "stage": 4,
+          "phase": 2,
+          "bank": 32,
+          "offset": 0,
+          "bytes": 2752,
+          "sha256": "1efa0df57bdfe72f3dd66510c85cfc604435d07617856b0171ab14a16d724007"
+        },
+        {
+          "stage": 4,
+          "phase": 3,
+          "bank": 38,
+          "offset": 2596,
+          "bytes": 2596,
+          "sha256": "b2db86315ff624fc15ea7807f1c03c6b43668c9ab4ca43a7dcecc60499d50a4e"
+        },
+        {
+          "stage": 4,
+          "phase": 4,
+          "bank": 31,
+          "offset": 5508,
+          "bytes": 2684,
+          "sha256": "12e719b5e25d907a580cb512c0cfbfbaec17c4e51668e66c9af63dda540c8d81"
+        },
+        {
+          "stage": 4,
+          "phase": 5,
+          "bank": 34,
+          "offset": 5420,
+          "bytes": 2700,
+          "sha256": "af3c3c8fab65bbe8488b82ab3c4c42377d2a904a11c1a0cb71655c93145fd0e0"
+        },
+        {
+          "stage": 4,
+          "phase": 6,
+          "bank": 36,
+          "offset": 5316,
+          "bytes": 2652,
+          "sha256": "5b3f493f13f613a1da41203601a7d14ba173d492a55a22a5215c92ed92102739"
+        },
+        {
+          "stage": 4,
+          "phase": 7,
+          "bank": 39,
+          "offset": 5156,
+          "bytes": 2564,
+          "sha256": "f2a4d3c3ffb742db9a05553227a8cee899d22c963c5ef2c0d4e866df8c08befa"
+        },
+        {
+          "stage": 4,
+          "phase": 8,
+          "bank": 29,
+          "offset": 5552,
+          "bytes": 2628,
+          "sha256": "70158857d2133edcaa7562ee0f24457536752cbb2dd36a3c801133c1483160ad"
+        },
+        {
+          "stage": 4,
+          "phase": 9,
+          "bank": 40,
+          "offset": 0,
+          "bytes": 2560,
+          "sha256": "690263812eff628cef563e162993f756af780e789a14e1cb3e6183aa89334d77"
+        },
+        {
+          "stage": 4,
+          "phase": 10,
+          "bank": 30,
+          "offset": 5516,
+          "bytes": 2664,
+          "sha256": "38fd0cfd02245a6073bf3fc6489673695edb0e18bdd8c18620bbdca1a7f5df04"
+        },
+        {
+          "stage": 4,
+          "phase": 11,
+          "bank": 35,
+          "offset": 0,
+          "bytes": 2692,
+          "sha256": "0714c3b908c2a7a6591ec0a6e3757752837368a07d88d169f20f2e51515e14cd"
+        },
+        {
+          "stage": 4,
+          "phase": 12,
+          "bank": 32,
+          "offset": 5480,
+          "bytes": 2704,
+          "sha256": "c929d236e7e34826773d2c9af1a0834a77c5199945f6683225a107cc428ecb1b"
+        },
+        {
+          "stage": 4,
+          "phase": 13,
+          "bank": 29,
+          "offset": 2780,
+          "bytes": 2772,
+          "sha256": "3e535f7babed63740463521cf42ee3dd511acf367b7362489510d2c847fc4d62"
+        },
+        {
+          "stage": 4,
+          "phase": 14,
+          "bank": 24,
+          "offset": 0,
+          "bytes": 2884,
+          "sha256": "0a80b7a232e9a4ed96a1984d319718dc852770bf456123318e5d3b74d12b5e56"
+        },
+        {
+          "stage": 4,
+          "phase": 15,
+          "bank": 21,
+          "offset": 3024,
+          "bytes": 3016,
+          "sha256": "04acc73d89fc17bb2249a0312462c4c309d0cab86a68654f3cdc5399fd26957c"
+        }
+      ]
+    }
+  },
+  "machine": "NEON_MSX1_RAM32_NTSC",
+  "video_standard": "ntsc",
+  "physical_ram_bytes": 32768,
+  "extension": null,
+  "physical_hardware_tested": false,
+  "scenario_seeding": "RAM seeds target hits, collisions, stage clocks and final boss hits; all five boss transitions and clear execute in ROM. This is not a keyboard-only full playthrough. A guard is placed in unused RAM below the stack.",
+  "stage_durations_frames": [
+    750,
+    1500,
+    1500,
+    1500,
+    1200
+  ],
+  "results": [
+    {
+      "name": "target-machine",
+      "passed": true,
+      "version": "openMSX 21.0-unknown"
+    },
+    {
+      "name": "SCREEN2-mode",
+      "passed": true
+    },
+    {
+      "name": "no-V9990-attached",
+      "passed": true
+    },
+    {
+      "name": "16KiB-VRAM",
+      "passed": true
+    },
+    {
+      "name": "32KiB-RAM",
+      "passed": true
+    },
+    {
+      "name": "executed-ROM-sha256",
+      "passed": true,
+      "sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f"
+    },
+    {
+      "name": "title-on-boot",
+      "passed": true
+    },
+    {
+      "name": "startup-first-frame",
+      "passed": true
+    },
+    {
+      "name": "sector-1-world-resident",
+      "passed": true
+    },
+    {
+      "name": "fire-starts-game",
+      "passed": true
+    },
+    {
+      "name": "left-control",
+      "passed": true,
+      "before": 128,
+      "after": 80
+    },
+    {
+      "name": "right-control",
+      "passed": true
+    },
+    {
+      "name": "up-control",
+      "passed": true
+    },
+    {
+      "name": "down-control",
+      "passed": true
+    },
+    {
+      "name": "pause-input",
+      "passed": true
+    },
+    {
+      "name": "pause-freezes-simulation",
+      "passed": true
+    },
+    {
+      "name": "resume-input",
+      "passed": true
+    },
+    {
+      "name": "bomb-key-consumes-one",
+      "passed": true
+    },
+    {
+      "name": "held-bomb-is-edge-triggered",
+      "passed": true
+    },
+    {
+      "name": "measured-game-update-rate",
+      "passed": true,
+      "fps": 26.52,
+      "emulated_seconds": 3.054
+    },
+    {
+      "name": "reticle-shot-kills-target",
+      "passed": true,
+      "before": 55,
+      "after": 80
+    },
+    {
+      "name": "collision-game-over",
+      "passed": true
+    },
+    {
+      "name": "retry-resets-state",
+      "passed": true
+    },
+    {
+      "name": "campaign-position-0",
+      "passed": true
+    },
+    {
+      "name": "sector-1-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-1-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-1-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-1-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-2-world-resident",
+      "passed": true
+    },
+    {
+      "name": "campaign-position-1",
+      "passed": true
+    },
+    {
+      "name": "sector-2-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-2-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-2-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-2-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-3-world-resident",
+      "passed": true
+    },
+    {
+      "name": "campaign-position-2",
+      "passed": true
+    },
+    {
+      "name": "sector-3-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-3-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-3-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-3-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-4-world-resident",
+      "passed": true
+    },
+    {
+      "name": "campaign-position-3",
+      "passed": true
+    },
+    {
+      "name": "sector-4-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-4-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-4-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-4-transition",
+      "passed": true
+    },
+    {
+      "name": "sector-5-world-resident",
+      "passed": true
+    },
+    {
+      "name": "campaign-position-4",
+      "passed": true
+    },
+    {
+      "name": "sector-5-world-resident",
+      "passed": true
+    },
+    {
+      "name": "sector-5-boss-entry",
+      "passed": true
+    },
+    {
+      "name": "sector-5-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "sector-5-transition",
+      "passed": true
+    },
+    {
+      "name": "five-stage-clear",
+      "passed": true
+    },
+    {
+      "name": "stack-lower-guard-preserved",
+      "passed": true,
+      "address": "F000-F0FF",
+      "bytes": 256
+    },
+    {
+      "name": "clear-retry-starts-episode-zero",
+      "passed": true
+    },
+    {
+      "name": "ROM-size-and-header",
+      "passed": true,
+      "size": 524288,
+      "sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f"
+    },
+    {
+      "name": "no-too-fast-VRAM-access",
+      "passed": true,
+      "violations": 0
+    }
+  ],
+  "rom_slot": {
+    "connector": "slota",
+    "primary_slot": 1,
+    "mapper": "ASCII8",
+    "file": "NEON_REVENANT-MSX1-v1.2.rom"
+  }
+}

@@ -1,6 +1,6 @@
 # Third-party notices / 第三者ソフトウェアの表記
 
-本書は、NEON REVENANT の V9990 版 v1.2、Turbo R 単体版 v1.0、MSX2 版 v1.0、MSX1 Challenge v1.0 / PCG Drive v1.1 に関する依存物と出典の記録です。本プロジェクト固有のコード・画像・音楽の利用条件については [COPYRIGHT.md](COPYRIGHT.md) を参照してください。以下の第三者コードには、それぞれのライセンスが適用されます。
+本書は、NEON REVENANT の V9990 版 v1.2、Turbo R 単体版 v1.0、MSX2 版 v1.0、MSX1 Challenge v1.0 / PCG Drive v1.1・v1.2 に関する依存物と出典の記録です。本プロジェクト固有のコード・画像・音楽の利用条件については [COPYRIGHT.md](COPYRIGHT.md) を参照してください。以下の第三者コードには、それぞれのライセンスが適用されます。
 
 ## ROM にリンクされる SDCC ランタイム
 

@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[1]
-A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1/v1.1'
+A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1/v1.2'
 PALETTE=[(0,0,0),(0,0,0),(33,200,66),(94,220,120),(84,85,237),(125,118,252),
  (212,82,77),(66,235,245),(252,85,84),(255,121,120),(212,193,84),(230,206,128),
  (33,176,59),(201,91,186),(204,204,204),(255,255,255)]
@@ -102,7 +102,7 @@ def build_title():
     def text(x,y,s):
         for c in s:v[0x3800+y*32+x]=192+ord(c)-32;x+=1
     v[0x3800:0x3840]=bytes([192])*64;v[0x3AC0:0x3B00]=bytes([192])*64
-    text(3,0,'N E O N   R E V E N A N T');text(5,1,'MSX1 PCG DRIVE / V1.1')
+    text(3,0,'N E O N   R E V E N A N T');text(2,1,'V1.2 / 5 ZONES / 32K RAM')
     text(4,22,'SPACE / JOYSTICK TO START');text(3,23,'CURSOR:MOVE  X:NOVA  ESC:PAUSE')
     (A/'title.bin').write_bytes(v)
     image(decode_screen(v)).resize((768,576),Image.Resampling.NEAREST).save(OUT/'title-reference.png')

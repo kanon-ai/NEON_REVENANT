@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "rom_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+  "rom_bytes": 524288,
+  "allocated_bytes": 376832,
+  "free_bytes": 147456,
+  "native_checks": 265,
+  "native_suites": [
+    {
+      "file": "ntsc/verification.json",
+      "checks": 57,
+      "passed": true
+    },
+    {
+      "file": "ntsc/world-verification.json",
+      "checks": 61,
+      "passed": true
+    },
+    {
+      "file": "ntsc/transfer-verification.json",
+      "checks": 9,
+      "passed": true
+    },
+    {
+      "file": "pal/verification.json",
+      "checks": 57,
+      "passed": true
+    },
+    {
+      "file": "pal/world-verification.json",
+      "checks": 61,
+      "passed": true
+    },
+    {
+      "file": "pal/transfer-verification.json",
+      "checks": 9,
+      "passed": true
+    },
+    {
+      "file": "ram64-smoke.json",
+      "checks": 11,
+      "passed": true
+    }
+  ],
+  "background_readbacks": 960,
+  "physical_hardware_tested": false,
+  "campaign_test_scope": "Native RAM-seeded boss, damage and progression scenarios plus host C combat equivalence; not a full manual playthrough."
+}

@@ -22,3 +22,6 @@
 
 /outputs/msx1/v1.1/*.zip
 /outputs/msx1/v1.1/SHA256SUMS*.txt
+
+/outputs/msx1/v1.2/*.zip
+/outputs/msx1/v1.2/SHA256SUMS*.txt

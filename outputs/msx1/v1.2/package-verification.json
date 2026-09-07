@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "rom_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+  "rom_bytes": 524288,
+  "archive_source_files": 142,
+  "source_inputs_sha256": "e83a2775b2c41317bdf47328476fedefd7b12152347a0a485b352a169e5d6a24",
+  "method": "Extract complete ZIP to an independent directory; compile its C/ASM and pack included assets; byte-identical ROM. Final ZIP source inputs are checked against this fingerprint. Full artwork regeneration was separately verified in reproducibility.json.",
+  "publication_edition": "ASTRA Thank-You Edition"
+}

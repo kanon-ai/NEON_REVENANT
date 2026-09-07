@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "method": "Execute archived and current C simulation bodies under the same GCC host ABI; compare every serialized state field after identical inputs.",
+  "baseline": "v1.1/msx1/src/game.c (external baseline)",
+  "current": "msx1/src/game.c",
+  "original_to_campaign_stages": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "seeds": [
+    1,
+    31281,
+    51966,
+    65535
+  ],
+  "limits": [
+    "No renderer, VDP, music synthesis, controller polling, ROM bank layout or emulator timing is exercised.",
+    "16-bit object storage is used, but C expression promotion follows GCC rather than the SDCC Z80 ABI.",
+    "Equivalence starts from identical seeded original-sector state; Episode 0 carryover is intentionally not expected to reproduce the old campaign RNG state.",
+    "Visual world_loaded is excluded from combat equivalence; its retry invalidation is tested separately."
+  ],
+  "source_sha256": {
+    "baseline": "cb14bf430ada1ff0c107e6eaed657ece13cc2ec6494979bd2947446acac481d9",
+    "current": "449bd64d777f67fb69c68dbb36f8d3cf68a25d9c6ca537eec98e28944f3dbb7e"
+  },
+  "execution": {
+    "baseline": {
+      "passed": true,
+      "snapshots": 28066,
+      "assertions": 28081,
+      "normal_ticks": 13305,
+      "boss_ticks": 8678,
+      "active_bullet_samples": 62594,
+      "hurt_samples": 10219,
+      "loss_samples": 35,
+      "transit_samples": 736,
+      "pickups_collected": 78
+    },
+    "current": {
+      "passed": true,
+      "snapshots": 28066,
+      "assertions": 41460,
+      "normal_ticks": 13305,
+      "boss_ticks": 8678,
+      "active_bullet_samples": 62594,
+      "hurt_samples": 10219,
+      "loss_samples": 35,
+      "transit_samples": 736,
+      "pickups_collected": 78
+    }
+  },
+  "compared_snapshots": 28066,
+  "fields_per_snapshot": 157,
+  "trace_bytes": 17625448,
+  "identical_trace_sha256": "97c7453b5f84f521c3b39f8939bcc3e47cf42a9e9240fd0c4f07eaa8e95fdb0d",
+  "campaign_checks": "Five actual PLAY durations, boss entry HP, player_fire defeat, 90-tick transitions, intro full resupply, original recovery, final clear reward and retry reload all passed.",
+  "publication_note": "Local absolute paths replaced with portable references; measurements and hashes are unchanged."
+}
