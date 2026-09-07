@@ -15,3 +15,4 @@
 /msx1/src/** -text
 /msx2/assets/** -text
 /msx1/assets/** -text
+/msx1/tests/baseline-v1.2/** -text
