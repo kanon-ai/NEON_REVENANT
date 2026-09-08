@@ -1,0 +1,121 @@
+{
+  "title": "NEON REVENANT - V9990 Feature Lab",
+  "version": "0.1",
+  "concept": "V9990 hardware feature experiments",
+  "file": "NEON_REVENANT-V9990-FeatureLab-v0.1.rom",
+  "mapper": "ASCII8",
+  "rom_bytes": 524288,
+  "allocated_bytes": 388209,
+  "free_bytes": 136079,
+  "runtime_bytes": 17400,
+  "runtime_address": "8000-DFFF",
+  "data_address": "E000-E7FF, LZ history E800-EFFF",
+  "data_end": "0xe173",
+  "sprite_bytes": 81920,
+  "atlas": {
+    "name": "atlas",
+    "raw_bytes": 81920,
+    "compressed_bytes": 16054,
+    "rom_offset": 32768,
+    "bank": 4,
+    "offset": 0,
+    "frame_bytes": 8192,
+    "frame_count": 10,
+    "vram_address": 65536,
+    "vram_end_exclusive": 147456,
+    "raw_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+    "compressed_sha256": "fef04aff563cd7ed1ea0e9ffeaf082ac4845a5a778eee86093ddf18b6d36698e"
+  },
+  "feature": {
+    "name": "feature",
+    "raw_bytes": 8192,
+    "compressed_bytes": 2674,
+    "rom_offset": 385535,
+    "bank": 47,
+    "offset": 511,
+    "frame_bytes": 8192,
+    "frame_count": 1,
+    "vram_address": 516096,
+    "vram_end_exclusive": 524288,
+    "raw_sha256": "3b19cd8ecea52b7e2bf7254d9786b2e486e2df391be5ecbb1a4824f356f840ce",
+    "compressed_sha256": "45e8efce1eaa9b3c91acdee6960228585c27e5aae0a58e03e4116d0ee1b889e0"
+  },
+  "worlds": [
+    {
+      "name": "world-1",
+      "raw_bytes": 368640,
+      "compressed_bytes": 145048,
+      "rom_offset": 48822,
+      "bank": 5,
+      "offset": 7862,
+      "frame_bytes": 23040,
+      "frame_count": 16,
+      "vram_address": 147456,
+      "vram_end_exclusive": 516096,
+      "raw_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+      "compressed_sha256": "8c038bbece6d2870c6e2687e369271c83edcadddc5a77563f347e3146f8992e6",
+      "stage": 1
+    },
+    {
+      "name": "world-2",
+      "raw_bytes": 368640,
+      "compressed_bytes": 103226,
+      "rom_offset": 193870,
+      "bank": 23,
+      "offset": 5454,
+      "frame_bytes": 23040,
+      "frame_count": 16,
+      "vram_address": 147456,
+      "vram_end_exclusive": 516096,
+      "raw_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+      "compressed_sha256": "3ac5020b9de4e100194b4c6cce64da016cbe4d9ac8d5ce502b20c4930bf10ea7",
+      "stage": 2
+    },
+    {
+      "name": "world-3",
+      "raw_bytes": 368640,
+      "compressed_bytes": 88439,
+      "rom_offset": 297096,
+      "bank": 36,
+      "offset": 2184,
+      "frame_bytes": 23040,
+      "frame_count": 16,
+      "vram_address": 147456,
+      "vram_end_exclusive": 516096,
+      "raw_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+      "compressed_sha256": "3a95d9a26da8f23c3254717ea163a7dd8b3944c9b66ad92b9c3fe9c6bad2c249",
+      "stage": 3
+    }
+  ],
+  "video": "V9990 B1 256x212 4bpp, 16 projected world frames per stage",
+  "sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904",
+  "entry": "0xad37",
+  "packing": {
+    "format": "existing LZSS, 2048-byte history, 3..34-byte matches, complete output frames",
+    "first_data_offset": 32768,
+    "runtime_reserved_bytes": 24576,
+    "runtime_padding_bytes": 7176,
+    "stream_payload_bytes": 355441,
+    "atlas_bytes_saved": 65866,
+    "extra_asset_bytes": 2674,
+    "source_window": "6000-7FFF, ASCII8 register 6800, streams cross banks without alignment padding"
+  },
+  "vram_layout": {
+    "draw_pages": [
+      0,
+      65536
+    ],
+    "atlas": [
+      65536,
+      147456
+    ],
+    "world": [
+      147456,
+      516096
+    ],
+    "feature": [
+      516096,
+      524288
+    ]
+  }
+}

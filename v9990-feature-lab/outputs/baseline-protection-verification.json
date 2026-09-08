@@ -1,0 +1,869 @@
+{
+  "passed": true,
+  "baseline_registry_sha256": "58efaf7b2b9f8d19b28d0ca2d3564213a5ece9918a770bdb760a2f24104c9505",
+  "expected_files": 71,
+  "before": {
+    "passed": true,
+    "files": 71,
+    "entries": [
+      {
+        "path": "assets/atlas.png",
+        "expected_sha256": "18dd6d23450105fb617f12e98e4c451d8168eda0a950787a5591c4a590ca50e7",
+        "actual_sha256": "18dd6d23450105fb617f12e98e4c451d8168eda0a950787a5591c4a590ca50e7",
+        "passed": true
+      },
+      {
+        "path": "assets/effects-preview.png",
+        "expected_sha256": "bb2b12dbb9035ddf66c30c8f69b119e6ec4c6ce48ac0392429e049ffaa463294",
+        "actual_sha256": "bb2b12dbb9035ddf66c30c8f69b119e6ec4c6ce48ac0392429e049ffaa463294",
+        "passed": true
+      },
+      {
+        "path": "assets/enemy-scale-preview.png",
+        "expected_sha256": "f8018c78bdfab8e3a81c2a962104a007817d5488ab89b9049f254bfded57e68f",
+        "actual_sha256": "f8018c78bdfab8e3a81c2a962104a007817d5488ab89b9049f254bfded57e68f",
+        "passed": true
+      },
+      {
+        "path": "assets/manifest.json",
+        "expected_sha256": "788e3a81c514b91dbbbf330f52f172a48cadcf489138a3d0f1ea7c697ed0f005",
+        "actual_sha256": "788e3a81c514b91dbbbf330f52f172a48cadcf489138a3d0f1ea7c697ed0f005",
+        "passed": true
+      },
+      {
+        "path": "assets/preview.png",
+        "expected_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "actual_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "passed": true
+      },
+      {
+        "path": "assets/sprite-material-preview.png",
+        "expected_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "actual_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "passed": true
+      },
+      {
+        "path": "assets/sprite-verification-v1.2.json",
+        "expected_sha256": "23b01a7863249841c5bee57a9a85b1e4abdf3410d3f4d32d230c98ac1334e3a5",
+        "actual_sha256": "23b01a7863249841c5bee57a9a85b1e4abdf3410d3f4d32d230c98ac1334e3a5",
+        "passed": true
+      },
+      {
+        "path": "assets/stage-1.png",
+        "expected_sha256": "dcde3907f8fdd24c6fea6bac44fa9ed13da0ce7b4e888e264748f0409f2af1d2",
+        "actual_sha256": "dcde3907f8fdd24c6fea6bac44fa9ed13da0ce7b4e888e264748f0409f2af1d2",
+        "passed": true
+      },
+      {
+        "path": "assets/stage-2.png",
+        "expected_sha256": "d3f59ec490e8b6f724db60f559710895d4be5b212e62e7eb22ca11eec1499d1c",
+        "actual_sha256": "d3f59ec490e8b6f724db60f559710895d4be5b212e62e7eb22ca11eec1499d1c",
+        "passed": true
+      },
+      {
+        "path": "assets/stage-3.png",
+        "expected_sha256": "838badcfcbfee27e2a8de6aabba210b60fd1a167b1bcef5acba2f8967e47dfdd",
+        "actual_sha256": "838badcfcbfee27e2a8de6aabba210b60fd1a167b1bcef5acba2f8967e47dfdd",
+        "passed": true
+      },
+      {
+        "path": "assets/title-logo-native.png",
+        "expected_sha256": "73f691784903a1882e78415430495f73e7c85618f433e1b43eab3ecbeb6c5cfe",
+        "actual_sha256": "73f691784903a1882e78415430495f73e7c85618f433e1b43eab3ecbeb6c5cfe",
+        "passed": true
+      },
+      {
+        "path": "assets/title-logo.png",
+        "expected_sha256": "63198db786e618bfacceb3b51d0b17918ce0f48df8aa623709fee003268853f0",
+        "actual_sha256": "63198db786e618bfacceb3b51d0b17918ce0f48df8aa623709fee003268853f0",
+        "passed": true
+      },
+      {
+        "path": "assets/ui-preview.png",
+        "expected_sha256": "3f0e7ac020dc1c46d0eed3133846b0953f89f0210657e986cf67a71eec186101",
+        "actual_sha256": "3f0e7ac020dc1c46d0eed3133846b0953f89f0210657e986cf67a71eec186101",
+        "passed": true
+      },
+      {
+        "path": "assets/vram.bin",
+        "expected_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+        "actual_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+        "passed": true
+      },
+      {
+        "path": "assets/world/contact-sheet.png",
+        "expected_sha256": "1fe284790a9b91f23c6da7f81e5526fbfe7cfc6c496a52999b3f253bce72ec29",
+        "actual_sha256": "1fe284790a9b91f23c6da7f81e5526fbfe7cfc6c496a52999b3f253bce72ec29",
+        "passed": true
+      },
+      {
+        "path": "assets/world/manifest.json",
+        "expected_sha256": "23efd73c5d2c9c4a8617997bc98e5348dcf6fed25ab2def7bc3df3179bd57a58",
+        "actual_sha256": "23efd73c5d2c9c4a8617997bc98e5348dcf6fed25ab2def7bc3df3179bd57a58",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1-native.png",
+        "expected_sha256": "5f774b30e21e3646c5a945b9a74c1d9861d12f5a29a6286f1980bc8fa3cf9c43",
+        "actual_sha256": "5f774b30e21e3646c5a945b9a74c1d9861d12f5a29a6286f1980bc8fa3cf9c43",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1-preview.png",
+        "expected_sha256": "e7582d381d2811a38c6aa01113970199c7a3c416f19090f445dcd64e20a0f715",
+        "actual_sha256": "e7582d381d2811a38c6aa01113970199c7a3c416f19090f445dcd64e20a0f715",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1.bin",
+        "expected_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+        "actual_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1.gif",
+        "expected_sha256": "8bd53dfadcbd64056be4eb7447147d29f17f5c265e2de5ac45d512d3e0198205",
+        "actual_sha256": "8bd53dfadcbd64056be4eb7447147d29f17f5c265e2de5ac45d512d3e0198205",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2-native.png",
+        "expected_sha256": "099deb0f4e8fce8a2084c415b8a3cf2c169f4a7e88c1313851451fb54c73cbc9",
+        "actual_sha256": "099deb0f4e8fce8a2084c415b8a3cf2c169f4a7e88c1313851451fb54c73cbc9",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2-preview.png",
+        "expected_sha256": "494b64b9f68af71b27c01764ad9d623f5490d17e1ea429fb2244ac35a09203de",
+        "actual_sha256": "494b64b9f68af71b27c01764ad9d623f5490d17e1ea429fb2244ac35a09203de",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2.bin",
+        "expected_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+        "actual_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2.gif",
+        "expected_sha256": "4ee913241348ccc018e7dc434715f274ab0cb2a4f81c804c25aeac22700e506a",
+        "actual_sha256": "4ee913241348ccc018e7dc434715f274ab0cb2a4f81c804c25aeac22700e506a",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3-native.png",
+        "expected_sha256": "a2e81cc34214302addf157e493e3b235d18cf28768a5a34d2ee45e56d723f4d3",
+        "actual_sha256": "a2e81cc34214302addf157e493e3b235d18cf28768a5a34d2ee45e56d723f4d3",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3-preview.png",
+        "expected_sha256": "7eae2fab1033694b14816b9ef80d56684e8b86646ecbd1fa0da3f62b2a93c0c9",
+        "actual_sha256": "7eae2fab1033694b14816b9ef80d56684e8b86646ecbd1fa0da3f62b2a93c0c9",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3.bin",
+        "expected_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+        "actual_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3.gif",
+        "expected_sha256": "2bb8f5562604ca5681a7e34fcc60f7303e782439e4225487d42544ae439b4c36",
+        "actual_sha256": "2bb8f5562604ca5681a7e34fcc60f7303e782439e4225487d42544ae439b4c36",
+        "passed": true
+      },
+      {
+        "path": "outputs/NEON_REVENANT-v1.1.rom",
+        "expected_sha256": "7d6973e1bac95a8e175116f03da980b24a4fff318618224130b05fdf2716fd82",
+        "actual_sha256": "7d6973e1bac95a8e175116f03da980b24a4fff318618224130b05fdf2716fd82",
+        "passed": true
+      },
+      {
+        "path": "outputs/NEON_REVENANT-v1.2.rom",
+        "expected_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "actual_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "passed": true
+      },
+      {
+        "path": "outputs/NEON_REVENANT.rom",
+        "expected_sha256": "0fed7aeadfb0022554ed3a89503e0a0d794e666d5e9197d237ab6230dba949d1",
+        "actual_sha256": "0fed7aeadfb0022554ed3a89503e0a0d794e666d5e9197d237ab6230dba949d1",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/NEON_REVENANT-TurboR-v1.0.rom",
+        "expected_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "actual_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/NEON_REVENANT-v1.2.rom",
+        "expected_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "actual_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-MSX1-v1.0.rom",
+        "expected_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "actual_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-MSX2-v1.0.rom",
+        "expected_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "actual_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-TurboR-v1.0.rom",
+        "expected_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "actual_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-v1.2.rom",
+        "expected_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "actual_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-pcg/NEON_REVENANT-MSX1-v1.1.rom",
+        "expected_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "actual_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/NEON_REVENANT-MSX1-v1.0.rom",
+        "expected_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "actual_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/v1.1/NEON_REVENANT-MSX1-v1.1.rom",
+        "expected_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "actual_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom",
+        "expected_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+        "actual_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/v1.3/NEON_REVENANT-MSX1-v1.3.rom",
+        "expected_sha256": "836ee25b969928c0617330fe454a52e8b8b6c4d9fa5c9d3986eef0a11d42894b",
+        "actual_sha256": "836ee25b969928c0617330fe454a52e8b8b6c4d9fa5c9d3986eef0a11d42894b",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom",
+        "expected_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "actual_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "passed": true
+      },
+      {
+        "path": "outputs/turbor/NEON_REVENANT-TurboR-v1.0.rom",
+        "expected_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "actual_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "passed": true
+      },
+      {
+        "path": "src/assets.h",
+        "expected_sha256": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6",
+        "actual_sha256": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6",
+        "passed": true
+      },
+      {
+        "path": "src/boot.asm",
+        "expected_sha256": "897556ee32189dbf0fb448e52b0e0bab8a2adc2bc9088e408262c99a6f654bfe",
+        "actual_sha256": "897556ee32189dbf0fb448e52b0e0bab8a2adc2bc9088e408262c99a6f654bfe",
+        "passed": true
+      },
+      {
+        "path": "src/game.c",
+        "expected_sha256": "373711d803dc1f54ecc4e85e501a0ae48977ee53f77fb673d9fe8ba935b54e0a",
+        "actual_sha256": "373711d803dc1f54ecc4e85e501a0ae48977ee53f77fb673d9fe8ba935b54e0a",
+        "passed": true
+      },
+      {
+        "path": "src/hardware.c",
+        "expected_sha256": "736b9b59b149d46cb179e6a8bfa999492e32b330de581cccca478a29173849bb",
+        "actual_sha256": "736b9b59b149d46cb179e6a8bfa999492e32b330de581cccca478a29173849bb",
+        "passed": true
+      },
+      {
+        "path": "src/hardware.h",
+        "expected_sha256": "24b0c3037d84eab97566b9014896b5a5e132638a9bc0f386a5143f71b84e4e16",
+        "actual_sha256": "24b0c3037d84eab97566b9014896b5a5e132638a9bc0f386a5143f71b84e4e16",
+        "passed": true
+      },
+      {
+        "path": "src/palette.h",
+        "expected_sha256": "9adce9881f0f5f9ebec523601e6a32bb2affdf564b0542c68273b8b63d13f24f",
+        "actual_sha256": "9adce9881f0f5f9ebec523601e6a32bb2affdf564b0542c68273b8b63d13f24f",
+        "passed": true
+      },
+      {
+        "path": "src/sound.c",
+        "expected_sha256": "14da2d0a872faf44bb3c33f9ce002120eaaab99c80df85d6c19b01e4c1c75451",
+        "actual_sha256": "14da2d0a872faf44bb3c33f9ce002120eaaab99c80df85d6c19b01e4c1c75451",
+        "passed": true
+      },
+      {
+        "path": "src/sound.h",
+        "expected_sha256": "0228918ea76592961e3bbae40e2222211fa5eae24ad29e988182dc7859dbc8ad",
+        "actual_sha256": "0228918ea76592961e3bbae40e2222211fa5eae24ad29e988182dc7859dbc8ad",
+        "passed": true
+      },
+      {
+        "path": "src/world_data.h",
+        "expected_sha256": "39a7381683fb2b7430b3eccea90fa3eb85b082af2118ee7a2e1021bc945d3955",
+        "actual_sha256": "39a7381683fb2b7430b3eccea90fa3eb85b082af2118ee7a2e1021bc945d3955",
+        "passed": true
+      },
+      {
+        "path": "src/world_load.c",
+        "expected_sha256": "8286fb7054f391e66d420523c57ce18be282039e80076fc1842e5fdb51254031",
+        "actual_sha256": "8286fb7054f391e66d420523c57ce18be282039e80076fc1842e5fdb51254031",
+        "passed": true
+      },
+      {
+        "path": "src/world_load.h",
+        "expected_sha256": "9657b63daa88e74dd3aab44873f307e7a00b0efa9c6b63dc771356ed4e087bff",
+        "actual_sha256": "9657b63daa88e74dd3aab44873f307e7a00b0efa9c6b63dc771356ed4e087bff",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/art_palette.cpython-313.pyc",
+        "expected_sha256": "fbb2cb65c4b72c23cd5bb2a7adf65770b19689ca76aee21028396d5e5886ce06",
+        "actual_sha256": "fbb2cb65c4b72c23cd5bb2a7adf65770b19689ca76aee21028396d5e5886ce06",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/generate_assets.cpython-313.pyc",
+        "expected_sha256": "0ce29956ed3ca466e56b538091da60c95bf4d1f0ea8d3fb19ab91b05fd0e3d32",
+        "actual_sha256": "0ce29956ed3ca466e56b538091da60c95bf4d1f0ea8d3fb19ab91b05fd0e3d32",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/generate_world.cpython-313.pyc",
+        "expected_sha256": "56f7390b3bd294dc883aecfbd17ee1ed2b31b9eb4e7bf02fd01ac95e57265ca8",
+        "actual_sha256": "56f7390b3bd294dc883aecfbd17ee1ed2b31b9eb4e7bf02fd01ac95e57265ca8",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/world_codec.cpython-313.pyc",
+        "expected_sha256": "67b732a808197e64183c402700b15565a9f178dc491846f9c56cbd43d70336aa",
+        "actual_sha256": "67b732a808197e64183c402700b15565a9f178dc491846f9c56cbd43d70336aa",
+        "passed": true
+      },
+      {
+        "path": "tools/art_palette.py",
+        "expected_sha256": "82d19d7be46a5ee04612317238aef9142a82c9ff197151a19985402f4cb40eb6",
+        "actual_sha256": "82d19d7be46a5ee04612317238aef9142a82c9ff197151a19985402f4cb40eb6",
+        "passed": true
+      },
+      {
+        "path": "tools/autoplay.tcl",
+        "expected_sha256": "5ca53985cca5daa82163509235e4cd411cb57aeb70a10a96c81a6e7494fe630e",
+        "actual_sha256": "5ca53985cca5daa82163509235e4cd411cb57aeb70a10a96c81a6e7494fe630e",
+        "passed": true
+      },
+      {
+        "path": "tools/build.py",
+        "expected_sha256": "455b96d17a6d502583bacd92cdd40aa879b11be322e9c342ecc5291a24eeb211",
+        "actual_sha256": "455b96d17a6d502583bacd92cdd40aa879b11be322e9c342ecc5291a24eeb211",
+        "passed": true
+      },
+      {
+        "path": "tools/emu.py",
+        "expected_sha256": "cdf1f0aff90b21488e3e992d968d84f96b7c3831e2662fe37e655ec794195db7",
+        "actual_sha256": "cdf1f0aff90b21488e3e992d968d84f96b7c3831e2662fe37e655ec794195db7",
+        "passed": true
+      },
+      {
+        "path": "tools/emulator_bridge.tcl",
+        "expected_sha256": "a319a840f76f84b35504f85a58f6268195b6c0258ed8cffb20b00fabcea9e109",
+        "actual_sha256": "a319a840f76f84b35504f85a58f6268195b6c0258ed8cffb20b00fabcea9e109",
+        "passed": true
+      },
+      {
+        "path": "tools/emulator_host.mjs",
+        "expected_sha256": "db9fe4a622797882a075f5801be74598c33efe917d1f3cb3280598a088458538",
+        "actual_sha256": "db9fe4a622797882a075f5801be74598c33efe917d1f3cb3280598a088458538",
+        "passed": true
+      },
+      {
+        "path": "tools/generate_assets.py",
+        "expected_sha256": "535bea092413465d67a2cd74095d097a62879fb599068d668f5e82ff0f1441c8",
+        "actual_sha256": "535bea092413465d67a2cd74095d097a62879fb599068d668f5e82ff0f1441c8",
+        "passed": true
+      },
+      {
+        "path": "tools/generate_world.py",
+        "expected_sha256": "c9b7ef0937c3aa2faad16b0323659aa7ce82f15a8e81e6277d902adac4b7678d",
+        "actual_sha256": "c9b7ef0937c3aa2faad16b0323659aa7ce82f15a8e81e6277d902adac4b7678d",
+        "passed": true
+      },
+      {
+        "path": "tools/package.py",
+        "expected_sha256": "0e7fd6c6133be2b25e9b73070f5ef0ca1646b06eed886f7c63d2a93d57a19331",
+        "actual_sha256": "0e7fd6c6133be2b25e9b73070f5ef0ca1646b06eed886f7c63d2a93d57a19331",
+        "passed": true
+      },
+      {
+        "path": "tools/verify_rom.py",
+        "expected_sha256": "63f18d9164248e3278d4fc36ea8f71092deea7b69e22a66d8df1cd4a26d2b202",
+        "actual_sha256": "63f18d9164248e3278d4fc36ea8f71092deea7b69e22a66d8df1cd4a26d2b202",
+        "passed": true
+      },
+      {
+        "path": "tools/verify_world.py",
+        "expected_sha256": "ddc84c4710cd79a9300124015568c185d66fbd8626628d8b8c2b644ccba55ffc",
+        "actual_sha256": "ddc84c4710cd79a9300124015568c185d66fbd8626628d8b8c2b644ccba55ffc",
+        "passed": true
+      },
+      {
+        "path": "tools/world_codec.py",
+        "expected_sha256": "88f5c26f6e296b68717f4f710203de6ea538709a91400a015878cb54617d8309",
+        "actual_sha256": "88f5c26f6e296b68717f4f710203de6ea538709a91400a015878cb54617d8309",
+        "passed": true
+      }
+    ]
+  },
+  "after": {
+    "passed": true,
+    "files": 71,
+    "entries": [
+      {
+        "path": "assets/atlas.png",
+        "expected_sha256": "18dd6d23450105fb617f12e98e4c451d8168eda0a950787a5591c4a590ca50e7",
+        "actual_sha256": "18dd6d23450105fb617f12e98e4c451d8168eda0a950787a5591c4a590ca50e7",
+        "passed": true
+      },
+      {
+        "path": "assets/effects-preview.png",
+        "expected_sha256": "bb2b12dbb9035ddf66c30c8f69b119e6ec4c6ce48ac0392429e049ffaa463294",
+        "actual_sha256": "bb2b12dbb9035ddf66c30c8f69b119e6ec4c6ce48ac0392429e049ffaa463294",
+        "passed": true
+      },
+      {
+        "path": "assets/enemy-scale-preview.png",
+        "expected_sha256": "f8018c78bdfab8e3a81c2a962104a007817d5488ab89b9049f254bfded57e68f",
+        "actual_sha256": "f8018c78bdfab8e3a81c2a962104a007817d5488ab89b9049f254bfded57e68f",
+        "passed": true
+      },
+      {
+        "path": "assets/manifest.json",
+        "expected_sha256": "788e3a81c514b91dbbbf330f52f172a48cadcf489138a3d0f1ea7c697ed0f005",
+        "actual_sha256": "788e3a81c514b91dbbbf330f52f172a48cadcf489138a3d0f1ea7c697ed0f005",
+        "passed": true
+      },
+      {
+        "path": "assets/preview.png",
+        "expected_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "actual_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "passed": true
+      },
+      {
+        "path": "assets/sprite-material-preview.png",
+        "expected_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "actual_sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79",
+        "passed": true
+      },
+      {
+        "path": "assets/sprite-verification-v1.2.json",
+        "expected_sha256": "23b01a7863249841c5bee57a9a85b1e4abdf3410d3f4d32d230c98ac1334e3a5",
+        "actual_sha256": "23b01a7863249841c5bee57a9a85b1e4abdf3410d3f4d32d230c98ac1334e3a5",
+        "passed": true
+      },
+      {
+        "path": "assets/stage-1.png",
+        "expected_sha256": "dcde3907f8fdd24c6fea6bac44fa9ed13da0ce7b4e888e264748f0409f2af1d2",
+        "actual_sha256": "dcde3907f8fdd24c6fea6bac44fa9ed13da0ce7b4e888e264748f0409f2af1d2",
+        "passed": true
+      },
+      {
+        "path": "assets/stage-2.png",
+        "expected_sha256": "d3f59ec490e8b6f724db60f559710895d4be5b212e62e7eb22ca11eec1499d1c",
+        "actual_sha256": "d3f59ec490e8b6f724db60f559710895d4be5b212e62e7eb22ca11eec1499d1c",
+        "passed": true
+      },
+      {
+        "path": "assets/stage-3.png",
+        "expected_sha256": "838badcfcbfee27e2a8de6aabba210b60fd1a167b1bcef5acba2f8967e47dfdd",
+        "actual_sha256": "838badcfcbfee27e2a8de6aabba210b60fd1a167b1bcef5acba2f8967e47dfdd",
+        "passed": true
+      },
+      {
+        "path": "assets/title-logo-native.png",
+        "expected_sha256": "73f691784903a1882e78415430495f73e7c85618f433e1b43eab3ecbeb6c5cfe",
+        "actual_sha256": "73f691784903a1882e78415430495f73e7c85618f433e1b43eab3ecbeb6c5cfe",
+        "passed": true
+      },
+      {
+        "path": "assets/title-logo.png",
+        "expected_sha256": "63198db786e618bfacceb3b51d0b17918ce0f48df8aa623709fee003268853f0",
+        "actual_sha256": "63198db786e618bfacceb3b51d0b17918ce0f48df8aa623709fee003268853f0",
+        "passed": true
+      },
+      {
+        "path": "assets/ui-preview.png",
+        "expected_sha256": "3f0e7ac020dc1c46d0eed3133846b0953f89f0210657e986cf67a71eec186101",
+        "actual_sha256": "3f0e7ac020dc1c46d0eed3133846b0953f89f0210657e986cf67a71eec186101",
+        "passed": true
+      },
+      {
+        "path": "assets/vram.bin",
+        "expected_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+        "actual_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+        "passed": true
+      },
+      {
+        "path": "assets/world/contact-sheet.png",
+        "expected_sha256": "1fe284790a9b91f23c6da7f81e5526fbfe7cfc6c496a52999b3f253bce72ec29",
+        "actual_sha256": "1fe284790a9b91f23c6da7f81e5526fbfe7cfc6c496a52999b3f253bce72ec29",
+        "passed": true
+      },
+      {
+        "path": "assets/world/manifest.json",
+        "expected_sha256": "23efd73c5d2c9c4a8617997bc98e5348dcf6fed25ab2def7bc3df3179bd57a58",
+        "actual_sha256": "23efd73c5d2c9c4a8617997bc98e5348dcf6fed25ab2def7bc3df3179bd57a58",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1-native.png",
+        "expected_sha256": "5f774b30e21e3646c5a945b9a74c1d9861d12f5a29a6286f1980bc8fa3cf9c43",
+        "actual_sha256": "5f774b30e21e3646c5a945b9a74c1d9861d12f5a29a6286f1980bc8fa3cf9c43",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1-preview.png",
+        "expected_sha256": "e7582d381d2811a38c6aa01113970199c7a3c416f19090f445dcd64e20a0f715",
+        "actual_sha256": "e7582d381d2811a38c6aa01113970199c7a3c416f19090f445dcd64e20a0f715",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1.bin",
+        "expected_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+        "actual_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-1.gif",
+        "expected_sha256": "8bd53dfadcbd64056be4eb7447147d29f17f5c265e2de5ac45d512d3e0198205",
+        "actual_sha256": "8bd53dfadcbd64056be4eb7447147d29f17f5c265e2de5ac45d512d3e0198205",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2-native.png",
+        "expected_sha256": "099deb0f4e8fce8a2084c415b8a3cf2c169f4a7e88c1313851451fb54c73cbc9",
+        "actual_sha256": "099deb0f4e8fce8a2084c415b8a3cf2c169f4a7e88c1313851451fb54c73cbc9",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2-preview.png",
+        "expected_sha256": "494b64b9f68af71b27c01764ad9d623f5490d17e1ea429fb2244ac35a09203de",
+        "actual_sha256": "494b64b9f68af71b27c01764ad9d623f5490d17e1ea429fb2244ac35a09203de",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2.bin",
+        "expected_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+        "actual_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-2.gif",
+        "expected_sha256": "4ee913241348ccc018e7dc434715f274ab0cb2a4f81c804c25aeac22700e506a",
+        "actual_sha256": "4ee913241348ccc018e7dc434715f274ab0cb2a4f81c804c25aeac22700e506a",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3-native.png",
+        "expected_sha256": "a2e81cc34214302addf157e493e3b235d18cf28768a5a34d2ee45e56d723f4d3",
+        "actual_sha256": "a2e81cc34214302addf157e493e3b235d18cf28768a5a34d2ee45e56d723f4d3",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3-preview.png",
+        "expected_sha256": "7eae2fab1033694b14816b9ef80d56684e8b86646ecbd1fa0da3f62b2a93c0c9",
+        "actual_sha256": "7eae2fab1033694b14816b9ef80d56684e8b86646ecbd1fa0da3f62b2a93c0c9",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3.bin",
+        "expected_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+        "actual_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+        "passed": true
+      },
+      {
+        "path": "assets/world/stage-3.gif",
+        "expected_sha256": "2bb8f5562604ca5681a7e34fcc60f7303e782439e4225487d42544ae439b4c36",
+        "actual_sha256": "2bb8f5562604ca5681a7e34fcc60f7303e782439e4225487d42544ae439b4c36",
+        "passed": true
+      },
+      {
+        "path": "outputs/NEON_REVENANT-v1.1.rom",
+        "expected_sha256": "7d6973e1bac95a8e175116f03da980b24a4fff318618224130b05fdf2716fd82",
+        "actual_sha256": "7d6973e1bac95a8e175116f03da980b24a4fff318618224130b05fdf2716fd82",
+        "passed": true
+      },
+      {
+        "path": "outputs/NEON_REVENANT-v1.2.rom",
+        "expected_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "actual_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "passed": true
+      },
+      {
+        "path": "outputs/NEON_REVENANT.rom",
+        "expected_sha256": "0fed7aeadfb0022554ed3a89503e0a0d794e666d5e9197d237ab6230dba949d1",
+        "actual_sha256": "0fed7aeadfb0022554ed3a89503e0a0d794e666d5e9197d237ab6230dba949d1",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/NEON_REVENANT-TurboR-v1.0.rom",
+        "expected_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "actual_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/NEON_REVENANT-v1.2.rom",
+        "expected_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "actual_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-MSX1-v1.0.rom",
+        "expected_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "actual_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-MSX2-v1.0.rom",
+        "expected_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "actual_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-TurboR-v1.0.rom",
+        "expected_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "actual_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-msx2/NEON_REVENANT-v1.2.rom",
+        "expected_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "actual_sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+        "passed": true
+      },
+      {
+        "path": "outputs/github-publication/msx1-pcg/NEON_REVENANT-MSX1-v1.1.rom",
+        "expected_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "actual_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/NEON_REVENANT-MSX1-v1.0.rom",
+        "expected_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "actual_sha256": "c51247647bc0fcca963ab679a71de5cc9e947e1140ba596781c63c3d4eda22b2",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/v1.1/NEON_REVENANT-MSX1-v1.1.rom",
+        "expected_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "actual_sha256": "fc96dd4cd576eadd8ccbb2d8f9cab4980ff74ab3786d9d55d8f12e3c20a2743e",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/v1.2/NEON_REVENANT-MSX1-v1.2.rom",
+        "expected_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+        "actual_sha256": "8290c6a0e04acb62e21e431eaf0a4313c94a95b2ab107e6e8dfecc1fcc16eb4f",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx1/v1.3/NEON_REVENANT-MSX1-v1.3.rom",
+        "expected_sha256": "836ee25b969928c0617330fe454a52e8b8b6c4d9fa5c9d3986eef0a11d42894b",
+        "actual_sha256": "836ee25b969928c0617330fe454a52e8b8b6c4d9fa5c9d3986eef0a11d42894b",
+        "passed": true
+      },
+      {
+        "path": "outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom",
+        "expected_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "actual_sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+        "passed": true
+      },
+      {
+        "path": "outputs/turbor/NEON_REVENANT-TurboR-v1.0.rom",
+        "expected_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "actual_sha256": "23f129c1ebbdd491b8fb1a2fd133c2dfd7c3a61386f150c92e87cf5d0bcfe195",
+        "passed": true
+      },
+      {
+        "path": "src/assets.h",
+        "expected_sha256": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6",
+        "actual_sha256": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6",
+        "passed": true
+      },
+      {
+        "path": "src/boot.asm",
+        "expected_sha256": "897556ee32189dbf0fb448e52b0e0bab8a2adc2bc9088e408262c99a6f654bfe",
+        "actual_sha256": "897556ee32189dbf0fb448e52b0e0bab8a2adc2bc9088e408262c99a6f654bfe",
+        "passed": true
+      },
+      {
+        "path": "src/game.c",
+        "expected_sha256": "373711d803dc1f54ecc4e85e501a0ae48977ee53f77fb673d9fe8ba935b54e0a",
+        "actual_sha256": "373711d803dc1f54ecc4e85e501a0ae48977ee53f77fb673d9fe8ba935b54e0a",
+        "passed": true
+      },
+      {
+        "path": "src/hardware.c",
+        "expected_sha256": "736b9b59b149d46cb179e6a8bfa999492e32b330de581cccca478a29173849bb",
+        "actual_sha256": "736b9b59b149d46cb179e6a8bfa999492e32b330de581cccca478a29173849bb",
+        "passed": true
+      },
+      {
+        "path": "src/hardware.h",
+        "expected_sha256": "24b0c3037d84eab97566b9014896b5a5e132638a9bc0f386a5143f71b84e4e16",
+        "actual_sha256": "24b0c3037d84eab97566b9014896b5a5e132638a9bc0f386a5143f71b84e4e16",
+        "passed": true
+      },
+      {
+        "path": "src/palette.h",
+        "expected_sha256": "9adce9881f0f5f9ebec523601e6a32bb2affdf564b0542c68273b8b63d13f24f",
+        "actual_sha256": "9adce9881f0f5f9ebec523601e6a32bb2affdf564b0542c68273b8b63d13f24f",
+        "passed": true
+      },
+      {
+        "path": "src/sound.c",
+        "expected_sha256": "14da2d0a872faf44bb3c33f9ce002120eaaab99c80df85d6c19b01e4c1c75451",
+        "actual_sha256": "14da2d0a872faf44bb3c33f9ce002120eaaab99c80df85d6c19b01e4c1c75451",
+        "passed": true
+      },
+      {
+        "path": "src/sound.h",
+        "expected_sha256": "0228918ea76592961e3bbae40e2222211fa5eae24ad29e988182dc7859dbc8ad",
+        "actual_sha256": "0228918ea76592961e3bbae40e2222211fa5eae24ad29e988182dc7859dbc8ad",
+        "passed": true
+      },
+      {
+        "path": "src/world_data.h",
+        "expected_sha256": "39a7381683fb2b7430b3eccea90fa3eb85b082af2118ee7a2e1021bc945d3955",
+        "actual_sha256": "39a7381683fb2b7430b3eccea90fa3eb85b082af2118ee7a2e1021bc945d3955",
+        "passed": true
+      },
+      {
+        "path": "src/world_load.c",
+        "expected_sha256": "8286fb7054f391e66d420523c57ce18be282039e80076fc1842e5fdb51254031",
+        "actual_sha256": "8286fb7054f391e66d420523c57ce18be282039e80076fc1842e5fdb51254031",
+        "passed": true
+      },
+      {
+        "path": "src/world_load.h",
+        "expected_sha256": "9657b63daa88e74dd3aab44873f307e7a00b0efa9c6b63dc771356ed4e087bff",
+        "actual_sha256": "9657b63daa88e74dd3aab44873f307e7a00b0efa9c6b63dc771356ed4e087bff",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/art_palette.cpython-313.pyc",
+        "expected_sha256": "fbb2cb65c4b72c23cd5bb2a7adf65770b19689ca76aee21028396d5e5886ce06",
+        "actual_sha256": "fbb2cb65c4b72c23cd5bb2a7adf65770b19689ca76aee21028396d5e5886ce06",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/generate_assets.cpython-313.pyc",
+        "expected_sha256": "0ce29956ed3ca466e56b538091da60c95bf4d1f0ea8d3fb19ab91b05fd0e3d32",
+        "actual_sha256": "0ce29956ed3ca466e56b538091da60c95bf4d1f0ea8d3fb19ab91b05fd0e3d32",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/generate_world.cpython-313.pyc",
+        "expected_sha256": "56f7390b3bd294dc883aecfbd17ee1ed2b31b9eb4e7bf02fd01ac95e57265ca8",
+        "actual_sha256": "56f7390b3bd294dc883aecfbd17ee1ed2b31b9eb4e7bf02fd01ac95e57265ca8",
+        "passed": true
+      },
+      {
+        "path": "tools/__pycache__/world_codec.cpython-313.pyc",
+        "expected_sha256": "67b732a808197e64183c402700b15565a9f178dc491846f9c56cbd43d70336aa",
+        "actual_sha256": "67b732a808197e64183c402700b15565a9f178dc491846f9c56cbd43d70336aa",
+        "passed": true
+      },
+      {
+        "path": "tools/art_palette.py",
+        "expected_sha256": "82d19d7be46a5ee04612317238aef9142a82c9ff197151a19985402f4cb40eb6",
+        "actual_sha256": "82d19d7be46a5ee04612317238aef9142a82c9ff197151a19985402f4cb40eb6",
+        "passed": true
+      },
+      {
+        "path": "tools/autoplay.tcl",
+        "expected_sha256": "5ca53985cca5daa82163509235e4cd411cb57aeb70a10a96c81a6e7494fe630e",
+        "actual_sha256": "5ca53985cca5daa82163509235e4cd411cb57aeb70a10a96c81a6e7494fe630e",
+        "passed": true
+      },
+      {
+        "path": "tools/build.py",
+        "expected_sha256": "455b96d17a6d502583bacd92cdd40aa879b11be322e9c342ecc5291a24eeb211",
+        "actual_sha256": "455b96d17a6d502583bacd92cdd40aa879b11be322e9c342ecc5291a24eeb211",
+        "passed": true
+      },
+      {
+        "path": "tools/emu.py",
+        "expected_sha256": "cdf1f0aff90b21488e3e992d968d84f96b7c3831e2662fe37e655ec794195db7",
+        "actual_sha256": "cdf1f0aff90b21488e3e992d968d84f96b7c3831e2662fe37e655ec794195db7",
+        "passed": true
+      },
+      {
+        "path": "tools/emulator_bridge.tcl",
+        "expected_sha256": "a319a840f76f84b35504f85a58f6268195b6c0258ed8cffb20b00fabcea9e109",
+        "actual_sha256": "a319a840f76f84b35504f85a58f6268195b6c0258ed8cffb20b00fabcea9e109",
+        "passed": true
+      },
+      {
+        "path": "tools/emulator_host.mjs",
+        "expected_sha256": "db9fe4a622797882a075f5801be74598c33efe917d1f3cb3280598a088458538",
+        "actual_sha256": "db9fe4a622797882a075f5801be74598c33efe917d1f3cb3280598a088458538",
+        "passed": true
+      },
+      {
+        "path": "tools/generate_assets.py",
+        "expected_sha256": "535bea092413465d67a2cd74095d097a62879fb599068d668f5e82ff0f1441c8",
+        "actual_sha256": "535bea092413465d67a2cd74095d097a62879fb599068d668f5e82ff0f1441c8",
+        "passed": true
+      },
+      {
+        "path": "tools/generate_world.py",
+        "expected_sha256": "c9b7ef0937c3aa2faad16b0323659aa7ce82f15a8e81e6277d902adac4b7678d",
+        "actual_sha256": "c9b7ef0937c3aa2faad16b0323659aa7ce82f15a8e81e6277d902adac4b7678d",
+        "passed": true
+      },
+      {
+        "path": "tools/package.py",
+        "expected_sha256": "0e7fd6c6133be2b25e9b73070f5ef0ca1646b06eed886f7c63d2a93d57a19331",
+        "actual_sha256": "0e7fd6c6133be2b25e9b73070f5ef0ca1646b06eed886f7c63d2a93d57a19331",
+        "passed": true
+      },
+      {
+        "path": "tools/verify_rom.py",
+        "expected_sha256": "63f18d9164248e3278d4fc36ea8f71092deea7b69e22a66d8df1cd4a26d2b202",
+        "actual_sha256": "63f18d9164248e3278d4fc36ea8f71092deea7b69e22a66d8df1cd4a26d2b202",
+        "passed": true
+      },
+      {
+        "path": "tools/verify_world.py",
+        "expected_sha256": "ddc84c4710cd79a9300124015568c185d66fbd8626628d8b8c2b644ccba55ffc",
+        "actual_sha256": "ddc84c4710cd79a9300124015568c185d66fbd8626628d8b8c2b644ccba55ffc",
+        "passed": true
+      },
+      {
+        "path": "tools/world_codec.py",
+        "expected_sha256": "88f5c26f6e296b68717f4f710203de6ea538709a91400a015878cb54617d8309",
+        "actual_sha256": "88f5c26f6e296b68717f4f710203de6ea538709a91400a015878cb54617d8309",
+        "passed": true
+      }
+    ]
+  }
+}

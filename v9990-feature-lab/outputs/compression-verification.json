@@ -1,0 +1,717 @@
+{
+  "passed": true,
+  "native_execution_tested": false,
+  "tests": [
+    {
+      "case": "single-byte",
+      "source_bytes": 1,
+      "packed_bytes": 2,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 2,
+          "output_bytes": 1,
+          "source_bank_crossings": 0,
+          "history_wraps": 0,
+          "matches": 0,
+          "overlapping_matches": 0,
+          "final_bank": 1,
+          "final_window_address": 24578
+        },
+        {
+          "consumed_bytes": 2,
+          "output_bytes": 1,
+          "source_bank_crossings": 0,
+          "history_wraps": 0,
+          "matches": 0,
+          "overlapping_matches": 0,
+          "final_bank": 1,
+          "final_window_address": 32767
+        },
+        {
+          "consumed_bytes": 2,
+          "output_bytes": 1,
+          "source_bank_crossings": 1,
+          "history_wraps": 0,
+          "matches": 0,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24576
+        },
+        {
+          "consumed_bytes": 2,
+          "output_bytes": 1,
+          "source_bank_crossings": 1,
+          "history_wraps": 0,
+          "matches": 0,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24577
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "max-overlap-run",
+      "source_bytes": 46080,
+      "packed_bytes": 2883,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 2883,
+          "output_bytes": 46080,
+          "source_bank_crossings": 0,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 1,
+          "final_window_address": 27459
+        },
+        {
+          "consumed_bytes": 2883,
+          "output_bytes": 46080,
+          "source_bank_crossings": 1,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 2,
+          "final_window_address": 27456
+        },
+        {
+          "consumed_bytes": 2883,
+          "output_bytes": 46080,
+          "source_bank_crossings": 1,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 2,
+          "final_window_address": 27457
+        },
+        {
+          "consumed_bytes": 2883,
+          "output_bytes": 46080,
+          "source_bank_crossings": 1,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 2,
+          "final_window_address": 27458
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "two-byte-overlap",
+      "source_bytes": 46080,
+      "packed_bytes": 2884,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 2884,
+          "output_bytes": 46080,
+          "source_bank_crossings": 0,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 1,
+          "final_window_address": 27460
+        },
+        {
+          "consumed_bytes": 2884,
+          "output_bytes": 46080,
+          "source_bank_crossings": 1,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 2,
+          "final_window_address": 27457
+        },
+        {
+          "consumed_bytes": 2884,
+          "output_bytes": 46080,
+          "source_bank_crossings": 1,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 2,
+          "final_window_address": 27458
+        },
+        {
+          "consumed_bytes": 2884,
+          "output_bytes": 46080,
+          "source_bank_crossings": 1,
+          "history_wraps": 22,
+          "matches": 1356,
+          "overlapping_matches": 1356,
+          "final_bank": 2,
+          "final_window_address": 27459
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "literal-and-partial-flags",
+      "source_bytes": 2259,
+      "packed_bytes": 419,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 419,
+          "output_bytes": 2259,
+          "source_bank_crossings": 0,
+          "history_wraps": 1,
+          "matches": 64,
+          "overlapping_matches": 0,
+          "final_bank": 1,
+          "final_window_address": 24995
+        },
+        {
+          "consumed_bytes": 419,
+          "output_bytes": 2259,
+          "source_bank_crossings": 1,
+          "history_wraps": 1,
+          "matches": 64,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24992
+        },
+        {
+          "consumed_bytes": 419,
+          "output_bytes": 2259,
+          "source_bank_crossings": 1,
+          "history_wraps": 1,
+          "matches": 64,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24993
+        },
+        {
+          "consumed_bytes": 419,
+          "output_bytes": 2259,
+          "source_bank_crossings": 1,
+          "history_wraps": 1,
+          "matches": 64,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24994
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "window-edge",
+      "source_bytes": 8192,
+      "packed_bytes": 2694,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 2694,
+          "output_bytes": 8192,
+          "source_bank_crossings": 0,
+          "history_wraps": 4,
+          "matches": 183,
+          "overlapping_matches": 0,
+          "final_bank": 1,
+          "final_window_address": 27270
+        },
+        {
+          "consumed_bytes": 2694,
+          "output_bytes": 8192,
+          "source_bank_crossings": 1,
+          "history_wraps": 4,
+          "matches": 183,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 27267
+        },
+        {
+          "consumed_bytes": 2694,
+          "output_bytes": 8192,
+          "source_bank_crossings": 1,
+          "history_wraps": 4,
+          "matches": 183,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 27268
+        },
+        {
+          "consumed_bytes": 2694,
+          "output_bytes": 8192,
+          "source_bank_crossings": 1,
+          "history_wraps": 4,
+          "matches": 183,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 27269
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "incompressible",
+      "source_bytes": 23040,
+      "packed_bytes": 25918,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 25918,
+          "output_bytes": 23040,
+          "source_bank_crossings": 3,
+          "history_wraps": 11,
+          "matches": 2,
+          "overlapping_matches": 0,
+          "final_bank": 4,
+          "final_window_address": 25918
+        },
+        {
+          "consumed_bytes": 25918,
+          "output_bytes": 23040,
+          "source_bank_crossings": 4,
+          "history_wraps": 11,
+          "matches": 2,
+          "overlapping_matches": 0,
+          "final_bank": 5,
+          "final_window_address": 25915
+        },
+        {
+          "consumed_bytes": 25918,
+          "output_bytes": 23040,
+          "source_bank_crossings": 4,
+          "history_wraps": 11,
+          "matches": 2,
+          "overlapping_matches": 0,
+          "final_bank": 5,
+          "final_window_address": 25916
+        },
+        {
+          "consumed_bytes": 25918,
+          "output_bytes": 23040,
+          "source_bank_crossings": 4,
+          "history_wraps": 11,
+          "matches": 2,
+          "overlapping_matches": 0,
+          "final_bank": 5,
+          "final_window_address": 25917
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "multiple-frame-boundaries",
+      "source_bytes": 629,
+      "packed_bytes": 221,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 221,
+          "output_bytes": 629,
+          "source_bank_crossings": 0,
+          "history_wraps": 0,
+          "matches": 29,
+          "overlapping_matches": 0,
+          "final_bank": 1,
+          "final_window_address": 24797
+        },
+        {
+          "consumed_bytes": 221,
+          "output_bytes": 629,
+          "source_bank_crossings": 1,
+          "history_wraps": 0,
+          "matches": 29,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24794
+        },
+        {
+          "consumed_bytes": 221,
+          "output_bytes": 629,
+          "source_bank_crossings": 1,
+          "history_wraps": 0,
+          "matches": 29,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24795
+        },
+        {
+          "consumed_bytes": 221,
+          "output_bytes": 629,
+          "source_bank_crossings": 1,
+          "history_wraps": 0,
+          "matches": 29,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 24796
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "atlas-ten-frames",
+      "source_bytes": 81920,
+      "packed_bytes": 11779,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 11779,
+          "output_bytes": 81920,
+          "source_bank_crossings": 1,
+          "history_wraps": 40,
+          "matches": 3614,
+          "overlapping_matches": 3614,
+          "final_bank": 2,
+          "final_window_address": 28163
+        },
+        {
+          "consumed_bytes": 11779,
+          "output_bytes": 81920,
+          "source_bank_crossings": 2,
+          "history_wraps": 40,
+          "matches": 3614,
+          "overlapping_matches": 3614,
+          "final_bank": 3,
+          "final_window_address": 28160
+        },
+        {
+          "consumed_bytes": 11779,
+          "output_bytes": 81920,
+          "source_bank_crossings": 2,
+          "history_wraps": 40,
+          "matches": 3614,
+          "overlapping_matches": 3614,
+          "final_bank": 3,
+          "final_window_address": 28161
+        },
+        {
+          "consumed_bytes": 11779,
+          "output_bytes": 81920,
+          "source_bank_crossings": 2,
+          "history_wraps": 40,
+          "matches": 3614,
+          "overlapping_matches": 3614,
+          "final_bank": 3,
+          "final_window_address": 28162
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "feature-strip",
+      "source_bytes": 8192,
+      "packed_bytes": 791,
+      "banked_alignments": [
+        0,
+        8189,
+        8190,
+        8191
+      ],
+      "banked_models": [
+        {
+          "consumed_bytes": 791,
+          "output_bytes": 8192,
+          "source_bank_crossings": 0,
+          "history_wraps": 4,
+          "matches": 236,
+          "overlapping_matches": 0,
+          "final_bank": 1,
+          "final_window_address": 25367
+        },
+        {
+          "consumed_bytes": 791,
+          "output_bytes": 8192,
+          "source_bank_crossings": 1,
+          "history_wraps": 4,
+          "matches": 236,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 25364
+        },
+        {
+          "consumed_bytes": 791,
+          "output_bytes": 8192,
+          "source_bank_crossings": 1,
+          "history_wraps": 4,
+          "matches": 236,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 25365
+        },
+        {
+          "consumed_bytes": 791,
+          "output_bytes": 8192,
+          "source_bank_crossings": 1,
+          "history_wraps": 4,
+          "matches": 236,
+          "overlapping_matches": 0,
+          "final_bank": 2,
+          "final_window_address": 25366
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "reject-truncated-literal",
+      "passed": true
+    },
+    {
+      "case": "reject-uninitialized-match",
+      "passed": true
+    },
+    {
+      "case": "reject-frame-crossing",
+      "passed": true
+    },
+    {
+      "case": "reject-trailing-data",
+      "passed": true
+    }
+  ],
+  "streams": [
+    {
+      "name": "atlas",
+      "raw_bytes": 81920,
+      "compressed_bytes": 16054,
+      "rom_offset": 32768,
+      "bank": 4,
+      "offset": 0,
+      "frame_bytes": 8192,
+      "frame_count": 10,
+      "vram_address": 65536,
+      "vram_end_exclusive": 147456,
+      "raw_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+      "compressed_sha256": "fef04aff563cd7ed1ea0e9ffeaf082ac4845a5a778eee86093ddf18b6d36698e",
+      "passed": true,
+      "baseline_artwork_identical": true,
+      "banked_model": {
+        "consumed_bytes": 16054,
+        "output_bytes": 81920,
+        "source_bank_crossings": 1,
+        "history_wraps": 40,
+        "matches": 5632,
+        "overlapping_matches": 1070,
+        "final_bank": 5,
+        "final_window_address": 32438
+      }
+    },
+    {
+      "name": "world-1",
+      "raw_bytes": 368640,
+      "compressed_bytes": 145048,
+      "rom_offset": 48822,
+      "bank": 5,
+      "offset": 7862,
+      "frame_bytes": 23040,
+      "frame_count": 16,
+      "vram_address": 147456,
+      "vram_end_exclusive": 516096,
+      "raw_sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+      "compressed_sha256": "8c038bbece6d2870c6e2687e369271c83edcadddc5a77563f347e3146f8992e6",
+      "passed": true,
+      "baseline_artwork_identical": true,
+      "banked_model": {
+        "consumed_bytes": 145048,
+        "output_bytes": 368640,
+        "source_bank_crossings": 18,
+        "history_wraps": 180,
+        "matches": 41070,
+        "overlapping_matches": 1525,
+        "final_bank": 23,
+        "final_window_address": 30030
+      }
+    },
+    {
+      "name": "world-2",
+      "raw_bytes": 368640,
+      "compressed_bytes": 103226,
+      "rom_offset": 193870,
+      "bank": 23,
+      "offset": 5454,
+      "frame_bytes": 23040,
+      "frame_count": 16,
+      "vram_address": 147456,
+      "vram_end_exclusive": 516096,
+      "raw_sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+      "compressed_sha256": "3ac5020b9de4e100194b4c6cce64da016cbe4d9ac8d5ce502b20c4930bf10ea7",
+      "passed": true,
+      "baseline_artwork_identical": true,
+      "banked_model": {
+        "consumed_bytes": 103226,
+        "output_bytes": 368640,
+        "source_bank_crossings": 13,
+        "history_wraps": 180,
+        "matches": 34243,
+        "overlapping_matches": 1815,
+        "final_bank": 36,
+        "final_window_address": 26760
+      }
+    },
+    {
+      "name": "world-3",
+      "raw_bytes": 368640,
+      "compressed_bytes": 88439,
+      "rom_offset": 297096,
+      "bank": 36,
+      "offset": 2184,
+      "frame_bytes": 23040,
+      "frame_count": 16,
+      "vram_address": 147456,
+      "vram_end_exclusive": 516096,
+      "raw_sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+      "compressed_sha256": "3a95d9a26da8f23c3254717ea163a7dd8b3944c9b66ad92b9c3fe9c6bad2c249",
+      "passed": true,
+      "baseline_artwork_identical": true,
+      "banked_model": {
+        "consumed_bytes": 88439,
+        "output_bytes": 368640,
+        "source_bank_crossings": 11,
+        "history_wraps": 180,
+        "matches": 31237,
+        "overlapping_matches": 1956,
+        "final_bank": 47,
+        "final_window_address": 25087
+      }
+    },
+    {
+      "name": "feature",
+      "raw_bytes": 8192,
+      "compressed_bytes": 2674,
+      "rom_offset": 385535,
+      "bank": 47,
+      "offset": 511,
+      "frame_bytes": 8192,
+      "frame_count": 1,
+      "vram_address": 516096,
+      "vram_end_exclusive": 524288,
+      "raw_sha256": "3b19cd8ecea52b7e2bf7254d9786b2e486e2df391be5ecbb1a4824f356f840ce",
+      "compressed_sha256": "45e8efce1eaa9b3c91acdee6960228585c27e5aae0a58e03e4116d0ee1b889e0",
+      "passed": true,
+      "banked_model": {
+        "consumed_bytes": 2674,
+        "output_bytes": 8192,
+        "source_bank_crossings": 0,
+        "history_wraps": 4,
+        "matches": 788,
+        "overlapping_matches": 74,
+        "final_bank": 47,
+        "final_window_address": 27761
+      }
+    }
+  ],
+  "rom_bytes": 524288,
+  "reserved_boot_and_runtime_bytes": 32768,
+  "allocated_bytes": 388209,
+  "free_bytes": 136079,
+  "raw_atlas_baseline_allocated_bytes": 451401,
+  "raw_atlas_baseline_free_bytes": 72887,
+  "atlas_saved_bytes": 65866,
+  "added_feature_bytes": 2674,
+  "net_free_bytes_gained": 63192,
+  "retained_constraints": "Original atlas pixels, all three 16-phase worlds, original VRAM destinations, E800-EFFF history ring, E000-E7FF data and F300 stack. Runtime ROM reservation remains three banks.",
+  "native_confirmation": "Verify executed ROM SHA-256 first. Deinterleave GFX9000 VRAM as logical[0::2]=physical[:262144], logical[1::2]=physical[262144:]. Compare [10000,24000) with vram.bin and [24000,7E000) with each world after normal world_load(stage). Compare the complete feature [7E000,80000) immediately after feature_load, before cursor_init (for example, at the first gfx_cursor entry breakpoint). During ordinary play compare only [7E000,7FE00): the final 512 feature bytes are intentionally changed into hardware cursor attributes/patterns. Recheck the atlas and immutable feature prefix after world reloads.",
+  "actual_ROM": {
+    "file": "NEON_REVENANT-V9990-FeatureLab-v0.1.rom",
+    "sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904",
+    "passed": true,
+    "streams": [
+      {
+        "name": "atlas",
+        "passed": true,
+        "consumed_bytes": 16054,
+        "output_bytes": 81920,
+        "source_bank_crossings": 1,
+        "history_wraps": 40,
+        "matches": 5632,
+        "overlapping_matches": 1070,
+        "final_bank": 5,
+        "final_window_address": 32438
+      },
+      {
+        "name": "world-1",
+        "passed": true,
+        "consumed_bytes": 145048,
+        "output_bytes": 368640,
+        "source_bank_crossings": 18,
+        "history_wraps": 180,
+        "matches": 41070,
+        "overlapping_matches": 1525,
+        "final_bank": 23,
+        "final_window_address": 30030
+      },
+      {
+        "name": "world-2",
+        "passed": true,
+        "consumed_bytes": 103226,
+        "output_bytes": 368640,
+        "source_bank_crossings": 13,
+        "history_wraps": 180,
+        "matches": 34243,
+        "overlapping_matches": 1815,
+        "final_bank": 36,
+        "final_window_address": 26760
+      },
+      {
+        "name": "world-3",
+        "passed": true,
+        "consumed_bytes": 88439,
+        "output_bytes": 368640,
+        "source_bank_crossings": 11,
+        "history_wraps": 180,
+        "matches": 31237,
+        "overlapping_matches": 1956,
+        "final_bank": 47,
+        "final_window_address": 25087
+      },
+      {
+        "name": "feature",
+        "passed": true,
+        "consumed_bytes": 2674,
+        "output_bytes": 8192,
+        "source_bank_crossings": 0,
+        "history_wraps": 4,
+        "matches": 788,
+        "overlapping_matches": 74,
+        "final_bank": 47,
+        "final_window_address": 27761
+      }
+    ]
+  }
+}

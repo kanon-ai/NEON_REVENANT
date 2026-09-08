@@ -8,13 +8,25 @@
 
 [試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
 
+## V9990 Feature Lab v0.1 — V9990専用機能試験版
+
+**Turbo R高速モード＋V9990に向けた、独立した512 KiB ASCII8試験版を追加しました。** 下位機種への移植を前提にせず、幅216ドットの可動砲台・回転コア付き巨大ボス、2面の発光ゲート、背景の帯ごとの変形、環境色の変化、2枚のハードウェアカーソルによる照準を試しています。既存4版のROMは変更していません。
+
+画像を可逆圧縮し、既存の全3面・各16背景位相を保ったまま、追加素材を含めてもROMの空きは**136,079 bytes（約133 KiB）**です。openMSXで63項目を検証し、巨大ボスは約30更新/秒、ゲート区間は約29更新/秒を確認しました。**本試験版は実機未確認・無保証です。** タイトルで **上＋Fire** を押すと巨大ボス戦へ、**Tab** で演出を切り替えられます。
+
+[ROMをダウンロード](https://github.com/kanon-ai/NEON_REVENANT/raw/refs/heads/main/v9990-feature-lab/outputs/NEON_REVENANT-V9990-FeatureLab-v0.1.rom) · [ソース・動画入りZIP](https://github.com/kanon-ai/NEON_REVENANT/raw/refs/heads/main/v9990-feature-lab/outputs/NEON_REVENANT-V9990-FeatureLab-v0.1-complete.zip) · [日英ガイド / Guide](v9990-feature-lab/README.md) · [検証記録 / Validation](v9990-feature-lab/VALIDATION.md)
+
+![V9990 Feature Lab：openMSXで撮影した巨大ボスの連続128描画フレーム](v9990-feature-lab/outputs/feature-lab-v0.1/giant-siege-carrier-native.gif)
+
+**V9990 Feature Lab v0.1** is a separate 512 KiB ASCII8 prototype for Turbo R in R800 mode with V9990. It adds a moving giant boss, projected energy gates, band-based background motion, palette effects and native cursor targeting. Lossless packing preserves all three existing stages and their 16 world phases, leaving 136,079 bytes free. All 63 openMSX checks passed; physical hardware has not been tested. Provided AS IS, without warranty. Use **Up + Fire** at the title for the giant boss, or **Tab** to toggle effects. The four existing editions remain unchanged.
+
 ## V9968 / V9990：次の表現に向けた調査
 
 **Turbo R高速モード＋V9968への対応と、V9990版でのさらなる映像表現を検討しています。** V9968への対応については、設計者の方からご了承をいただいています。各VDPの特徴を生かして、画面の動きと奥行きをどこまで豊かにできるか、準備調査を進めています。
 
-具体的な演出はまだ内緒です。現在は資料・実装の調査段階で、新しいROMや公開時期の発表ではありません。[調査状況と可能性 — 日本語 / English](docs/VDP_RESEARCH_STATUS.md)
+V9990については、上記の専用試験版を公開しました。V9968の具体的な演出・採用機能・公開時期は引き続き検討中です。[調査状況と可能性 — 日本語 / English](docs/VDP_RESEARCH_STATUS.md)
 
-We are researching **Turbo R in R800 mode with V9968**, alongside further visual possibilities for the **V9990 edition**. The V9968 designer has given permission to pursue support. This is preparatory research; new features and a release date have not been confirmed. [English research update](docs/VDP_RESEARCH_STATUS.md#english).
+We are researching **Turbo R in R800 mode with V9968**, alongside further visual possibilities for the **V9990 edition**. The V9968 designer has given permission to pursue support. The separate V9990 Feature Lab is now available above; V9968 features and release timing remain under consideration. [English research update](docs/VDP_RESEARCH_STATUS.md#english).
 
 ## 初代MSX v1.3 — Dawn Leviathan
 

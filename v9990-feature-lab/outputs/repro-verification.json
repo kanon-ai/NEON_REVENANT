@@ -1,0 +1,407 @@
+{
+  "passed": true,
+  "expected_rom_sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904",
+  "expected_rom_bytes": 524288,
+  "method": "Full generate_assets.py + generate_world.py + generate_feature.py + native SDCC/Pasmo build in an isolated source copy; generated ROM-input files are removed first.",
+  "native_execution_tested": false,
+  "input_files": 59,
+  "input_inventory_sha256": "bcb2b26822d70eda9cd2c2145fb52b2fecc352792cb73860771f066656551048",
+  "input_inventory": [
+    {
+      "path": "src/assets.h",
+      "bytes": 2987,
+      "sha256": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6"
+    },
+    {
+      "path": "src/boot.asm",
+      "bytes": 1000,
+      "sha256": "897556ee32189dbf0fb448e52b0e0bab8a2adc2bc9088e408262c99a6f654bfe"
+    },
+    {
+      "path": "src/feature_assets.h",
+      "bytes": 726,
+      "sha256": "54fe772630add8862ef125d54e26a9a97dd98efe9c71ff16e281a3344cdae304"
+    },
+    {
+      "path": "src/game.c",
+      "bytes": 17953,
+      "sha256": "f910f77763ec3fbeed8370580083a1b2637b3ce83742a280870cda6ed7062fa1"
+    },
+    {
+      "path": "src/hardware.c",
+      "bytes": 9724,
+      "sha256": "9e6833698e11377ce525581811947284160e29e7bb5ef281c7b3fcc958cf8d92"
+    },
+    {
+      "path": "src/hardware.h",
+      "bytes": 1571,
+      "sha256": "2ae274d7d9d67f48254476678fc8a8021dcc177e3f9c498188e00f3f8d2825cc"
+    },
+    {
+      "path": "src/palette.h",
+      "bytes": 1093,
+      "sha256": "9adce9881f0f5f9ebec523601e6a32bb2affdf564b0542c68273b8b63d13f24f"
+    },
+    {
+      "path": "src/sound.c",
+      "bytes": 7976,
+      "sha256": "14da2d0a872faf44bb3c33f9ce002120eaaab99c80df85d6c19b01e4c1c75451"
+    },
+    {
+      "path": "src/sound.h",
+      "bytes": 426,
+      "sha256": "0228918ea76592961e3bbae40e2222211fa5eae24ad29e988182dc7859dbc8ad"
+    },
+    {
+      "path": "src/world_data.h",
+      "bytes": 398,
+      "sha256": "95d86193ddad92b91fb508518ffec472a51fff6d7c4dd3c880afcc3b3d725c91"
+    },
+    {
+      "path": "src/world_load.c",
+      "bytes": 4298,
+      "sha256": "282ffdc6b0126b5262b5aec2d43964e10e8dd47790fd007fde2c987a98395e09"
+    },
+    {
+      "path": "src/world_load.h",
+      "bytes": 855,
+      "sha256": "87b199e163810b6929f6a96d8dc8c0e14ce2978cd2df45de21c99ec16fab1310"
+    },
+    {
+      "path": "assets/atlas.png",
+      "bytes": 21447,
+      "sha256": "18dd6d23450105fb617f12e98e4c451d8168eda0a950787a5591c4a590ca50e7"
+    },
+    {
+      "path": "assets/effects-preview.png",
+      "bytes": 9341,
+      "sha256": "bb2b12dbb9035ddf66c30c8f69b119e6ec4c6ce48ac0392429e049ffaa463294"
+    },
+    {
+      "path": "assets/enemy-scale-preview.png",
+      "bytes": 9002,
+      "sha256": "f8018c78bdfab8e3a81c2a962104a007817d5488ab89b9049f254bfded57e68f"
+    },
+    {
+      "path": "assets/feature-atlas-preview.png",
+      "bytes": 7614,
+      "sha256": "51fd3a0dd65fe889fbe6bf1211fa773ee0a26eaac66507a6b659c10f28f29caf"
+    },
+    {
+      "path": "assets/feature-atlas.png",
+      "bytes": 4302,
+      "sha256": "58c6b52d791c116a7b92573bea21273b5023ab4a48af692cba623d6f04745a32"
+    },
+    {
+      "path": "assets/feature-composite.png",
+      "bytes": 6870,
+      "sha256": "6066e98926ece3b7bc30be615c8e6e212cd703db111193ebbb028f3f6898b4b8"
+    },
+    {
+      "path": "assets/feature-manifest.json",
+      "bytes": 2072,
+      "sha256": "058fd22bc42f460a485f43a5e2a61b496a208d1a55efaad6c88b702c2ecbbe46"
+    },
+    {
+      "path": "assets/feature-motion-preview.gif",
+      "bytes": 176000,
+      "sha256": "f3c4ec82beff274a519d8b5538d924c24a970d53752001780c074d22d467a018"
+    },
+    {
+      "path": "assets/feature.bin",
+      "bytes": 8192,
+      "sha256": "3b19cd8ecea52b7e2bf7254d9786b2e486e2df391be5ecbb1a4824f356f840ce"
+    },
+    {
+      "path": "assets/manifest.json",
+      "bytes": 12598,
+      "sha256": "788e3a81c514b91dbbbf330f52f172a48cadcf489138a3d0f1ea7c697ed0f005"
+    },
+    {
+      "path": "assets/preview.png",
+      "bytes": 19312,
+      "sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79"
+    },
+    {
+      "path": "assets/sprite-material-preview.png",
+      "bytes": 19312,
+      "sha256": "c7b2d483770a6258541af0b5f585bc116b0aa52207f72408e4f77d2227ee8d79"
+    },
+    {
+      "path": "assets/sprite-verification-v1.2.json",
+      "bytes": 533,
+      "sha256": "23b01a7863249841c5bee57a9a85b1e4abdf3410d3f4d32d230c98ac1334e3a5"
+    },
+    {
+      "path": "assets/stage-1.png",
+      "bytes": 10298,
+      "sha256": "dcde3907f8fdd24c6fea6bac44fa9ed13da0ce7b4e888e264748f0409f2af1d2"
+    },
+    {
+      "path": "assets/stage-2.png",
+      "bytes": 10430,
+      "sha256": "d3f59ec490e8b6f724db60f559710895d4be5b212e62e7eb22ca11eec1499d1c"
+    },
+    {
+      "path": "assets/stage-3.png",
+      "bytes": 10931,
+      "sha256": "838badcfcbfee27e2a8de6aabba210b60fd1a167b1bcef5acba2f8967e47dfdd"
+    },
+    {
+      "path": "assets/title-logo-native.png",
+      "bytes": 1305,
+      "sha256": "73f691784903a1882e78415430495f73e7c85618f433e1b43eab3ecbeb6c5cfe"
+    },
+    {
+      "path": "assets/title-logo.png",
+      "bytes": 2505,
+      "sha256": "63198db786e618bfacceb3b51d0b17918ce0f48df8aa623709fee003268853f0"
+    },
+    {
+      "path": "assets/ui-preview.png",
+      "bytes": 6744,
+      "sha256": "3f0e7ac020dc1c46d0eed3133846b0953f89f0210657e986cf67a71eec186101"
+    },
+    {
+      "path": "assets/vram.bin",
+      "bytes": 81920,
+      "sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404"
+    },
+    {
+      "path": "assets/world/contact-sheet.png",
+      "bytes": 96204,
+      "sha256": "1fe284790a9b91f23c6da7f81e5526fbfe7cfc6c496a52999b3f253bce72ec29"
+    },
+    {
+      "path": "assets/world/manifest.json",
+      "bytes": 4265,
+      "sha256": "23efd73c5d2c9c4a8617997bc98e5348dcf6fed25ab2def7bc3df3179bd57a58"
+    },
+    {
+      "path": "assets/world/stage-1-native.png",
+      "bytes": 15964,
+      "sha256": "5f774b30e21e3646c5a945b9a74c1d9861d12f5a29a6286f1980bc8fa3cf9c43"
+    },
+    {
+      "path": "assets/world/stage-1-preview.png",
+      "bytes": 23401,
+      "sha256": "e7582d381d2811a38c6aa01113970199c7a3c416f19090f445dcd64e20a0f715"
+    },
+    {
+      "path": "assets/world/stage-1.bin",
+      "bytes": 368640,
+      "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a"
+    },
+    {
+      "path": "assets/world/stage-1.gif",
+      "bytes": 159944,
+      "sha256": "8bd53dfadcbd64056be4eb7447147d29f17f5c265e2de5ac45d512d3e0198205"
+    },
+    {
+      "path": "assets/world/stage-2-native.png",
+      "bytes": 10952,
+      "sha256": "099deb0f4e8fce8a2084c415b8a3cf2c169f4a7e88c1313851451fb54c73cbc9"
+    },
+    {
+      "path": "assets/world/stage-2-preview.png",
+      "bytes": 16775,
+      "sha256": "494b64b9f68af71b27c01764ad9d623f5490d17e1ea429fb2244ac35a09203de"
+    },
+    {
+      "path": "assets/world/stage-2.bin",
+      "bytes": 368640,
+      "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e"
+    },
+    {
+      "path": "assets/world/stage-2.gif",
+      "bytes": 121851,
+      "sha256": "4ee913241348ccc018e7dc434715f274ab0cb2a4f81c804c25aeac22700e506a"
+    },
+    {
+      "path": "assets/world/stage-3-native.png",
+      "bytes": 9039,
+      "sha256": "a2e81cc34214302addf157e493e3b235d18cf28768a5a34d2ee45e56d723f4d3"
+    },
+    {
+      "path": "assets/world/stage-3-preview.png",
+      "bytes": 13925,
+      "sha256": "7eae2fab1033694b14816b9ef80d56684e8b86646ecbd1fa0da3f62b2a93c0c9"
+    },
+    {
+      "path": "assets/world/stage-3.bin",
+      "bytes": 368640,
+      "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9"
+    },
+    {
+      "path": "assets/world/stage-3.gif",
+      "bytes": 111679,
+      "sha256": "2bb8f5562604ca5681a7e34fcc60f7303e782439e4225487d42544ae439b4c36"
+    },
+    {
+      "path": "tools/art_palette.py",
+      "bytes": 497,
+      "sha256": "82d19d7be46a5ee04612317238aef9142a82c9ff197151a19985402f4cb40eb6"
+    },
+    {
+      "path": "tools/build.py",
+      "bytes": 7280,
+      "sha256": "f8d8e4460e89403aed72441e6bfd9b388952f31913b0ad7f52a8f7378a63adf3"
+    },
+    {
+      "path": "tools/emu.py",
+      "bytes": 342,
+      "sha256": "4871f1a2bc42e97baadf5e031d09133d5141ba71f9d5323a331fa8bccc183d03"
+    },
+    {
+      "path": "tools/emulator_host.mjs",
+      "bytes": 3240,
+      "sha256": "bb90769c76a8f87bf74ec33709213ac3df01014da42cc185d7cfac6f8c561bc6"
+    },
+    {
+      "path": "tools/generate_assets.py",
+      "bytes": 42773,
+      "sha256": "535bea092413465d67a2cd74095d097a62879fb599068d668f5e82ff0f1441c8"
+    },
+    {
+      "path": "tools/generate_feature.py",
+      "bytes": 12074,
+      "sha256": "65ee368fbfb3a632013520d5fde7ecdaba059c0a7263763cca177c54048c907d"
+    },
+    {
+      "path": "tools/generate_world.py",
+      "bytes": 25408,
+      "sha256": "c9b7ef0937c3aa2faad16b0323659aa7ce82f15a8e81e6277d902adac4b7678d"
+    },
+    {
+      "path": "tools/package.py",
+      "bytes": 17059,
+      "sha256": "dc17ef8f65a16109da9ebe702f5a23931377208b509e5372e8b633bd1adf1a52"
+    },
+    {
+      "path": "tools/verify_compression.py",
+      "bytes": 6639,
+      "sha256": "4fb63d797de93b346a8ef43dd76af34c550c7a3a6b399cddf041e584fd25cf70"
+    },
+    {
+      "path": "tools/verify_lab.py",
+      "bytes": 9267,
+      "sha256": "91ca900c657c7bcbafba79206bcaeffa627e95915e900124c359dab8a9209178"
+    },
+    {
+      "path": "tools/verify_repro.py",
+      "bytes": 11167,
+      "sha256": "170a61a4f9826d776f669803a1776b6f9b57f3e1e7c74d35386844e564d417d2"
+    },
+    {
+      "path": "tools/verify_rom.py",
+      "bytes": 6850,
+      "sha256": "3f1e6809e3529961ab78b212f234da84a443b88e2ff2ca56e367617d504296a7"
+    },
+    {
+      "path": "tools/world_codec.py",
+      "bytes": 12098,
+      "sha256": "30ce4bbe5ddb1bce9f7f4970601c02f740a64c43e461897165572793cbdeff40"
+    }
+  ],
+  "isolated_directory": "work/repro/full-3uew01cs",
+  "generated_inputs_removed": [
+    "assets/vram.bin",
+    "assets/feature.bin",
+    "assets/world/stage-1.bin",
+    "assets/world/stage-2.bin",
+    "assets/world/stage-3.bin",
+    "src/assets.h",
+    "src/palette.h",
+    "src/feature_assets.h",
+    "src/world_data.h"
+  ],
+  "external_toolchain": {
+    "sdcc": {
+      "file": "sdcc.exe",
+      "sha256": "843272575aeae50e0cde8b3ac64bca1386755252d5b12cbb37cfa33f513ffeae"
+    },
+    "pasmo": {
+      "file": "pasmo.exe",
+      "sha256": "15dea3fc0e3bcbcb7ba7a149536857f673340de85b50b231c69836b4f3ce3d53"
+    },
+    "python": "3.13.5"
+  },
+  "artifacts_before": {
+    "rom_sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904"
+  },
+  "errors": [],
+  "build_exit_code": 0,
+  "build_log": "full-build.log",
+  "regenerated_inputs": [
+    {
+      "path": "assets/vram.bin",
+      "bytes": 81920,
+      "sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+      "passed": true
+    },
+    {
+      "path": "assets/feature.bin",
+      "bytes": 8192,
+      "sha256": "3b19cd8ecea52b7e2bf7254d9786b2e486e2df391be5ecbb1a4824f356f840ce",
+      "passed": true
+    },
+    {
+      "path": "assets/world/stage-1.bin",
+      "bytes": 368640,
+      "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a",
+      "passed": true
+    },
+    {
+      "path": "assets/world/stage-2.bin",
+      "bytes": 368640,
+      "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e",
+      "passed": true
+    },
+    {
+      "path": "assets/world/stage-3.bin",
+      "bytes": 368640,
+      "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9",
+      "passed": true
+    },
+    {
+      "path": "src/assets.h",
+      "bytes": 2987,
+      "sha256": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6",
+      "passed": true
+    },
+    {
+      "path": "src/palette.h",
+      "bytes": 1093,
+      "sha256": "9adce9881f0f5f9ebec523601e6a32bb2affdf564b0542c68273b8b63d13f24f",
+      "passed": true
+    },
+    {
+      "path": "src/feature_assets.h",
+      "bytes": 726,
+      "sha256": "54fe772630add8862ef125d54e26a9a97dd98efe9c71ff16e281a3344cdae304",
+      "passed": true
+    },
+    {
+      "path": "src/world_data.h",
+      "bytes": 398,
+      "sha256": "95d86193ddad92b91fb508518ffec472a51fff6d7c4dd3c880afcc3b3d725c91",
+      "passed": true
+    }
+  ],
+  "rebuilt_ROM": {
+    "file": "NEON_REVENANT-V9990-FeatureLab-v0.1.rom",
+    "bytes": 524288,
+    "sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904",
+    "identical": true
+  },
+  "allocated_bytes": 388209,
+  "free_bytes": 136079,
+  "artifacts_after": {
+    "rom_sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904",
+    "input_inventory_sha256": "bcb2b26822d70eda9cd2c2145fb52b2fecc352792cb73860771f066656551048"
+  },
+  "live_ROM_unchanged": true,
+  "live_inputs_unchanged": true,
+  "baseline_71_files_unchanged": true,
+  "elapsed_seconds": 86.536
+}

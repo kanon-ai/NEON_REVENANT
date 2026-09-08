@@ -1,0 +1,4 @@
+# Preserve the exact verified source and artifact bytes.
+* -text
+# Keep the upstream runtime sources unmodified, including their final blank line.
+licenses/sdcc-runtime/src/*.s whitespace=-blank-at-eof

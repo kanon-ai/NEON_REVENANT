@@ -4,6 +4,10 @@
 
 [日本語](#日本語) · [English](#english) · [README](../README.md)
 
+**2026-09-08追記：** V9990については、独立した512 KiB専用試験版 [V9990 Feature Lab v0.1](../v9990-feature-lab/README.md) を公開しました。可動パーツ付き巨大ボス、投影ゲート、背景変形、パレット、ハードウェア照準を実装し、openMSXで63項目を確認しています。実機未確認・無保証です。既存4版のROMは変更していません。以下の本文は2026-09-07時点の調査記録です。V9968の検討状況は本更新では変更していません。
+
+**Update, 2026-09-08:** The separate 512 KiB [V9990 Feature Lab v0.1](../v9990-feature-lab/README.md) is now available, with a moving giant boss, projected gates, background distortion, palette effects and native cursor targeting. All 63 openMSX checks passed; it remains untested on physical hardware and is supplied without warranty. The four existing ROM editions are unchanged. The text below records the research status on 2026-09-07; this update does not change the V9968 research status.
+
 ## 日本語
 
 NEON REVENANTは、Turbo R＋V9990で描いた完成像を出発点に、初代MSXまで表現を工夫してきました。遊んでくださった方、動画や感想を広めてくださった方、実機で試してくださった方へ、ありがとうございます。今度は上位の環境へ目を向け、もう一歩先の表現を検討しています。

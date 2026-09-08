@@ -1,0 +1,173 @@
+{
+  "rom_sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904",
+  "emulator": "openMSX 21.0-unknown",
+  "machine": "Panasonic_FS-A1ST",
+  "extension": "gfx9000",
+  "physical_hardware_tested": false,
+  "scenario_seeding": "RAM selects distant scenes and isolates objects; native ROM executes all rendering.",
+  "capture": "Consecutive ROM draw frames; GIF delays derived from emulated time, no speed-up.",
+  "audio": "FM register activity checked; no physical audio-output test.",
+  "results": [
+    {
+      "name": "artifact-hash",
+      "passed": true
+    },
+    {
+      "name": "loaded-runtime-matches-ROM",
+      "passed": true,
+      "bytes": 17400
+    },
+    {
+      "name": "up-fire-enters-giant-boss",
+      "passed": true
+    },
+    {
+      "name": "atlas-native-lossless-decode",
+      "passed": true,
+      "bytes": 81920
+    },
+    {
+      "name": "giant-art-native-lossless-decode",
+      "passed": true,
+      "bytes": 7680
+    },
+    {
+      "name": "cursor-planes-enabled",
+      "passed": true
+    },
+    {
+      "name": "two-native-cursor-patterns",
+      "passed": true
+    },
+    {
+      "name": "stage-1-native-decode",
+      "passed": true,
+      "bytes": 368640,
+      "phases": 16,
+      "load_seconds": 5.023
+    },
+    {
+      "name": "stage-1-effects-performance",
+      "passed": true,
+      "fps": 29.242
+    },
+    {
+      "name": "stage-1-music-after-load",
+      "passed": true
+    },
+    {
+      "name": "stage-2-native-decode",
+      "passed": true,
+      "bytes": 368640,
+      "phases": 16,
+      "load_seconds": 4.072
+    },
+    {
+      "name": "stage-2-effects-performance",
+      "passed": true,
+      "fps": 29.478
+    },
+    {
+      "name": "stage-2-music-after-load",
+      "passed": true
+    },
+    {
+      "name": "skyway-energy-gates-native-motion",
+      "passed": true,
+      "frames": 96,
+      "unique_frames": 96,
+      "consecutive_frame_fps": 29.186,
+      "duration_seconds": 3.29,
+      "boss_x_range": [
+        128,
+        128
+      ]
+    },
+    {
+      "name": "skyway-energy-gates-gif-exact",
+      "passed": true,
+      "frames": 96
+    },
+    {
+      "name": "stage-3-native-decode",
+      "passed": true,
+      "bytes": 368640,
+      "phases": 16,
+      "load_seconds": 3.738
+    },
+    {
+      "name": "stage-3-effects-performance",
+      "passed": true,
+      "fps": 29.722
+    },
+    {
+      "name": "stage-3-music-after-load",
+      "passed": true
+    },
+    {
+      "name": "giant-siege-carrier-native-motion",
+      "passed": true,
+      "frames": 128,
+      "unique_frames": 128,
+      "consecutive_frame_fps": 29.958,
+      "duration_seconds": 4.27,
+      "boss_x_range": [
+        107,
+        149
+      ]
+    },
+    {
+      "name": "giant-siege-carrier-gif-exact",
+      "passed": true,
+      "frames": 128
+    },
+    {
+      "name": "hardware-cursor-tracks-aim",
+      "passed": true,
+      "cursor_center": [
+        128,
+        107
+      ]
+    },
+    {
+      "name": "warm-bitmap-fixed-cursor-palette",
+      "passed": true,
+      "bitmap_palette_start": 32,
+      "cursor_palette_start": 60
+    },
+    {
+      "name": "giant-pause",
+      "passed": true
+    },
+    {
+      "name": "pause-dialog-hides-native-cursors",
+      "passed": true
+    },
+    {
+      "name": "effects-toggle-preserves-paused-boss",
+      "passed": true,
+      "boss_state": [
+        197,
+        124,
+        82,
+        180
+      ]
+    },
+    {
+      "name": "effects-off-hides-hardware-cursors",
+      "passed": true
+    },
+    {
+      "name": "effects-and-game-resume",
+      "passed": true
+    },
+    {
+      "name": "nova-bright-palette",
+      "passed": true
+    },
+    {
+      "name": "art-remains-intact-after-gameplay",
+      "passed": true
+    }
+  ]
+}

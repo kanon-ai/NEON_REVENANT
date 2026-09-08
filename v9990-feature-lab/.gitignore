@@ -1,0 +1,4 @@
+/work/
+**/__pycache__/
+*.py[cod]
+/outputs/*.tmp

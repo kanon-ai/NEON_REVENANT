@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "name": "wrong-host",
+      "status": 403,
+      "passed": true
+    },
+    {
+      "name": "browser-origin",
+      "status": 403,
+      "passed": true
+    },
+    {
+      "name": "get",
+      "status": 405,
+      "passed": true
+    },
+    {
+      "name": "cli",
+      "status": 200,
+      "passed": true
+    }
+  ],
+  "note": "Wrong-host request may be refused by the local network layer before HTTP; a reset is not attributed to the bridge handler."
+}
