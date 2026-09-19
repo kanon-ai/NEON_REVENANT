@@ -1,3 +1,5 @@
+> **音楽更新の修正版 / Audio timing update:** [最新ROM・ソース / Latest ROMs and sources](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/prototype-audio-clock-2026-09-19). 描画負荷による演奏速度の変化を改善。実機未検証・無保証。Tested in openMSX; hardware unverified, without warranty. 以下の旧検証記録は以前の版のものです。Historical validation below applies to earlier builds.
+
 # NEON REVENANT — V9990 Feature Lab v0.1
 
 V9990固有の描画機能と512 KiB ROMの容量活用を試す、独立した試験版です。下位機種への移植を前提にせず、通常の全3ステージに専用演出を加えています。既存の安定版は別に保護しています。

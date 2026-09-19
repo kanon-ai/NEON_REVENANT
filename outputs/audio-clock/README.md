@@ -1,4 +1,4 @@
-# NEON REVENANT 音楽更新周期の修正版（ローカル検証用）
+# NEON REVENANT 音楽更新周期の修正版
 
 対象: MSX2（PSG）、Turbo R単体（FM＋PSG）、Turbo R＋V9990通常版、V9990機能試験版。
 描画ループでの音源更新を60Hz VBlank割り込みからの約30Hz更新に変更しました。
@@ -16,7 +16,9 @@ openMSXによる全4版×3ステージのRAM設定シナリオ試験です。
 - 最終ソース再ビルドのROMがエミュレーター検証対象と一致。
 
 物理ジョイスティック・実機・PAL機は未検証です。操作試験はキーボード入力で実施。
-試作版・無保証。GitHubの公開版はまだ差し替えていません。
+試作版・無保証。以前のリリースは修正前の版として残しています。
+
+[各機種の修正版ROM・ソース一式](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/prototype-audio-clock-2026-09-19)
 
 ## 実装
 
@@ -30,8 +32,7 @@ PSGのジョイスティック読取りと音源状態変更は短い割り込�
 
 ## ソースと再ビルド
 
-作業ブランチ: audio-clock-fix。ベース: c699abb。
-変更ソースと差分、検証JSONを同梱しています。
+各機種のソース・素材・ビルドツールと検証JSONを同梱しています。
 既存のビルド手順で tools/build.py、msx2/tools/build.py、turbor/tools/build.py、
 v9990-feature-lab/tools/build.py に --pack-only を付けて再ビルドできます。
 検証ツール tools/verify_audio_clock.py はローカルopenMSX Tclブリッジ（18801）を使用します。

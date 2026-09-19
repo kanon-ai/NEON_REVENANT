@@ -8,6 +8,18 @@
 
 [試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
 
+## 音楽再生タイミングの修正 — MSX2 / Turbo R / V9990
+
+MSX2、Turbo R単体、V9990通常版、V9990 Feature Labの4版で、描画負荷によって曲のテンポや効果音の長さが変わる問題を改善しました。FM・PSGを描画から独立して更新します。背景・曲・ゲーム内容は維持しています。MSX1 v1.4は対応済みです。
+
+[機種別ROM・ソース一式](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/prototype-audio-clock-2026-09-19) · [変更内容と検証範囲](outputs/audio-clock/README.md)
+
+openMSXで全4版×3ステージ、描画停止中の演奏周期、背景VRAM、移動・ポーズ・消音・再開・ボム操作を検証しました。
+**試作版・無保証。今回の修正版の実機・PAL機・物理ジョイスティックは未検証です。**
+以前のリリースや下記の旧ZIPは修正前の版として残しています。
+
+Audio updates now run independently of rendering on MSX2, Turbo R, V9990 and V9990 Feature Lab. Music and artwork are preserved. Tested in openMSX, including RAM-seeded scenarios. Physical hardware, PAL machines and physical joysticks remain unverified. Experimental, AS IS, WITHOUT WARRANTY. Older packages remain available.
+
 ## 初代MSX v1.4 — PSG・タイトル・戦闘の改良
 
 **PSG再生・タイトル画面・敵の動きを改良しました。512 KiB ASCII8・RAM32 KiB・VRAM16 KiBを維持しています。**

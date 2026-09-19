@@ -1,3 +1,5 @@
+> **音楽更新の修正版 / Audio timing update:** [最新ROM・ソース / Latest ROMs and sources](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/prototype-audio-clock-2026-09-19). 描画負荷による演奏速度の変化を改善。実機未検証・無保証。Tested in openMSX; hardware unverified, without warranty. 以下の旧検証記録は以前の版のものです。Historical validation below applies to earlier builds.
+
 # NEON REVENANT — MSX2 Edition v1.0
 
 **標準Z80のMSX2向け、512 KiB ASCII8 MegaROMの疑似3Dシューティング試作版です。試作中・無保証・実機未検証です。**

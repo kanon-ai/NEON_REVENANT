@@ -1,3 +1,5 @@
+> **音楽更新の修正版 / Audio timing update:** [最新ROM・ソース / Latest ROMs and sources](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/prototype-audio-clock-2026-09-19). 描画負荷による演奏速度の変化を改善。実機未検証・無保証。Tested in openMSX; hardware unverified, without warranty. 以下の旧検証記録は以前の版のものです。Historical validation below applies to earlier builds.
+
 # NEON REVENANT — Turbo R Edition v1.0
 
 > **試作中・無保証 / Experimental prototype — AS IS, WITHOUT WARRANTY.** 実機・実カートリッジは未検証です。利用前に[免責事項](../DISCLAIMER.md)と、リポジトリ直下の利用条件・第三者ライセンスを確認してください。
