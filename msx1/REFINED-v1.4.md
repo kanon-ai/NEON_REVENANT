@@ -19,7 +19,6 @@ V9990・V9968・FM音源・MSX-DOSは不要です。マッパーを指定する�
 - 0面と中間3面の背景・陰影を維持。最終面は夜明けの色面を調整。
 - 全5区域、巨大最終ボス、512 KiB ROM / 32 KiB RAMを維持。
 
-採用された A-original とROM内容は同一です。B-edge の表現は採用していません。
 旧v1.3のROMとリリースは残しています。
 
 ## 操作
@@ -38,11 +37,10 @@ PCG素材からソースを再コンパイルしROMを生成します。`--pack-
 
 ## English
 
-MSX1 v1.4 retains the selected A-original artwork and adds VBlank-driven PSG
+MSX1 v1.4 adds VBlank-driven PSG
 scheduling, a dedicated title screen, additional enemy motion and attacks,
 and revised dawn colors. Five stages and the giant final boss remain.
 Requires 32 KiB RAM, 16 KiB VRAM and a 512 KiB ASCII8 cartridge/loader.
-The ROM bytes match the approved A-original candidate. B-edge was rejected.
 
 Validation is on openMSX NTSC with a standard Z80 and sprite limits enabled.
 Tests include seeded RAM scenarios, not a manual-only playthrough. Physical
