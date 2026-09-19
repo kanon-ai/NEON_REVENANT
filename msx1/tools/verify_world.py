@@ -9,7 +9,7 @@ import numpy as np
 from pcg_codec import decode_screen
 from PIL import Image
 
-from ram32_test_config import ROOT, RELEASE, OUT, STANDARD, MACHINE, VDP, TIMING_SETUP
+from ram32_test_config import ASSETS, ROOT, RELEASE, OUT, STANDARD, MACHINE, VDP, TIMING_SETUP
 SYM=json.loads((ROOT/'work/build/symbols.json').read_text())
 MANIFEST=json.loads((RELEASE/'build-manifest.json').read_text());results=[]
 SCRATCH=ROOT/'work'/('captures-v1.3-'+STANDARD);SCRATCH.mkdir(exist_ok=True)
@@ -31,11 +31,13 @@ def check(name,passed,**evidence):
     results.append(dict(name=name,passed=bool(passed),**evidence));print(name,'PASS' if passed else 'FAIL',evidence,flush=True);assert passed,name
 def shot(path):cmd(f'openmsx::internal_screenshot -raw -size 640 {{{path.as_posix()}}}')
 def clear_entities():
-    for n,stride,count in [('_foes',12,6),('_shots',9,8),('_fx',7,4)]:
+    for n,stride,count in [('_foes',13,6),('_shots',9,8),('_fx',7,4)]:
         cmd(';'.join(f'debug write memory {SYM[n]+i*stride} 0' for i in range(count)))
     put('_pickup_on',0)
 def setup(stage,mode=1):
-    cmd('set pause on')
+    bp=cmd(f'debug set_bp {SYM["_input_read"]} {{}} {{debug break}}')
+    until(lambda:cmd('debug breaked')=='1')
+    cmd(f'set pause on;debug remove_bp {bp};debug cont')
     for n,v,size in [('_mode',mode,1),('_stage',stage,1),('_stage_clock',0,2),('_world_loaded',255,1),
       ('_stage_banner',0,1),('_player_x',128,2),('_player_y',166,2),('_shield',6,1),('_bombs',3,1),
       ('_hurt_clock',0,1),('_bomb_flash',0,1),('_old_keys',0,1),('_keys',0,1),('_frame_counter',0,2)]:put(n,v,size)
@@ -46,6 +48,7 @@ def frame():cmd('debug cont');until(lambda:cmd('debug breaked')=='1')
 def unbreak(bp):cmd(f'debug remove_bp {bp};debug cont')
 
 cmd('set speed 100;set limitsprites true;set accuracy pixel;set videosource MSX;set pause off')
+until(lambda:int(cmd('debug read {VDP regs} 1'))==0xE3 and read('_audio_ready')==1)
 cmd(TIMING_SETUP)
 check('target-is-original-MSX',cmd('machine_info config_name')==MACHINE and VDP in cmd('machine_info device VDP'))
 check('physical-VRAM-16KiB',int(cmd('debug size {physical VRAM}'))==16384)
@@ -56,10 +59,10 @@ check('executed-ROM-sha256',hashlib.sha256(actual_rom).hexdigest()==MANIFEST['sh
 check('sprite-limit-enabled',cmd('set limitsprites')=='true')
 for stage in range(5):
     load_time=setup(stage);advance(.2);bp=breakpoint()
-    v=block('VRAM',0,16384);source=(ROOT/'assets'/f'world-{stage}.bin').read_bytes()
+    v=block('VRAM',0,16384);source=(ASSETS/f'world-{stage}.bin').read_bytes()
     check(f'stage-{stage+1}-name-page-layout',int(cmd('debug read {VDP regs} 2')) in [14,15],load_seconds=round(load_time,3))
-    check(f'stage-{stage+1}-resident-sprite-readback',v[0x1800:0x2000]==(ROOT/'assets/sprite-patterns.bin').read_bytes())
-    pictures=[];times=[];phases=set();parts=set();expected=np.load(ROOT/'assets'/f'frames-{stage}.npy');psg=[];readbacks=0
+    check(f'stage-{stage+1}-resident-sprite-readback',v[0x1800:0x2000]==(ASSETS/'sprite-patterns.bin').read_bytes())
+    pictures=[];times=[];phases=set();parts=set();expected=np.load(ASSETS/f'frames-{stage}.npy');psg=[];readbacks=0
     for i in range(96):
         if i==0:cmd('keymatrixdown 8 17')
         if i==20:cmd('keymatrixup 8 16;keymatrixdown 8 128')
@@ -67,7 +70,7 @@ for stage in range(5):
         phase=read('_world_phase');phases.add(phase);parts.add(read('_world_pending'))
         native=block('VRAM',0,16384);name_base=int(cmd('debug read {VDP regs} 2'))*1024
         assert np.array_equal(decode_screen(native,name_base)[16:176],expected[phase,16:176]),f'visible PCG phase {phase}'
-        assert native[0x1800:0x2000]==(ROOT/'assets/sprite-patterns.bin').read_bytes()
+        assert native[0x1800:0x2000]==(ASSETS/'sprite-patterns.bin').read_bytes()
         assert native[0x3800:0x3840]==native[0x3C00:0x3C40] and native[0x3AC0:0x3B00]==native[0x3EC0:0x3F00], 'HUD pages differ'
         readbacks+=1
         path=SCRATCH/f'stage-{stage+1}-{i:02d}.png';shot(path);pictures.append(Image.open(path).convert('RGB'));times.append(clock())
@@ -123,8 +126,8 @@ for crowded in [False,True]:
             x=(25+i*28)*4;y=(60+(i%3)*35)*4;data=[1,x&255,x>>8,y&255,y>>8,0,0,0,0]
             cmd(';'.join(f'debug write memory {SYM["_shots"]+i*9+j} {v}' for j,v in enumerate(data)))
         for i in range(6):
-            data=[1,i%3,210,3,0,0,0,0,40+i*32,0,100,0]
-            cmd(';'.join(f'debug write memory {SYM["_foes"]+i*12+j} {v}' for j,v in enumerate(data)))
+            data=[1,i%3,210,3,0,0,0,0,0,40+i*32,0,100,0]
+            cmd(';'.join(f'debug write memory {SYM["_foes"]+i*13+j} {v}' for j,v in enumerate(data)))
     stamps=[]
     for i in range(20):frame();stamps.append(clock())
     n=read('_sprite_count');attrs=block('memory',SYM['_attr_buffer'],n*4+(n<32));base=int(cmd('debug read {VDP regs} 5'))*128

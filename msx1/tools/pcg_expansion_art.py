@@ -236,7 +236,7 @@ class Scene:
                                                             (3, 13, 1, 2), (8, 6, 1, 2),
                                                             (12, 5, 4, 2)):
             mask = materials == material
-            pixels[mask] = np.where(bayer[mask] < coverage, foreground, background)
+            pixels[mask] = foreground if getattr(self,'solid_materials',False) else np.where(bayer[mask] < coverage, foreground, background)
         # Sparse horizontal water highlights distinguish the open bay from
         # the checker-dithered road and metal. Projected waves still advance.
         for material, color in ((15, 4), (16, 13)):

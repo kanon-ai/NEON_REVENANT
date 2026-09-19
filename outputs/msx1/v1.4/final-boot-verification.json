@@ -1,0 +1,9 @@
+{
+  "variant": "A-original",
+  "passed": true,
+  "sha256": "77aa5eabcd4f1bd6510e344570b440fc57f6d0816b747476c676fb41499dd691",
+  "title_vram_exact": true,
+  "fire_starts_episode_zero": true,
+  "machine": "NEON_MSX1_RAM32_NTSC",
+  "physical_hardware_tested": false
+}

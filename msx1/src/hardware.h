@@ -24,4 +24,8 @@ void gfx_sprite_page(u8 page);
 void gfx_write(u16 address,const void *source,u16 length);
 void gfx_patch(const void *source) __sdcccall(0);
 u8 input_read(void);
+extern volatile u8 audio_stage,audio_playing,audio_ready;
+void audio_setup(void);
+void audio_effect(u8 id);
+void audio_mute(u8 value);
 #endif

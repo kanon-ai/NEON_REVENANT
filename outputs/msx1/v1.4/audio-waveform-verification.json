@@ -1,0 +1,10 @@
+{
+  "seconds": 32.41505668934241,
+  "sample_rate": 44100,
+  "channels": 2,
+  "peak": 10901.0,
+  "min_100ms_rms": 1032.7879362750093,
+  "max_100ms_rms": 2767.939684667855,
+  "non_silent": true,
+  "scope": "Emulator PCM capture, not a listening evaluation or physical PSG measurement"
+}

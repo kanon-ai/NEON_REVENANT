@@ -1,0 +1,47 @@
+{
+  "standard": "ntsc",
+  "passed": true,
+  "results": [
+    {
+      "stage": 0,
+      "samples": 92,
+      "mean_interval": 0.03337631821000536,
+      "min_interval": 0.0333670899514118,
+      "max_interval": 0.03338636614432744
+    },
+    {
+      "stage": 1,
+      "samples": 92,
+      "mean_interval": 0.03337631821000536,
+      "min_interval": 0.03336234074436106,
+      "max_interval": 0.03339139471643193
+    },
+    {
+      "stage": 2,
+      "samples": 92,
+      "mean_interval": 0.033376312070112824,
+      "min_interval": 0.03337155979329509,
+      "max_interval": 0.03338133757222295
+    },
+    {
+      "stage": 3,
+      "samples": 92,
+      "mean_interval": 0.03337629979032774,
+      "min_interval": 0.033364296300305796,
+      "max_interval": 0.03338915979543344
+    },
+    {
+      "stage": 4,
+      "samples": 92,
+      "mean_interval": 0.033376348909468063,
+      "min_interval": 0.03337295661879125,
+      "max_interval": 0.0333804994768343
+    },
+    {
+      "main_loop_suspended_seconds": 2,
+      "audio_ticks": 60,
+      "passed": true
+    }
+  ],
+  "physical_hardware_tested": false
+}

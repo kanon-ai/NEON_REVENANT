@@ -3,8 +3,9 @@ from pathlib import Path
 import subprocess, os, re, json, hashlib, sys, shutil
 ROOT=Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
+ASSETS=ROOT/'assets'
 build=ROOT/'work/build';build.mkdir(parents=True,exist_ok=True)
-out=ROOT.parent/'outputs/msx1/v1.3';out.mkdir(parents=True,exist_ok=True)
+out=ROOT.parent/'outputs/msx1/v1.4';out.mkdir(parents=True,exist_ok=True)
 STAGES=5
 SCENES=6
 GIANT_SCENE=5
@@ -22,17 +23,17 @@ if '--pack-only' not in sys.argv:
     run([sys.executable,'tools/generate_assets.py'])
 world_stats=[]
 for stage in range(SCENES):
-    raw=(ROOT/'assets'/f'world-{stage}.bin').read_bytes();assert len(raw)==16384
-    packets=[(ROOT/'assets'/f'phase-{stage}-{phase:02}.bin').read_bytes() for phase in range(16)]
+    raw=(ASSETS/f'world-{stage}.bin').read_bytes();assert len(raw)==16384
+    packets=[(ASSETS/f'phase-{stage}-{phase:02}.bin').read_bytes() for phase in range(16)]
     assert all(len(p)<=8192 for p in packets)
     world_stats.append({'stage':stage+1,'bytes':len(raw),'vram_bytes':16384,'phases':16,'pcg_packet_bytes':sum(map(len,packets)),'raw_sha256':hashlib.sha256(raw).hexdigest()})
 # Whole packets remain inside a bank, preserving direct ROM-to-VRAM transfer.
 title_bank=6+SCENES*2
 packet_first_bank=title_bank+2
-packet_data={(s,p):(ROOT/'assets'/f'phase-{s}-{p:02}.bin').read_bytes()
+packet_data={(s,p):(ASSETS/f'phase-{s}-{p:02}.bin').read_bytes()
              for s in range(SCENES) for p in range(16)}
-boss_codec=json.loads((ROOT/'assets/codec-manifest-5.json').read_text())
-name_data={e['file']:(ROOT/'assets'/e['file']).read_bytes() for e in boss_codec['names']}
+boss_codec=json.loads((ASSETS/'codec-manifest-5.json').read_text())
+name_data={e['file']:(ASSETS/e['file']).read_bytes() for e in boss_codec['names']}
 for name,data in name_data.items():
     assert len(data)==640
     packet_data[name]=data
@@ -91,33 +92,34 @@ text=(build/'game.map').read_text()
 symbols={m.group(2):int(m.group(1),16) for m in re.finditer(r'^\s*([0-9A-F]{8})\s+(_[\w]+)\s',text,re.M)}
 assert '_main' in symbols
 area=re.search(r'^_DATA\s+([0-9A-F]+)\s+([0-9A-F]+)',text,re.M)
-assert area and int(area[1],16)+int(area[2],16)<=0xF100, 'Game data overlaps stack guard at F100'
+assert area and int(area[1],16)+int(area[2],16)<=0xEC00, 'Game data overlaps IM2 vector table at EC00'
 runtime=bytearray([0xFF]*0x6000)
 for a,b in mem.items():runtime[a-0x8000]=b
 boot_src=(ROOT/'src/boot.asm').read_text().replace('ENTRY_POINT',str(symbols['_main']))
 (build/'boot.asm').write_text(boot_src)
 run([pasmo,'--bin',build/'boot.asm',build/'boot.bin'])
 boot=(build/'boot.bin').read_bytes();assert len(boot)==8192
-records=(ROOT/'assets/sprite-records.bin').read_bytes();assert len(records)<8192
-patterns=(ROOT/'assets/sprite-patterns.bin').read_bytes();assert len(patterns)==2048
+records=(ASSETS/'sprite-records.bin').read_bytes();assert len(records)<8192
+patterns=(ASSETS/'sprite-patterns.bin').read_bytes();assert len(patterns)==2048
 rom=bytearray([0xFF]*524288)
 def bank_write(bank,data):
     assert bank*8192+len(data)<=len(rom)
     rom[bank*8192:bank*8192+len(data)]=data
 bank_write(0,boot);bank_write(1,runtime);bank_write(4,records);bank_write(5,patterns)
 for stage in range(SCENES):
-    bank_write(6+stage*2,(ROOT/'assets'/f'world-{stage}.bin').read_bytes())
-bank_write(title_bank,(ROOT/'assets/title.bin').read_bytes())
+    bank_write(6+stage*2,(ASSETS/f'world-{stage}.bin').read_bytes())
+bank_write(title_bank,(ASSETS/'title.bin').read_bytes())
 for index,data in enumerate(bins):bank_write(packet_first_bank+index,data)
 for key,data in packet_data.items():
     bank,offset=locations[key];start=bank*BANK_BYTES+offset
     assert offset+len(data)<=BANK_BYTES and rom[start:start+len(data)]==data
-target=out/'NEON_REVENANT-MSX1-v1.3.rom';target.write_bytes(rom)
+target=out/'NEON_REVENANT-MSX1-v1.4.rom';target.write_bytes(rom)
 (build/'symbols.json').write_text(json.dumps(symbols,indent=2))
-manifest={'title':'NEON REVENANT - MSX1 PCG Drive: Dawn Leviathan','version':'1.3','file':target.name,'mapper':'ASCII8','rom_bytes':len(rom),'allocated_bytes':used,'free_bytes':len(rom)-used,'runtime_bytes':max(mem)-0x8000+1,'runtime_address':'8000-DFFF','data_end':hex(int(area[1],16)+int(area[2],16)),'ram_required_bytes':32768,'ram_address':'8000-FFFF in one RAM slot','sprite_bytes':len(patterns),'worlds':world_stats,'video':'TMS9918A SCREEN2 256x192, 16 streamed PCG phases, two name pages, fixed palette, resident mode1 MAG2 sprites','v9990_required':False,'sha256':hashlib.sha256(rom).hexdigest(),'entry':hex(symbols['_main']),
+(out/'symbols.json').write_text(json.dumps(symbols,indent=2))
+manifest={'title':'NEON REVENANT - MSX1 PCG Drive: Dawn Leviathan','version':'1.4','file':target.name,'mapper':'ASCII8','rom_bytes':len(rom),'allocated_bytes':used,'free_bytes':len(rom)-used,'runtime_bytes':max(mem)-0x8000+1,'runtime_address':'8000-DFFF','data_end':hex(int(area[1],16)+int(area[2],16)),'ram_required_bytes':32768,'ram_address':'8000-FFFF in one RAM slot','sprite_bytes':len(patterns),'worlds':world_stats,'video':'TMS9918A SCREEN2 256x192, 16 streamed PCG phases, two name pages, fixed palette, resident mode1 MAG2 sprites','v9990_required':False,'sha256':hashlib.sha256(rom).hexdigest(),'entry':hex(symbols['_main']),
  'packing':{'strategy':'first-fit-decreasing whole PCG packets, no runtime decompression','title_bank':title_bank,'first_packet_bank':packet_first_bank,'packet_banks':len(bins),'payload_bytes':sum(map(len,packet_data.values())),
  'packets':[{'stage':s,'phase':p,'bank':locations[s,p][0],'offset':locations[s,p][1],'bytes':len(packet_data[s,p]),'sha256':hashlib.sha256(packet_data[s,p]).hexdigest()} for s in range(SCENES) for p in range(16)]}}
 manifest['packing']['boss_names']=[dict(e,bank=locations[e['file']][0],offset=locations[e['file']][1]) for e in boss_codec['names']]
-manifest['giant_boss']={'scene':5,'states':4,'phase_count':16,'codec_sha256':hashlib.sha256((ROOT/'assets/codec-manifest-5.json').read_bytes()).hexdigest(),'max_part_transfer_bytes':boss_codec['max_part_transfer_bytes']}
+manifest['giant_boss']={'scene':5,'states':4,'phase_count':16,'codec_sha256':hashlib.sha256((ASSETS/'codec-manifest-5.json').read_bytes()).hexdigest(),'max_part_transfer_bytes':boss_codec['max_part_transfer_bytes']}
 (out/'build-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
-print(json.dumps(manifest,indent=2))
+print(json.dumps({k:manifest[k] for k in ('version','file','rom_bytes','allocated_bytes','free_bytes','runtime_bytes','data_end','sha256')},indent=2))

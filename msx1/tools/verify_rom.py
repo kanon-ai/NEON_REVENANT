@@ -31,6 +31,15 @@ def check(name,ok,**evidence):
     if not ok:raise AssertionError(name)
 def shot(name):cmd(f'openmsx::internal_screenshot -raw -size 640 {{{(OUT/(name+".png")).as_posix()}}}')
 
+def stop_frame():
+    # Seed scenarios between frames, not halfway through a RAM write or ISR.
+    bp=cmd(f'debug set_bp {SYM["_input_read"]} {{}} {{debug break}}')
+    deadline=time.monotonic()+10
+    while cmd('debug breaked').strip()!='1':
+        assert time.monotonic()<deadline,'frame boundary timeout'
+        time.sleep(.005)
+    cmd(f'set pause on;debug remove_bp {bp};debug cont')
+
 def wait_world(stage):
     deadline=msxtime()+20
     while read('_world_loaded')!=stage and msxtime()<deadline:advance(.05)
@@ -65,11 +74,11 @@ cmd('set pause off; set speed 100; set limitsprites true; set accuracy pixel; se
 cmd(TIMING_SETUP)
 # ROM is tested in native machine emulation, not a browser recreation.
 deadline=time.monotonic()+20
-while int(cmd('debug read {VDP regs} 0'))!=2 or int(cmd('debug read {VDP regs} 1'))!=0xC3:
+while int(cmd('debug read {VDP regs} 0'))!=2 or int(cmd('debug read {VDP regs} 1'))!=0xE3:
     assert time.monotonic()<deadline,'boot timeout'
     time.sleep(.05)
 check('target-machine',cmd('machine_info config_name').strip()==MACHINE,version=cmd('openmsx_info version'))
-check('SCREEN2-mode',int(cmd('debug read {VDP regs} 0'))==2 and int(cmd('debug read {VDP regs} 1'))==0xC3)
+check('SCREEN2-mode',int(cmd('debug read {VDP regs} 0'))==2 and int(cmd('debug read {VDP regs} 1'))==0xE3)
 check('no-V9990-attached','GFX9000' not in cmd('debug list'))
 check('16KiB-VRAM',int(cmd('debug size {physical VRAM}'))==16384)
 check('32KiB-RAM',int(cmd('debug size {Main RAM}'))==32768)
@@ -89,7 +98,7 @@ x=read('_player_x',2);key(8,0x10,True);advance(.35);key(8,0x10,False)
 left=read('_player_x',2);check('left-control',left<x,before=x,after=left)
 key(8,0x80,True);advance(.35);key(8,0x80,False);check('right-control',read('_player_x',2)>left)
 y=read('_player_y',2);key(8,0x20,True);advance(.3);key(8,0x20,False);check('up-control',read('_player_y',2)<y)
-key(8,0x40,True);advance(.3);key(8,0x40,False);check('down-control',read('_player_y',2)>=y-4)
+y_up=read('_player_y',2);key(8,0x40,True);advance(.3);key(8,0x40,False);check('down-control',read('_player_y',2)>y_up,before=y_up,after=read('_player_y',2))
 tap(7,4);check('pause-input',read('_mode')==6)
 t=read('_stage_clock',2);advance(.3);check('pause-freezes-simulation',read('_stage_clock',2)==t)
 tap(7,4);check('resume-input',read('_mode')==1)
@@ -98,15 +107,15 @@ key(5,0x20,True);advance(.8);key(5,0x20,False);check('held-bomb-is-edge-triggere
 t0=msxtime();f0=read('_frame_counter',2);advance(3.0);t1=msxtime();f1=read('_frame_counter',2)
 fps=((f1-f0)&65535)/(t1-t0);check('measured-game-update-rate',fps>20,fps=round(fps,2),emulated_seconds=round(t1-t0,3))
 # Controlled target placed inside reticle; all hit detection remains ROM code.
-cmd('set pause on');write('_stage_banner',0);write('_hurt_clock',0);write('_old_keys',0)
-for i in range(6):cmd(f'debug write memory {SYM["_foes"]+12*i} 0')
-foe=[1,0,80,1,0,0,100,0,128,0,119,0]
+stop_frame();write('_stage_banner',0);write('_hurt_clock',0);write('_old_keys',0)
+for i in range(6):cmd(f'debug write memory {SYM["_foes"]+13*i} 0')
+foe=[1,0,80,1,0,0,0,100,0,128,0,119,0]
 for i,v in enumerate(foe):cmd(f'debug write memory {SYM["_foes"]+i} {v}')
 write('_player_x',128,2);write('_player_y',166,2);write('_shot_clock',0)
 before=read('_score',2);cmd('set pause off');key(8,1,True);advance(.22);key(8,1,False)
 check('reticle-shot-kills-target',read('_score',2)>before,before=before,after=read('_score',2));shot('combat')
 # Damage and game-over use a native enemy projectile overlapping the craft.
-cmd('set pause on');write('_shield',1);write('_hurt_clock',0);write('_bomb_flash',0)
+stop_frame();write('_shield',1);write('_hurt_clock',0);write('_bomb_flash',0)
 px=read('_player_x',2)*4;py=(read('_player_y',2)-3)*4
 proj=[1,px&255,px>>8,py&255,py>>8,0,0,0,0]
 for i,v in enumerate(proj):cmd(f'debug write memory {SYM["_shots"]+i} {v}')
@@ -114,7 +123,7 @@ cmd('set pause off');advance(.18);check('collision-game-over',read('_mode')==4 a
 advance(2);tap(8,1);check('retry-resets-state',read('_mode')==1 and read('_shield')==6 and read('_score',2)==0)
 for stage in range(5):
     check(f'campaign-position-{stage}',read('_stage')==stage and read('_mode')==1)
-    cmd('set pause on');write('_stage_clock',STAGE_DURATIONS[stage]-1,2);write('_stage_banner',0);write('_old_keys',0)
+    stop_frame();write('_stage_clock',STAGE_DURATIONS[stage]-1,2);write('_stage_banner',0);write('_old_keys',0)
     cmd('set pause off');advance(.12)
     wait_world(stage)
     check(f'sector-{stage+1}-boss-entry',read('_mode')==2 and read('_boss_hp',2)>0)
@@ -128,9 +137,9 @@ for stage in range(5):
     shot(f'boss-{stage+1}')
     # Seed final-hit scenario with an aligned craft; input and damage are real.
     if stage<4:
-        cmd('set pause on');write('_boss_hp',1,2);write('_boss_clock',63,2);write('_player_x',128,2);write('_player_y',130,2);write('_shot_clock',0);write('_old_keys',0)
+        stop_frame();write('_boss_hp',1,2);write('_boss_clock',63,2);write('_player_x',128,2);write('_player_y',130,2);write('_shot_clock',0);write('_old_keys',0)
     else:
-        cmd('set pause on')
+        stop_frame()
         for name,value,size in [('_giant_left_hp',0,1),('_giant_right_hp',0,1),('_giant_core_hp',1,1),
           ('_giant_phase',3,1),('_giant_gate_clock',24,1),('_world_boss_state',3,1),
           ('_boss_hp',1,2),('_boss_clock',0,2),('_shot_clock',0,1),('_old_keys',0,1)]:write(name,value,size)
@@ -139,7 +148,7 @@ for stage in range(5):
         while read('_world_boss_display_state')!=3 and msxtime()<deadline:advance(.05)
         check('final-core-open-state-committed',read('_world_boss_display_state')==3 and read('_world_loaded')==5,
               scenario='Destroyed guns and one remaining core HP are seeded; ROM commits the open PCG names')
-        cmd('set pause on')
+        stop_frame()
         phase=read('_world_phase');px,py,aim,target=giant_core_player_position(phase)
         write('_player_x',px,2);write('_player_y',py,2);write('_shot_clock',0);write('_old_keys',0)
         check('final-core-input-aim-position',abs(aim[0]-target[0])<15 and abs(aim[1]-target[1])<13,

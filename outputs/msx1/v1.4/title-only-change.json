@@ -1,0 +1,10 @@
+{
+  "before_sha256": "38c44662735627b5ffb427b3187a95e95c23e4e9ee9bf3d49ad568c1d0c8c741",
+  "after_sha256": "77aa5eabcd4f1bd6510e344570b440fc57f6d0816b747476c676fb41499dd691",
+  "identical_outside_title": true,
+  "title_range": [
+    147456,
+    163840
+  ],
+  "reason": "Black panel behind title controls; no gameplay, music, stages or mapper changes"
+}

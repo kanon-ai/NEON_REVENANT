@@ -1,12 +1,31 @@
 # NEON REVENANT
 
-**開発途中の実験的なプロトタイプを無保証で公開しています。開発側の検証はopenMSX上で行い、新しい初代MSX版v1.3の実機・実カートリッジ動作は未確認です。** 旧版にはコミュニティから実機動作の報告が寄せられています。利用前に[免責事項](DISCLAIMER.md)と[著作権・ライセンスの状態](COPYRIGHT.md)を確認してください。
+**開発途中の実験的なプロトタイプを無保証で公開しています。開発側の検証はopenMSX上で行い、初代MSX版v1.4の開発側の実機・実カートリッジ動作は未確認です。** 旧版にはコミュニティから実機動作の報告が寄せられています。利用前に[免責事項](DISCLAIMER.md)と[著作権・ライセンスの状態](COPYRIGHT.md)を確認してください。
 
-夜のサイバー都市を疾走する、MSX用512 KiB ASCII8 MegaROMの疑似3Dシューティングです。『ナイトストライカー』に着想を得て、区域ごとのボス戦、連射とNOVAボムを実装しています。V9990版・turbo R単体版・MSX2版は3区域、初代MSX版v1.3は巨大最終ボスを含む5区域です。V9990版・turbo R単体版はMSX-MUSIC＋PSG、MSX2版・初代MSX版は標準PSGで音楽と効果音を鳴らします。本作はタイトーやMSX関連各社の公式作品ではありません。
+夜のサイバー都市を疾走する、MSX用512 KiB ASCII8 MegaROMの疑似3Dシューティングです。『ナイトストライカー』に着想を得て、区域ごとのボス戦、連射とNOVAボムを実装しています。V9990版・turbo R単体版・MSX2版は3区域、初代MSX版v1.4は巨大最終ボスを含む5区域です。V9990版・turbo R単体版はMSX-MUSIC＋PSG、MSX2版・初代MSX版は標準PSGで音楽と効果音を鳴らします。本作はタイトーやMSX関連各社の公式作品ではありません。
 
 「もしMSX3が存在したら」を出発点に、V9990から初代MSXまで、機種の制約に合わせた4種類のROMを公開しています。ゲームはMSX上のネイティブプログラムとして動きます。背景画像やパターンを開発時に生成し、実行時はMSXのVDPで表示・切り替え・合成します。
 
 [試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
+
+## 初代MSX v1.4 — PSG・タイトル・戦闘の改良
+
+**採用されたA版を公開します。512 KiB ASCII8・RAM32 KiB・VRAM16 KiBを維持しています。**
+PSGの更新を描画ループから分離し、専用タイトル、敵の進入・攻撃パターンを追加しました。
+0面と中間3面の立体感・陰影を残し、最終面の夜明けの色面を調整しています。
+
+[v1.4 ROM](outputs/msx1/v1.4/NEON_REVENANT-MSX1-v1.4.rom) ·
+[日英ガイド](msx1/REFINED-v1.4.md) · [検証範囲](outputs/msx1/v1.4/VALIDATION.md)
+
+![MSX1 v1.4 title, captured from the ROM in openMSX](outputs/msx1/v1.4/title-final-native.png)
+
+openMSX NTSCで背景・操作・PSG更新を検証しています。**v1.4の実機・PALでの動作は未確認です。**
+試作中・無保証であり、バグ修正やサポートは保証しません。過去のROMは引き続き利用できます。
+
+**MSX1 v1.4** adds VBlank-driven PSG timing, a dedicated title screen and new enemy
+patterns, while preserving the selected artwork and the 512 KiB / 32 KiB RAM target.
+Tested in openMSX NTSC; physical hardware and PAL runtime remain unverified for this
+update. Experimental, AS IS, without warranty. Previous versions remain available.
 
 ## V9990 Feature Lab v0.1 — V9990専用機能試験版
 
@@ -28,7 +47,7 @@ V9990については、上記の専用試験版を公開しました。V9968の�
 
 We are researching **Turbo R in R800 mode with V9968**, alongside further visual possibilities for the **V9990 edition**. The V9968 designer has given permission to pursue support. The separate V9990 Feature Lab is now available above; V9968 features and release timing remain under consideration. [English research update](docs/VDP_RESEARCH_STATUS.md#english).
 
-## 初代MSX v1.3 — Dawn Leviathan
+## 旧版の記録：初代MSX v1.3 — Dawn Leviathan
 
 夜明けへの脱出路に、約216×98ドットの巨大PCG戦艦が出現します。船体の左右・上下移動、砲身の反動、コアの明滅を組み合わせました。左右の砲台を壊し、中央装甲が開いてからコアを攻撃します。最初の4区域と最終区域の通常道中はv1.2を維持しています。
 

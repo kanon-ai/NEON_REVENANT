@@ -16,7 +16,7 @@ import numpy as np
 from PIL import Image
 
 from pcg_codec import decode_screen
-from ram32_test_config import ROOT, RELEASE, OUT, STANDARD, MACHINE, VDP, TIMING_SETUP
+from ram32_test_config import ASSETS, ROOT, RELEASE, OUT, STANDARD, MACHINE, VDP, TIMING_SETUP
 
 
 PLAY, BOSS, TRANSIT, OVER, CLEAR, PAUSED = 1, 2, 3, 4, 5, 6
@@ -33,7 +33,7 @@ class NativeBoss:
         self.emulator = None
         self.scratch = ROOT/'work'/('captures-giant-v1.3-'+STANDARD)
         self.scratch.mkdir(parents=True, exist_ok=True)
-        self.frames = [np.load(ROOT/'assets'/f'boss-frames-{state}.npy') for state in range(4)]
+        self.frames = [np.load(ASSETS/f'boss-frames-{state}.npy') for state in range(4)]
         self.motion = json.loads((RELEASE/'giant-motion.json').read_text())
         source = (ROOT/'src/game.c').read_text()
         match = re.search(r'video_rows\[256\]\s*=\s*\{([^}]+)\}', source)
@@ -116,7 +116,7 @@ class NativeBoss:
 
     def clear_entities(self):
         writes = []
-        for name, stride, count in [('_foes', 12, 6), ('_shots', 9, 8), ('_fx', 7, 4)]:
+        for name, stride, count in [('_foes', 13, 6), ('_shots', 9, 8), ('_fx', 7, 4)]:
             writes += [f'debug write memory {self.symbols[name]+i*stride} 0' for i in range(count)]
         writes.append(f'debug write memory {self.symbols["_pickup_on"]} 0')
         self.cmd(';'.join(writes))
@@ -132,7 +132,7 @@ class NativeBoss:
         phase = self.read('_world_phase')
         assert state in range(4) and phase in range(16)
         assert np.array_equal(decode_screen(native, base)[16:176], self.frames[state][phase, 16:176]), f'Native pixels differ: state {state}, phase {phase}'
-        assert native[0x1800:0x2000] == (ROOT/'assets/sprite-patterns.bin').read_bytes()
+        assert native[0x1800:0x2000] == (ASSETS/'sprite-patterns.bin').read_bytes()
         assert native[0x3800:0x3840] == native[0x3C00:0x3C40]
         assert native[0x3AC0:0x3B00] == native[0x3EC0:0x3F00]
         return state, phase, self.read('_world_pending')
@@ -304,7 +304,7 @@ class NativeBoss:
                                (ROOT/'src/assets.h').read_text())
         assert descriptor
         offset, count = int(descriptor[1]), int(descriptor[2])
-        records = (ROOT/'assets/sprite-records.bin').read_bytes()[offset:offset+count*4]
+        records = (ASSETS/'sprite-records.bin').read_bytes()[offset:offset+count*4]
         def expected_records(phase):
             x, y = self.motion[phase]['left']
             result = []
@@ -367,7 +367,7 @@ class NativeBoss:
         else:
             self.check(f'giant-transit-{tick}-paused-road-does-not-resurrect-hull', visible_scene == 4)
             base = int(self.cmd('debug read {VDP regs} 2'))*1024
-            road = np.load(ROOT/'assets/frames-4.npy')
+            road = np.load(ASSETS/'frames-4.npy')
             assert np.array_equal(decode_screen(vram, base)[16:176], road[self.read('_world_phase'), 16:176])
         self.check(f'giant-transit-{tick}-pause-freezes-full-VRAM-and-clock', True, checked_VRAM_bytes=16384, stopped_game_tick=tick, scene=scene)
         self.key(7, 4, True); self.frame(); self.key(7, 4, False)
@@ -415,7 +415,7 @@ class NativeBoss:
                    note='draw_frame at clock 40 restores the road; next update reaches clock 41 before this breakpoint.')
         native = self.block('VRAM', 0, 16384)
         base = int(self.cmd('debug read {VDP regs} 2'))*1024
-        road = np.load(ROOT/'assets/frames-4.npy')
+        road = np.load(ASSETS/'frames-4.npy')
         self.check('giant-hull-removal-restores-exact-native-road', np.array_equal(decode_screen(native, base)[16:176], road[self.read('_world_phase'), 16:176]))
         self.pause_transit(41, 4)
         self.wait_frames(lambda: self.read('_transition_clock') == 89, 'last transit tick', maximum=52)

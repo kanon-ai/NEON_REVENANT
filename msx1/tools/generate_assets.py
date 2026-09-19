@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 ROOT=Path(__file__).resolve().parents[1]
-A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1/v1.3'
+A=ROOT/'assets'; OUT=ROOT.parent/'outputs/msx1/v1.4'
 PALETTE=[(0,0,0),(0,0,0),(33,200,66),(94,220,120),(84,85,237),(125,118,252),
  (212,82,77),(66,235,245),(252,85,84),(255,121,120),(212,193,84),(230,206,128),
  (33,176,59),(201,91,186),(204,204,204),(255,255,255)]
@@ -96,16 +96,8 @@ def build_sprites():
     return {'resident_patterns':len(patterns)//32,'pattern_bytes':len(patterns),'records':len(records)//4,'sprites':report}
 
 def build_title():
-    font=(A/'source/font.bin').read_bytes();v=bytearray((A/'world-0.bin').read_bytes())
-    # Original title glyphs with the native challenge label; all names use the
-    # common font dictionary in the outer two bands.
-    def text(x,y,s):
-        for c in s:v[0x3800+y*32+x]=192+ord(c)-32;x+=1
-    v[0x3800:0x3840]=bytes([192])*64;v[0x3AC0:0x3B00]=bytes([192])*64
-    text(3,0,'N E O N   R E V E N A N T');text(2,1,'V1.3 / 5 ZONES / 32K RAM')
-    text(4,22,'SPACE / JOYSTICK TO START');text(3,23,'CURSOR:MOVE  X:NOVA  ESC:PAUSE')
-    (A/'title.bin').write_bytes(v)
-    image(decode_screen(v)).resize((768,576),Image.Resampling.NEAREST).save(OUT/'title-reference.png')
+    from native_title import build_title as build_native_title
+    build_native_title(A,OUT)
 
 def main():
     A.mkdir(exist_ok=True);OUT.mkdir(parents=True,exist_ok=True)

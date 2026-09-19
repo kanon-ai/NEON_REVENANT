@@ -21,7 +21,7 @@ typedef signed int s16;
 #define FXMAX 4
 #define STAGE_COUNT 5
 
-typedef struct { u8 active,kind,z,hp; s16 wx,wy,x,y; } Foe;
+typedef struct { u8 active,kind,z,hp,motion; s16 wx,wy,x,y; } Foe;
 typedef struct { u8 active; s16 x,y,dx,dy; } Shot;
 typedef struct { u8 active,age,size; s16 x,y; } Effect;
 // Exposed symbols intentionally make native emulator validation repeatable.
@@ -49,6 +49,8 @@ s16 video_y(s16 y);
 static const s8 wave[64]={0,6,12,18,24,30,35,40,45,49,53,56,59,61,63,64,64,64,63,61,59,56,53,49,45,40,35,30,24,18,12,6,0,-6,-12,-18,-24,-30,-35,-40,-45,-49,-53,-56,-59,-61,-63,-64,-64,-64,-63,-61,-59,-56,-53,-49,-45,-40,-35,-30,-24,-18,-12,-6};
 /* Campaign order is independent of the three original combat profiles.
  * Their shot speeds, attack timing, HP, rewards and sprites stay unchanged. */
+static const s8 weave_x[64]={0,2,4,6,8,10,11,13,15,16,17,18,19,20,21,21,21,21,21,20,19,18,17,16,15,13,11,10,8,6,4,2,0,-2,-4,-6,-8,-10,-11,-13,-15,-16,-17,-18,-19,-20,-21,-21,-21,-21,-21,-20,-19,-18,-17,-16,-15,-13,-11,-10,-8,-6,-4,-2};
+static const s8 crossing_x[256]={-37,-37,-36,-36,-36,-35,-35,-35,-34,-34,-34,-33,-33,-33,-32,-32,-32,-31,-31,-31,-30,-30,-30,-29,-29,-29,-28,-28,-28,-27,-27,-27,-26,-26,-26,-25,-25,-25,-24,-24,-24,-23,-23,-23,-22,-22,-22,-21,-21,-21,-20,-20,-20,-19,-19,-19,-18,-18,-18,-17,-17,-17,-16,-16,-16,-15,-15,-15,-14,-14,-14,-13,-13,-13,-12,-12,-12,-11,-11,-11,-10,-10,-10,-9,-9,-9,-8,-8,-8,-7,-7,-7,-6,-6,-6,-5,-5,-5,-4,-4,-4,-3,-3,-3,-2,-2,-2,-1,-1,-1,0,0,0,0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,8,8,8,9,9,9,10,10,10,11,11,11,12,12,12,13,13,13,14,14,14,15,15,15,16,16,16,17,17,17,18,18,18,19,19,19,20,20,20,21,21,21,22,22,22,23,23,23,24,24,24,25,25,25,26,26,26,27,27,27,28,28,28,29,29,29,30,30,30,31,31,31,32,32,32,33,33,33,34,34,34,35,35,35,36,36,36,37,37,37,38,38,38,39,39,39,40,40,40,41,41,41,42,42,42,43,43,43,44,44,44,45,45,45,46,46,46,47,47,47};
 static const u8 stage_difficulty[STAGE_COUNT]={0,0,1,2,2};
 static const u16 stage_times[STAGE_COUNT]={750,1500,1500,1500,1200};
 static const u8 stage_music[STAGE_COUNT]={3,0,1,2,4};
@@ -69,13 +71,13 @@ void new_game(void){
     frames_played=0;boss_clock=0;boss_hp=0;boss_flash=0;world_loaded=255;
     giant_phase=giant_left_hp=giant_right_hp=giant_core_hp=0;
     giant_gate_clock=giant_hit_part=0;world_boss_state=0;
-    sound_effect(5);
+    audio_effect(5);
 }
 void damage(void){
     if(hurt_clock||bomb_flash||mode==TRANSIT)return;
-    if(shield)--shield;hurt_clock=45;combo=0;combo_clock=0;sound_effect(3);
+    if(shield)--shield;hurt_clock=45;combo=0;combo_clock=0;audio_effect(3);
     explode(player_x,player_y-6,3);
-    if(!shield){mode=OVER;transition_clock=0;sound_effect(2);}
+    if(!shield){mode=OVER;transition_clock=0;audio_effect(2);}
 }
 void fire_enemy(s16 x,s16 y,u8 variant){
     u8 i; s16 dx,dy,den;
@@ -91,7 +93,7 @@ void fire_enemy(s16 x,s16 y,u8 variant){
 }
 void kill_foe(Foe *e){
     e->active=0;explode(e->x,e->y,2+(e->z>120));
-    if(combo<9)++combo;combo_clock=65;add_score(20+(u16)combo*5);sound_effect(2);
+    if(combo<9)++combo;combo_clock=65;add_score(20+(u16)combo*5);audio_effect(2);
     if((random16()&15)==0&&!pickup_on&&shield<6){pickup_on=1;pickup_x=e->x;pickup_y=e->y;pickup_z=0;}
 }
 /* A modest fixed motion table moves the target with the real PCG hull.
@@ -102,17 +104,17 @@ void giant_sync(void){
     boss_hp=(u16)giant_left_hp+giant_right_hp+giant_core_hp;
     world_boss_state=(giant_left_hp?0:1)|(giant_right_hp?0:2);
     if(!giant_left_hp&&!giant_right_hp&&giant_phase==1){
-        giant_phase=2;giant_gate_clock=0;sound_effect(6);
+        giant_phase=2;giant_gate_clock=0;audio_effect(6);
         explode(boss_x,boss_y,3);
     }
 }
 void giant_destroy_part(u8 part){
     const GiantTargets *t=giant_targets(world_phase);
     u8 x=part==1?t->lx:t->rx,y=part==1?t->ly:t->ry;
-    explode(x,giant_logical_y(y),3);add_score(150);sound_effect(2);
+    explode(x,giant_logical_y(y),3);add_score(150);audio_effect(2);
 }
 void giant_finish(void){
-    reset_entities();explode(boss_x,boss_y,4);sound_effect(4);bomb_flash=30;
+    reset_entities();explode(boss_x,boss_y,4);audio_effect(4);bomb_flash=30;
     add_score(700);mode=TRANSIT;transition_clock=0;giant_phase=4;
 }
 void giant_fire_hit(void){
@@ -145,7 +147,7 @@ void giant_update(void){
     const GiantTargets *t=giant_targets(world_phase);
     ++boss_clock;boss_x=t->cx;boss_y=giant_logical_y(t->cy);
     if(giant_phase==0){if(boss_clock>=36)giant_phase=1;return;}
-    if(giant_phase==2){if(++giant_gate_clock>=24){giant_phase=3;sound_effect(6);}return;}
+    if(giant_phase==2){if(++giant_gate_clock>=24){giant_phase=3;audio_effect(6);}return;}
     if(giant_phase==1){
         if(giant_left_hp&&boss_clock%38==0)fire_enemy(t->lx,giant_logical_y(t->ly+6),0);
         if(giant_right_hp&&boss_clock%38==19)fire_enemy(t->rx,giant_logical_y(t->ry+6),0);
@@ -156,7 +158,7 @@ void giant_update(void){
 }
 void player_fire(void){
     u8 i;Foe *best=0;u8 nearest=0;
-    sound_effect(1);
+    audio_effect(1);
     for(i=0;i<ENEMIES;i++)if(foes[i].active){
         Foe *e=&foes[i];s16 range=12+e->z/12;
         if(abs16(e->x-aim_x)<range&&abs16(e->y-aim_y)<range&&e->z>=nearest){best=e;nearest=e->z;}
@@ -165,12 +167,12 @@ void player_fire(void){
     if(mode==BOSS&&stage==4)giant_fire_hit();
     else if(mode==BOSS&&abs16(aim_x-boss_x)<43&&abs16(aim_y-boss_y)<27){
         if(boss_hp){--boss_hp;boss_flash=2;add_score(2);if(!boss_hp){
-            reset_entities();explode(boss_x,boss_y,4);sound_effect(4);bomb_flash=30;
+            reset_entities();explode(boss_x,boss_y,4);audio_effect(4);bomb_flash=30;
             add_score(500+100*stage_difficulty[stage]);mode=TRANSIT;transition_clock=0;
         }}
     }
 }
-void use_bomb(void){u8 i;if(!bombs)return;--bombs;bomb_flash=18;sound_effect(4);
+void use_bomb(void){u8 i;if(!bombs)return;--bombs;bomb_flash=18;audio_effect(4);
     for(i=0;i<ENEMIES;i++)if(foes[i].active)kill_foe(&foes[i]);
     for(i=0;i<BULLETS;i++)shots[i].active=0;
     if(mode==BOSS){if(stage==4)giant_bomb();else{if(boss_hp>25)boss_hp-=25;else boss_hp=1;boss_flash=12;}}
@@ -178,6 +180,9 @@ void use_bomb(void){u8 i;if(!bombs)return;--bombs;bomb_flash=18;sound_effect(4);
 void spawn_foe(void){u8 i;u16 r=random16();for(i=0;i<ENEMIES;i++)if(!foes[i].active){
     Foe *e=&foes[i];e->active=1;e->kind=(u8)(r%3);e->z=6;
     e->wx=(s16)(r&127)*2-127;e->wy=12+(u8)((r>>8)&63);
+    /* Introduce weaving, crossing and diving entries as the route advances.
+     * Keep six foe slots and eight projectiles: no extra sprite pressure. */
+    e->motion=(u8)((r>>12)%(stage==0?2:4));
     e->hp=e->kind==2?3:2;e->x=128;e->y=84;return;
 }}
 void update_objects(void){u8 i;
@@ -185,8 +190,20 @@ void update_objects(void){u8 i;
         e->z+=2;
         e->x=128+(e->wx*(s16)(e->z+16))/256;
         e->y=82+(e->wy*(s16)(e->z+16))/256;
-        if(e->kind==1)e->x+=wave[(u8)(frame_counter+i*7)&63]/5;
-        if(e->z==114||((stage_difficulty[stage]>0)&&e->z==174))fire_enemy(e->x,e->y,0);
+        if(e->motion==1){
+            e->x+=weave_x[(u8)(e->z/2+i*8)&63];
+            e->y+=wave[(u8)(e->z/2+i*8+16)&63]/8;
+        }else if(e->motion==2){
+            if(e->wx<0)e->x+=crossing_x[e->z];else e->x-=crossing_x[e->z];
+        }else if(e->motion==3){
+            e->y-=weave_x[(u8)(e->z/4)&63];
+            e->x+=wave[(u8)(e->z/4+16)&63]/4;
+        }else if(e->kind==1)e->x+=wave[(u8)(frame_counter+i*7)&63]/5;
+        if(e->z==114)fire_enemy(e->x,e->y,0);
+        if(stage_difficulty[stage]>0&&e->z==174){
+            if(e->kind==2){fire_enemy(e->x-5,e->y,1);fire_enemy(e->x+5,e->y,2);}
+            else fire_enemy(e->x,e->y,0);
+        }
         if(e->z>232){if(abs16(e->x-player_x)<30&&abs16(e->y-player_y)<26)damage();e->active=0;}
     }
     for(i=0;i<BULLETS;i++)if(shots[i].active){Shot *s=&shots[i];s->x+=s->dx;s->y+=s->dy;
@@ -194,7 +211,7 @@ void update_objects(void){u8 i;
         else if(abs16(s->x/4-player_x)<9&&abs16(s->y/4-(player_y-3))<8){s->active=0;damage();}
     }
     for(i=0;i<FXMAX;i++)if(fx[i].active){if(++fx[i].age>=16)fx[i].active=0;}
-    if(pickup_on){pickup_y+=2;++pickup_z;if(abs16(pickup_x-player_x)<23&&abs16(pickup_y-player_y)<20){if(shield<6)++shield;pickup_on=0;add_score(50);sound_effect(5);}if(pickup_y>194)pickup_on=0;}
+    if(pickup_on){pickup_y+=2;++pickup_z;if(abs16(pickup_x-player_x)<23&&abs16(pickup_y-player_y)<20){if(shield<6)++shield;pickup_on=0;add_score(50);audio_effect(5);}if(pickup_y>194)pickup_on=0;}
 }
 void update_boss(void){
     u8 difficulty=stage_difficulty[stage];
@@ -219,7 +236,7 @@ void update_play(void){
     if(mode==PLAY){
         ++stage_clock;
         if(stage_clock%((u16)32-difficulty*5)==0)spawn_foe();
-        if(stage_clock>=stage_times[stage]){mode=BOSS;boss_hp=100+40*difficulty;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;sound_effect(6);
+        if(stage_clock>=stage_times[stage]){mode=BOSS;boss_hp=100+40*difficulty;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;audio_effect(6);
             if(stage==4){reset_entities();giant_phase=0;giant_left_hp=32;giant_right_hp=32;giant_core_hp=116;giant_gate_clock=0;giant_hit_part=0;world_boss_state=0;}}
     }else if(mode==BOSS)update_boss();
     update_objects();
@@ -227,7 +244,7 @@ void update_play(void){
     if(mode==TRANSIT){
         ++transition_clock;
         if(stage==4&&giant_phase==4&&transition_clock<36&&transition_clock%6==0){
-            explode(64+(transition_clock*19)%128,75+(transition_clock*7)%45,4);sound_effect(2);
+            explode(64+(transition_clock*19)%128,75+(transition_clock*7)%45,4);audio_effect(2);
         }
         if(transition_clock==90){
             if(stage==STAGE_COUNT-1){mode=CLEAR;transition_clock=0;add_score(shield*100+bombs*200);}
@@ -382,7 +399,7 @@ void draw_frame(void){
     if(mode==TITLE){gfx_wait_vblank();gfx_wait_vblank();return;}
     if(stage==4&&giant_phase&&((mode==BOSS)||(mode==PAUSED&&(pause_previous==BOSS||(pause_previous==TRANSIT&&transition_clock<40)))||
        (mode==OVER&&world_loaded==GIANT_SCENE)||(mode==TRANSIT&&transition_clock<40)))scene=GIANT_SCENE;
-    if(world_loaded!=scene){sound_mute(1);world_load(scene);world_loaded=scene;hud_last_mode=255;sound_mute(0);}
+    if(world_loaded!=scene){world_load(scene);world_loaded=scene;hud_last_mode=255;}
     selected_frame=world_phase;
     sprite_count=0;sprite_dropped=0;draw_objects();
     if(sprite_count<32)attr_buffer[sprite_count*4]=208;
@@ -399,15 +416,16 @@ void draw_frame(void){
 void main(void){
     u8 *p=(u8*)0xE000;while(p<(u8*)0xF200)*p++=0;
     rng=0x7A31;player_x=128;player_y=166;aim_x=128;aim_y=119;
-    gfx_init();title_load();world_loaded=255;sprite_page=0;world_camera=0;sound_init();
+    audio_setup();gfx_init();title_load();world_loaded=255;sprite_page=0;world_camera=0;sound_init();audio_ready=1;
     for(;;){
         keys=input_read();edge=keys&~old_keys;old_keys=keys;
         if(mode==TITLE){if(edge&16)new_game();}
         else if(mode==OVER||mode==CLEAR){if(transition_clock<40)++transition_clock;else if(edge&16)new_game();}
-        else if(mode==PAUSED){if(edge&64){mode=pause_previous;sound_mute(0);}}
-        else if(edge&64){pause_previous=mode;mode=PAUSED;sound_mute(1);}
+        else if(mode==PAUSED){if(edge&64){mode=pause_previous;audio_mute(0);}}
+        else if(edge&64){pause_previous=mode;mode=PAUSED;audio_mute(1);}
         else update_play();
-        if(mode!=PAUSED){++frame_counter;sound_tick(stage_music[stage],mode!=TITLE&&mode!=OVER);}
+        audio_stage=stage_music[stage];audio_playing=mode!=TITLE&&mode!=OVER;
+        if(mode!=PAUSED)++frame_counter;
         draw_frame();
     }
 }
