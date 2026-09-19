@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "physical_hardware_tested": false,
+  "results": [
+    {
+      "edition": "v9990",
+      "sha256": "6b83a4e372a2cc88c623019f7b4690c7d3c3bb4f02c1359faef4d295e2a850cd",
+      "stages": [
+        {
+          "stage": 0,
+          "count": 75,
+          "minimum": 0.03337169947576868,
+          "maximum": 0.033380499476891146,
+          "mean": 0.033376278798532166
+        },
+        {
+          "stage": 1,
+          "count": 64,
+          "minimum": 0.03337169947577223,
+          "maximum": 0.03337938201643098,
+          "mean": 0.0333763644297525
+        },
+        {
+          "stage": 2,
+          "count": 64,
+          "minimum": 0.03337169947577223,
+          "maximum": 0.03337938201643098,
+          "mean": 0.033376273525230975
+        }
+      ],
+      "main_loop_suspended_audio_ticks": 61,
+      "controls_pause_resume": true,
+      "background_vram_matches": true,
+      "bomb_input": true,
+      "passed": true
+    },
+    {
+      "edition": "turbor",
+      "sha256": "08e7d8d22bc0513fe5424dc2696513c2b8cc1334d1c2700b77ec57e18442c961",
+      "stages": [
+        {
+          "stage": 0,
+          "count": 76,
+          "minimum": 0.033372397888557614,
+          "maximum": 0.03338022011177344,
+          "mean": 0.03337631086260032
+        },
+        {
+          "stage": 1,
+          "count": 75,
+          "minimum": 0.03337239788855939,
+          "maximum": 0.03338022011177344,
+          "mean": 0.0333762863489407
+        },
+        {
+          "stage": 2,
+          "count": 72,
+          "minimum": 0.03337211852344524,
+          "maximum": 0.03338022011177344,
+          "mean": 0.033376356216805354
+        }
+      ],
+      "main_loop_suspended_audio_ticks": 60,
+      "controls_pause_resume": true,
+      "background_vram_matches": true,
+      "bomb_input": true,
+      "passed": true
+    },
+    {
+      "edition": "msx2",
+      "sha256": "7cf39050acb816252c9d442b88f8f05bdb1be3f8ea08d3bc26ef3b1f4a6173f9",
+      "stages": [
+        {
+          "stage": 0,
+          "count": 101,
+          "minimum": 0.03337100106298507,
+          "maximum": 0.03338273439780792,
+          "mean": 0.033376264301747866
+        },
+        {
+          "stage": 1,
+          "count": 81,
+          "minimum": 0.033371280428099226,
+          "maximum": 0.03338105820711945,
+          "mean": 0.0333763299525498
+        },
+        {
+          "stage": 2,
+          "count": 112,
+          "minimum": 0.033371280428099226,
+          "maximum": 0.03338161693734776,
+          "mean": 0.03337632661778605
+        }
+      ],
+      "main_loop_suspended_audio_ticks": 61,
+      "controls_pause_resume": true,
+      "background_vram_matches": true,
+      "bomb_input": true,
+      "passed": true
+    },
+    {
+      "edition": "v9990-feature-lab",
+      "sha256": "a0987235cacfda962ac3d938dada219ab0269545182f0a066c454478bef5b26b",
+      "stages": [
+        {
+          "stage": 0,
+          "count": 63,
+          "minimum": 0.03337183915832753,
+          "maximum": 0.033379382016429204,
+          "mean": 0.03337623690594303
+        },
+        {
+          "stage": 1,
+          "count": 66,
+          "minimum": 0.03337183915832753,
+          "maximum": 0.03337938201643098,
+          "mean": 0.033376343383564995
+        },
+        {
+          "stage": 2,
+          "count": 68,
+          "minimum": 0.033371839158331085,
+          "maximum": 0.03337938201643098,
+          "mean": 0.03337634235719489
+        }
+      ],
+      "main_loop_suspended_audio_ticks": 61,
+      "controls_pause_resume": true,
+      "background_vram_matches": true,
+      "bomb_input": true,
+      "passed": true
+    }
+  ]
+}

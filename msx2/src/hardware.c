@@ -1,4 +1,5 @@
 #include "hardware.h"
+#include "sound.h"
 
 __sfr __at (0x98) hw_vram;
 __sfr __at (0x99) hw_control;
@@ -61,16 +62,42 @@ void gfx_sprite_page(u8 page)
 
 volatile u8 gfx_ticks;
 u8 gfx_last_tick;
+
+/* Audio owns the sound engine in IRQ context; foreground requests are atomic. */
+volatile u8 audio_stage, audio_playing;
+volatile u16 audio_ticks;
+static u8 audio_divider;
+void audio_service(void) {
+    if (++audio_divider == 2) {
+        audio_divider=0;
+        sound_tick(audio_stage,audio_playing);
+        ++audio_ticks;
+    }
+}
+void audio_effect(u8 id) { __asm di __endasm; sound_effect(id); __asm ei __endasm; }
+void audio_mute(u8 value) { __asm di __endasm; sound_mute(value); __asm ei __endasm; }
+
 void gfx_irq(void) __naked {
     __asm
         push af
+        push bc
+        push de
+        push hl
+        push ix
+        push iy
         in a,(#0x99)
         bit 7,a
-        jr z,msx2_irq_done
+        jr z,gfx_irq_done
         ld a,(_gfx_ticks)
         inc a
         ld (_gfx_ticks),a
-msx2_irq_done:
+        call _audio_service
+gfx_irq_done:
+        pop iy
+        pop ix
+        pop hl
+        pop de
+        pop bc
         pop af
         ei
         reti
@@ -80,7 +107,7 @@ void gfx_clock_reset(void) {gfx_last_tick=gfx_ticks;}
 void gfx_clock_init(void) {
     u16 i;
     __asm di __endasm;
-    /* IM2 vector EE00..EF00 points to a JP at EFEF. Only AF changes in
+    /* IM2 vector EE00..EF00 points to a JP at EFEF. All C caller registers are saved in
      * the ISR; no BIOS or mapper access occurs. Leave F000..F2FF for stack. */
     for(i=0;i<257;i++)((u8*)0xEE00)[i]=0xEF;
     *((u8*)0xEFEF)=0xC3;
@@ -210,6 +237,7 @@ u8 input_read(void)
     hw_key_select = ppi;
 
     /* Preserve the current sound mixer while enforcing MSX I/O directions. */
+    __asm di __endasm;
     hw_psg_select = 7;
     hw_psg_write = (hw_psg_read & 0x3F) | 0x80;
     hw_psg_select = 15;
@@ -226,5 +254,6 @@ u8 input_read(void)
     if (keys & 0x20) result |= INPUT_BOMB;
     hw_psg_select = 15;
     hw_psg_write = joy_control;
+    __asm ei __endasm;
     return result;
 }

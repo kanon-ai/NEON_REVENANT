@@ -33,4 +33,9 @@ void gfx_flip(u8 page);
 void gfx_vblank(void);
 u8 input_read(void);
 
+extern volatile u8 audio_stage,audio_playing;
+void audio_setup(void);
+void audio_effect(u8 id);
+void audio_mute(u8 value);
+
 #endif

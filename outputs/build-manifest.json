@@ -6,7 +6,7 @@
   "mapper": "ASCII8",
   "rom_bytes": 524288,
   "allocated_bytes": 451401,
-  "runtime_bytes": 14048,
+  "runtime_bytes": 14208,
   "runtime_address": "8000-DFFF",
   "data_address": "E000-E7FF, LZ history E800-EFFF",
   "sprite_bytes": 81920,
@@ -34,6 +34,6 @@
     }
   ],
   "video": "V9990 B1 256x212 4bpp, 16 projected world frames per stage",
-  "sha256": "bd0e210ba2e8c8bbd9021265eb44e52f74a536e227ed8be9bf41dd3823897094",
+  "sha256": "6b83a4e372a2cc88c623019f7b4690c7d3c3bb4f02c1359faef4d295e2a850cd",
   "entry": "0xa5d1"
 }

@@ -37,4 +37,9 @@ void gfx_cursor(u16 x, u16 y, u8 visible, u8 locked);
 void gfx_palette_select(u8 bank);
 u8 input_read(void);
 
+extern volatile u8 audio_stage,audio_playing;
+void audio_setup(void);
+void audio_effect(u8 id);
+void audio_mute(u8 value);
+
 #endif

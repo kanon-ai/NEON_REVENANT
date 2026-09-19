@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "path": "outputs/NEON_REVENANT-v1.2.rom",
+      "sha256": "6b83a4e372a2cc88c623019f7b4690c7d3c3bb4f02c1359faef4d295e2a850cd",
+      "rebuild_matches_tested_rom": true,
+      "asset_region_unchanged": true
+    },
+    {
+      "path": "outputs/turbor/NEON_REVENANT-TurboR-v1.0.rom",
+      "sha256": "08e7d8d22bc0513fe5424dc2696513c2b8cc1334d1c2700b77ec57e18442c961",
+      "rebuild_matches_tested_rom": true,
+      "asset_region_unchanged": true
+    },
+    {
+      "path": "outputs/msx2/NEON_REVENANT-MSX2-v1.0.rom",
+      "sha256": "7cf39050acb816252c9d442b88f8f05bdb1be3f8ea08d3bc26ef3b1f4a6173f9",
+      "rebuild_matches_tested_rom": true,
+      "asset_region_unchanged": true
+    },
+    {
+      "path": "v9990-feature-lab/outputs/NEON_REVENANT-V9990-FeatureLab-v0.1.rom",
+      "sha256": "a0987235cacfda962ac3d938dada219ab0269545182f0a066c454478bef5b26b",
+      "rebuild_matches_tested_rom": true,
+      "asset_region_unchanged": true
+    }
+  ]
+}

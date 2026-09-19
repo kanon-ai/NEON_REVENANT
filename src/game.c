@@ -77,13 +77,13 @@ void new_game(void){
     mode=PLAY;player_x=128;player_y=166;aim_x=128;aim_y=119;shot_clock=0;hurt_clock=0;
     bomb_flash=0;stage_banner=90;transition_clock=0;combo=0;combo_clock=0;
     frames_played=0;boss_clock=0;boss_hp=0;boss_flash=0;
-    sound_effect(5);
+    audio_effect(5);
 }
 void damage(void){
     if(hurt_clock||bomb_flash||mode==TRANSIT)return;
-    if(shield)--shield;hurt_clock=45;combo=0;combo_clock=0;sound_effect(3);
+    if(shield)--shield;hurt_clock=45;combo=0;combo_clock=0;audio_effect(3);
     explode(player_x,player_y-6,3);
-    if(!shield){mode=OVER;transition_clock=0;sound_effect(2);}
+    if(!shield){mode=OVER;transition_clock=0;audio_effect(2);}
 }
 void fire_enemy(s16 x,s16 y,u8 variant){
     u8 i; s16 dx,dy,den;
@@ -99,12 +99,12 @@ void fire_enemy(s16 x,s16 y,u8 variant){
 }
 void kill_foe(Foe *e){
     e->active=0;explode(e->x,e->y,2+(e->z>120));
-    if(combo<9)++combo;combo_clock=65;add_score(20+(u16)combo*5);sound_effect(2);
+    if(combo<9)++combo;combo_clock=65;add_score(20+(u16)combo*5);audio_effect(2);
     if((random16()&15)==0&&!pickup_on&&shield<6){pickup_on=1;pickup_x=e->x;pickup_y=e->y;pickup_z=0;}
 }
 void player_fire(void){
     u8 i;Foe *best=0;u8 nearest=0;
-    sound_effect(1);
+    audio_effect(1);
     for(i=0;i<ENEMIES;i++)if(foes[i].active){
         Foe *e=&foes[i];s16 range=12+e->z/12;
         if(abs16(e->x-aim_x)<range&&abs16(e->y-aim_y)<range&&e->z>=nearest){best=e;nearest=e->z;}
@@ -112,12 +112,12 @@ void player_fire(void){
     if(best){if(best->hp)--best->hp;if(!best->hp)kill_foe(best);else explode(best->x,best->y,0);}
     if(mode==BOSS&&abs16(aim_x-boss_x)<43&&abs16(aim_y-boss_y)<27){
         if(boss_hp){--boss_hp;boss_flash=2;add_score(2);if(!boss_hp){
-            reset_entities();explode(boss_x,boss_y,4);sound_effect(4);bomb_flash=30;
+            reset_entities();explode(boss_x,boss_y,4);audio_effect(4);bomb_flash=30;
             add_score(500+100*stage);mode=TRANSIT;transition_clock=0;
         }}
     }
 }
-void use_bomb(void){u8 i;if(!bombs)return;--bombs;bomb_flash=18;sound_effect(4);
+void use_bomb(void){u8 i;if(!bombs)return;--bombs;bomb_flash=18;audio_effect(4);
     for(i=0;i<ENEMIES;i++)if(foes[i].active)kill_foe(&foes[i]);
     for(i=0;i<BULLETS;i++)shots[i].active=0;
     if(mode==BOSS){if(boss_hp>25)boss_hp-=25;else boss_hp=1;boss_flash=12;}
@@ -141,7 +141,7 @@ void update_objects(void){u8 i;
         else if(abs16(s->x/4-player_x)<9&&abs16(s->y/4-(player_y-3))<8){s->active=0;damage();}
     }
     for(i=0;i<FXMAX;i++)if(fx[i].active){if(++fx[i].age>=16)fx[i].active=0;}
-    if(pickup_on){pickup_y+=2;++pickup_z;if(abs16(pickup_x-player_x)<23&&abs16(pickup_y-player_y)<20){if(shield<6)++shield;pickup_on=0;add_score(50);sound_effect(5);}if(pickup_y>194)pickup_on=0;}
+    if(pickup_on){pickup_y+=2;++pickup_z;if(abs16(pickup_x-player_x)<23&&abs16(pickup_y-player_y)<20){if(shield<6)++shield;pickup_on=0;add_score(50);audio_effect(5);}if(pickup_y>194)pickup_on=0;}
 }
 void update_boss(void){
     ++boss_clock;boss_x=128+wave[(u8)(boss_clock>>1)&63];
@@ -163,7 +163,7 @@ void update_play(void){
     if(mode==PLAY){
         ++stage_clock;
         if(stage_clock%((u16)32-stage*5)==0)spawn_foe();
-        if(stage_clock>=STAGE_TIME){mode=BOSS;boss_hp=100+40*stage;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;sound_effect(6);}
+        if(stage_clock>=STAGE_TIME){mode=BOSS;boss_hp=100+40*stage;boss_clock=0;boss_x=128;boss_y=108;stage_banner=90;audio_effect(6);}
     }else if(mode==BOSS)update_boss();
     update_objects();
     if((keys&16)&&!shot_clock&&(mode==PLAY||mode==BOSS)){shot_clock=4;player_fire();}
@@ -179,7 +179,7 @@ void draw_world(u8 scene){
     u16 sy,dy; s16 shift,target;
     if(world_loaded!=scene){
         /* No framebuffer is overwritten during the stage's asset transfer. */
-        sound_mute(1);world_load(scene);world_loaded=scene;sound_mute(0);
+        audio_mute(1);world_load(scene);world_loaded=scene;audio_mute(0);
     }
     if(mode!=PAUSED){
         target=(128-player_x)/16;
@@ -280,15 +280,16 @@ void main(void){
     // SDCC no-CRT build: explicitly initialize every persistent state field.
     u8 *p=(u8*)0xE000;while(p<(u8*)0xF200)*p++=0;
     rng=0x7A31;player_x=128;player_y=166;aim_x=128;aim_y=119;
-    gfx_init();hardware_upload();world_load(0);world_loaded=0;world_camera=0;sound_init();
+    gfx_init();hardware_upload();world_load(0);world_loaded=0;world_camera=0;sound_init();audio_setup();
     for(;;){
         keys=input_read();edge=keys&~old_keys;old_keys=keys;
         if(mode==TITLE){if(edge&16)new_game();}
         else if(mode==OVER||mode==CLEAR){if(transition_clock<40)++transition_clock;else if(edge&16)new_game();}
-        else if(mode==PAUSED){if(edge&64){mode=pause_previous;sound_mute(0);}}
-        else if(edge&64){pause_previous=mode;mode=PAUSED;sound_mute(1);}
+        else if(mode==PAUSED){if(edge&64){mode=pause_previous;audio_mute(0);}}
+        else if(edge&64){pause_previous=mode;mode=PAUSED;audio_mute(1);}
         else update_play();
-        if(mode!=PAUSED){++frame_counter;sound_tick(stage,mode!=TITLE&&mode!=OVER);}
+        audio_stage=stage;audio_playing=mode!=TITLE&&mode!=OVER;
+        if(mode!=PAUSED){++frame_counter;}
         draw_frame();
     }
 }

@@ -1,4 +1,5 @@
 #include "hardware.h"
+#include "sound.h"
 #include "palette.h"
 #include "world_load.h"
 
@@ -23,6 +24,74 @@ static void vram_write_address(u16 low, u8 high)
     hw_reg_data = (u8)low;
     hw_reg_data = (u8)(low >> 8);
     hw_reg_data = high;
+}
+
+__sfr __at (0x99) audio_vdp;
+volatile u8 audio_frames;
+static u8 audio_irq_ready, audio_consumed;
+
+/* Audio owns the sound engine in IRQ context; foreground requests are atomic. */
+volatile u8 audio_stage, audio_playing;
+volatile u16 audio_ticks;
+static u8 audio_divider;
+void audio_service(void) {
+    if (++audio_divider == 2) {
+        audio_divider=0;
+        sound_tick(audio_stage,audio_playing);
+        ++audio_ticks;
+    }
+}
+void audio_effect(u8 id) { __asm di __endasm; sound_effect(id); __asm ei __endasm; }
+void audio_mute(u8 value) { __asm di __endasm; sound_mute(value); __asm ei __endasm; }
+
+void audio_irq(void) __naked {
+    __asm
+        push af
+        push bc
+        push de
+        push hl
+        push ix
+        push iy
+        in a,(#0x99)
+        bit 7,a
+        jr z,audio_irq_done
+        ld a,(_audio_frames)
+        inc a
+        ld (_audio_frames),a
+        call _audio_service
+audio_irq_done:
+        pop iy
+        pop ix
+        pop hl
+        pop de
+        pop bc
+        pop af
+        ei
+        reti
+    __endasm;
+}
+
+void audio_setup(void) {
+    u16 i;
+    __asm di __endasm;
+    /* F400..F500 and F5F5..F5F7 replace unused BIOS work areas.
+     * Runtime uses direct input/VDP access, no BIOS calls after startup.
+     * Keep E800..EFFF LZ history and downward F300 stack untouched. */
+    for(i=0;i<257;++i)((u8*)0xF400)[i]=0xF5;
+    *((u8*)0xF5F5)=0xC3;*((u16*)0xF5F6)=(u16)audio_irq;
+    /* Native VDP is the 60 Hz clock; V9990 ports remain foreground-only. */
+    audio_vdp=0;audio_vdp=0x80;
+    audio_vdp=0;audio_vdp=0x89;
+    audio_vdp=0;audio_vdp=0x8F;
+    audio_vdp=0x20;audio_vdp=0x81;
+    (void)audio_vdp;
+    audio_irq_ready=1;
+    __asm
+        ld a,#0xF4
+        ld i,a
+        im 2
+        ei
+    __endasm;
 }
 
 static void reg_write(u8 reg, u8 value)
@@ -301,6 +370,7 @@ u8 input_read(void)
     hw_key_select = ppi;
 
     /* Preserve the current sound mixer while enforcing MSX I/O directions. */
+    __asm di __endasm;
     hw_psg_select = 7;
     hw_psg_write = (hw_psg_read & 0x3F) | 0x80;
     hw_psg_select = 15;
@@ -317,5 +387,6 @@ u8 input_read(void)
     if (keys & 0x20) result |= INPUT_BOMB;
     hw_psg_select = 15;
     hw_psg_write = joy_control;
+    __asm ei __endasm;
     return result;
 }

@@ -5,9 +5,9 @@
   "mapper": "ASCII8",
   "rom_bytes": 524288,
   "allocated_bytes": 475136,
-  "runtime_bytes": 11809,
+  "runtime_bytes": 11869,
   "runtime_address": "8000-DFFF",
-  "data_end": "0xe649",
+  "data_end": "0xe64e",
   "sprite_bytes": 5650,
   "worlds": [
     {
@@ -31,7 +31,7 @@
   ],
   "video": "V9938 SCREEN4 256x192, 8 resident world frames per stage, mode2 MAG2 sprites",
   "v9990_required": false,
-  "sha256": "0c7e38a946a924c6897f17463929d63a6ad37137b62519c78ac4e6d2383633a6",
+  "sha256": "7cf39050acb816252c9d442b88f8f05bdb1be3f8ea08d3bc26ef3b1f4a6173f9",
   "entry": "0xa34e",
   "cpu": "Z80 3.58 MHz",
   "minimum_ram_bytes": 65536,

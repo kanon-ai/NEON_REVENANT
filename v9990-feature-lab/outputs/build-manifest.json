@@ -7,10 +7,10 @@
   "rom_bytes": 524288,
   "allocated_bytes": 388209,
   "free_bytes": 136079,
-  "runtime_bytes": 17400,
+  "runtime_bytes": 17560,
   "runtime_address": "8000-DFFF",
   "data_address": "E000-E7FF, LZ history E800-EFFF",
-  "data_end": "0xe173",
+  "data_end": "0xe17b",
   "sprite_bytes": 81920,
   "atlas": {
     "name": "atlas",
@@ -88,13 +88,13 @@
     }
   ],
   "video": "V9990 B1 256x212 4bpp, 16 projected world frames per stage",
-  "sha256": "4298a3579ff53a1ad861b4523b74b08f3340fee358c82c51aaca9d64c58ea904",
+  "sha256": "a0987235cacfda962ac3d938dada219ab0269545182f0a066c454478bef5b26b",
   "entry": "0xad37",
   "packing": {
     "format": "existing LZSS, 2048-byte history, 3..34-byte matches, complete output frames",
     "first_data_offset": 32768,
     "runtime_reserved_bytes": 24576,
-    "runtime_padding_bytes": 7176,
+    "runtime_padding_bytes": 7016,
     "stream_payload_bytes": 355441,
     "atlas_bytes_saved": 65866,
     "extra_asset_bytes": 2674,

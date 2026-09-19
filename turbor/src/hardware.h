@@ -29,4 +29,9 @@ void gfx_write(u32 address, const void *source, u16 length);
 void rom_copy_to_vram(u8 bank, u8 count8k, u32 address);
 u8 input_read(void);
 
+extern volatile u8 audio_stage,audio_playing;
+void audio_setup(void);
+void audio_effect(u8 id);
+void audio_mute(u8 value);
+
 #endif
