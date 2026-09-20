@@ -31,3 +31,7 @@
 
 /outputs/msx1/v1.4/*.zip
 /outputs/msx1/v1.4/SHA256SUMS*.txt
+
+/v9990-1mb/work/
+/final-campaign/*/work/
+/outputs/final-campaign-2026-09-20/*.zip

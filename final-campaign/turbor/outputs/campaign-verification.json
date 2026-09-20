@@ -1,0 +1,289 @@
+{
+  "passed": true,
+  "sha256": "96f2e9467591af11c3f11bf3b434a9b52e3858da76781c5797c1daabb557a5e5",
+  "physical_hardware_tested": false,
+  "method": "native openMSX; RAM-seeded stage and boss scenarios with real key input",
+  "results": [
+    {
+      "name": "512KiB",
+      "passed": true
+    },
+    {
+      "name": "title",
+      "passed": true
+    },
+    {
+      "name": "R800-DRAM",
+      "passed": true
+    },
+    {
+      "name": "fire-start",
+      "passed": true
+    },
+    {
+      "name": "stage-0-PCG-readback",
+      "passed": true,
+      "load_seconds": 2.3500123619063302
+    },
+    {
+      "name": "stage-0-audio",
+      "passed": true,
+      "maximum": 0.03338022011177344,
+      "mean": 0.03337631992505898
+    },
+    {
+      "name": "stage-0-patterns",
+      "passed": true,
+      "patterns": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "stage-0-logic-rate",
+      "passed": true
+    },
+    {
+      "name": "stage-0-boss",
+      "passed": true
+    },
+    {
+      "name": "stage-0-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-0-paused-clock",
+      "passed": true
+    },
+    {
+      "name": "stage-0-PSG-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-0-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "stage-0-transition",
+      "passed": true
+    },
+    {
+      "name": "stage-1-PCG-readback",
+      "passed": true,
+      "load_seconds": 2.600021231748727
+    },
+    {
+      "name": "stage-1-audio",
+      "passed": true,
+      "maximum": 0.03338022011177344,
+      "mean": 0.03337629810570494
+    },
+    {
+      "name": "stage-1-patterns",
+      "passed": true,
+      "patterns": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "name": "stage-1-logic-rate",
+      "passed": true
+    },
+    {
+      "name": "stage-1-boss",
+      "passed": true
+    },
+    {
+      "name": "stage-1-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-1-paused-clock",
+      "passed": true
+    },
+    {
+      "name": "stage-1-PSG-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-1-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "stage-1-transition",
+      "passed": true
+    },
+    {
+      "name": "stage-2-PCG-readback",
+      "passed": true,
+      "load_seconds": 2.350014317462133
+    },
+    {
+      "name": "stage-2-audio",
+      "passed": true,
+      "maximum": 0.033380220111780545,
+      "mean": 0.03337631561466059
+    },
+    {
+      "name": "stage-2-patterns",
+      "passed": true,
+      "patterns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "stage-2-logic-rate",
+      "passed": true
+    },
+    {
+      "name": "stage-2-boss",
+      "passed": true
+    },
+    {
+      "name": "stage-2-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-2-paused-clock",
+      "passed": true
+    },
+    {
+      "name": "stage-2-PSG-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-2-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "stage-2-transition",
+      "passed": true
+    },
+    {
+      "name": "stage-3-PCG-readback",
+      "passed": true,
+      "load_seconds": 2.350011942858657
+    },
+    {
+      "name": "stage-3-audio",
+      "passed": true,
+      "maximum": 0.033380220111780545,
+      "mean": 0.033376318338275895
+    },
+    {
+      "name": "stage-3-patterns",
+      "passed": true,
+      "patterns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "stage-3-logic-rate",
+      "passed": true
+    },
+    {
+      "name": "stage-3-boss",
+      "passed": true
+    },
+    {
+      "name": "stage-3-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-3-paused-clock",
+      "passed": true
+    },
+    {
+      "name": "stage-3-PSG-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-3-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "stage-3-transition",
+      "passed": true
+    },
+    {
+      "name": "stage-4-PCG-readback",
+      "passed": true,
+      "load_seconds": 2.3500112444458807
+    },
+    {
+      "name": "stage-4-audio",
+      "passed": true,
+      "maximum": 0.033390556621014866,
+      "mean": 0.033376319925058996
+    },
+    {
+      "name": "stage-4-patterns",
+      "passed": true,
+      "patterns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "stage-4-logic-rate",
+      "passed": true
+    },
+    {
+      "name": "stage-4-boss",
+      "passed": true
+    },
+    {
+      "name": "stage-4-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-4-paused-clock",
+      "passed": true
+    },
+    {
+      "name": "stage-4-PSG-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-4-boss-defeat",
+      "passed": true
+    },
+    {
+      "name": "stage-4-transition",
+      "passed": true
+    },
+    {
+      "name": "restart",
+      "passed": true
+    },
+    {
+      "name": "movement",
+      "passed": true
+    },
+    {
+      "name": "NOVA",
+      "passed": true
+    },
+    {
+      "name": "VDP-timing",
+      "passed": true,
+      "count": 0
+    }
+  ]
+}

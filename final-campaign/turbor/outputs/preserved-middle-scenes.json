@@ -1,0 +1,14 @@
+[
+  {
+    "stage": 1,
+    "background_identical_excluding_reserved_font": true
+  },
+  {
+    "stage": 2,
+    "background_identical_excluding_reserved_font": true
+  },
+  {
+    "stage": 3,
+    "background_identical_excluding_reserved_font": true
+  }
+]

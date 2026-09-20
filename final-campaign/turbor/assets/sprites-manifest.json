@@ -1,0 +1,902 @@
+{
+  "format": "SCREEN4 sprite mode 2;16x16;MAG2",
+  "record_bytes": 50,
+  "record_layout": "signed dx,dy;16 left pattern rows;16 right pattern rows;16 colors",
+  "palette_rgb3": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      2,
+      3,
+      3
+    ],
+    [
+      1,
+      5,
+      5
+    ],
+    [
+      4,
+      6,
+      6
+    ],
+    [
+      7,
+      7,
+      7
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      3,
+      3,
+      4
+    ],
+    [
+      4,
+      2,
+      4
+    ],
+    [
+      7,
+      3,
+      4
+    ],
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      6,
+      3,
+      1
+    ],
+    [
+      7,
+      5,
+      2
+    ],
+    [
+      7,
+      6,
+      4
+    ]
+  ],
+  "sprites": {
+    "player_0": {
+      "offset": 0,
+      "count": 4,
+      "w": 36,
+      "h": 24,
+      "pattern_width": 18,
+      "pattern_height": 11,
+      "display_width": 36,
+      "display_height": 22,
+      "max_record_slots_per_scanline": 4,
+      "source_rect": [
+        0,
+        512,
+        36,
+        24
+      ]
+    },
+    "player_1": {
+      "offset": 200,
+      "count": 4,
+      "w": 36,
+      "h": 24,
+      "pattern_width": 18,
+      "pattern_height": 11,
+      "display_width": 36,
+      "display_height": 22,
+      "max_record_slots_per_scanline": 4,
+      "source_rect": [
+        37,
+        512,
+        36,
+        24
+      ]
+    },
+    "player_2": {
+      "offset": 400,
+      "count": 4,
+      "w": 36,
+      "h": 24,
+      "pattern_width": 18,
+      "pattern_height": 11,
+      "display_width": 36,
+      "display_height": 22,
+      "max_record_slots_per_scanline": 4,
+      "source_rect": [
+        74,
+        512,
+        36,
+        24
+      ]
+    },
+    "enemy_0": {
+      "offset": 600,
+      "count": 1,
+      "w": 8,
+      "h": 6,
+      "pattern_width": 4,
+      "pattern_height": 3,
+      "display_width": 8,
+      "display_height": 6,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        111,
+        512,
+        8,
+        6
+      ]
+    },
+    "enemy_1": {
+      "offset": 650,
+      "count": 1,
+      "w": 12,
+      "h": 8,
+      "pattern_width": 6,
+      "pattern_height": 4,
+      "display_width": 12,
+      "display_height": 8,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        120,
+        512,
+        12,
+        8
+      ]
+    },
+    "enemy_2": {
+      "offset": 700,
+      "count": 1,
+      "w": 18,
+      "h": 12,
+      "pattern_width": 9,
+      "pattern_height": 6,
+      "display_width": 18,
+      "display_height": 12,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        133,
+        512,
+        18,
+        12
+      ]
+    },
+    "enemy_3": {
+      "offset": 750,
+      "count": 1,
+      "w": 26,
+      "h": 17,
+      "pattern_width": 13,
+      "pattern_height": 8,
+      "display_width": 26,
+      "display_height": 16,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        152,
+        512,
+        26,
+        17
+      ]
+    },
+    "enemy_4": {
+      "offset": 800,
+      "count": 2,
+      "w": 38,
+      "h": 25,
+      "pattern_width": 19,
+      "pattern_height": 12,
+      "display_width": 38,
+      "display_height": 24,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        179,
+        512,
+        38,
+        25
+      ]
+    },
+    "enemy_5": {
+      "offset": 900,
+      "count": 2,
+      "w": 54,
+      "h": 36,
+      "pattern_width": 27,
+      "pattern_height": 16,
+      "display_width": 54,
+      "display_height": 32,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        0,
+        538,
+        54,
+        36
+      ]
+    },
+    "enemy_6": {
+      "offset": 1000,
+      "count": 1,
+      "w": 8,
+      "h": 6,
+      "pattern_width": 4,
+      "pattern_height": 3,
+      "display_width": 8,
+      "display_height": 6,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        55,
+        538,
+        8,
+        6
+      ]
+    },
+    "enemy_7": {
+      "offset": 1050,
+      "count": 1,
+      "w": 12,
+      "h": 8,
+      "pattern_width": 6,
+      "pattern_height": 4,
+      "display_width": 12,
+      "display_height": 8,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        64,
+        538,
+        12,
+        8
+      ]
+    },
+    "enemy_8": {
+      "offset": 1100,
+      "count": 1,
+      "w": 18,
+      "h": 12,
+      "pattern_width": 9,
+      "pattern_height": 6,
+      "display_width": 18,
+      "display_height": 12,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        77,
+        538,
+        18,
+        12
+      ]
+    },
+    "enemy_9": {
+      "offset": 1150,
+      "count": 1,
+      "w": 26,
+      "h": 17,
+      "pattern_width": 13,
+      "pattern_height": 8,
+      "display_width": 26,
+      "display_height": 16,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        96,
+        538,
+        26,
+        17
+      ]
+    },
+    "enemy_10": {
+      "offset": 1200,
+      "count": 2,
+      "w": 38,
+      "h": 25,
+      "pattern_width": 19,
+      "pattern_height": 12,
+      "display_width": 38,
+      "display_height": 24,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        123,
+        538,
+        38,
+        25
+      ]
+    },
+    "enemy_11": {
+      "offset": 1300,
+      "count": 2,
+      "w": 54,
+      "h": 36,
+      "pattern_width": 27,
+      "pattern_height": 16,
+      "display_width": 54,
+      "display_height": 32,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        162,
+        538,
+        54,
+        36
+      ]
+    },
+    "enemy_12": {
+      "offset": 1400,
+      "count": 1,
+      "w": 8,
+      "h": 6,
+      "pattern_width": 4,
+      "pattern_height": 3,
+      "display_width": 8,
+      "display_height": 6,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        217,
+        538,
+        8,
+        6
+      ]
+    },
+    "enemy_13": {
+      "offset": 1450,
+      "count": 1,
+      "w": 12,
+      "h": 8,
+      "pattern_width": 6,
+      "pattern_height": 4,
+      "display_width": 12,
+      "display_height": 8,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        226,
+        538,
+        12,
+        8
+      ]
+    },
+    "enemy_14": {
+      "offset": 1500,
+      "count": 1,
+      "w": 18,
+      "h": 12,
+      "pattern_width": 9,
+      "pattern_height": 6,
+      "display_width": 18,
+      "display_height": 12,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        0,
+        575,
+        18,
+        12
+      ]
+    },
+    "enemy_15": {
+      "offset": 1550,
+      "count": 1,
+      "w": 26,
+      "h": 17,
+      "pattern_width": 13,
+      "pattern_height": 8,
+      "display_width": 26,
+      "display_height": 16,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        19,
+        575,
+        26,
+        17
+      ]
+    },
+    "enemy_16": {
+      "offset": 1600,
+      "count": 2,
+      "w": 38,
+      "h": 25,
+      "pattern_width": 19,
+      "pattern_height": 12,
+      "display_width": 38,
+      "display_height": 24,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        46,
+        575,
+        38,
+        25
+      ]
+    },
+    "enemy_17": {
+      "offset": 1700,
+      "count": 2,
+      "w": 54,
+      "h": 36,
+      "pattern_width": 27,
+      "pattern_height": 16,
+      "display_width": 54,
+      "display_height": 32,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        85,
+        575,
+        54,
+        36
+      ]
+    },
+    "explosion_0": {
+      "offset": 1800,
+      "count": 1,
+      "w": 8,
+      "h": 8,
+      "pattern_width": 4,
+      "pattern_height": 4,
+      "display_width": 8,
+      "display_height": 8,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        140,
+        575,
+        8,
+        8
+      ]
+    },
+    "explosion_1": {
+      "offset": 1850,
+      "count": 1,
+      "w": 16,
+      "h": 16,
+      "pattern_width": 8,
+      "pattern_height": 8,
+      "display_width": 16,
+      "display_height": 16,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        149,
+        575,
+        16,
+        16
+      ]
+    },
+    "explosion_2": {
+      "offset": 1900,
+      "count": 1,
+      "w": 24,
+      "h": 24,
+      "pattern_width": 12,
+      "pattern_height": 11,
+      "display_width": 24,
+      "display_height": 22,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        166,
+        575,
+        24,
+        24
+      ]
+    },
+    "explosion_3": {
+      "offset": 1950,
+      "count": 2,
+      "w": 40,
+      "h": 40,
+      "pattern_width": 20,
+      "pattern_height": 18,
+      "display_width": 40,
+      "display_height": 36,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        191,
+        575,
+        40,
+        40
+      ]
+    },
+    "explosion_4": {
+      "offset": 2050,
+      "count": 4,
+      "w": 56,
+      "h": 56,
+      "pattern_width": 28,
+      "pattern_height": 25,
+      "display_width": 56,
+      "display_height": 50,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        0,
+        616,
+        56,
+        56
+      ]
+    },
+    "explosion_5": {
+      "offset": 2250,
+      "count": 1,
+      "w": 8,
+      "h": 8,
+      "pattern_width": 4,
+      "pattern_height": 4,
+      "display_width": 8,
+      "display_height": 8,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        57,
+        616,
+        8,
+        8
+      ]
+    },
+    "explosion_6": {
+      "offset": 2300,
+      "count": 1,
+      "w": 16,
+      "h": 16,
+      "pattern_width": 8,
+      "pattern_height": 8,
+      "display_width": 16,
+      "display_height": 16,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        66,
+        616,
+        16,
+        16
+      ]
+    },
+    "explosion_7": {
+      "offset": 2350,
+      "count": 1,
+      "w": 24,
+      "h": 24,
+      "pattern_width": 12,
+      "pattern_height": 11,
+      "display_width": 24,
+      "display_height": 22,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        83,
+        616,
+        24,
+        24
+      ]
+    },
+    "explosion_8": {
+      "offset": 2400,
+      "count": 2,
+      "w": 40,
+      "h": 40,
+      "pattern_width": 20,
+      "pattern_height": 18,
+      "display_width": 40,
+      "display_height": 36,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        108,
+        616,
+        40,
+        40
+      ]
+    },
+    "explosion_9": {
+      "offset": 2500,
+      "count": 4,
+      "w": 56,
+      "h": 56,
+      "pattern_width": 28,
+      "pattern_height": 25,
+      "display_width": 56,
+      "display_height": 50,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        149,
+        616,
+        56,
+        56
+      ]
+    },
+    "explosion_10": {
+      "offset": 2700,
+      "count": 1,
+      "w": 8,
+      "h": 8,
+      "pattern_width": 4,
+      "pattern_height": 4,
+      "display_width": 8,
+      "display_height": 8,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        206,
+        616,
+        8,
+        8
+      ]
+    },
+    "explosion_11": {
+      "offset": 2750,
+      "count": 1,
+      "w": 16,
+      "h": 16,
+      "pattern_width": 8,
+      "pattern_height": 8,
+      "display_width": 16,
+      "display_height": 16,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        215,
+        616,
+        16,
+        16
+      ]
+    },
+    "explosion_12": {
+      "offset": 2800,
+      "count": 1,
+      "w": 24,
+      "h": 24,
+      "pattern_width": 12,
+      "pattern_height": 11,
+      "display_width": 24,
+      "display_height": 22,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        232,
+        616,
+        24,
+        24
+      ]
+    },
+    "explosion_13": {
+      "offset": 2850,
+      "count": 3,
+      "w": 40,
+      "h": 40,
+      "pattern_width": 20,
+      "pattern_height": 18,
+      "display_width": 40,
+      "display_height": 36,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        0,
+        673,
+        40,
+        40
+      ]
+    },
+    "explosion_14": {
+      "offset": 3000,
+      "count": 4,
+      "w": 56,
+      "h": 56,
+      "pattern_width": 28,
+      "pattern_height": 25,
+      "display_width": 56,
+      "display_height": 50,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        41,
+        673,
+        56,
+        56
+      ]
+    },
+    "explosion_15": {
+      "offset": 3200,
+      "count": 1,
+      "w": 8,
+      "h": 8,
+      "pattern_width": 4,
+      "pattern_height": 4,
+      "display_width": 8,
+      "display_height": 8,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        98,
+        673,
+        8,
+        8
+      ]
+    },
+    "explosion_16": {
+      "offset": 3250,
+      "count": 1,
+      "w": 16,
+      "h": 16,
+      "pattern_width": 8,
+      "pattern_height": 8,
+      "display_width": 16,
+      "display_height": 16,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        107,
+        673,
+        16,
+        16
+      ]
+    },
+    "explosion_17": {
+      "offset": 3300,
+      "count": 1,
+      "w": 24,
+      "h": 24,
+      "pattern_width": 12,
+      "pattern_height": 11,
+      "display_width": 24,
+      "display_height": 22,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        124,
+        673,
+        24,
+        24
+      ]
+    },
+    "explosion_18": {
+      "offset": 3350,
+      "count": 3,
+      "w": 40,
+      "h": 40,
+      "pattern_width": 20,
+      "pattern_height": 18,
+      "display_width": 40,
+      "display_height": 36,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        149,
+        673,
+        40,
+        40
+      ]
+    },
+    "explosion_19": {
+      "offset": 3500,
+      "count": 4,
+      "w": 56,
+      "h": 56,
+      "pattern_width": 28,
+      "pattern_height": 25,
+      "display_width": 56,
+      "display_height": 50,
+      "max_record_slots_per_scanline": 2,
+      "source_rect": [
+        190,
+        673,
+        56,
+        56
+      ]
+    },
+    "bosses_0": {
+      "offset": 3700,
+      "count": 12,
+      "w": 96,
+      "h": 56,
+      "pattern_width": 48,
+      "pattern_height": 25,
+      "display_width": 96,
+      "display_height": 50,
+      "max_record_slots_per_scanline": 6,
+      "source_rect": [
+        0,
+        730,
+        96,
+        56
+      ]
+    },
+    "bosses_1": {
+      "offset": 4300,
+      "count": 12,
+      "w": 96,
+      "h": 56,
+      "pattern_width": 48,
+      "pattern_height": 25,
+      "display_width": 96,
+      "display_height": 50,
+      "max_record_slots_per_scanline": 6,
+      "source_rect": [
+        97,
+        730,
+        96,
+        56
+      ]
+    },
+    "bosses_2": {
+      "offset": 4900,
+      "count": 12,
+      "w": 96,
+      "h": 56,
+      "pattern_width": 48,
+      "pattern_height": 25,
+      "display_width": 96,
+      "display_height": 50,
+      "max_record_slots_per_scanline": 6,
+      "source_rect": [
+        0,
+        787,
+        96,
+        56
+      ]
+    },
+    "bullet_0": {
+      "offset": 5500,
+      "count": 1,
+      "w": 5,
+      "h": 10,
+      "pattern_width": 3,
+      "pattern_height": 5,
+      "display_width": 6,
+      "display_height": 10,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        97,
+        787,
+        5,
+        10
+      ]
+    },
+    "pickup_0": {
+      "offset": 5550,
+      "count": 1,
+      "w": 13,
+      "h": 13,
+      "pattern_width": 7,
+      "pattern_height": 6,
+      "display_width": 14,
+      "display_height": 12,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        103,
+        787,
+        13,
+        13
+      ]
+    },
+    "reticle_0": {
+      "offset": 5600,
+      "count": 1,
+      "w": 21,
+      "h": 21,
+      "pattern_width": 11,
+      "pattern_height": 10,
+      "display_width": 22,
+      "display_height": 20,
+      "max_record_slots_per_scanline": 1,
+      "source_rect": [
+        117,
+        787,
+        21,
+        21
+      ]
+    }
+  },
+  "checks": {
+    "hardware_record_round_trip": true,
+    "disjoint_color_planes": true,
+    "visible_mask_preserved": true,
+    "enemy_deep_shadow_cutouts": true,
+    "source_alpha_preserved_for_two_plane_art": true
+  },
+  "bytes": 5650,
+  "sha256": "7806b1751ef785dd8b5b4a561b0ac5c85d27beaccbde455e7a54a73a240ee299",
+  "source_sha256": {
+    "sprite-atlas.bin": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+    "sprite-atlas.h": "5db50ee8f7ed62ec7b84e24a0d7d5ad9c62fcbde49f74461459e31fc0b7673a6",
+    "sprite-atlas-manifest.json": "788e3a81c514b91dbbbf330f52f172a48cadcf489138a3d0f1ea7c697ed0f005"
+  }
+}

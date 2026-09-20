@@ -1,0 +1,54 @@
+{
+  "title": "NEON REVENANT - Turbo R Edition",
+  "version": "final-2026-09-20",
+  "file": "NEON_REVENANT-TurboR-final.rom",
+  "mapper": "ASCII8",
+  "rom_bytes": 524288,
+  "allocated_bytes": 475136,
+  "runtime_bytes": 12944,
+  "runtime_address": "8000-D7FF",
+  "decompression_history": "D800-DFFF",
+  "data_end": "0xe885",
+  "sprite_bytes": 5650,
+  "worlds": [
+    {
+      "stage": 1,
+      "raw_bytes": 131072,
+      "compressed_bytes": 42511,
+      "rom_offset": 65536,
+      "raw_sha256": "31c926d2647ef96bc391c92de36a9acdc80e46cb239b77261be1ac999a297482"
+    },
+    {
+      "stage": 2,
+      "raw_bytes": 131072,
+      "compressed_bytes": 57019,
+      "rom_offset": 108047,
+      "raw_sha256": "a1835f16cf06993f389d0227fbf767c967dc13c62ac47a5c30290d52d6b40ce1"
+    },
+    {
+      "stage": 3,
+      "raw_bytes": 131072,
+      "compressed_bytes": 46888,
+      "rom_offset": 165066,
+      "raw_sha256": "d316634c5ed3aec89e0dd643084df0e35b8b53e8f7d1e8079df1b20f16262d1e"
+    },
+    {
+      "stage": 4,
+      "raw_bytes": 131072,
+      "compressed_bytes": 44260,
+      "rom_offset": 211954,
+      "raw_sha256": "935c9c933c80fa9ac4e722747827d9004e7c75c4ef72e7a37813f6e986816efe"
+    },
+    {
+      "stage": 5,
+      "raw_bytes": 131072,
+      "compressed_bytes": 44273,
+      "rom_offset": 256214,
+      "raw_sha256": "d2e63bf742111d98688de175a2a69998844dba57ca873ce8bceba7189122004d"
+    }
+  ],
+  "video": "V9958 SCREEN4 256x192, 8 resident world frames per stage, mode2 MAG2 sprites",
+  "v9990_required": false,
+  "sha256": "96f2e9467591af11c3f11bf3b434a9b52e3858da76781c5797c1daabb557a5e5",
+  "entry": "0xa419"
+}

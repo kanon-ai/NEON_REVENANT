@@ -1,0 +1,20 @@
+[
+  {
+    "old_stage": 1,
+    "new_stage": 2,
+    "identical": true,
+    "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a"
+  },
+  {
+    "old_stage": 2,
+    "new_stage": 3,
+    "identical": true,
+    "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e"
+  },
+  {
+    "old_stage": 3,
+    "new_stage": 4,
+    "identical": true,
+    "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9"
+  }
+]

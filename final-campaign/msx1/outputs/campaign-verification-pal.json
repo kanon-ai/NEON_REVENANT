@@ -1,0 +1,259 @@
+{
+  "passed": true,
+  "sha256": "1029abea05be97379dccfd39ee3870bb86e50e1a1e6c4f625983559257a5bd50",
+  "physical_hardware_tested": false,
+  "method": "openMSX synthetic 32KiB MSX1 pal; 16 native PCG phases per stage; seeded giant boss",
+  "results": [
+    {
+      "name": "32KiB-RAM",
+      "passed": true
+    },
+    {
+      "name": "16KiB-VRAM",
+      "passed": true
+    },
+    {
+      "name": "512KiB-ROM",
+      "passed": true
+    },
+    {
+      "name": "title",
+      "passed": true
+    },
+    {
+      "name": "start",
+      "passed": true
+    },
+    {
+      "name": "stage-0-loaded",
+      "passed": true
+    },
+    {
+      "name": "stage-0-16-phases-PCG",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "stage-0-audio",
+      "passed": true,
+      "maximum": 0.03988244315967471,
+      "mean": 0.039873393423076414
+    },
+    {
+      "name": "stage-0-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-0-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-1-loaded",
+      "passed": true
+    },
+    {
+      "name": "stage-1-16-phases-PCG",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "stage-1-audio",
+      "passed": true,
+      "maximum": 0.0398760177620332,
+      "mean": 0.039872983546481104
+    },
+    {
+      "name": "stage-1-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-1-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-2-loaded",
+      "passed": true
+    },
+    {
+      "name": "stage-2-16-phases-PCG",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "stage-2-audio",
+      "passed": true,
+      "maximum": 0.03987685585737921,
+      "mean": 0.03987329594762942
+    },
+    {
+      "name": "stage-2-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-2-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-3-loaded",
+      "passed": true
+    },
+    {
+      "name": "stage-3-16-phases-PCG",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "stage-3-audio",
+      "passed": true,
+      "maximum": 0.03988551617593572,
+      "mean": 0.03987328796576902
+    },
+    {
+      "name": "stage-3-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-3-mute",
+      "passed": true
+    },
+    {
+      "name": "stage-4-loaded",
+      "passed": true
+    },
+    {
+      "name": "stage-4-16-phases-PCG",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "stage-4-audio",
+      "passed": true,
+      "maximum": 0.03987685585737921,
+      "mean": 0.03987318420158346
+    },
+    {
+      "name": "stage-4-pause",
+      "passed": true
+    },
+    {
+      "name": "stage-4-mute",
+      "passed": true
+    },
+    {
+      "name": "giant-resident",
+      "passed": true
+    },
+    {
+      "name": "giant-moving",
+      "passed": true,
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "VDP-timing",
+      "passed": true,
+      "count": 0
+    }
+  ]
+}

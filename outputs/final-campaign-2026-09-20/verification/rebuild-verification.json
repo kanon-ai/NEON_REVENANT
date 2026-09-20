@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "rom_sha256": {
+    "v9990-1mb": "24578948654dd457cca81c37fc24dcb262b1a51e9307b1ac5fba7de8c34c9033",
+    "final-campaign\\msx1": "1029abea05be97379dccfd39ee3870bb86e50e1a1e6c4f625983559257a5bd50",
+    "final-campaign\\msx2": "589aa4c0e1c8a96ff1db1ebba0634d820a744540f5b306d016d56d674577ca90",
+    "final-campaign\\turbor": "96f2e9467591af11c3f11bf3b434a9b52e3858da76781c5797c1daabb557a5e5"
+  }
+}

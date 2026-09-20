@@ -1,14 +1,32 @@
 # NEON REVENANT
 
-**開発途中の実験的なプロトタイプを無保証で公開しています。開発側の検証はopenMSX上で行い、初代MSX版v1.4の開発側の実機・実カートリッジ動作は未確認です。** 旧版にはコミュニティから実機動作の報告が寄せられています。利用前に[免責事項](DISCLAIMER.md)と[著作権・ライセンスの状態](COPYRIGHT.md)を確認してください。
+**2026-09-20：全4機種の基本的な機能開発を締めくくる最終リリースです。試作ソフトとして無保証で提供し、不具合修正・サポートは保証しません。** この最終版の開発側の確認はopenMSX上で行っています。実機・実カートリッジでは未確認です。旧版へのコミュニティの実機報告とは区別しています。[免責事項](DISCLAIMER.md)・[著作権とライセンス](COPYRIGHT.md)
 
-夜のサイバー都市を疾走する、MSX用512 KiB ASCII8 MegaROMの疑似3Dシューティングです。『ナイトストライカー』に着想を得て、区域ごとのボス戦、連射とNOVAボムを実装しています。V9990版・turbo R単体版・MSX2版は3区域、初代MSX版v1.4は巨大最終ボスを含む5区域です。V9990版・turbo R単体版はMSX-MUSIC＋PSG、MSX2版・初代MSX版は標準PSGで音楽と効果音を鳴らします。本作はタイトーやMSX関連各社の公式作品ではありません。
+夜のサイバー都市を疾走する、全5区域の疑似3Dシューティングです。『ナイトストライカー』に着想を得た非公式作品で、ボス戦、射撃とNOVAを搭載しています。V9990版は**1 MiB ASCII8 ROM**、Turbo R単体・MSX2・MSX初代版は**512 KiB ASCII8 ROM**です。V9990版とTurbo R単体版はMSX-MUSIC＋PSG、MSX2版とMSX初代版は標準PSGで演奏します。
 
-「もしMSX3が存在したら」を出発点に、V9990から初代MSXまで、機種の制約に合わせた4種類のROMを公開しています。ゲームはMSX上のネイティブプログラムとして動きます。背景画像やパターンを開発時に生成し、実行時はMSXのVDPで表示・切り替え・合成します。
+## 最終リリース — 全機種5区域 / Final campaign
 
-[試作版のダウンロード / Releases](https://github.com/kanon-ai/NEON_REVENANT/releases)
+[**全機種ROM・ソースのダウンロード**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/final-campaign-2026-09-20) · [日英ガイド・制限事項](outputs/final-campaign-2026-09-20/README.md) · [検証結果](outputs/final-campaign-2026-09-20/verification/release-manifest.json)
 
-## 音楽再生タイミングの修正 — MSX2 / Turbo R / V9990
+| 機種 | 容量 | ROM | ソース |
+|---|---:|---|---|
+| Turbo R + V9990 | 1 MiB | [ダウンロード](outputs/final-campaign-2026-09-20/NEON_REVENANT-V9990-1MB-final.rom) | [V9990](v9990-1mb) |
+| Turbo R単体 | 512 KiB | [ダウンロード](outputs/final-campaign-2026-09-20/NEON_REVENANT-TurboR-final.rom) | [Turbo R](final-campaign/turbor) |
+| MSX2 | 512 KiB | [ダウンロード](outputs/final-campaign-2026-09-20/NEON_REVENANT-MSX2-final.rom) | [MSX2](final-campaign/msx2) |
+| MSX初代 | 512 KiB | [ダウンロード](outputs/final-campaign-2026-09-20/NEON_REVENANT-MSX1-final.rom) | [MSX1](final-campaign/msx1) |
+
+湾岸の「BREAKWATER APPROACH」から、従来の3区域を経て夜明けの「DAWN EXODUS」へ。既存中間3面の背景を保ち、各機種に合わせて湾岸・夜明けの描画を更新しました。V9990の既存面は従来の青灰色・シアン・オレンジを維持しています。全機種で独自フォントと文字の濃淡を見直しました。
+
+V9990・MSX2・Turbo R単体版は敵の移動・編隊・攻撃を追加し、後半へ進むほど難しくなります。V9990とMSX1には可動巨大ボスがあります。MSX2・Turbo R単体のボスは通常のスプライト方式です。
+MSX1はRAM32 KiB・VRAM16 KiBを維持します。MSX2の必要RAMは64 KiB、VRAMは128 KiBです。MSX2・Turbo R単体版は背景の可逆圧縮により512 KiBを維持していますが、面の切替時にそれぞれ約9～10秒／約2～3秒の展開待ちがあります。
+
+![4機種の実際のROMをopenMSXで撮影：湾岸・市街・夜明け](outputs/final-campaign-2026-09-20/comparison-native.png)
+
+openMSXで258項目のシナリオ検証、4 ROMの再ビルド一致、V9990既存3面のパレット維持を確認しました。場面をRAMで設定して検証しており、手操作での全編通しプレイや実機確認を意味しません。実機互換性・無欠陥・継続サポートは保証しません。以前のROM・ソース・リリースは引き続き参照できます。
+
+**Final feature release:** all four editions now contain five sectors. V9990 uses a 1 MiB ASCII8 ROM; standalone Turbo R, MSX2 and MSX1 remain 512 KiB. The original middle-stage artwork and V9990 city palette are preserved, with coastal/dawn scenes and custom typography. MSX2 / standalone Turbo R loading takes about 9–10 / 2–3 seconds per stage. Tested in openMSX using RAM-seeded scenarios, with 258 checks and reproducible ROM hashes. Physical hardware has not been validated for this release. Experimental, AS IS, WITHOUT WARRANTY; fixes and support are not promised. [English guide](outputs/final-campaign-2026-09-20/README.md#english)
+
+## 旧版の記録：音楽再生タイミングの修正 — MSX2 / Turbo R / V9990
 
 MSX2、Turbo R単体、V9990通常版、V9990 Feature Labの4版で、描画負荷によって曲のテンポや効果音の長さが変わる問題を改善しました。FM・PSGを描画から独立して更新します。背景・曲・ゲーム内容は維持しています。MSX1 v1.4は対応済みです。
 
@@ -20,7 +38,7 @@ openMSXで全4版×3ステージ、描画停止中の演奏周期、背景VRAM�
 
 Audio updates now run independently of rendering on MSX2, Turbo R, V9990 and V9990 Feature Lab. Music and artwork are preserved. Tested in openMSX, including RAM-seeded scenarios. Physical hardware, PAL machines and physical joysticks remain unverified. Experimental, AS IS, WITHOUT WARRANTY. Older packages remain available.
 
-## 初代MSX v1.4 — PSG・タイトル・戦闘の改良
+## 旧版の記録：初代MSX v1.4 — PSG・タイトル・戦闘の改良
 
 **PSG再生・タイトル画面・敵の動きを改良しました。512 KiB ASCII8・RAM32 KiB・VRAM16 KiBを維持しています。**
 PSGの更新を描画ループから分離し、専用タイトル、敵の進入・攻撃パターンを追加しました。
@@ -39,7 +57,7 @@ patterns, while preserving the selected artwork and the 512 KiB / 32 KiB RAM tar
 Tested in openMSX NTSC; physical hardware and PAL runtime remain unverified for this
 update. Experimental, AS IS, without warranty. Previous versions remain available.
 
-## V9990 Feature Lab v0.1 — V9990専用機能試験版
+## 旧版の記録：V9990 Feature Lab v0.1 — V9990専用機能試験版
 
 **Turbo R高速モード＋V9990に向けた、独立した512 KiB ASCII8試験版を追加しました。** 下位機種への移植を前提にせず、幅216ドットの可動砲台・回転コア付き巨大ボス、2面の発光ゲート、背景の帯ごとの変形、環境色の変化、2枚のハードウェアカーソルによる照準を試しています。既存4版のROMは変更していません。
 

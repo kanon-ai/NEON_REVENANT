@@ -1,0 +1,14 @@
+{
+  "sprites": 152,
+  "layout_matches_v1_1": true,
+  "assets_header_byte_identical": true,
+  "bytes": 81920,
+  "palette_matches_shared_source": true,
+  "packed_pixels_match_atlas_preview": true,
+  "repeat_generation_identical": true,
+  "sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+  "title_backplate_fully_opaque": true,
+  "title_fix_preserves_typography_and_other_atlas_pixels": true,
+  "title_background_pixels_changed": 8045,
+  "runtime_or_gameplay_files_changed_by_asset_task": false
+}

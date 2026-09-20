@@ -1,0 +1,33 @@
+{
+  "origin": "NEON REVENANT V9990 v1.2 authored assets",
+  "source_format": "256x180, 16 frames, 4bpp, even pixels in high nibble",
+  "files": [
+    {
+      "file": "world/stage-1.bin",
+      "bytes": 368640,
+      "sha256": "3de6e36f061ba842a7f8eca78c3b15d35ff1c083bedc6a665bddbc8c09d0f64a"
+    },
+    {
+      "file": "world/stage-2.bin",
+      "bytes": 368640,
+      "sha256": "60fc34442bf7d366264a3060d1355f13bb822010dafeb914af9899399c8a064e"
+    },
+    {
+      "file": "world/stage-3.bin",
+      "bytes": 368640,
+      "sha256": "28d0c7f8eaa525faee213252500ca065904e8bd2baf8d052cc9196f4d7833ca9"
+    },
+    {
+      "file": "title.png",
+      "sha256": "f8204d33b0e55a680e5ce3df4f4795ff266d2bf507ff6052a18fd2e10baa409d"
+    }
+  ],
+  "font_ascii": [
+    32,
+    95
+  ],
+  "font_bytes": 512,
+  "font_sha256": "f38f4498331e03b225d361dd949fb03ab5c0a81102342d8fe4c255f82654217e",
+  "font_source_atlas_sha256": "f678f1e5bd6fac0e222c589d2d7f4b88c5eff5d9666284d5d639b78e6c665404",
+  "font_placement": "Original 6x8 mask, shifted right one pixel in an 8x8 tile"
+}

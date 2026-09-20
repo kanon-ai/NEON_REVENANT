@@ -1,0 +1,41 @@
+{
+  "project": "SDCC",
+  "svn_revision": 16555,
+  "files": [
+    {
+      "path": "src/divunsigned.s",
+      "upstream_path": "device/lib/z80/divunsigned.s",
+      "upstream_url": "https://svn.code.sf.net/p/sdcc/code/!svn/bc/16555/trunk/sdcc/device/lib/z80/divunsigned.s",
+      "bytes": 5036,
+      "sha256": "c5c3b44d583e06c51ef65bdff768af548869f98b323439e1fcb8a434d0ddd913"
+    },
+    {
+      "path": "src/modunsigned.s",
+      "upstream_path": "device/lib/z80/modunsigned.s",
+      "upstream_url": "https://svn.code.sf.net/p/sdcc/code/!svn/bc/16555/trunk/sdcc/device/lib/z80/modunsigned.s",
+      "bytes": 1556,
+      "sha256": "2543c5c6d8e9a4bf1b24905df1c49d817a620d1f135bea6920629c4d66291e9e"
+    },
+    {
+      "path": "src/mul.s",
+      "upstream_path": "device/lib/z80/mul.s",
+      "upstream_url": "https://svn.code.sf.net/p/sdcc/code/!svn/bc/16555/trunk/sdcc/device/lib/z80/mul.s",
+      "bytes": 2207,
+      "sha256": "ae14a606bc1e7ae94cb86656fd77db7a9f1245ee28cffeb2376a626a9dfcd502"
+    },
+    {
+      "path": "src/divsigned.s",
+      "upstream_path": "device/lib/z80/divsigned.s",
+      "upstream_url": "https://svn.code.sf.net/p/sdcc/code/!svn/bc/16555/trunk/sdcc/device/lib/z80/divsigned.s",
+      "bytes": 4116,
+      "sha256": "2bcfdb749973b15f88a9a173dec7229f714a02aa087a75c8920d4ad9c81e16ea"
+    },
+    {
+      "path": "GPL-2.0.txt",
+      "upstream_path": "COPYING",
+      "upstream_url": "https://svn.code.sf.net/p/sdcc/code/!svn/bc/16555/trunk/sdcc/COPYING",
+      "bytes": 17990,
+      "sha256": "1ca3e8f71b7de618968e7ea9fe47822d9e704dc476aef8544033abedec355225"
+    }
+  ]
+}

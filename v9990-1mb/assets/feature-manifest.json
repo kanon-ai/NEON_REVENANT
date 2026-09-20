@@ -1,0 +1,151 @@
+{
+  "format": "V9990 256x64 4bpp; high nibble is even X; transparent index 0",
+  "bytes": 8192,
+  "sha256": "3b19cd8ecea52b7e2bf7254d9786b2e486e2df391be5ecbb1a4824f356f840ce",
+  "vram_base": "0x7E000",
+  "logical_y": 4032,
+  "art_height": 60,
+  "reserved_cursor_bytes": 512,
+  "reserved_cursor_range": "0x7FE00..0x7FFFF",
+  "reserved_cursor_bytes_all_zero": true,
+  "palette_rgb5": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      2,
+      3,
+      5
+    ],
+    [
+      5,
+      7,
+      9
+    ],
+    [
+      7,
+      11,
+      13
+    ],
+    [
+      5,
+      21,
+      23
+    ],
+    [
+      16,
+      27,
+      27
+    ],
+    [
+      28,
+      29,
+      28
+    ],
+    [
+      4,
+      3,
+      5
+    ],
+    [
+      11,
+      12,
+      14
+    ],
+    [
+      16,
+      11,
+      17
+    ],
+    [
+      29,
+      13,
+      18
+    ],
+    [
+      10,
+      6,
+      5
+    ],
+    [
+      27,
+      15,
+      7
+    ],
+    [
+      30,
+      23,
+      11
+    ],
+    [
+      31,
+      28,
+      21
+    ]
+  ],
+  "parts": {
+    "hull": {
+      "x": 0,
+      "y": 4032,
+      "w": 176,
+      "h": 60
+    },
+    "arm_left": {
+      "x": 176,
+      "y": 4032,
+      "w": 24,
+      "h": 60
+    },
+    "arm_right": {
+      "x": 200,
+      "y": 4032,
+      "w": 24,
+      "h": 60
+    },
+    "core_0": {
+      "x": 224,
+      "y": 4032,
+      "w": 30,
+      "h": 30
+    },
+    "core_1": {
+      "x": 224,
+      "y": 4062,
+      "w": 30,
+      "h": 30
+    }
+  },
+  "composition": {
+    "hull": [
+      40,
+      23
+    ],
+    "arm_left_offset": [
+      -20,
+      0
+    ],
+    "arm_right_offset": [
+      172,
+      0
+    ],
+    "core_offset": [
+      73,
+      24
+    ],
+    "bounding_width": 216,
+    "preview_is_emulator_capture": false
+  },
+  "verification": {
+    "no_atlas_overlap": true,
+    "transparent_margins": true,
+    "nibble_roundtrip": true,
+    "palette_indices_0_to_15": true
+  }
+}
