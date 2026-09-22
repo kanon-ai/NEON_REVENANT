@@ -1,5 +1,7 @@
 # NEON REVENANT HC — V9968 Edition
 
+**配布対象について：現在のv1.0は旧レジスタ仕様のエミュレータ向けプレビューです。実機動作を目標とする現行V9968仕様向けROMは修正・検証中で、この配布物は現行ハードウェア対応版ではありません。** / **Scope: v1.0 is a legacy-register emulator preview, not a current-hardware release. A ROM targeting the current V9968 specification is being revised and validated for the intended hardware target.**
+
 **HC = Hard Core。V9968専用の戦闘アレンジ版です。** 夜のサイバー都市を駆け抜ける5区域の疑似3Dシューティングに、敵の出現密度・接近・射撃を調整した、歯応えのある戦闘を組み合わせました。既存のV9990・Turbo R・MSX2・MSX初代版は変更していません。
 
 ![Title](outputs/launcher-title.png)

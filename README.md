@@ -8,6 +8,8 @@ NEON REVENANTは、同じゲームテーマで各MSX構成の特徴を比べる�
 
 ## V9968専用アレンジ — NEON REVENANT HC
 
+**配布対象について：現在のv1.0は旧レジスタ仕様のエミュレータ向けプレビューです。実機動作を目標とする現行V9968仕様向けROMは修正・検証中で、この配布物は現行ハードウェア対応版ではありません。** / **Scope: v1.0 is a legacy-register emulator preview, not a current-hardware release. A ROM targeting the current V9968 specification is being revised and validated for the intended hardware target.**
+
 **HC = Hard Core。** 5区域の夜景を駆け抜けるV9968版に、敵の出現・接近・射撃を調整した歯応えのある戦闘を加えました。**2 MiB ASCII8 / MSX turbo R＋V9968**。既存4機種版は変更していません。
 
 [**HC版 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0) · [日英ガイド・起動方法](v9968-hc/README.md)
