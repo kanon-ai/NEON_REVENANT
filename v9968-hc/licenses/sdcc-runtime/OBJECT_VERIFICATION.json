@@ -1,0 +1,39 @@
+{
+  "method": "sdasz80 -og outfile.rel src/module.s; compare against sdar p z80.lib module.rel, ignoring CRLF versus LF line endings",
+  "sdcc_version": "4.6.0 #16555",
+  "z80_lib_sha256": "800f7f0544352ac9f0bbadc7cb15a95ededbc62acab7f1ed948616961b8b479e",
+  "objects": [
+    {
+      "module": "divunsigned",
+      "same_rel_text_ignoring_crlf": true,
+      "library_object_sha256": "46ca2e0ad198f50bbcb32f5e192abcd8d8619dcde8a583430571918f18053e87",
+      "reassembled_object_sha256": "4e78df8d68e6a81116f5277225cde4a2787c65dbfad093e181e82514d1064032",
+      "library_object_bytes": 949,
+      "reassembled_object_bytes": 901
+    },
+    {
+      "module": "modunsigned",
+      "same_rel_text_ignoring_crlf": true,
+      "library_object_sha256": "26dc684eaaedfcb357589b3e0f69b615a39f52638ee0e41d9f67f0824fb0edc6",
+      "reassembled_object_sha256": "28d6ba4479dabb793b9a08e0bf1cf2f89a8bbc2de17406a84c1a49fdadfbcf17",
+      "library_object_bytes": 402,
+      "reassembled_object_bytes": 384
+    },
+    {
+      "module": "mul",
+      "same_rel_text_ignoring_crlf": true,
+      "library_object_sha256": "d3ff3ab2f61e99234f292619e8f593765b48a8a195847a51eaa6e78ac1eb5266",
+      "reassembled_object_sha256": "af9682c8547344d16ae9699e805f1b7d08f7fc30d3d6ca5d31a13fac71eb2e4d",
+      "library_object_bytes": 533,
+      "reassembled_object_bytes": 505
+    },
+    {
+      "module": "divsigned",
+      "same_rel_text_ignoring_crlf": true,
+      "library_object_sha256": "d4af4c6dc7a9041ab2e3c3c3924dde2ac4eb345d3dd5cf6dfd2d4b0a9e72f5e0",
+      "reassembled_object_sha256": "5fc3fbed70a42f629ba6bdcc6344ea038078ea18b490cb9d574c32eab170f11e",
+      "library_object_bytes": 1030,
+      "reassembled_object_bytes": 981
+    }
+  ]
+}

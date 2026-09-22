@@ -4,6 +4,18 @@
 
 夜のサイバー都市を疾走する、全5区域の疑似3Dシューティングです。『ナイトストライカー』に着想を得た非公式作品で、ボス戦、射撃とNOVAを搭載しています。V9990版は**1 MiB ASCII8 ROM**、Turbo R単体・MSX2・MSX初代版は**512 KiB ASCII8 ROM**です。V9990版とTurbo R単体版はMSX-MUSIC＋PSG、MSX2版とMSX初代版は標準PSGで演奏します。
 
+## V9968専用アレンジ — NEON REVENANT HC
+
+**HC = Hard Core。** 5区域の夜景を駆け抜けるV9968版に、敵の出現・接近・射撃を調整した歯応えのある戦闘を加えました。**2 MiB ASCII8 / MSX turbo R＋V9968**。既存4機種版は変更していません。
+
+[**HC版 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0) · [日英ガイド・起動方法](v9968-hc/README.md)
+
+![NEON REVENANT HC title](v9968-hc/outputs/launcher-title.png)
+
+V9968対応openMSXで確認済み。新版では **V9968_OLD** 互換設定を使います。実機・現行FPGAは未検証です。V9968仕様・エミュレータの更新により今後修正が必要になる場合があります。試作版・無保証であり、修正やサポートは保証しません。
+
+**V9968 HC:** a dedicated, more demanding combat arrangement. 2 MiB ASCII8; tested in V9968-enabled openMSX with the legacy-register compatibility profile. Physical hardware is unverified. Future V9968/emulator updates may require changes. Experimental, AS IS, without warranty. [English guide](v9968-hc/README.md#english).
+
 ## 最終リリース — 全機種5区域 / Final campaign
 
 [**全機種ROM・ソースのダウンロード**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/final-campaign-2026-09-20) · [日英ガイド・制限事項](outputs/final-campaign-2026-09-20/README.md) · [検証結果](outputs/final-campaign-2026-09-20/verification/release-manifest.json)
