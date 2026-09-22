@@ -3,7 +3,9 @@
 **HC = Hard Core。V9968専用の戦闘アレンジ版です。** 夜のサイバー都市を駆け抜ける5区域の疑似3Dシューティングに、敵の出現密度・接近・射撃を調整した、歯応えのある戦闘を組み合わせました。既存のV9990・Turbo R・MSX2・MSX初代版は変更していません。
 
 ![Title](outputs/launcher-title.png)
-![Gameplay](outputs/launcher-play.png)
+![V9968 HC gameplay](outputs/NEON_REVENANT-HC-V9968-gameplay.gif)
+
+公開ROMを新版V9968対応openMSXの互換設定で実行した映像です。タイトル1.5秒＋実際のプレイ12秒、20fps・無音。補間や再生速度の変更はありません。 / Captured from the released ROM in V9968-enabled openMSX compatibility mode: 1.5-second title hold and 12 seconds of gameplay, 20 fps, silent, no interpolation or speed changes.
 
 ## ダウンロードと起動
 - [ROM](outputs/NEON_REVENANT-HC-V9968.rom)：2 MiB、ASCII8。MSX turbo R（R800高速モード）＋外付けV9968、I/O 88h。

@@ -10,7 +10,9 @@
 
 [**HC版 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0) · [日英ガイド・起動方法](v9968-hc/README.md)
 
-![NEON REVENANT HC title](v9968-hc/outputs/launcher-title.png)
+![NEON REVENANT HC gameplay](v9968-hc/outputs/NEON_REVENANT-HC-V9968-gameplay.gif)
+
+実際の公開ROMをエミュレータで撮影したGIFです（20fps・無音・速度変更なし）。 / Actual released-ROM capture, 20 fps, silent, unchanged playback speed.
 
 V9968対応openMSXで確認済み。新版では **V9968_OLD** 互換設定を使います。実機・現行FPGAは未検証です。V9968仕様・エミュレータの更新により今後修正が必要になる場合があります。試作版・無保証であり、修正やサポートは保証しません。
 
