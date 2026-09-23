@@ -6,19 +6,21 @@ NEON REVENANTは、同じゲームテーマで各MSX構成の特徴を比べる�
 
 夜のサイバー都市を疾走する、全5区域の疑似3Dシューティングです。『ナイトストライカー』に着想を得た非公式作品で、ボス戦、射撃とNOVAを搭載しています。V9990版は**1 MiB ASCII8 ROM**、Turbo R単体・MSX2・MSX初代版は**512 KiB ASCII8 ROM**です。V9990版とTurbo R単体版はMSX-MUSIC＋PSG、MSX2版とMSX初代版は標準PSGで演奏します。
 
-## V9968専用アレンジ — NEON REVENANT HC v1.1
+## V9968専用アレンジ — NEON REVENANT HC v1.2
 
 **現行V9968仕様対応。HC = Hard Core。** 全5区域と戦闘アレンジを、接続方式別の2 MiB ASCII8 ROMでお楽しみいただけます。他機種版は変更していません。
 
-[**HC v1.1 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.1) · [日英ガイド・起動方法](v9968-hc/README.md)
+**v1.2では内蔵98h版の描画を高速化しました。** 絵柄・全5区域・敵パターン・音楽・背景の全16位相を維持し、画像配置、背景転送、HUDの再利用を最適化しています。外付け88h版および他機種版のROMは変更していません。
 
-- **内蔵98h版：2026年9月23日時点ではblueMSX Plusでのみ確認しています。実行にはV9968対応blueMSX Plusをご使用ください。**
+[**HC v1.2 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.2) · [日英ガイド・起動方法](v9968-hc/README.md)
+
+- **内蔵98h版：2026年9月23日時点ではblueMSX Plusで確認しています。実行にはV9968対応blueMSX Plusをご使用ください。**
 - **外付け88h版：暫定openMSXローカルビルドで確認した開発・検証用候補です。** 詳細な確認環境はガイドに記載しています。
 - **旧バージョンのゲームは、V9968対応openMSXの互換モードで動作可能です。** [旧版v1.0](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0)も利用できます。
 
 実機・現行FPGAは未検証です。試作版・無保証。V9968と各エミュレータの開発者・保守担当の皆様に感謝します。
 
-**English:** HC v1.1 targets the current V9968 specification. The internal 98h edition is validated only with V9968-enabled blueMSX Plus as of September 23, 2026; please use it for this edition. The external 88h development candidate was checked with a provisional local openMSX build. Earlier game releases can use openMSX compatibility mode. Physical hardware is untested. Experimental, AS IS. [English guide](v9968-hc/README.md#english).
+**English:** HC v1.2 optimizes rendering for the internal 98h edition while preserving the artwork, five sectors, combat patterns, music and all 16 background phases. External and other-platform ROMs are unchanged. The internal 98h edition is validated with V9968-enabled blueMSX Plus as of September 23, 2026; please use it for this edition. The external 88h development candidate was checked with a provisional local openMSX build. Earlier game releases can use openMSX compatibility mode. Physical hardware is untested. Experimental, AS IS. [English guide](v9968-hc/README.md#english).
 
 ## 最終リリース — 全機種5区域 / Final campaign
 

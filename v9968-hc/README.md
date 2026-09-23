@@ -1,12 +1,14 @@
-# NEON REVENANT HC v1.1 — V9968 Edition
+# NEON REVENANT HC v1.2 — V9968 Edition
 
 **V9968の現行レジスタ仕様に対応しました。** HCはHard Coreの略です。全5区域の夜景と、敵の出現・接近・射撃を調整した戦闘をお楽しみいただけます。既存の他機種版は変更していません。
+
+**v1.2の更新は内蔵98h版の描画最適化です。** 元の絵柄・全5区域・敵パターン・音楽・背景の全16位相を維持しています。画像を画素単位で保持したまま詰め直し、背景57行×16位相の常駐、差分転送の短縮、HUDと見出しの再利用を組み合わせました。フレーム間引きや敵の削減は行っていません。外付け88h版のROMはv1.1と同一です。
 
 エミュレータの検証や実機開発にもご利用いただけるよう、接続方式別のROMとソースを収録しました。V9968と各エミュレータの開発・保守に携わる皆様に感謝します。
 
 ## ダウンロードと確認環境
 
-[ROM・ソース一式／v1.1リリース](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.1)
+[ROM・ソース一式／v1.2リリース](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.2)
 
 | ROM | 接続方式 | 確認環境 |
 |---|---|---|
@@ -15,7 +17,7 @@
 
 両版とも **MSX turbo R（R800）／2 MiB ASCII8／V9968 VRAM 256KB** 向けです。R#21=3Ah（V58=0）、R#20=11hを使用します。接続方式に合うROMを選んでください。
 
-**内蔵98h版は、2026年9月23日時点ではblueMSX Plusでのみ確認しています。実行にはV9968対応のblueMSX Plusをご使用ください。** 外付け88h版は、上記の暫定openMSXで確認した開発・検証用候補です。通常配布ビルドでの確認を意味しません。暫定エミュレータは同梱しません。
+**内蔵98h版は、2026年9月23日時点ではblueMSX Plusで確認しています。実行にはV9968対応のblueMSX Plusをご使用ください。** 外付け88h版は、上記の暫定openMSXで確認した開発・検証用候補です。通常配布ビルドでの確認を意味しません。暫定エミュレータは同梱しません。
 
 **旧バージョンのゲームは、V9968対応openMSXの互換モードで動作可能です。** [旧版v1.0](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0)も引き続き利用できます。
 
@@ -52,15 +54,19 @@ python tools/build.py --target=internal
 
 内蔵版では起動・タイトル表示、専用診断によるID切り替え、256KB内の8領域の読み書き、上位VRAMコピー、5区域各96フレームのゲーム更新・描画を確認しました。外付け版は起動、背景全5区域×16位相のVRAM照合と操作シナリオで確認しています。診断や場面設定を使った確認を含み、手操作での全編クリアや実機確認を意味しません。通常ROMに診断用自動操作は含めていません。
 
-配布ソースからの再ビルドとROMの一致を確認しています。[SHA256SUMS.txt](SHA256SUMS.txt)を参照してください。`hardware-internal.c` / `world_load-internal.c` は内蔵用です。
+v1.2内蔵版はblueMSX Plusで起動・タイトル表示と計測用ゲームシナリオを確認しました。別途、混戦・各面ボス・タイトル・一時停止・クリア等の2,080更新／場面について、最適化前後の画面の画素一致を確認しています。開始・移動・射撃・NOVA・一時停止／再開と音楽更新周期も確認しました。これらは診断・場面設定を含む検証であり、手操作での全編クリアや実機検証ではありません。
+
+追加確認：2026年9月23日に更新されたopenMSXでも、内蔵98h版の起動・操作・音楽更新と全5区域を含む160場面の画素一致を確認しました（実行ファイルSHA-256：`0528593dc9c71f40dcca00193c1b3ea8d745b833c3c7c0fd38cebc651ef1a62d`）。実行案内は引き続きblueMSX Plusを基本とします。
+
+配布ソースからの再ビルドとROMの一致を確認しています。[SHA256SUMS.txt](SHA256SUMS.txt)を参照してください。`game-internal.c` / `hardware-internal.c` / `world_load-internal.c` は内蔵用です。`tools/pack_internal.py` は元の画像から内蔵用配置を生成し、全スプライトの画素一致を検査します。
 
 **試作版・無保証。実機・現行FPGAでの動作は未検証です。修正や継続サポートは保証しません。** [免責事項](DISCLAIMER.md)・[利用条件](COPYRIGHT.md)・[第三者ライセンス](THIRD_PARTY_NOTICES.md)
 
 ## English
 
-NEON REVENANT HC v1.1 targets the current V9968 register specification and retains the five-sector campaign and Hard Core combat arrangement. Other editions are unchanged. Two 2 MiB ASCII8 ROMs are provided for turbo R/R800 with 256KB V9968 VRAM:
+NEON REVENANT HC v1.2 optimizes internal-98h rendering through lossless sprite packing, a larger background cache, shorter transfers and cached HUD/banner rendering. Artwork, all 16 background phases, music and combat rules are preserved. The external ROM is byte-identical to v1.1. Other editions are unchanged. Two 2 MiB ASCII8 ROMs are provided for turbo R/R800 with 256KB V9968 VRAM:
 
-- **INTERNAL.rom:** internal VDP at 98h. As of September 23, 2026, this edition has been validated only with V9968-enabled blueMSX Plus. Please use that emulator to run it. Tested source: experimental/v9968 at `7f7a2572604dcd3dc82ba4cc7a8b7f6c9b3a9d92`.
+- **INTERNAL.rom:** internal VDP at 98h. As of September 23, 2026, this edition has been validated with V9968-enabled blueMSX Plus. Please use that emulator to run it. Tested source: experimental/v9968 at `7f7a2572604dcd3dc82ba4cc7a8b7f6c9b3a9d92`.
 - **V9968.rom:** external cartridge configuration at 88h, a development/testing candidate checked with the provisional local openMSX build identified above. This is not a claim of validation with a standard distributed emulator build.
 
 Earlier releases can be played using compatibility mode in V9968-enabled openMSX. The v1.0 release remains available. Emulator executables and BIOS files are not included. Thanks to the V9968 and emulator developers and maintainers.
@@ -70,3 +76,5 @@ Use your own turbo R BIOS and V9968 machine profile. The internal launcher accep
 Arrows/joystick: move; SPACE/trigger 1: start/fire; X/trigger 2: NOVA; ESC: pause/resume. Up+fire at the title starts the final-boss test.
 
 Checks include dedicated diagnostics and scripted scenarios, not a complete manual playthrough. Physical hardware/current FPGA are untested. Experimental, AS IS, WITHOUT WARRANTY; fixes and continuing support are not guaranteed.
+
+Additional check: the September 23 updated openMSX executable (SHA-256 above) passed internal-edition controls, music update cadence and 160 pixel-matched scenes spanning all five sectors. The primary execution guide remains blueMSX Plus.

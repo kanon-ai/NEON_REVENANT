@@ -31,14 +31,20 @@ upload_ready:
 }
 static void load(u8 b,u16 offset,u16 y,u8 pages){gfx_wait();bank=b;*((volatile u8*)0x6800)=bank;source=(const u8*)(0x6000+offset);vram_address(y);upload(pages);}
 void assets_load(void){u8 i;for(i=0;i<10;i++)load(4+i,0,512+(u16)i*64,32);}
-void feature_load(void){load(14,0,1984,32);}
+void feature_load(void){load(14,0,1988,30);}
 static u8 last_high;
 static void execute_delta(void) __naked {
  __asm
  ld hl,(_source)
  ld c,#0x98
- ld a,#255
+ xor a
  ld (_last_high),a
+ di
+ ld a,#6
+ out (0x99),a
+ ld a,#142
+ out (0x99),a
+ ei
 next_run:
  ld a,h
  cp #0x7F
@@ -66,31 +72,26 @@ fast_header:
  ld d,(hl)
  inc hl
 header_done:
- push de
- ld a,d
- and #0x40
- rlca
- rlca
- add a,#9
- ld e,a
+ di
  ld a,(_last_high)
- cp e
+ xor d
+ and #128
  jr z,high_ready
- ld a,e
+ ld a,d
  ld (_last_high),a
+ and #128
+ rlca
+ add a,#6
  out (0x99),a
  ld a,#142
  out (0x99),a
 high_ready:
- ; Header low address is re-read from the two bytes immediately before HL.
- ; Preserve DE offset across high register calculation instead (see push below).
- pop de
  ld a,e
  out (0x99),a
  ld a,d
- and #63
- or #64
+ and #127
  out (0x99),a
+ ei
  ld a,h
  cp #0x7F
  jr nz,delta_fast
@@ -136,25 +137,27 @@ delta_end:
  __endasm;
 }
 static void delta(u8 frame){bank=delta_banks[current_stage][frame];*((volatile u8*)0x6800)=bank;source=(const u8*)(0x6000+delta_offsets[current_stage][frame]);execute_delta();}
-/* 16 x 40-row strips occupy y=1332..1971, below feature y=1984.
+/* 16 x 57-row strips occupy y=1012..1923. UI uses 1924..1984;
+ * the 60-row feature atlas occupies 1988..2047.
  * All phases are retained. Only this band uses a VRAM-resident source. */
 static void copy_cached_band(u8 frame){
- u16 sy=1332+(u16)frame*40,dy=1152+band_tops[current_stage];
+ u16 sy=1012+(u16)frame*57,dy=832+band_tops[current_stage];
  gfx_wait();reg_write(17,32);
  cache_command=0;cache_command=0;
  cache_command=(u8)sy;cache_command=sy>>8;
  cache_command=0;cache_command=0;
  cache_command=(u8)dy;cache_command=dy>>8;
  cache_command=0;cache_command=1;
- cache_command=40;cache_command=0;
+ cache_command=57;cache_command=0;
  cache_command=0;cache_command=0;cache_command=0xD0;
 }
 void world_load(u8 s){current_stage=s;cached_frame=255;}
 u16 world_resolve(u16 sy){u16 relative=sy-1152;u8 frame=relative/180,i;
  if(cached_frame!=frame){gfx_wait();if(cached_frame==255){
-  for(i=0;i<10;i++)load(cache_banks[current_stage]+i,0,1332+(u16)i*64,32);
-  load(raw_banks[current_stage],0,1152,90);cached_frame=0;}
+  for(i=0;i<14;i++)load(cache_banks[current_stage]+i,0,1012+(u16)i*64,32);
+  load(cache_banks[current_stage]+14,0,1908,8);
+  load(raw_banks[current_stage],0,832,90);cached_frame=0;}
  while(cached_frame!=frame){cached_frame=(cached_frame+1)&15;delta(cached_frame);}
  copy_cached_band(frame);}
- return 1152+relative%180;
+ return 832+relative%180;
 }

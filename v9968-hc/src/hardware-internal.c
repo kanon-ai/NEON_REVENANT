@@ -84,8 +84,26 @@ void audio_setup(void) {
 }
 
 
-void reg_write(u8 r,u8 v){ctl=v;ctl=r|128;}
-void vram_address(u16 y){reg_write(14,y>>7);ctl=(u8)(y<<7);ctl=((y>>1)&63)|64;}
+/* Preserve SDCC register arguments before reading IFF2; keep each
+ * two-byte control write atomic while the audio IRQ remains active. */
+void reg_write(u8 r,u8 v) __naked {
+ __asm
+ ld c,a
+ ld a,i
+ di
+ push af
+ ld a,l
+ out (0x99),a
+ ld a,c
+ or #128
+ out (0x99),a
+ pop af
+ ret po
+ ei
+ ret
+ __endasm;
+}
+void vram_address(u16 y) __critical {ctl=y>>7;ctl=142;ctl=(u8)(y<<7);ctl=((y>>1)&63)|64;}
 void gfx_wait(void){while(ctl&1){}}
 void gfx_vblank(void){while(!(ctl&64)){}}
 #define WORD(v) do {cmd=(u8)(v);cmd=(u8)((v)>>8);}while(0)
@@ -105,13 +123,15 @@ void gfx_init(void){
  reg_write(18,0);reg_write(23,0);reg_write(25,0);reg_write(26,0);reg_write(27,0);
  reg_write(15,2);palette_pending=0;set_palette(0);gfx_fill(0,0,256,512,0);gfx_wait();
 }
-void gfx_fill(u16 x,u16 y,u16 w,u16 h,u8 c){if(!w||!h)return;gfx_wait();reg_write(17,36);WORD(x);WORD(y);WORD(w);WORD(h);cmd=color_map[c];cmd=0;cmd=0x80;}
+void gfx_fill(u16 x,u16 y,u16 w,u16 h,u8 c){if(!w||!h)return;gfx_wait();reg_write(17,36);WORD(x);WORD(y);WORD(w);WORD(h);cmd=((x|w)&1)?color_map[c]:(color_map[c]*17);cmd=0;cmd=((x|w)&1)?0x80:0xC0;}
 void gfx_rect(u16 x,u16 y,u16 w,u16 h,u8 c){gfx_fill(x,y,w,h,c);}
 void gfx_blit(u16 sx,u16 sy,u16 dx,u16 dy,u16 w,u16 h,u8 t){
  if(!w||!h)return;
- if(sy>=4032)sy=1984+sy-4032;
+ if(sy>=8192)sy-=8192;
+ else if(sy>=4032)sy=1988+sy-4032;
  else if(sy>=1152)sy=world_resolve(sy);
- gfx_wait();reg_write(17,32);WORD(sx);WORD(sy);WORD(dx);WORD(dy);WORD(w);WORD(h);cmd=0;cmd=0;cmd=t?0x98:0x90;
+ gfx_wait();reg_write(17,32);WORD(sx);WORD(sy);WORD(dx);WORD(dy);WORD(w);WORD(h);/* SCREEN 5: HMMM is pixel-exact only for byte-aligned opaque spans. */
+ cmd=0;cmd=0;cmd=t?0x98:(((sx|dx|w)&1)?0x90:0xD0);
 }
 void gfx_copy(u16 sx,u16 sy,u16 dx,u16 dy,u16 w,u16 h,u8 t){gfx_blit(sx,sy,dx,dy,w,h,t);}
 void gfx_line(u16 x,u16 y,u16 x1,u16 y1,u8 c){u16 dx,dy,tmp;u8 a=0;
@@ -123,10 +143,7 @@ void gfx_palette_select(u8 b){palette_pending=b&3;}
 void gfx_cursor(u16 x,u16 y,u8 on,u8 lock){cursor_x=x;cursor_y=y;cursor_on=on;cursor_lock=lock;}
 void gfx_flip(u8 page){u16 x,y;if(cursor_on){x=cursor_x;y=cursor_y+((u16)page<<8);
  if(x>12&&x<244&&cursor_y>12&&cursor_y<196){
- gfx_line(x-10,y-10,x-5,y-10,0xF3);gfx_line(x+5,y-10,x+10,y-10,0xF3);
- gfx_line(x-10,y+10,x-5,y+10,0xF3);gfx_line(x+5,y+10,x+10,y+10,0xF3);
- gfx_line(x-10,y-10,x-10,y-5,0xF3);gfx_line(x+10,y-10,x+10,y-5,0xF3);
- gfx_line(x-10,y+5,x-10,y+10,0xF3);gfx_line(x+10,y+5,x+10,y+10,0xF3);
+ gfx_blit(232,544,x-10,y-10,21,21,1);
  if(cursor_lock)gfx_fill(x-1,y-1,3,3,0xFF);
  }}gfx_wait();gfx_vblank();if(palette_current!=palette_pending)set_palette(palette_pending);reg_write(2,page?0x3F:0x1F);
 }

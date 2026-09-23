@@ -48,5 +48,5 @@ The four ROM editions link four SDCC Z80 runtime objects: `divunsigned`, `moduns
 
 Compilers, assemblers, Python packages, Node.js, openMSX, and machine BIOS files are not bundled in the public repository or release archives. External tools retain their respective licenses. This is an unofficial, experimental project, with no endorsement by the owners of the referenced product or game names.
 
-## V9968 HC v1.1
+## V9968 HC v1.2
 HC uses the same four SDCC runtime objects listed above; corresponding sources and notices are included. V9968 specification: https://github.com/hra1129 . Emulator projects: https://github.com/Hesoten/blueMSX-plus and https://buppu3.github.io/ . Emulator and BIOS binaries are not bundled. We thank their developers and maintainers.

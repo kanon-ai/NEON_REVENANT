@@ -1,6 +1,6 @@
 # V9968 HC output files
 
-v1.1: NEON_REVENANT-HC-V9968.rom is the current-spec external 88h candidate; NEON_REVENANT-HC-V9968-INTERNAL.rom is the current-spec internal 98h edition. See the parent README for tested environments.
+v1.2: NEON_REVENANT-HC-V9968-INTERNAL.rom is the optimized current-spec internal 98h edition. NEON_REVENANT-HC-V9968.rom is the unchanged v1.1 external 88h candidate. See the parent README for tested environments.
 
 launcher-play.png shows the v1.1 external ROM in the documented provisional emulator. launcher-title.png is the archived v1.0 title capture.
 
