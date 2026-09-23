@@ -1,3 +1,0 @@
-<?xml version="1.0"?>
-<!DOCTYPE msxconfig SYSTEM "msxconfig2.dtd">
-<msxconfig><info><name>V9968 legacy register compatibility</name><type>graphics expansion</type></info><devices><VDP id="V9968"><version>V9968_OLD</version><io base="0x88" num="5" type="O"/><io base="0x88" num="5" type="I"/><timing>0</timing></VDP></devices></msxconfig>

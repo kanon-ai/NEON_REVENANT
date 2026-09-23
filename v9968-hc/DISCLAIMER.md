@@ -32,7 +32,7 @@ BIOS・システムROMその他の外部ファイルは、それぞれの権利�
 
 ## English notice
 
-This is an experimental prototype under development. Bugs, incompatibilities, and changes are expected. Testing has been performed in the documented openMSX configurations; physical MSX hardware and cartridge operation have not been validated.
+This is an experimental prototype under development. Bugs, incompatibilities, and changes are expected. Testing has been performed in the documented emulator configurations; physical MSX hardware and cartridge operation have not been validated.
 
 To the maximum extent permitted by applicable law, the project is provided **AS IS and AS AVAILABLE**, without express or implied warranties, including merchantability, fitness for a particular purpose, and non-infringement. To that same extent, the publisher and those involved in providing the project disclaim liability for damages arising from its use or inability to use it, including data loss or corruption, device damage, lost profits, and direct, indirect, incidental, special, or consequential damages. There is no obligation to provide updates, fixes, or support.
 

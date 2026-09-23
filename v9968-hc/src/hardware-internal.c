@@ -2,11 +2,12 @@
 #include "sound.h"
 #include "palette.h"
 #include "world_load.h"
-__sfr __at (0x88) hw_vram;
-__sfr __at (0x89) ctl;
-__sfr __at (0x8A) pal;
-__sfr __at (0x8B) cmd;
-__sfr __at (0x8C) unlock;
+void reg_write(u8 r,u8 v);
+__sfr __at (0x98) hw_vram;
+__sfr __at (0x99) ctl;
+__sfr __at (0x9A) pal;
+__sfr __at (0x9B) cmd;
+__sfr __at (0x9C) unlock;
 __sfr __at (0xA0) hw_psg_select;
 __sfr __at (0xA1) hw_psg_write;
 __sfr __at (0xA2) hw_psg_read;
@@ -40,9 +41,11 @@ void audio_irq(void) __naked {
         push hl
         push ix
         push iy
-        in a,(#0x99)
-        bit 7,a
+        in a,(#0x9C)
+        bit 0,a
         jr z,audio_irq_done
+        ld a,#1
+        out (#0x9C),a
         ld a,(_audio_frames)
         inc a
         ld (_audio_frames),a
@@ -67,12 +70,10 @@ void audio_setup(void) {
      * Keep E800..EFFF LZ history and downward F300 stack untouched. */
     for(i=0;i<257;++i)((u8*)0xF400)[i]=0xF5;
     *((u8*)0xF5F5)=0xC3;*((u16*)0xF5F6)=(u16)audio_irq;
-    /* Native VDP is the 60 Hz clock; V9990 ports remain foreground-only. */
-    audio_vdp=0;audio_vdp=0x80;
-    audio_vdp=0;audio_vdp=0x89;
-    audio_vdp=0;audio_vdp=0x8F;
-    audio_vdp=0x20;audio_vdp=0x81;
-    (void)audio_vdp;
+    /* Native V9968 shares graphics and audio; P#4 acknowledges VBlank
+     * without disturbing the foreground control latch or S#2 selection. */
+    unlock=7;
+    reg_write(1,0x60);
     audio_irq_ready=1;
     __asm
         ld a,#0xF4

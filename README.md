@@ -6,21 +6,19 @@ NEON REVENANTは、同じゲームテーマで各MSX構成の特徴を比べる�
 
 夜のサイバー都市を疾走する、全5区域の疑似3Dシューティングです。『ナイトストライカー』に着想を得た非公式作品で、ボス戦、射撃とNOVAを搭載しています。V9990版は**1 MiB ASCII8 ROM**、Turbo R単体・MSX2・MSX初代版は**512 KiB ASCII8 ROM**です。V9990版とTurbo R単体版はMSX-MUSIC＋PSG、MSX2版とMSX初代版は標準PSGで演奏します。
 
-## V9968専用アレンジ — NEON REVENANT HC
+## V9968専用アレンジ — NEON REVENANT HC v1.1
 
-**配布対象について：現在のv1.0は旧レジスタ仕様のエミュレータ向けプレビューです。実機動作を目標とする現行V9968仕様向けROMは修正・検証中で、この配布物は現行ハードウェア対応版ではありません。** / **Scope: v1.0 is a legacy-register emulator preview, not a current-hardware release. A ROM targeting the current V9968 specification is being revised and validated for the intended hardware target.**
+**現行V9968仕様対応。HC = Hard Core。** 全5区域と戦闘アレンジを、接続方式別の2 MiB ASCII8 ROMでお楽しみいただけます。他機種版は変更していません。
 
-**HC = Hard Core。** 5区域の夜景を駆け抜けるV9968版に、敵の出現・接近・射撃を調整した歯応えのある戦闘を加えました。**2 MiB ASCII8 / MSX turbo R＋V9968**。既存4機種版は変更していません。
+[**HC v1.1 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.1) · [日英ガイド・起動方法](v9968-hc/README.md)
 
-[**HC版 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0) · [日英ガイド・起動方法](v9968-hc/README.md)
+- **内蔵98h版：2026年9月23日時点ではblueMSX Plusでのみ確認しています。実行にはV9968対応blueMSX Plusをご使用ください。**
+- **外付け88h版：暫定openMSXローカルビルドで確認した開発・検証用候補です。** 詳細な確認環境はガイドに記載しています。
+- **旧バージョンのゲームは、V9968対応openMSXの互換モードで動作可能です。** [旧版v1.0](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0)も利用できます。
 
-![NEON REVENANT HC gameplay](v9968-hc/outputs/NEON_REVENANT-HC-V9968-gameplay.gif)
+実機・現行FPGAは未検証です。試作版・無保証。V9968と各エミュレータの開発者・保守担当の皆様に感謝します。
 
-実際の公開ROMをエミュレータで撮影したGIFです（20fps・無音・速度変更なし）。 / Actual released-ROM capture, 20 fps, silent, unchanged playback speed.
-
-V9968対応openMSXで確認済み。新版では **V9968_OLD** 互換設定を使います。実機・現行FPGAは未検証です。V9968仕様・エミュレータの更新により今後修正が必要になる場合があります。試作版・無保証であり、修正やサポートは保証しません。
-
-**V9968 HC:** a dedicated, more demanding combat arrangement. 2 MiB ASCII8; tested in V9968-enabled openMSX with the legacy-register compatibility profile. Physical hardware is unverified. Future V9968/emulator updates may require changes. Experimental, AS IS, without warranty. [English guide](v9968-hc/README.md#english).
+**English:** HC v1.1 targets the current V9968 specification. The internal 98h edition is validated only with V9968-enabled blueMSX Plus as of September 23, 2026; please use it for this edition. The external 88h development candidate was checked with a provisional local openMSX build. Earlier game releases can use openMSX compatibility mode. Physical hardware is untested. Experimental, AS IS. [English guide](v9968-hc/README.md#english).
 
 ## 最終リリース — 全機種5区域 / Final campaign
 

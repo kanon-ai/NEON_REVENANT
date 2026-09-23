@@ -1,0 +1,13 @@
+{
+  "title": "NEON REVENANT HC",
+  "edition": "Hard Core / V9968",
+  "file": "NEON_REVENANT-HC-V9968-INTERNAL.rom",
+  "bytes": 2097152,
+  "sha256": "2edd5f5c480f2b04578a3fb4f2da8a9bcc8651b145f6c9a6a248b505dc05648a",
+  "runtime_bytes": 17737,
+  "version": "1.1",
+  "profile": "current V9968 internal 98h",
+  "source": "V9990 final five-stage campaign",
+  "art": "byte-identical original atlas, five 16-frame worlds, feature",
+  "hardware_verified": false
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!DOCTYPE msxconfig SYSTEM 'msxconfig2.dtd'>
+<msxconfig>
+  <info>
+    <name>tangnano20k_vdp_cartridge_rev2</name>
+    <manufacturer>HRA!</manufacturer>
+    <code>V9968</code>
+    <release_year>2025</release_year>
+    <description>V9968 expansion cartridge</description>
+    <type>graphics expansion</type>
+  </info>
+  <devices>
+    <VDP id="V9968">
+      <version>V9968</version><vram>128</vram>
+      <io base="0x88" num="5" type="O"/> <!-- No mirroring of VDP ports -->
+      <io base="0x88" num="5" type="I"/>
+      <timing>0</timing> <!-- 0:V9968 compatible / 1:Normal Speed Mode uses V9958 timing. -->
+    </VDP>
+  </devices>
+</msxconfig>

@@ -5,6 +5,9 @@ ROOT=Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
 build=ROOT/'work/build';build.mkdir(parents=True,exist_ok=True)
 out=ROOT/'outputs';out.mkdir(exist_ok=True)
+target_mode=next((v.split('=',1)[1] for v in sys.argv if v.startswith('--target=')), 'external')
+assert target_mode in ('external','internal'), 'Use --target=external or --target=internal'
+
 local_tools=ROOT/'work/toolchain/sdcc/bin'
 parent_tools=ROOT.parent/'work/toolchain/sdcc/bin'
 bindir=Path(os.environ.get('SDCC_BIN',str(local_tools if local_tools.exists() else parent_tools)))
@@ -50,7 +53,8 @@ for name in ['game','hardware','sound','world_load']:
     rel=build/(name+'.rel');rels.append(rel)
     # World offsets depend on compression; always compile/link the current
     # tables, including when --pack-only reuses already generated artwork.
-    run([sdcc,*flags,'-I','src','-c','src/'+name+'.c','-o',rel])
+    source_name=name+'-internal' if target_mode=='internal' and name in ('hardware','world_load') else name
+    run([sdcc,*flags,'-I','src','-c','src/'+source_name+'.c','-o',rel])
 run([sdcc,*flags,'-o',build/'game.ihx',*rels])
 mem={}
 for line in (build/'game.ihx').read_text().splitlines():
@@ -75,7 +79,7 @@ boot=(build/'boot.bin').read_bytes();assert len(boot)==8192
 rom=boot+runtime+payload
 assert len(rom)<=2097152
 rom+=bytes([255])*(2097152-len(rom))
-target=out/'NEON_REVENANT-HC-V9968.rom';target.write_bytes(rom)
+target=out/('NEON_REVENANT-HC-V9968-INTERNAL.rom' if target_mode=='internal' else 'NEON_REVENANT-HC-V9968.rom');target.write_bytes(rom)
 (build/'symbols.json').write_text(json.dumps(symbols,indent=2))
-manifest={'title':'NEON REVENANT HC','edition':'Hard Core / V9968','file':target.name,'bytes':len(rom),'sha256':hashlib.sha256(rom).hexdigest(),'runtime_bytes':max(mem)-0x8000+1,'profile':'legacy V9968 external 88h','source':'V9990 final five-stage campaign','art':'byte-identical original atlas, five 16-frame worlds, feature','hardware_verified':False}
-(out/'build-manifest.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest,indent=2))
+manifest={'title':'NEON REVENANT HC','edition':'Hard Core / V9968','file':target.name,'bytes':len(rom),'sha256':hashlib.sha256(rom).hexdigest(),'runtime_bytes':max(mem)-0x8000+1,'version':'1.1','profile':('current V9968 internal 98h' if target_mode=='internal' else 'current V9968 external 88h'),'source':'V9990 final five-stage campaign','art':'byte-identical original atlas, five 16-frame worlds, feature','hardware_verified':False}
+(out/('build-manifest-'+target_mode+'.json')).write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest,indent=2))
