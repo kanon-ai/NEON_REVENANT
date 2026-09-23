@@ -17,7 +17,7 @@
 
 両版とも **MSX turbo R（R800）／2 MiB ASCII8／V9968 VRAM 256KB** 向けです。R#21=3Ah（V58=0）、R#20=11hを使用します。接続方式に合うROMを選んでください。
 
-**内蔵98h版は、2026年9月23日時点ではblueMSX Plusで確認しています。実行にはV9968対応のblueMSX Plusをご使用ください。** 外付け88h版は、上記の暫定openMSXで確認した開発・検証用候補です。通常配布ビルドでの確認を意味しません。暫定エミュレータは同梱しません。
+**内蔵98h版は、2026年9月23日時点でV9968対応blueMSX Plusと更新版openMSXの双方で検証済みです。実行手順はblueMSX Plusを基本として案内します。** 外付け88h版は、上記の暫定openMSXで確認した開発・検証用候補です。通常配布ビルドでの確認を意味しません。暫定エミュレータは同梱しません。
 
 **旧バージョンのゲームは、V9968対応openMSXの互換モードで動作可能です。** [旧版v1.0](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0)も引き続き利用できます。
 
@@ -66,7 +66,7 @@ v1.2内蔵版はblueMSX Plusで起動・タイトル表示と計測用ゲーム�
 
 NEON REVENANT HC v1.2 optimizes internal-98h rendering through lossless sprite packing, a larger background cache, shorter transfers and cached HUD/banner rendering. Artwork, all 16 background phases, music and combat rules are preserved. The external ROM is byte-identical to v1.1. Other editions are unchanged. Two 2 MiB ASCII8 ROMs are provided for turbo R/R800 with 256KB V9968 VRAM:
 
-- **INTERNAL.rom:** internal VDP at 98h. As of September 23, 2026, this edition has been validated with V9968-enabled blueMSX Plus. Please use that emulator to run it. Tested source: experimental/v9968 at `7f7a2572604dcd3dc82ba4cc7a8b7f6c9b3a9d92`.
+- **INTERNAL.rom:** internal VDP at 98h. As of September 23, 2026, this edition has been checked with both V9968-enabled blueMSX Plus and updated openMSX. The primary execution guide uses blueMSX Plus. Tested source: experimental/v9968 at `7f7a2572604dcd3dc82ba4cc7a8b7f6c9b3a9d92`.
 - **V9968.rom:** external cartridge configuration at 88h, a development/testing candidate checked with the provisional local openMSX build identified above. This is not a claim of validation with a standard distributed emulator build.
 
 Earlier releases can be played using compatibility mode in V9968-enabled openMSX. The v1.0 release remains available. Emulator executables and BIOS files are not included. Thanks to the V9968 and emulator developers and maintainers.
@@ -78,3 +78,7 @@ Arrows/joystick: move; SPACE/trigger 1: start/fire; X/trigger 2: NOVA; ESC: paus
 Checks include dedicated diagnostics and scripted scenarios, not a complete manual playthrough. Physical hardware/current FPGA are untested. Experimental, AS IS, WITHOUT WARRANTY; fixes and continuing support are not guaranteed.
 
 Additional check: the September 23 updated openMSX executable (SHA-256 above) passed internal-edition controls, music update cadence and 160 pixel-matched scenes spanning all five sectors. The primary execution guide remains blueMSX Plus.
+
+今後の検証方針：V9968版はblueMSX PlusとopenMSXの両方で検証します。今回の内蔵版最適化は両環境の計測用ゲームシナリオで処理時間の短縮を確認しました。更新版openMSXでは通常戦闘・ボス戦の全10条件で約26〜29％短縮しています。これは同条件での最適化前後の比較であり、実機性能や全場面のフレームレートを保証する値ではありません。
+
+Future V9968 validation will use both blueMSX Plus and openMSX. Scripted gameplay measurements confirmed reduced processing time in both environments. Updated openMSX showed approximately 26–29% lower processing time across ten normal/boss scenarios compared with the pre-optimization renderer under the same conditions. These are emulator measurements, not physical-hardware or universal frame-rate guarantees.

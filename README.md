@@ -14,13 +14,13 @@ NEON REVENANTは、同じゲームテーマで各MSX構成の特徴を比べる�
 
 [**HC v1.2 ROM・ソース**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.2) · [日英ガイド・起動方法](v9968-hc/README.md)
 
-- **内蔵98h版：2026年9月23日時点ではblueMSX Plusで確認しています。実行にはV9968対応blueMSX Plusをご使用ください。**
+- **内蔵98h版：2026年9月23日時点でV9968対応blueMSX Plusと更新版openMSXの双方で検証済みです。** 確認範囲・環境はガイドをご参照ください。
 - **外付け88h版：暫定openMSXローカルビルドで確認した開発・検証用候補です。** 詳細な確認環境はガイドに記載しています。
 - **旧バージョンのゲームは、V9968対応openMSXの互換モードで動作可能です。** [旧版v1.0](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/hc-v9968-v1.0)も利用できます。
 
 実機・現行FPGAは未検証です。試作版・無保証。V9968と各エミュレータの開発者・保守担当の皆様に感謝します。
 
-**English:** HC v1.2 optimizes rendering for the internal 98h edition while preserving the artwork, five sectors, combat patterns, music and all 16 background phases. External and other-platform ROMs are unchanged. The internal 98h edition is validated with V9968-enabled blueMSX Plus as of September 23, 2026; please use it for this edition. The external 88h development candidate was checked with a provisional local openMSX build. Earlier game releases can use openMSX compatibility mode. Physical hardware is untested. Experimental, AS IS. [English guide](v9968-hc/README.md#english).
+**English:** HC v1.2 optimizes rendering for the internal 98h edition while preserving the artwork, five sectors, combat patterns, music and all 16 background phases. External and other-platform ROMs are unchanged. The internal 98h edition has been checked with both V9968-enabled blueMSX Plus and the updated openMSX as of September 23, 2026; see the guide for test coverage. The external 88h development candidate was checked with a provisional local openMSX build. Earlier game releases can use openMSX compatibility mode. Physical hardware is untested. Experimental, AS IS. [English guide](v9968-hc/README.md#english).
 
 ## 最終リリース — 全機種5区域 / Final campaign
 
