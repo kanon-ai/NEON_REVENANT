@@ -1,0 +1,5 @@
+audio_setup = 0x9bdc
+hc_init = 0x9d56
+hc_tick = 0x9d78
+hc_draw = 0x9f17
+mode = 0xd000

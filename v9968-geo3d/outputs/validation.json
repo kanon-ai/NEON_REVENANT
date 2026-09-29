@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "test_release": true,
+  "emulator": "Alex Moncks Geo3D openMSX",
+  "emulator_commit": "de29fb854885a38251c03e24596ad4ff95770ef2",
+  "bluemsx_geo3d": "planned, not tested",
+  "hardware_tested": false,
+  "full_manual_playthrough": false,
+  "source_rebuild_matches": true,
+  "roms": {
+    "NEON_REVENANT-HC-Geo3D-textured-v0.1.0.rom": {
+      "bytes": 4194304,
+      "sha256": "a7d4e6920ac12ffaf9f779b70d937bbb83773e8b78466d6907df99dedf1e1b1a"
+    },
+    "NEON_REVENANT-HC-Geo3D-solid-v0.1.0.rom": {
+      "bytes": 4194304,
+      "sha256": "3e8caad968ddce752f2db303eceb16be16fce67120ed7b1935977491ba3c4db2"
+    }
+  }
+}
