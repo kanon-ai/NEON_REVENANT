@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-05",
+  "emulator_release": "V9968-geo3d-experimental-2",
+  "emulator_commit": "2090cd265928e5290b7939d7447cf76184dd6d07",
+  "emulator_exe_sha256": "4e073055a47679ab3925fe9d75f5c3025917efc09e38d637e19e2f72ba41d774",
+  "rom_sha256": "e50dbaf58c62c4c25e57532682341ba14ceabc205abc3558026a9bd8a3dc2444",
+  "rom_modified": false,
+  "machine": "MSXturboR - C-BIOS FDD",
+  "vdp": "V9968",
+  "vram_kib": 256,
+  "mapper": "ASCII16",
+  "emulation_speed_percent": 100,
+  "vdp_command_speed_percent": 100,
+  "visual_checks": [
+    "title",
+    "stage 00 gameplay before sampled run",
+    "game over",
+    "all 5 sector backgrounds",
+    "all 5 bosses",
+    "enemy projectiles",
+    "final boss low-HP phase"
+  ],
+  "sampled_stage_modes": [
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "samples": 5939,
+  "seconds": 599.9531413000004,
+  "max_enemies_by_stage": {
+    "0": 0,
+    "1": 4,
+    "2": 6,
+    "3": 6,
+    "4": 6
+  },
+  "audio_capture": {
+    "seconds": 202.9,
+    "channels": 2,
+    "sample_rate": 44100,
+    "rms": 618.3980241130288,
+    "peak": 5327
+  },
+  "method": "Unmodified public ROM. Emulator RAM shield replenishment, shortened stage timers, explicit post-boss transit states; final boss HP lowered for late-phase coverage. Stage 00 gameplay and title inspected before sampling.",
+  "manual_full_clear": false,
+  "exhaustive_control_retest": false,
+  "pixel_equivalence_tested": false,
+  "cross_emulator_speed_benchmark": false,
+  "hardware_tested": false,
+  "fpga_tested": false,
+  "normal_boss_defeat_to_clear_verified": false
+}
