@@ -1,0 +1,99 @@
+{
+  "rom_sha256": "e50dbaf58c62c4c25e57532682341ba14ceabc205abc3558026a9bd8a3dc2444",
+  "unit": "rendered updates per emulated second",
+  "method": "160 updates per scene; identical scripted camera; 3/9 fixed enemies with simulation paused for route tests; controlled shield and boss HP for boss tests",
+  "not_full_game_average": true,
+  "hardware_tested": false,
+  "comparisons": [
+    {
+      "scene": "stage 00, 3 fixed enemies",
+      "previous": 19.977015141070023,
+      "current": 19.980179849360017,
+      "change_percent": 0.015841747466494027
+    },
+    {
+      "scene": "stage 01, 3 fixed enemies",
+      "previous": 14.98069212061911,
+      "current": 14.983847737116731,
+      "change_percent": 0.021064557446437426
+    },
+    {
+      "scene": "stage 02, 3 fixed enemies",
+      "previous": 19.974233520832385,
+      "current": 19.97424954297603,
+      "change_percent": 8.021405990543684e-05
+    },
+    {
+      "scene": "stage 03, 3 fixed enemies",
+      "previous": 19.021022479027597,
+      "current": 19.974240486978633,
+      "change_percent": 5.011392047940877
+    },
+    {
+      "scene": "stage 04, 3 fixed enemies",
+      "previous": 19.98044332987527,
+      "current": 19.974232475910867,
+      "change_percent": -0.031084665449432336
+    },
+    {
+      "scene": "stage 00, 9 fixed enemies",
+      "previous": 14.982257710898747,
+      "current": 15.79881600573288,
+      "change_percent": 5.450168529941468
+    },
+    {
+      "scene": "stage 01, 9 fixed enemies",
+      "previous": 11.984560969170339,
+      "current": 13.316529618175545,
+      "change_percent": 11.114037906199714
+    },
+    {
+      "scene": "stage 02, 9 fixed enemies",
+      "previous": 13.3508865726228,
+      "current": 14.980699761629333,
+      "change_percent": 12.207527793312334
+    },
+    {
+      "scene": "stage 03, 9 fixed enemies",
+      "previous": 11.984565232466714,
+      "current": 14.980701524940493,
+      "change_percent": 24.999958149145975
+    },
+    {
+      "scene": "stage 04, 9 fixed enemies",
+      "previous": 14.984179582266044,
+      "current": 16.87433482384843,
+      "change_percent": 12.614339218273951
+    },
+    {
+      "scene": "boss 00",
+      "previous": 20.069595824124402,
+      "current": 20.0688454503877,
+      "change_percent": -0.003738858237500864
+    },
+    {
+      "scene": "boss 01",
+      "previous": 15.01223031069909,
+      "current": 15.054514362907017,
+      "change_percent": 0.2816640254832192
+    },
+    {
+      "scene": "boss 02",
+      "previous": 19.22536696065278,
+      "current": 19.57781843145094,
+      "change_percent": 1.8332626447104872
+    },
+    {
+      "scene": "boss 03",
+      "previous": 15.44694337525225,
+      "current": 17.596309835499827,
+      "change_percent": 13.914509867959413
+    },
+    {
+      "scene": "boss 04",
+      "previous": 18.621006498721748,
+      "current": 19.411553501447298,
+      "change_percent": 4.245457960501842
+    }
+  ]
+}

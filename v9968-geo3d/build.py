@@ -68,10 +68,11 @@ def car(color):
 
 def boss(turret=False):
     m=Mesh()
+    m.boss_theme=0
     if turret:
         prism(m,[(-36,-27),(-19,-43),(19,-43),(36,-27),(24,30),(-24,30)],-8,14,3)
         for side in (-1,1):
-            prism(m,[(side*17-6,-115),(side*17+6,-115),(side*17+9,-17),(side*17-9,-17)],-3,4,4)
+            prism(m,[(side*24-6,-115),(side*24+6,-115),(side*24+9,-17),(side*24-9,-17)],0,8,4)
         m.poly([(-15,15,-25),(15,15,-25),(9,21,9),(-9,21,9)],[0,0,0],7)
     else:
         prism(m,[(-110,-45),(-58,-105),(58,-105),(110,-45),(80,99),(-80,99)],-25,24,3)
@@ -172,17 +173,33 @@ def chunk(index,theme=0):
 def packmesh(m,kind='none'):
     m.f=[(ids,[v*.45 for v in normal],1) if base in (1,3,4,9) and any(normal)
          else (ids,[0,0,0],base) for ids,normal,base in m.f]
+    if kind=='boss':
+        # Continuous deck artwork across triangle fans, rather than a tiny
+        # repeated material on each polygon. Keep hidden/vertical faces cheap.
+        textured=[];plain=[]
+        for f in m.f:
+            ids,normal,col=f;q=np.array([m.v[i] for i in ids]);n=np.cross(q[1]-q[0],q[2]-q[0])
+            facing=n[2]<-100 if getattr(m,'boss_texture_axes',(0,2))==(0,1) else n[1]>100
+            (textured if col in (3,4,5,14) and facing else plain).append(f)
+        m.f=textured+plain;m.boss_texture_faces=set(range(len(textured)))
+        bounds=np.array(m.v);lo=bounds.min(axis=0);size=np.maximum(np.ptp(bounds,axis=0),1)
     uvs=bytearray();faces=[];uv_end=0
     for fi,(ids,normal,col) in enumerate(m.f):
         pts=np.array([m.v[i] for i in ids]);span=np.ptp(pts,axis=0)
-        use=TEXTURED and len(set(ids))==4 and ((kind=='city' and fi in m.texture_faces) or (kind=='boss' and span[0]>50 and span[2]>30 and (not hasattr(m,'boss_texture_faces') or fi in m.boss_texture_faces)))
+        use=TEXTURED and ((kind=='city' and len(set(ids))==4 and fi in m.texture_faces) or (kind=='boss' and fi in m.boss_texture_faces))
         if use:
+            if kind=='boss':
+                theme=getattr(m,'boss_theme',4);width=64 if theme==4 else 32
+                ox=192 if theme==4 else 128+(theme&1)*32;oy=0 if theme==4 else (theme>>1)*32
+                ua,va=getattr(m,'boss_texture_axes',(0,2))
+                for q in pts:uvs.extend((ox+round((q[ua]-lo[ua])/size[ua]*(width-1)),oy+round((q[va]-lo[va])/size[va]*(width-1))))
+                uv_end=len(uvs);faces.append((ids,[0,0,0],128));continue
             harbor=fi in getattr(m,'harbor_faces',set())
             uaxis=0 if kind=='boss' or span[0]>span[2] else 2;vaxis=1 if kind=='city' else 2
             for q in pts:
                 u=round((q[uaxis]-pts[:,uaxis].min())/max(span[uaxis],1)*63)
                 v=round((q[vaxis]-pts[:,vaxis].min())/max(span[vaxis],1)*(127 if kind=='city' and not harbor else 63))
-                uvs.extend((u+(128 if harbor else getattr(m,'boss_texture_x',128) if kind=='boss' else (64 if fi in m.block_faces else 0)),127-v if kind=='city' else v))
+                uvs.extend((u+(192 if fi==getattr(m,'fan_face',-1) else 128 if harbor else getattr(m,'boss_texture_x',128) if kind=='boss' else (64 if fi in m.block_faces else 0)),127-v if kind=='city' else v))
             uv_end=len(uvs);faces.append((ids,[0,0,0],128))
         else:
             uvs.extend(bytes(8));faces.append((ids,normal,col))
@@ -234,15 +251,15 @@ def bitmap(im):
     a=np.array(im);return bytes(((a[:,::2]<<4)|a[:,1::2]).flat)
 def build():
     subprocess.run([str(TOOL/'sdcc.exe'),'-mz80','--opt-code-speed','-c',str(ROOT/'src/sound.c'),'-o',str(OUT/'sound.rel')],check=True)
-    subprocess.run([str(TOOL/'sdcc.exe'),'-mz80','--std-c99','--opt-code-speed','--no-std-crt0','--code-loc','0x8000','--data-loc','0xD000','-Wl-b_HOME=0xB500','-I'+str(ROOT/'src'),str(ROOT/'src/hc_logic.c'),str(OUT/'sound.rel'),'-o',str(OUT/'hc.ihx')],check=True)
+    subprocess.run([str(TOOL/'sdcc.exe'),'-mz80',*(['-DNEON_FAST'] if os.environ.get('NEON_FAST','1')=='1' else []),'--std-c99','--opt-code-speed','--no-std-crt0','--code-loc','0x8000','--data-loc','0xD000','-Wl-b_HOME=0xB500','-I'+str(ROOT/'src'),str(ROOT/'src/hc_logic.c'),str(OUT/'sound.rel'),'-o',str(OUT/'hc.ihx')],check=True)
     map_text=(OUT/'hc.map').read_text()
     area=re.search(r'_CODE\s+([0-9A-F]{8})\s+([0-9A-F]{8})',map_text)
     assert area and int(area[1],16)+int(area[2],16)<=0xB500
     syms={}
     for line in (OUT/'hc.map').read_text().splitlines():
-        match=re.search(r'([0-9A-F]{8})\s+(_hc_init|_hc_tick|_hc_draw|_audio_setup|_mode)\s',line)
+        match=re.search(r'([0-9A-F]{8})\s+(_hc_init|_hc_tick|_hc_draw|_audio_setup|_assets_init|_mode)\s',line)
         if match:syms[match[2]]=int(match[1],16)
-    assert len(syms)==5,syms
+    assert len(syms)==6,syms
     (ROOT/'src/hc_symbols.inc').write_text(''.join(k[1:]+' = '+hex(v)+'\n' for k,v in syms.items()))
 
     from presentation import enemy_mesh,title_image
@@ -307,10 +324,17 @@ def build():
         yaw=math.atan2(forward[0],forward[2]);pitch=math.asin(forward[1])
         rec+=words([int(48+yaw*60),512+int(24-pitch*85),160,0])
         speed=1 if f>=675 else 0;rec+=struct.pack('<HH',768,768+16+speed*16)
-        rec+=bytes([1 if f>=675 else 0,near_bank])+struct.pack("<H",near_offset);rec+=bytes(256-len(rec));frames+=rec
+        rec+=bytes([1 if f>=675 else 0,near_bank])+struct.pack("<H",near_offset)
+        # Same Q14 matrix and local barrel tips as the rendered moving mount.
+        tm=np.rint(carstates[1][1]*16384).astype(np.int64)
+        for width,y,z in [(24,4,-115),(27,5,-143),(55,0,-25)]:
+            for x in (-width,width,0):rec+=words(((tm@np.array([x,y,z],dtype=np.int64))>>14).tolist())
+        assert len(rec)<=256
+        rec+=bytes(256-len(rec));frames+=rec
         stats.append({'f':f,'segment':k,'banks':[p[0] for p in poses]})
     banks.extend(bytearray(frames[i:i+16384]) for i in range(0,len(frames),16384));assert len(banks)==64
-    banks.extend([packmesh(boss(),'boss'),packmesh(boss(True),'boss')])
+    from stages import stage_boss
+    banks.extend([packmesh(stage_boss(0),'boss'),packmesh(stage_boss(0,True),'boss')])
     tex=Image.new('P',(256,128),2);tex.putpalette(sky.getpalette());td=ImageDraw.Draw(tex)
     for y in range(0,128,20):
         td.line((0,y,63,y),fill=3)
@@ -370,7 +394,8 @@ def build():
         banks.extend(packmesh(m,'city') for m in meshes)
     assert len(banks)==229
     for theme in range(1,5):
-        for turret in (False,True):banks.append(packmesh(stage_boss(theme,turret),'boss'))
+        for turret in (False,True):
+            m=stage_boss(theme,turret);m.boss_theme=theme;banks.append(packmesh(m,'boss'))
     assert len(banks)==237
     # Ten sector/boss caption strips, each 2 KiB, in banks 237..238.
     labels=bytearray()
@@ -389,6 +414,8 @@ def build():
     title=title_image(COLORS);title.save(OUT/'title.png');tb=bitmap(title)
     banks.extend([tb[:16384],tb[16384:],packmesh(enemy_mesh(2))])
     banks.extend(bytearray(16384) for _ in range(256-len(banks)))
+    from color256 import enhance
+    expanded=enhance(banks,COLORS)
     pal=[]
     for rgb in COLORS:
         r,g,b=[round(c/255*31) for c in rgb];pal.extend([r,g,b])

@@ -46,41 +46,33 @@ def final_boss(turret=False):
         m.poly(q.tolist(),[0,0,0],col)
     def top(points,col):face(points,col,[0,1,0])
     def cannon(x):
-        # Hexagonal barrel with a dark bore, not a solid luminous rod.
-        back=[];rim=[];bore=[]
-        for i in range(6):
-            a=math.tau*i/6
-            back.append((x+10*math.cos(a),5+10*math.sin(a),-28))
-            rim.append((x+8*math.cos(a),5+8*math.sin(a),-142))
-            bore.append((x+4*math.cos(a),5+4*math.sin(a),-143))
-        for i in range(6):
-            j=(i+1)%6;a=math.tau*(i+.5)/6
-            face([back[i],back[j],rim[j],rim[i]],4 if i<3 else 2,[math.cos(a),math.sin(a),0])
+        # Box-section heavy railgun: fewer faces, larger readable muzzle.
+        # The bore centre remains (x,5,-143), matching the projectile table.
+        back=[(x+dx,5+dy,-22) for dx,dy in [(-10,-8),(10,-8),(10,8),(-10,8)]]
+        rim=[(x+dx,5+dy,-142) for dx,dy in [(-8,-6),(8,-6),(8,6),(-8,6)]]
+        bore=[(x+dx,5+dy,-143) for dx,dy in [(-4,-3),(4,-3),(4,3),(-4,3)]]
+        for i,n in enumerate([(0,-1,0),(1,0,0),(0,1,0),(-1,0,0)]):
+            j=(i+1)%4
+            face([back[i],back[j],rim[j],rim[i]],4 if i==2 else 3,n)
             face([rim[i],rim[j],bore[j],bore[i]],14,[0,0,-1])
-        for i in range(1,5):face([bore[0],bore[i],bore[i+1]],1,[0,0,-1])
+        face(bore,1,[0,0,-1])
     if turret:
-        prism(m,[(-48,-38),(-27,-60),(27,-60),(48,-38),(40,26),(-40,26)],-15,19,4)
-        # Armored cheek plates protect the traversing three-gun mount.
-        for side in (-1,1):
-            prism(m,[(side*32,-42),(side*57,-18),(side*51,30),(side*28,17)],1,27,3)
+        prism(m,[(-58,-32),(-38,-62),(38,-62),(58,-32),(49,35),(-49,35)],-15,25,4)
         for x in (-27,0,27):cannon(x)
-        top([(-20,20,-27),(20,20,-27),(15,20,-18),(-15,20,-18)],7)
+        top([(-22,26,-20),(22,26,-20),(17,26,-10),(-17,26,-10)],7)
         return finish()
 
-    # Deep central hull and a narrower raised flight deck.
-    outline=[(-48,-185),(48,-185),(98,-100),(98,115),(65,168),(-65,168),(-98,115),(-98,-100)]
-    prism(m,outline,-38,28,3)
-    prism(m,[(-44,-122),(44,-122),(67,80),(42,124),(-42,124),(-67,80)],28,47,4)
+    # Armored central keel and two deep, attached side hulls, not thin wings.
+    outline=[(-44,-185),(44,-185),(94,-100),(94,120),(62,168),(-62,168),(-94,120),(-94,-100)]
+    prism(m,outline,-42,33,3)
+    prism(m,[(-44,-125),(44,-125),(68,90),(43,128),(-43,128),(-68,90)],33,51,4)
     for side in (-1,1):
-        # Swept heavy shoulders, then separate raised armor panels.
-        prism(m,[(side*72,-98),(side*182,-132),(side*287,-28),(side*256,94),(side*170,37),(side*75,95)],-15,19,3)
-        prism(m,[(side*106,-73),(side*178,-101),(side*239,-31),(side*189,6)],20,31,4)
-        engine(m,side*187,-23,82,29,130)
-        # Recessed radiator deck; bright seams are deliberately sparse.
-        top([(side*96,20,34),(side*146,20,25),(side*162,20,91),(side*109,20,108)],1)
-        for z in (48,67,86):
-            top([(side*114,21,z),(side*149,21,z-5),(side*149,21,z-1),(side*114,21,z+4)],4)
-        top([(side*108,32,-65),(side*174,32,-88),(side*183,32,-79),(side*112,32,-55)],6)
+        prism(m,[(side*82,-85),(side*194,-130),(side*277,-62),(side*260,137),(side*148,149),(side*82,63)],-30,28,3)
+        # Broad shoulder armor; vents and panel seams are now in the texture.
+        prism(m,[(side*117,-69),(side*191,-101),(side*237,-52),(side*223,83),(side*134,96)],28,41,4)
+        # Recessed front intake contrasts with the heavy armored nose.
+        face([(side*191,-18,-131),(side*219,-10,-111),(side*219,9,-111),(side*191,13,-131)],1,[0,0,-1])
+        face([(side*195,-7,-132),(side*212,-4,-119),(side*212,1,-119),(side*195,4,-132)],6,[0,0,-1])
     # A protected forward reactor, with an actual octagonal bezel and inner core.
     outer=[];inner=[]
     for i in range(8):
@@ -91,6 +83,6 @@ def final_boss(turret=False):
         j=(i+1)%8;face([outer[i],outer[j],inner[j],inner[i]],4 if i%2 else 14,[0,0,-1])
     for i in range(1,7):face([inner[0],inner[i],inner[i+1]],7 if i%2 else 8,[0,0,-1])
     # Crown behind the gun mount: the turret remains a separately moving model.
-    prism(m,[(-28,35),(28,35),(37,89),(0,119),(-37,89)],48,72,3)
-    top([(-20,73,62),(20,73,62),(24,73,75),(-24,73,75)],6)
+    prism(m,[(-29,40),(29,40),(39,91),(26,119),(-26,119),(-39,91)],51,86,3)
+    top([(-23,87,67),(23,87,67),(26,87,78),(-26,87,78)],6)
     return finish()

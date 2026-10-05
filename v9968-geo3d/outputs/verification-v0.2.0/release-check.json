@@ -1,0 +1,10 @@
+{
+  "rom_bytes": 4194304,
+  "rom_sha256": "e50dbaf58c62c4c25e57532682341ba14ceabc205abc3558026a9bd8a3dc2444",
+  "source_rebuild_matches": true,
+  "assets": {
+    "NEON_REVENANT-HC-Geo3D-v0.2.0-digest.mp4": "fa660371f8f4dcecf4a00c984d99774b462943a3e7251a395e282c0aac18f21e",
+    "NEON_REVENANT-HC-Geo3D-v0.2.0-ROM.zip": "30a40ebede976a2746aeb28b2c1bce9b455e30597f0bd22888e9c24afed85050",
+    "NEON_REVENANT-HC-Geo3D-v0.2.0-source.zip": "1f23551375a77b9ac9d44b1e658e2688cfb75b06c63311c834e57af61cdf4d8b"
+  }
+}

@@ -52,8 +52,9 @@ void vw(s16 v){vi=(u8)v;vi=(u16)v>>8;}
 void fill(s16 x,s16 y,s16 w,s16 h,u8 c){
  if(x<0){w+=x;x=0;}if(y<14){h-=14-y;y=14;}
  if(x+w>256)w=256-x;if(y+h>198)h=198-y;if(w<=0||h<=0)return;
- wait_vdp();vr(17,36);vw(x);vw(y+((u16)PAGE<<8));vw(w);vw(h);vi=c;vi=0;vi=0x80;
- wait_vdp();
+ /* hc_draw's geometry wait selected S#2. The audio ISR does not change R#15. */
+ while(vc&1);vr(17,36);vw(x);vw(y+((u16)PAGE<<8));vw(w);vw(h);vi=c;vi=0;vi=0x80;
+ /* Next command waits before submitting; hc_draw drains the last fill. */
 }
 void transfer(const u8 *p,u16 n) __naked {
  p;n;
@@ -97,22 +98,28 @@ void vtransfer(const u8 *p,u16 n) __naked {
  ret
  __endasm;
 }
+/* SCREEN8 uses one byte per pixel; descriptors live in palette bank 239. */
+void resource_load(u8 resource,u8 count,u8 block,u8 high){
+ u8 i,banks[8];const u8 *p;
+ *(u8*)0x6000=239;p=(const u8*)(0x5000+(u16)resource*8);
+ for(i=0;i<count;i++)banks[i]=p[i];
+ vr(14,block);va(0,high);
+ for(i=0;i<count;i++){*(u8*)0x6000=banks[i];vtransfer((const u8*)0x5FFE,8192);}
+}
+void assets_init(void){resource_load(5,8,12,0x40);resource_load(6,4,12,0x70);}
 void scene_update(void){
- u8 i,key;const u8 *p;u16 n;
+ u8 i,key,bank;const u8 *p;u16 n;
  if(scene_stage!=stage){
-  wait_vdp();*(u8*)0x6000=239;p=(const u8*)(0x4000+(u16)stage*48);
-  vr(16,0);for(i=0;i<48;i++)vp=*p++;
-  vr(14,4);va(0,0x40);
-  n=stage?240+(stage-1)*2:4;
-  *(u8*)0x6000=n;vtransfer((const u8*)0x4000,16384);
-  *(u8*)0x6000=n+1;vtransfer((const u8*)0x4000,16384);
+  wait_vdp();*(u8*)0x6000=239;p=(const u8*)(0x4000+(u16)stage*768);
+  vr(16,0);for(n=0;n<768;n++)vp=*p++;
+  resource_load(stage,8,8,0x40);
   scene_stage=stage;scene_hud=255;
  }
  key=stage*2+(mode==BOSS);
  if(scene_hud!=key){
-  wait_vdp();*(u8*)0x6000=237+(key>>3);
-  p=(const u8*)(0x4000+(u16)(key&7)*2048);
-  vr(14,6);va(0,0x48);vtransfer(p,2048);scene_hud=key;
+  wait_vdp();*(u8*)0x6000=239;bank=*(const u8*)(0x5040+(key>>1));
+  *(u8*)0x6000=bank;p=(const u8*)(0x5FFE+(u16)(key&1)*4096);
+  vr(14,12);va(0,0x50);vtransfer(p,4096);scene_hud=key;
  }
  for(i=168;i<172;i++)if(stage&&REC[i]!=255)REC[i]=101+(stage-1)*32+REC[i]-8;
 }
@@ -125,8 +132,27 @@ void model(u8 bank,s16 x,s16 y,s16 z,u8 rotation,u8 scale){
  n=p[2]|((u16)p[3]<<8);gi=0x50;transfer(p+6,n);
  gi=0x58;gd=0;gd=p[1];gi=0x52;p+=6+n;n=*(u16*)0x4004;transfer(p,n);p+=n;gi=0x65;gd=0;gi=0x53;n=*(const u16*)0x7FFE;if(n)transfer(p,n);
  }
- gi=0;for(i=0;i<9;i++)gw(rotation?m[i]:((i==0||i==4||i==8)?(scale?10649:16384):0));
+ gi=0;
+#ifdef NEON_FAST
+ {static const s16 identity[9]={16384,0,0,0,16384,0,0,0,16384};
+  static const s16 small[9]={10649,0,0,0,10649,0,0,0,10649};
+  transfer((const u8*)(rotation?m:scale?small:identity),18);}
+#else
+ for(i=0;i<9;i++)gw(rotation?m[i]:((i==0||i==4||i==8)?(scale?10649:16384):0));
+#endif
+#ifdef NEON_FAST
+ {
+  u16 row=(u16)z/5;u8 table;const s16 *values;s16 dx=x-128,dy=106-y,ax=dx<0?-dx:dx,ay=dy<0?-dy:dy;
+  if(row<288 && ax<256 && ay<256 && z%5==0){
+   *(u8*)0x6000=239;table=*(const u8*)(0x5068+(row>>4));
+   *(u8*)0x6000=table;values=(const s16*)(0x5FFE+((row&15)<<9));
+   gw(dx<0?-values[ax]:values[ax]);gw(dy<0?-values[ay]:values[ay]);
+  }else{gw((s16)(((long)dx*z)/170));gw((s16)(((long)dy*z)/170));}
+  gw(z);
+ }
+#else
  gw((s16)(((long)(x-128)*z)/170));gw((s16)(((long)(106-y)*z)/170));gw(z);
+#endif
  gi=0x46;gw((u16)PAGE<<8);gi=0x48;gd=7;while(gi&1);wait_vdp();
 }
 /* Camera-space clipped road prevents near-plane holes exposing the skyline. */
@@ -144,17 +170,35 @@ void near_ground(void){
 }
 #include "geo_audio.h"
 void hc_init(void){sound_init();rng=0x6A3D;new_game();mode=TITLE;paused=0;prev_escape=0;scene_stage=255;scene_hud=255;}
+u8 muzzle_flash;
+s16 muzzle_x[3],muzzle_y[3];
+void boss_emit(void){
+ u8 i;const s16 *p=(const s16*)(REC+192+(stage==4?18:stage==3?36:0));
+ s16 tx=(s16)(((long)(boss_x-128)*555)/170),ty=(s16)(((long)(129-boss_y)*555)/170),z;
+ for(i=0;i<3;i++,p+=3){
+  if((i<2 && (boss_volley&3)) || (i==2 && (boss_volley&4))){
+   z=555+p[2];
+   muzzle_x[i]=128+(s16)(((long)(tx+p[0])*170)/z);
+   muzzle_y[i]=106-(s16)(((long)(ty+p[1])*170)/z);
+   muzzle_flash|=1<<i;
+   if(i<2){
+    if(boss_volley&1)fire_enemy(muzzle_x[i],muzzle_y[i],0);
+    if(boss_volley&2)fire_enemy(muzzle_x[i],muzzle_y[i],i+1);
+   }else{fire_enemy(muzzle_x[i],muzzle_y[i],0);fire_enemy(muzzle_x[i],muzzle_y[i],1);fire_enemy(muzzle_x[i],muzzle_y[i],2);}
+  }
+ }
+}
 void hc_tick(void){
- u8 a,b;kr=(kr&0xF0)|8;a=~kd;keys=0;
+ u8 a,b;boss_volley=0;muzzle_flash=0;kr=(kr&0xF0)|8;a=~kd;keys=0;
  if(a&16)keys|=1;if(a&128)keys|=2;if(a&32)keys|=4;if(a&64)keys|=8;if(a&1)keys|=16;
  kr=(kr&0xF0)|5;if(!(kd&32))keys|=32;
  kr=(kr&0xF0)|7;b=!(kd&4);if(b&&!prev_escape&&mode!=TITLE){paused^=1;audio_pause(paused);}prev_escape=b;
  audio_stage=stage_music[stage];audio_playing=(mode==PLAY||mode==BOSS||mode==TRANSIT);
  edge=keys&~old_keys;old_keys=keys;
  if(mode==TITLE){
-  if(!title_loaded){wait_vdp();vr(14,4);va(0,0x40);
-   *(u8*)0x6000=248;vtransfer((const u8*)0x4000,16384);
-   *(u8*)0x6000=249;vtransfer((const u8*)0x4000,16384);title_loaded=1;}
+  if(!title_loaded){u16 n;const u8 *p;wait_vdp();
+   *(u8*)0x6000=239;p=(const u8*)0x4000;vr(16,0);for(n=0;n<768;n++)vp=*p++;
+   resource_load(7,8,8,0x40);title_loaded=1;}
   if(edge&16){new_game();scene_stage=255;scene_update();}return;
  }
  if(paused){scene_update();return;}
@@ -163,6 +207,7 @@ void hc_tick(void){
  update_play();
  /* 30 Hz nominal simulation over the prototype's 20 Hz presentation. */
  if((frame_counter++&1)==0){edge=0;update_play();}
+ if(mode==BOSS && boss_volley)boss_emit();
  scene_update();
 }
 void game_over_panel(void){
@@ -170,18 +215,21 @@ void game_over_panel(void){
  vw(192);vw(32);vi=0;vi=0;vi=0xD0;wait_vdp();
 }
 void hc_draw(void){
+ static u16 bar_hp;static u8 bar_stage,bar_width;
  *(u16*)(REC+186)=784;
- u8 i,j; s16 z;
+ u8 i,j,depth_band[ENEMIES]; s16 z;
  if(mode==TITLE){wait_vdp();vr(17,32);vw(0);vw(512);vw(0);vw((u16)PAGE<<8);
   vw(256);vw(212);vi=0;vi=0;vi=0xD0;wait_vdp();return;}
  near_ground();
  cached_model=255;
  /* Sort approaching enemies by the HC depth bands, then draw the player last. */
- for(j=0;j<6;j++)for(i=0;i<ENEMIES;i++)if(foes[i].active&&foes[i].z/40==j){
+ for(i=0;i<ENEMIES;i++)depth_band[i]=foes[i].active?foes[i].z/40:255;
+ for(j=0;j<6;j++)for(i=0;i<ENEMIES;i++)if(depth_band[i]==j){
   z=1400-(s16)foes[i].z*5;model(foes[i].kind==2?250:2+foes[i].kind,foes[i].x,foes[i].y,z,0,0);
  }
  if(mode==BOSS){u8 bank=stage?229+(stage-1)*2:64;model(bank,boss_x,boss_y,560,1,0);model(bank+1,boss_x,boss_y-23,555,2,0);}
  model(1,player_x,player_y,250,0,1);
+ for(i=0;i<3;i++)if(muzzle_flash&(1<<i)){fill(muzzle_x[i]-3,muzzle_y[i]-1,7,3,8);fill(muzzle_x[i]-1,muzzle_y[i]-3,3,7,5);}
  for(i=0;i<BULLETS;i++)if(shots[i].active){fill(shots[i].x/4-2,shots[i].y/4-3,4,6,7);fill(shots[i].x/4-1,shots[i].y/4-2,2,3,8);}
  /* Advance tracer positions with the HC firing cycle, not fixed screen marks. */
  if(shot_clock&&(mode==PLAY||mode==BOSS)){
@@ -201,9 +249,13 @@ void hc_draw(void){
  fill(aim_x-9,aim_y+4,1,3,12);fill(aim_x+9,aim_y+4,1,3,12);
  for(i=0;i<6;i++)fill(5+i*7,18,5,3,i<shield?12:3);
  for(i=0;i<3;i++)fill(55+i*7,18,5,3,i<bombs?7:3);
- if(mode==BOSS){fill(85,18,140,3,3);fill(85,18,(u16)((unsigned long)boss_hp*140/boss_health[stage]),3,7);}
+ if(mode==BOSS){
+  if(bar_hp!=boss_hp||bar_stage!=stage){bar_hp=boss_hp;bar_stage=stage;bar_width=(boss_hp*140u)/boss_health[stage];}
+  fill(85,18,140,3,3);fill(85,18,bar_width,3,7);
+ }
  if(paused)fill(124,93,3,13,13),fill(131,93,3,13,13);
  if(mode==CLEAR)fill(108,95,40,3,12);
  if(mode==OVER)game_over_panel();
+ wait_vdp();
 }
 

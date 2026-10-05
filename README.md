@@ -1,16 +1,16 @@
 # NEON REVENANT
 
-## Geo3D v0.1.0 — テスト版 / TEST RELEASE
+## Geo3D v0.2.0 — 256色テスト版 / TEST RELEASE
 
-**MSX turbo R＋V9968＋Geo3D向けのテスト版です。完成版ではありません。** HCの全5区域とボス戦をポリゴンで表現し、V9990版のタイトル美術とFM音楽、PSG効果音を引き継ぎました。テクスチャ版・無地比較版ともに4 MiB ASCII16 ROMです。
+**MSX turbo R＋V9968＋Geo3D向けのテスト版です。完成版ではありません。** 全5区域とボス戦を256色・テクスチャで更新し、描画処理を軽量化しました。4 MiB ASCII16、MSX-MUSIC BGM＋PSG効果音。
 
-**現段階では、Geo3D開発元の公式Geo3D対応openMSXのみで検証しています。後日、BlueMSX Geo3D版での検証を追加する予定です。** 「公式」はAlex Moncks氏のGeo3D対応openMSXを指します。実機・FPGAは未検証です。
+**Geo3D開発元Alex Moncks氏の公式Geo3D対応openMSXのみで検証済みです。後日BlueMSX Geo3D版での検証を追加予定。今回のROMの実機・FPGA動作は未検証です。**
 
-[**Geo3Dテスト版のROM・ソース・動画**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/geo3d-test-v0.1.0) · [日英ガイド・検証範囲](v9968-geo3d/README.md)
+[**ROM・ソース・動画**](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/geo3d-test-v0.2.0) · [日英ガイド・検証範囲](v9968-geo3d/README.md) · [旧16色版](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/geo3d-test-v0.1.0)
 
-![Geo3Dテスト版：全5区域とボス、撮影用の場面設定あり](v9968-geo3d/media/preview.gif)
+![Geo3D 256色版・撮影用の場面設定あり](v9968-geo3d/media/preview.gif)
 
-**English:** This is a **TEST RELEASE**, not a finished product. Tested only with the official Geo3D-enabled openMSX provided by Geo3D developer Alex Moncks. Verification with BlueMSX Geo3D is planned for a later update; hardware/FPGA is untested. Five sectors, polygon bosses, MSX-MUSIC BGM and PSG effects; 4 MiB ASCII16 ROMs. Existing editions remain available. [Guide](v9968-geo3d/README.md#english).
+**English:** A 256-color **TEST RELEASE**, not a finished product. Five sectors and bosses, optimized rendering, 4 MiB ROM. Tested only with the Geo3D developer's official emulator; BlueMSX Geo3D verification is planned later. This ROM is untested on physical hardware/FPGA. [Guide](v9968-geo3d/README.md#english).
 
 NEON REVENANTは、同じゲームテーマで各MSX構成の特徴を比べる楽しさを追求したプロジェクトで、今回V9968版も加わり、MSX初代から拡張VDP搭載構成まで、それぞれの表現と遊び心地の違いを幅広く体験できる作品になりました。
 

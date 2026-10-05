@@ -56,52 +56,5 @@ def stage_boss(theme,turret=False):
     if theme==4:
         from leviathan import final_boss
         return final_boss(turret)
-    # Import after build.py has defined the geometry helpers.
-    from build import prism,engine,clean
-    m=Mesh()
-    def finish():
-        m.f=[(ids,n,14 if col==4 else 4 if col==3 else col) for ids,n,col in m.f]
-        return clean(m)
-    if turret:
-        if theme==3:
-            prism(m,[(-22,0),(0,-28),(22,0),(0,28)],-15,23,7)
-            for side in (-1,1):engine(m,side*55,0,0,12,50)
-        else:
-            w=27 if theme==1 else 42
-            prism(m,[(-w,-34),(0,-52),(w,-34),(w,25),(-w,25)],-8,18,4)
-            for side in (-1,1):prism(m,[(side*24-6,-115),(side*24+6,-115),(side*24+8,-15),(side*24-8,-15)],0,8,7)
-        return finish()
-    if theme==1:
-        prism(m,[(-20,-160),(0,-210),(20,-160),(48,100),(0,135),(-48,100)],-12,27,4)
-        for side in (-1,1):
-            prism(m,[(side*25,-110),(side*200,70),(side*180,130),(side*35,52)],-4,10,3)
-            engine(m,side*80,-8,96,18,90)
-    elif theme==2:
-        for side in (-1,1):
-            x=side*125
-            prism(m,[(x-52,-125),(x,-175),(x+52,-125),(x+58,135),(x-58,135)],-26,38,3)
-            engine(m,x,-5,139,28,100)
-        prism(m,[(-153,-15),(153,-15),(175,74),(-175,74)],5,25,4)
-        prism(m,[(-36,-50),(0,-85),(36,-50),(36,105),(-36,105)],25,63,3)
-    elif theme==3:
-        # Faceted core with four detached orbital housings.
-        ring=[(-65,0,0),(0,0,-65),(65,0,0),(0,0,65)]
-        for i in range(4):
-            a=ring[i];b=ring[(i+1)%4]
-            for y,col in ((95,4),(-80,3)):
-                pts=[a,b,(0,y,0)];import numpy as np
-                n=np.cross(np.array(b)-a,np.array(pts[2])-a)
-                if np.dot(n,np.mean(pts,axis=0))<0:pts.reverse()
-                m.poly(pts,[0,0,0],col)
-        for side in (-1,1):
-            for z in (-65,65):
-                x=side*132
-                prism(m,[(x-22,z-27),(x,z-43),(x+22,z-27),(x+22,z+27),(x-22,z+27)],-24,24,3)
-                engine(m,x,0,z,10,30)
-    else:
-        prism(m,[(-65,-115),(0,-155),(65,-115),(96,85),(0,142),(-96,85)],-25,40,3)
-        for side in (-1,1):
-            prism(m,[(side*50,-52),(side*175,-110),(side*258,-10),(side*235,75),(side*170,15),(side*65,74)],-8,17,4)
-            engine(m,side*152,-10,62,24,96)
-        prism(m,[(-29,-70),(0,-105),(29,-70),(29,90),(-29,90)],40,68,7)
-    return finish()
+    from sector_bosses import make_boss
+    return make_boss(theme,turret)

@@ -1,0 +1,23 @@
+{
+  "rom_sha256": "e50dbaf58c62c4c25e57532682341ba14ceabc205abc3558026a9bd8a3dc2444",
+  "events": [
+    "0:1",
+    "0:2",
+    "0:3",
+    "1:1",
+    "1:2",
+    "1:3",
+    "2:1",
+    "2:2",
+    "2:3",
+    "3:1",
+    "3:2",
+    "3:3",
+    "4:1",
+    "4:2",
+    "4:3",
+    "4:5"
+  ],
+  "method": "stage timer advanced, boss HP set to one, actual firing causes defeat and transition; shield maintained",
+  "full_playthrough": false
+}

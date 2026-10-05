@@ -1,0 +1,20 @@
+{
+  "rom_sha256": "e50dbaf58c62c4c25e57532682341ba14ceabc205abc3558026a9bd8a3dc2444",
+  "results": {
+    "at7": [
+      4,
+      3
+    ],
+    "at9": [
+      4,
+      3
+    ],
+    "restart": [
+      1,
+      6,
+      60
+    ]
+  },
+  "method": "one shield and stationary enemy bullet injected; actual collision ends game; real FIRE key restarts",
+  "hardware_tested": false
+}

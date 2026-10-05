@@ -1,0 +1,19 @@
+{
+  "rom_sha256": "e50dbaf58c62c4c25e57532682341ba14ceabc205abc3558026a9bd8a3dc2444",
+  "projected_gun_checks_by_stage": [
+    22,
+    16,
+    34,
+    38,
+    52
+  ],
+  "actual_spawn_matches_by_stage": [
+    22,
+    16,
+    34,
+    38,
+    52
+  ],
+  "rom_bytes": 4194304,
+  "hardware_tested": false
+}

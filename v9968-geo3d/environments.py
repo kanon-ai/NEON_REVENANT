@@ -31,7 +31,8 @@ def environment_chunk(index,theme):
     # The same banked carriageway is retained; scenery is no longer a city skin.
     for j in range(4):
         a=start+j*240;b=a+240
-        for left,right,col in [(-1100,-245,3),(-245,-215,4),(-215,215,2),(215,245,4),(245,1100,3)]:
+        edge=290 if theme==3 else 330 if theme==2 else 1100
+        for left,right,col in [(-edge,-245,3),(-245,-215,4),(-215,215,2),(215,245,4),(245,edge,3)]:
             strip(a,b,left,0,right,0,col)
         for x in (-110,110):strip(a+35,b-55,x-2,1,x+2,1,14)
         for side in (-1,1):strip(a,b,side*239,6,side*239,12,6)
@@ -59,25 +60,23 @@ def environment_chunk(index,theme):
         for side in (-1,1):
             if side==fan_side:
                 # Cut a real opening around the fan; a full quad would overpaint it.
+                m.harbor_faces.add(len(m.f));m.texture_faces.add(len(m.f))
                 strip(start,z-92,side*330,0,side*330,265,4)
+                m.harbor_faces.add(len(m.f));m.texture_faces.add(len(m.f))
                 strip(z+92,start+LENGTH,side*330,0,side*330,265,4)
                 strip(z-92,z+92,side*330,0,side*330,43,4)
                 strip(z-92,z+92,side*330,227,side*330,265,4)
                 strip(z-92,z+92,side*334,43,side*334,227,2)
             else:
-                for j in range(4):strip(start+j*240,start+(j+1)*240,side*330,0,side*330,265,4)
+                for j in range(4):
+                    m.harbor_faces.add(len(m.f));m.texture_faces.add(len(m.f))
+                    strip(start+j*240,start+(j+1)*240,side*330,0,side*330,265,4)
             strip(start,start+LENGTH,side*330,265,side*520,265,3)
         side=fan_side
-        # Recessed octagonal ring and four thick rotor blades on the side wall.
-        for i in range(8):
-            a=math.tau*i/8;b=math.tau*(i+1)/8
-            def ring(t,r):return p(z+math.cos(t)*r,x,135+math.sin(t)*r)
-            surface([ring(a,88),ring(b,88),ring(b,64),ring(a,64)],14,p(z,0,135))
-        for i in range(4):
-            a=math.tau*i/4+.3
-            pts=[]
-            for ang,r in [(a,12),(a+.18,62),(a+.65,54),(a+.9,12)]:pts.append(p(z+math.cos(ang)*r,x-side*2,135+math.sin(ang)*r))
-            surface(pts,7,p(z,0,135))
+        # The stationary ring and rotor are one baked panel, preserving the recess.
+        m.fan_face=len(m.f)
+        m.harbor_faces.add(len(m.f));m.texture_faces.add(len(m.f))
+        surface([p(z-88,x,47),p(z+88,x,47),p(z+88,x,223),p(z-88,x,223)],14,p(z,0,135))
         for side in (-1,1):
             # Wall-mounted cable conduits and a projecting equipment cabinet.
             strip(start,start+LENGTH,side*322,55,side*322,60,6)
@@ -86,17 +85,25 @@ def environment_chunk(index,theme):
     elif theme==3:
         # Continuous octagonal tunnel: walls, chamfers and ceiling enclose camera.
         section=[(-290,0),(-290,240),(-210,320),(210,320),(290,240),(290,0)]
-        for j in range(4):
-            a=start+j*240;b=a+240
+        for j in range(2):
+            a=start+j*480;b=a+480
             for k in range(len(section)-1):
                 x,y=section[k];xx,yy=section[k+1]
-                strip(a,b,x,y,xx,yy,[3,4,2,4,3][k])
-        for z in (start+240,start+720):frame(z,section,12,14)
-        for j in range(4):
-            a=start+j*240+32;b=a+176
+                # Keep close side-wall spans short to limit near-plane dropout.
+                if k in (0,4):
+                    strip(a,a+240,x,y,xx,yy,[3,4,2,4,3][k])
+                    strip(a+240,b,x,y,xx,yy,[3,4,2,4,3][k])
+                else:strip(a,b,x,y,xx,yy,[3,4,2,4,3][k])
+        for z in (start+480,):frame(z,section,18,14)
+        for j in range(2):
+            a=start+j*480+48;b=a+352
             for side in (-1,1):
-                strip(a,b,side*288,73,side*288,197,2)
-                strip(a+20,b-20,side*286,112,side*286,119,6 if j%2==0 else 7)
+                # Match side-wall spans to avoid Painter-order overpainting.
+                # Lamps are baked into the equipment texture instead of a quad.
+                mid=start+j*480+240
+                for aa,bb in ((a,mid),(mid,b)):
+                    m.harbor_faces.add(len(m.f));m.texture_faces.add(len(m.f))
+                    strip(aa,bb,side*288,73,side*288,197,2)
         strip(start+100,start+380,-32,319,32,319,6)
         strip(start+580,start+860,-32,319,32,319,6)
     elif theme==4:
@@ -105,6 +112,8 @@ def environment_chunk(index,theme):
             strip(start,start+LENGTH,side*264,0,side*264,48,4)
         if index%2==0:
             for side in (-1,1):
+                # Road-facing pylon surface; existing geometry, no extra polygons.
+                m.harbor_faces.add(len(m.f)+(0 if side>0 else 2));m.texture_faces.add(len(m.f)+(0 if side>0 else 2))
                 box(start+470,side*285,0,32,350,35,4)
                 for offset in (-330,330):
                     surface([p(start+470,side*285,330),p(start+470+offset,side*255,48),p(start+470+offset,side*260,48),p(start+470,side*290,330)],14,p(start+300,0,125))
@@ -113,9 +122,10 @@ def environment_chunk(index,theme):
     if m.harbor_faces:
         # UV uploads end at the last textured face; place this one first so
         # untextured road/crane faces do not force hundreds of zero UV bytes.
-        i=next(iter(m.harbor_faces))
-        m.f.insert(0,m.f.pop(i))
-        m.harbor_faces={0};m.texture_faces={0}
+        marked=sorted(m.harbor_faces)
+        if hasattr(m,'fan_face'):m.fan_face=marked.index(m.fan_face)
+        m.f=[m.f[i] for i in marked]+[f for i,f in enumerate(m.f) if i not in m.harbor_faces]
+        m.harbor_faces=set(range(len(marked)));m.texture_faces=set(m.harbor_faces)
     m=clean(m)
     assert len(m.v)<=255 and len(m.f)<=255,(theme,index,len(m.v),len(m.f))
     return m,origin

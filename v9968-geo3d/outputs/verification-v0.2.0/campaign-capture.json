@@ -1,0 +1,28 @@
+{
+  "rom_sha256": "e50dbaf58c62c4c25e57532682341ba14ceabc205abc3558026a9bd8a3dc2444",
+  "scripted_stage_entry": true,
+  "shield_maintained_for_showcase": true,
+  "boss_entered_via_stage_clock": true,
+  "reports": [
+    {
+      "stage": 0,
+      "log": "boss_mode=2\nstage=0\nend_mode=2\nmax_active_foes=4\n"
+    },
+    {
+      "stage": 1,
+      "log": "boss_mode=2\nstage=1\nend_mode=2\nmax_active_foes=4\n"
+    },
+    {
+      "stage": 2,
+      "log": "boss_mode=2\nstage=2\nend_mode=2\nmax_active_foes=5\n"
+    },
+    {
+      "stage": 3,
+      "log": "boss_mode=2\nstage=3\nend_mode=2\nmax_active_foes=7\n"
+    },
+    {
+      "stage": 4,
+      "log": "boss_mode=2\nstage=4\nend_mode=2\nmax_active_foes=6\n"
+    }
+  ]
+}

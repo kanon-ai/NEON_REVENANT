@@ -19,6 +19,7 @@ void audio_effect(u8 value) __naked {
 typedef signed char s8;
 typedef signed int s16;
 void boss_hit_particles(s16 x,s16 y);
+u8 boss_volley;
 
 #define TITLE 0
 #define PLAY 1
@@ -185,13 +186,12 @@ void update_boss(void){
     }
     /* Alternating windows make every volley escapable instead of constant fire. */
     if(boss_clock%cadence==0 && (boss_clock%160)<116){
-        s16 spread=stage==4?92:25;
-        fire_enemy(boss_x-spread,boss_y+22,0);fire_enemy(boss_x+spread,boss_y+22,0);
+        boss_volley|=1;
     }
-    if(stage>=2&&boss_clock%73==0){fire_enemy(boss_x,boss_y,1);fire_enemy(boss_x,boss_y,2);}
+    if(stage>=2&&boss_clock%73==0)boss_volley|=2;
     if(stage==3&&boss_clock%140==0)spawn_foe();
     if(stage==4&&final_phase>0&&boss_clock%120==0)spawn_wave();
-    if(stage==4&&final_phase==2&&boss_clock%91==0){fire_enemy(boss_x,boss_y+28,0);fire_enemy(boss_x,boss_y+28,1);fire_enemy(boss_x,boss_y+28,2);}
+    if(stage==4&&final_phase==2&&boss_clock%91==0)boss_volley|=4;
 }
 void update_play(void){
     u8 move_x=4,move_y=3;

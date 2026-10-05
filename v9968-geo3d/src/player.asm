@@ -114,55 +114,7 @@ regdone:
  ld hl,#palette
  ld bc,#0x309A
  otir
- ; Scene atlas on VRAM page 2.
- ld a,#4
- ld b,#14
- call wreg
- xor a
- out (0x99),a
- ld a,#0x40
- out (0x99),a
- ld a,#4
- ld (0x6000),a
- ld hl,#0x4000
- ld de,#16384
- call vramblock
- ld a,#5
- ld (0x6000),a
- ld hl,#0x4000
- ld de,#16384
- call vramblock
- ; Additional HUD atlas in VRAM page 3.
- ld a,#6
- ld b,#14
- call wreg
- xor a
- out (0x99),a
- ld a,#0x40
- out (0x99),a
- ld a,#6
- ld (0x6000),a
- ld hl,#0x4000
- ld de,#16384
- call vramblock
- ld a,#7
- ld (0x6000),a
- ld hl,#0x4000
- ld de,#16384
- call vramblock
- ; Texture atlas at VRAM row 816; shared by Geo3D LRMM faces.
- ld a,#6
- ld b,#14
- call wreg
- xor a
- out (0x99),a
- ld a,#0x58
- out (0x99),a
- ld a,#66
- ld (0x6000),a
- ld hl,#0x4000
- ld de,#16384
- call vramblock
+ call assets_init
  ld a,#0x60
  out (0x9D),a
  xor a
@@ -558,7 +510,7 @@ tail:
  otir
  ret
 regs:
- .db 0,6,1,0,2,31,7,0,8,10,9,128,21,0,20,17,51,0,52,0,53,0,54,0,55,255,56,0,57,255,58,7,255
+ .db 0,14,1,0,2,31,7,0,8,10,9,128,21,0,20,17,51,0,52,0,53,0,54,0,55,255,56,0,57,255,58,3,255
 camera:
  .dw 170,128,106,4,256,212
 light:

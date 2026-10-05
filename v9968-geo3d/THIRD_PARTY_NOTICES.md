@@ -7,3 +7,5 @@
 - Title artwork and music derive from the existing NEON REVENANT editions. Project terms are in [COPYRIGHT.md](COPYRIGHT.md). Third-party licenses retain their independent scope.
 
 V9968、Geo3D、エミュレータの開発・保守に携わる皆様に感謝します。名称は識別と謝辞のために使用しており、本ゲームの認証・推奨を意味しません。
+
+- v0.2.0 uses AI-generated source imagery for some background materials, adapted into indexed game textures. Boss markings and the stationary fan are procedural pixel art.
