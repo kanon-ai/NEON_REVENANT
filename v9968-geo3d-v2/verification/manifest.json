@@ -1,0 +1,104 @@
+{
+  "rom_bytes": 4194304,
+  "sha256": "3d04857821f09039b5cdcb310438c9f54c18bab9174443039d29b84af7552344",
+  "models": [
+    {
+      "bank": 1,
+      "slot": 0,
+      "base": 256,
+      "vertices": 57,
+      "faces": 52
+    },
+    {
+      "bank": 2,
+      "slot": 1,
+      "base": 320,
+      "vertices": 34,
+      "faces": 29
+    },
+    {
+      "bank": 3,
+      "slot": 2,
+      "base": 384,
+      "vertices": 34,
+      "faces": 34
+    },
+    {
+      "bank": 250,
+      "slot": 3,
+      "base": 448,
+      "vertices": 52,
+      "faces": 43
+    },
+    {
+      "bank": 64,
+      "slot": 4,
+      "base": 512,
+      "vertices": 76,
+      "faces": 42
+    },
+    {
+      "bank": 65,
+      "slot": 5,
+      "base": 640,
+      "vertices": 40,
+      "faces": 21
+    },
+    {
+      "bank": 229,
+      "slot": 5,
+      "base": 640,
+      "vertices": 48,
+      "faces": 25
+    },
+    {
+      "bank": 230,
+      "slot": 4,
+      "base": 512,
+      "vertices": 24,
+      "faces": 12
+    },
+    {
+      "bank": 231,
+      "slot": 5,
+      "base": 640,
+      "vertices": 22,
+      "faces": 15
+    },
+    {
+      "bank": 232,
+      "slot": 4,
+      "base": 512,
+      "vertices": 24,
+      "faces": 12
+    },
+    {
+      "bank": 233,
+      "slot": 5,
+      "base": 640,
+      "vertices": 80,
+      "faces": 33
+    },
+    {
+      "bank": 234,
+      "slot": 4,
+      "base": 512,
+      "vertices": 32,
+      "faces": 14
+    },
+    {
+      "bank": 235,
+      "slot": 5,
+      "base": 640,
+      "vertices": 120,
+      "faces": 76
+    },
+    {
+      "bank": 236,
+      "slot": 4,
+      "base": 512,
+      "vertices": 52,
+      "faces": 36
+    }
+  ]
+}

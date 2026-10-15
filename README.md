@@ -1,5 +1,12 @@
 # NEON REVENANT
 
+## Geo3D v2.0専用・高速化テスト版 v0.3.0
+
+**Geo3D開発版v2.0（1024エントリ）専用です。従来Geo3D向けv0.2.0も引き続き利用できます。** 絵とゲーム内容を保持し、通常戦の固定負荷比較で約16～29％高速化。4 MiB、256色。対応openMSXのみ検証。実機・FPGA・blueMSX Plusは本版では未検証です。
+
+[必要環境・検証範囲](v9968-geo3d-v2/README.md) · [試験版ダウンロード](https://github.com/kanon-ai/NEON_REVENANT/releases/tag/geo3d-v2-test-v0.3.0)
+
+
 ## Geo3D v0.2.0 — 256色テスト版 / TEST RELEASE
 
 **MSX turbo R＋V9968＋Geo3D向けのテスト版です。完成版ではありません。** 全5区域とボス戦を256色・テクスチャで更新し、描画処理を軽量化しました。4 MiB ASCII16、MSX-MUSIC BGM＋PSG効果音。

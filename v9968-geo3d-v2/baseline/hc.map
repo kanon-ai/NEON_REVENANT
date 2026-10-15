@@ -1,0 +1,239 @@
+ASxxxx Linker V05.50.4-SDLD,  page 1.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+.  .ABS.                            00000000    00000000 =           0. bytes (ABS,CON)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+     00000000  .__.ABS.                           __muluint2slong
+     00000000  l__CABS                         
+     00000000  l__DABS                         
+     00000000  l__GSFINAL                      
+     00000000  l__GSINIT                       
+     00000000  l__INITIALIZED                  
+     00000000  l__INITIALIZER                  
+     00000000  s__CABS                         
+     00000000  s__DABS                         
+     00000113  l__HOME                         
+     000001D6  l__DATA                         
+     00003322  l__CODE                         
+     00008000  s__CODE                         
+     0000B500  s__HOME                         
+     0000B613  s__GSFINAL                      
+     0000B613  s__GSINIT                       
+     0000B613  s__INITIALIZER                  
+     0000D000  s__DATA                         
+     0000D1D6  s__INITIALIZED                  
+
+ASxxxx Linker V05.50.4-SDLD,  page 2.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00008000    00003322 =       13090. bytes (REL,CON)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+     00008000  _audio_effect                      hc_logic
+     0000800D  _random16                          hc_logic
+     000081BA  _abs16                             hc_logic
+     000081C7  _clamp                             hc_logic
+     000081FD  _add_score                         hc_logic
+     00008220  _explode                           hc_logic
+     00008282  _reset_entities                    hc_logic
+     000082CA  _new_game                          hc_logic
+     0000833C  _damage                            hc_logic
+     00008390  _fire_enemy                        hc_logic
+     000085CB  _kill_foe                          hc_logic
+     0000866F  _player_fire                       hc_logic
+     00008830  _use_bomb                          hc_logic
+     000088AB  _spawn_foe                         hc_logic
+     00008A6A  _spawn_wave                        hc_logic
+     00008A74  _update_objects                    hc_logic
+     000091EA  _update_boss                       hc_logic
+     00009393  _update_play                       hc_logic
+     0000965A  _vr                                hc_logic
+     0000966B  _va                                hc_logic
+     0000967A  _wait_vdp                          hc_logic
+     00009687  _gw                                hc_logic
+     0000968E  _vw                                hc_logic
+     00009695  _fill                              hc_logic
+     0000977B  _transfer                          hc_logic
+     0000978F  _vtransfer                         hc_logic
+     000097A3  _resource_load                     hc_logic
+     00009823  _assets_init                       hc_logic
+     0000983A  _scene_update                      hc_logic
+     0000990F  _model                             hc_logic
+     00009D10  _near_ground                       hc_logic
+     00009DF1  _audio_service                     hc_logic
+     00009E0E  _audio_irq                         hc_logic
+     00009E41  _audio_setup                       hc_logic
+     00009E71  _audio_pause                       hc_logic
+     00009E7E  _boss_hit_particles                hc_logic
+     00009F3C  _spark_tick                        hc_logic
+     00009FBB  _hc_init                           hc_logic
+     00009FDD  _boss_emit                         hc_logic
+     0000A21A  _hc_tick                           hc_logic
+     0000A393  _game_over_panel                   hc_logic
+     0000A3D1  _hc_draw                           hc_logic
+     0000AD39  _sound_init                        sound
+     0000ADCB  _sound_mute                        sound
+     0000AE09  _sound_effect                      sound
+     0000B1E7  _sound_tick                        sound
+     0000B23E  __divuchar                         divunsigned
+     0000B240  __divu8                            divunsigned
+     0000B243  __divu16                           divunsigned
+     0000B243  __divuint                          divunsigned
+ASxxxx Linker V05.50.4-SDLD,  page 3.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_CODE                               00008000    00003322 =       13090. bytes (REL,CON)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+     0000B272  __moduchar                         modunsigned
+     0000B279  __moduint                          modunsigned
+     0000B27E  __mulint                           mul
+     0000B280  __mul16                            mul
+     0000B295  __modschar                         modsigned
+     0000B29D  __modsint                          modsigned
+     0000B2A3  ___mulsint2slong                   __mulsint2slong
+     0000B2D1  __divschar                         divsigned
+     0000B2D3  __div8                             divsigned
+     0000B2D7  __div_signexte                     divsigned
+     0000B2DB  __div16                            divsigned
+     0000B2DB  __divsint                          divsigned
+     0000B301  __get_remainder                    divsigned
+     0000B30B  ___muluint2ulong                   __muluint2slong
+
+ASxxxx Linker V05.50.4-SDLD,  page 4.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_DATA                               0000D000    000001D6 =         470. bytes (REL,CON)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+     0000D000  _boss_volley                       hc_logic
+     0000D001  _mode                              hc_logic
+     0000D002  _stage                             hc_logic
+     0000D003  _shield                            hc_logic
+     0000D004  _bombs                             hc_logic
+     0000D005  _score                             hc_logic
+     0000D007  _highscore                         hc_logic
+     0000D009  _stage_clock                       hc_logic
+     0000D00B  _frame_counter                     hc_logic
+     0000D00D  _boss_hp                           hc_logic
+     0000D00F  _player_x                          hc_logic
+     0000D011  _player_y                          hc_logic
+     0000D013  _old_keys                          hc_logic
+     0000D014  _keys                              hc_logic
+     0000D015  _edge                              hc_logic
+     0000D016  _draw_page                         hc_logic
+     0000D017  _shot_clock                        hc_logic
+     0000D018  _bomb_flash                        hc_logic
+     0000D019  _hurt_clock                        hc_logic
+     0000D01A  _stage_banner                      hc_logic
+     0000D01B  _transition_clock                  hc_logic
+     0000D01C  _boss_phase                        hc_logic
+     0000D01D  _boss_flash                        hc_logic
+     0000D01E  _combo                             hc_logic
+     0000D01F  _combo_clock                       hc_logic
+     0000D020  _rng                               hc_logic
+     0000D022  _boss_clock                        hc_logic
+     0000D024  _frames_played                     hc_logic
+     0000D026  _frame_ticks                       hc_logic
+     0000D028  _aim_x                             hc_logic
+     0000D02A  _aim_y                             hc_logic
+     0000D02C  _boss_x                            hc_logic
+     0000D02E  _boss_y                            hc_logic
+     0000D030  _foes                              hc_logic
+     0000D0AE  _shots                             hc_logic
+     0000D12C  _fx                                hc_logic
+     0000D15D  _pickup_on                         hc_logic
+     0000D15E  _pickup_z                          hc_logic
+     0000D15F  _pickup_x                          hc_logic
+     0000D161  _pickup_y                          hc_logic
+     0000D163  _pause_previous                    hc_logic
+     0000D164  _world_loaded                      hc_logic
+     0000D165  _world_camera                      hc_logic
+     0000D167  _wave_number                       hc_logic
+     0000D169  _final_phase                       hc_logic
+     0000D16A  _player_x_fraction                 hc_logic
+     0000D16B  _player_y_fraction                 hc_logic
+     0000D16C  _foe_fraction                      hc_logic
+     0000D17B  _audio_stage                       hc_logic
+     0000D17C  _audio_playing                     hc_logic
+ASxxxx Linker V05.50.4-SDLD,  page 5.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_DATA                               0000D000    000001D6 =         470. bytes (REL,CON)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+     0000D17D  _audio_frames                      hc_logic
+     0000D17E  _audio_ticks                       hc_logic
+     0000D1BA  _boss_hit_count                    hc_logic
+     0000D1BC  _muzzle_flash                      hc_logic
+     0000D1BD  _muzzle_x                          hc_logic
+     0000D1C3  _muzzle_y                          hc_logic
+
+ASxxxx Linker V05.50.4-SDLD,  page 6.
+Hexadecimal  [32-Bits]
+
+Area                                    Addr        Size        Decimal Bytes (Attributes)
+--------------------------------        ----        ----        ------- ----- ------------
+_HOME                               0000B500    00000113 =         275. bytes (REL,CON)
+
+         Value  Global                             Global Defined In Module
+         -----  --------------------------------   ------------------------
+     0000B500  __divslong                         _divslong
+     0000B590  __divulong                         _divulong
+
+ASxxxx Linker V05.50.4-SDLD,  page 7.
+
+Files Linked                              [ module(s) ]
+
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\github-publication\NEON_REVENANT\v9968-geo3d\out\hc.rel
+                                          [ hc_logic ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\github-publication\NEON_REVENANT\v9968-geo3d\out\sound.rel
+                                          [ sound ]
+
+
+Libraries Linked                          [ object file ]
+
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ divunsigned.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ modunsigned.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ mul.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ _divslong.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ _divulong.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ modsigned.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ __mulsint2slong.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ divsigned.rel ]
+C:\Users\rabi\Documents\Codex\2026-09-06\ms\work\toolchain\sdcc\bin\..\lib\z80/z80.lib
+                                          [ __muluint2ulong.rel ]
+
+ASxxxx Linker V05.50.4-SDLD,  page 8.
+
+User Base Address Definitions
+
+_CODE = 0x8000
+_DATA = 0xd000
+_HOME=0xB500
+
+

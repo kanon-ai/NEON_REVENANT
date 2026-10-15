@@ -1,0 +1,21 @@
+{
+  "changed_banks": [
+    0,
+    1,
+    2,
+    3,
+    64,
+    65,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    250
+  ],
+  "all_vertices_faces_uvs_equivalent": true,
+  "gameplay_audio_source_unchanged": true
+}

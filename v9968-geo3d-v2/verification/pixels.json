@@ -1,0 +1,422 @@
+[
+  {
+    "stage": 0,
+    "boss": 0,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 0,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 0,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 0,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 0,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 0,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 1,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 1,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 1,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 1,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 1,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 0,
+    "boss": 1,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 0,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 0,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 0,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 0,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 0,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 0,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 1,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 1,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 1,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 1,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 1,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 1,
+    "boss": 1,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 0,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 0,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 0,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 0,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 0,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 0,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 1,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 1,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 1,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 1,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 1,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 2,
+    "boss": 1,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 0,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 0,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 0,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 0,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 0,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 0,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 1,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 1,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 1,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 1,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 1,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 3,
+    "boss": 1,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 0,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 0,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 0,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 0,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 0,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 0,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 1,
+    "frame": 6,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 1,
+    "frame": 6,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 1,
+    "frame": 123,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 1,
+    "frame": 123,
+    "case": "resident",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 1,
+    "frame": 240,
+    "case": "compat",
+    "pixels_changed": 0
+  },
+  {
+    "stage": 4,
+    "boss": 1,
+    "frame": 240,
+    "case": "resident",
+    "pixels_changed": 0
+  }
+]

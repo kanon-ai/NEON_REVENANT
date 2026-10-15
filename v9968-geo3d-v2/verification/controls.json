@@ -1,0 +1,15 @@
+{
+  "results": {
+    "x0": "128",
+    "x1": "224",
+    "clock0": "21",
+    "clock1": "21",
+    "clock2": "56",
+    "bombs": "2",
+    "boss_hp": "45",
+    "score": "73",
+    "mode": "2"
+  },
+  "scripted_boss_setup": true,
+  "hardware_tested": false
+}

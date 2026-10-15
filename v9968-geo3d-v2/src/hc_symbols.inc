@@ -1,0 +1,6 @@
+assets_init = 0x9823
+audio_setup = 0x9e4e
+hc_init = 0x9fc8
+hc_tick = 0xa227
+hc_draw = 0xa3de
+mode = 0xd001

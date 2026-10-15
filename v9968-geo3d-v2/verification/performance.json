@@ -1,0 +1,242 @@
+[
+  {
+    "case": "old",
+    "stage": 0,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.120906288369053,
+    "fps": 15.622234716870603
+  },
+  {
+    "case": "old",
+    "stage": 0,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.03611338871281,
+    "fps": 19.821048690981762
+  },
+  {
+    "case": "old",
+    "stage": 1,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 6.622800383847668,
+    "fps": 12.079482298018798
+  },
+  {
+    "case": "old",
+    "stage": 1,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 5.905185156213989,
+    "fps": 13.547416022309903
+  },
+  {
+    "case": "old",
+    "stage": 2,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.955260794318832,
+    "fps": 13.433500691744344
+  },
+  {
+    "case": "old",
+    "stage": 2,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.620212066058674,
+    "fps": 17.31522251710081
+  },
+  {
+    "case": "old",
+    "stage": 3,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.955261073683946,
+    "fps": 13.433500061570216
+  },
+  {
+    "case": "old",
+    "stage": 3,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.6202117866935595,
+    "fps": 17.31522356408076
+  },
+  {
+    "case": "old",
+    "stage": 4,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.34048573212517,
+    "fps": 14.979910819491158
+  },
+  {
+    "case": "old",
+    "stage": 4,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.6202126247889055,
+    "fps": 17.315220423141273
+  },
+  {
+    "case": "compat",
+    "stage": 0,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.120906288369053,
+    "fps": 15.622234716870603
+  },
+  {
+    "case": "compat",
+    "stage": 0,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.03611338871281,
+    "fps": 19.821048690981762
+  },
+  {
+    "case": "compat",
+    "stage": 1,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 6.622800383847668,
+    "fps": 12.079482298018798
+  },
+  {
+    "case": "compat",
+    "stage": 1,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 5.905185156213989,
+    "fps": 13.547416022309903
+  },
+  {
+    "case": "compat",
+    "stage": 2,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.955260794318832,
+    "fps": 13.433500691744344
+  },
+  {
+    "case": "compat",
+    "stage": 2,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.620212066058674,
+    "fps": 17.31522251710081
+  },
+  {
+    "case": "compat",
+    "stage": 3,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.955261073683946,
+    "fps": 13.433500061570216
+  },
+  {
+    "case": "compat",
+    "stage": 3,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.6202117866935595,
+    "fps": 17.31522356408076
+  },
+  {
+    "case": "compat",
+    "stage": 4,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.34048573212517,
+    "fps": 14.979910819491158
+  },
+  {
+    "case": "compat",
+    "stage": 4,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.6202126247889055,
+    "fps": 17.315220423141273
+  },
+  {
+    "case": "resident",
+    "stage": 0,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 4.0047702990184515,
+    "fps": 19.976176915716636
+  },
+  {
+    "case": "resident",
+    "stage": 0,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 3.42343482202347,
+    "fps": 23.368343245604674
+  },
+  {
+    "case": "resident",
+    "stage": 1,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 5.726600028774609,
+    "fps": 13.96989480634613
+  },
+  {
+    "case": "resident",
+    "stage": 1,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.789107274807275,
+    "fps": 16.704574654410802
+  },
+  {
+    "case": "resident",
+    "stage": 2,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 4.62222363456808,
+    "fps": 17.307687019231718
+  },
+  {
+    "case": "resident",
+    "stage": 2,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.622224193298312,
+    "fps": 17.307684927094343
+  },
+  {
+    "case": "resident",
+    "stage": 3,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 4.622223355202966,
+    "fps": 17.307688065300585
+  },
+  {
+    "case": "resident",
+    "stage": 3,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.622225031393654,
+    "fps": 17.30768178888925
+  },
+  {
+    "case": "resident",
+    "stage": 4,
+    "boss": false,
+    "frames": 80.0,
+    "seconds": 4.455353962584631,
+    "fps": 17.9559246407418
+  },
+  {
+    "case": "resident",
+    "stage": 4,
+    "boss": true,
+    "frames": 80.0,
+    "seconds": 4.238409630274241,
+    "fps": 18.875004300805088
+  }
+]
