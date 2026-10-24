@@ -274,3 +274,12 @@ NEON REVENANT is an experimental, native MSX pseudo-3D rail shooter. Four 512 Ki
 MSX2 and MSX1 use standard PSG music and effects without an FM expansion. MSX2 targets 64 KiB RAM and 128 KiB VRAM. MSX1 v1.3 needs 32 KiB RAM at 8000h–FFFFh in one RAM slot and 16 KiB VRAM, with 88 KiB unused in its 512 KiB ROM. All 400 native checks passed: 200 each on 32 KiB NTSC and PAL configurations. The giant encounter measured about 29.96 and 25.07 game updates/s respectively; PCG animation advances once per two game updates. PAL gameplay and music run more slowly because they are frame-bound. See the [v1.3 guide](msx1/GIANT_BOSS-v1.3.md) and [design and validation notes](docs/MSX1_DAWN_LEVIATHAN.md#english).
 
 The V9990 edition measured about 30 updates/s in openMSX. The Turbo R edition normally updates gameplay and sprites at about 30/s and backgrounds at about 15/s; a crowded test dropped to about 20/s. Sprite overlap can cause missing parts and flicker. **Developer validation uses openMSX. Community hardware reports exist for earlier versions; the new MSX1 v1.3 has not been validated on physical MSX hardware or flash cartridges. This prototype is provided AS IS, without warranty. Its project-specific license is currently unspecified; public source availability is not an open-source license grant.** See [DISCLAIMER.md](DISCLAIMER.md), [COPYRIGHT.md](COPYRIGHT.md), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+
+## Node.js security update (2026-10-24)
+
+Node.jsを使う開発・検証ツールには **22.23.4** を推奨します。24系を使う場合は **24.22.1以上**、26系は **26.12.1以上**を使用してください。Node.js本体は同梱していません。既存のNode.js環境は別途更新し、起動中のNode.jsプロセスを再起動してください。
+
+For Node.js-based development and validation tools, use **22.23.4** (the repository default), **24.22.1 or later in the 24.x line**, or **26.12.1 or later in the 26.x line**. Update your separately installed Node.js runtime and restart existing Node.js processes.
+
+[Node.js security release details](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases)
